@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/andmironov/andmironov.github.io/issues"
   },
-  "homepage": "https://github.com/andmironov/andmironov.github.io"
+  "homepage": "https://github.com/andmironov/andmironov.github.io",
+  "devDependencies": {
+    "browserify": "^8.1.3"
+  }
 }
