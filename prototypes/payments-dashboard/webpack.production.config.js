@@ -1,16 +1,21 @@
 var path = require('path');
+var node_modules_dir = path.resolve(__dirname, 'node_modules');
 
 var config = {
-  entry: ['webpack/hot/dev-server', path.resolve(__dirname, 'app/index.js')],
+
+  entry: {
+    app: path.resolve(__dirname, 'app/index.js')
+  },
 
   output: {
-    path: path.resolve(__dirname, 'build'),
+    path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
   },
 
   module: {
     loaders: [{
       test: /\.jsx?$/,
+      exclude: [node_modules_dir],
       loader: 'babel-loader'
     },{
       test: /\.less$/,
