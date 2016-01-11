@@ -17,9 +17,14 @@ var config = {
       test: /\.jsx?$/,
       exclude: [node_modules_dir],
       loader: 'babel-loader'
-    },{
-      test: /\.less$/,
-      loader: 'style!css!less'
+    },
+    {
+      test: /\.(eot|woff|woff2|ttf)$/,
+      loader: 'url-loader?limit=30000&name=[name]-[hash].[ext]'
+    },
+    {
+      test: /\.scss$/,
+      loader: 'style!css!sass'
     },
     {
         test: /\.(jpe?g|png|gif|svg)$/i,
