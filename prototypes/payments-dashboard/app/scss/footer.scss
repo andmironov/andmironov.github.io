@@ -1,0 +1,23 @@
+@import "common";
+
+//Sticky footer
+.block-app-container {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.block-main-section {
+  flex: 1;
+}
+
+.block-footer {
+  height: 80px;
+  color: $colorWhite;
+  background-color: $colorDarkPurple;
+  @extend .u-flexContainer;
+}
+
+.block-footer__inner {
+  @extend .u-flexInner;
+}

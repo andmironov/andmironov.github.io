@@ -1,0 +1,45 @@
+@import "common";
+
+.block-header {
+  height: 80px;
+  padding: 20px 0;
+  background-color: $colorWhite;
+  @extend .u-flexContainer;
+}
+
+.block-header__inner {
+  @extend .u-flexInner;
+  @extend .u-flexContainer;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.block-header-logo {
+  display: block;
+  width: 110px;
+  height: 20px;
+  background-image: url(../assets/bambora_logo.svg);
+  background-size: 110px;
+  background-repeat: no-repeat;
+}
+
+.block-header-search {
+  background-color: $colorLightGray;
+  height: 40px;
+  width: 200px;
+  background-image: url(../assets/search_icon.svg);
+  background-size: 19px;
+  background-repeat: no-repeat;
+  background-position: 164px center;
+  padding: 20px 12px;
+  border-radius: 20px;
+}
+
+.block-header-menu {
+  display: block;
+  width: 24px;
+  height: 14px;
+  background-image: url(../assets/hamburger_icon.svg);
+  background-size: 24px;
+  background-repeat: no-repeat;
+}

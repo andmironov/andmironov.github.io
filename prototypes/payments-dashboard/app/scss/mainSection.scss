@@ -1,0 +1,10 @@
+@import "common";
+
+.block-main-section {
+  height: 80px;
+  @extend .u-flexContainer;
+}
+
+.block-main-section__inner {
+  @extend .u-flexInner;
+}
