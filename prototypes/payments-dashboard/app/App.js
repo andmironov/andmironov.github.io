@@ -2,6 +2,7 @@ let React = require("react");
 let Header = require("./components/Header.js");
 let Sidebar = require("./components/Sidebar.js");
 let Footer = require("./components/Footer.js");
+let Graphs = require("./components/Graphs.js");
 
 let App = React.createClass({
 
@@ -21,7 +22,7 @@ let App = React.createClass({
         <Header/>
         <div className="mainSection">
           <Sidebar/>
-          Hello
+          <Graphs/>
         </div>
         <Footer/>
       </div>
