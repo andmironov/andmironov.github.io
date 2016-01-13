@@ -8,8 +8,10 @@ var config = {
   },
 
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    pathInfo: true,
+    filename: 'bundle.min.js',
+    path: './dist',
+    publicPath: './dist/'
   },
 
   module: {
@@ -20,7 +22,7 @@ var config = {
     },
     {
       test: /\.(eot|woff|woff2|ttf)$/,
-      loader: 'url-loader?limit=30000&name=dist/[name]-[hash].[ext]'
+      loader: 'url-loader?limit=30000&name=assets/[name]-[hash].[ext]'
     },
     {
       test: /\.scss$/,
@@ -29,7 +31,7 @@ var config = {
     {
         test: /\.(jpe?g|png|gif|svg)$/i,
         loaders: [
-            'file?hash=sha512&digest=hex&name=dist/[hash].[ext]',
+            'file?hash=sha512&digest=hex&name=assets/[hash].[ext]',
             'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
         ]
     }],
