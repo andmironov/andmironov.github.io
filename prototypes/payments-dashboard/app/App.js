@@ -26,10 +26,10 @@ let App = React.createClass({
 
   render: function() {
     return (
-      <div className="block-app-container">
+      <div className="app-container">
         <Header/>
-        <div className="block-main-section">
-          <div className="block-main-section__inner">
+        <div className="main-section">
+          <div className="main-section__inner">
             <Sidebar user={this.state.user}/>
             <Graphs/>
           </div>

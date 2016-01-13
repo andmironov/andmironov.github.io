@@ -1,20 +1,21 @@
 @import "common";
 
-.block-header {
+.header {
   height: 80px;
   padding: 20px 0;
   background-color: $colorWhite;
-  @extend .u-flexContainer;
+  display: flex;
+  justify-content: center;
 }
 
-.block-header__inner {
-  @extend .u-flexInner;
-  @extend .u-flexContainer;
+.header__inner {
+  width: 1140px;
+  display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.block-header-logo {
+.header-logo {
   display: block;
   width: 110px;
   height: 20px;
@@ -23,7 +24,7 @@
   background-repeat: no-repeat;
 }
 
-.block-header-search {
+.header-search {
   background-color: $colorLightGray;
   height: 40px;
   width: 200px;
@@ -35,7 +36,7 @@
   border-radius: 20px;
 }
 
-.block-header-menu {
+.header-menu {
   display: block;
   width: 24px;
   height: 14px;

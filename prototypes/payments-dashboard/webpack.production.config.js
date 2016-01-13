@@ -20,7 +20,7 @@ var config = {
     },
     {
       test: /\.(eot|woff|woff2|ttf)$/,
-      loader: 'url-loader?limit=30000&name=[name]-[hash].[ext]'
+      loader: 'url-loader?limit=30000&name=dist/[name]-[hash].[ext]'
     },
     {
       test: /\.scss$/,
@@ -29,7 +29,7 @@ var config = {
     {
         test: /\.(jpe?g|png|gif|svg)$/i,
         loaders: [
-            'file?hash=sha512&digest=hex&name=[hash].[ext]',
+            'file?hash=sha512&digest=hex&name=dist/[hash].[ext]',
             'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
         ]
     }],

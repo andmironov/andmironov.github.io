@@ -11,11 +11,11 @@ let Sidebar = React.createClass({
     }
 
     return (
-      <div className="block-sidebar">
-        <div className="block-sidebar__inner">
-          <div className="block-sidebar-user-profile">
-            <div className="block-sidebar-user-profile__avatar" style={avatarStyle}></div>
-            <div className="block-sidebar-user-profile__name">
+      <div className="sidebar">
+        <div className="sidebar__inner">
+          <div className="sidebar-user-profile">
+            <div className="sidebar-user-profile__avatar" style={avatarStyle}></div>
+            <div className="sidebar-user-profile__name">
               {this.props.user.fullName}
             </div>
           </div>
