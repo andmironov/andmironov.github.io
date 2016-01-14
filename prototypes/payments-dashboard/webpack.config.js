@@ -11,31 +11,32 @@ var config = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Payments Dashboard Prototype'
+      title: 'Payments Dashboard Prototype',
+      template: 'app/templates/template.html',
+      inject: 'body'
     })
   ],
 
+  devtool: 'eval-source-map',
+
   module: {
-    loaders: [
-    {
+    loaders: [{
       test: /\.jsx?$/,
       loader: 'babel-loader'
-    },
-    {
+    },{
       test: /\.(eot|woff|woff2|ttf)$/,
       loader: 'url-loader?limit=30000&name=assets/[name]-[hash].[ext]'
-    },
-    {
+    },{
       test: /\.scss$/,
-      loader: 'style!css!sass'
-    },
-    {
+      loader: 'style!css!autoprefixer?browsers=last 2 version!sass'
+    },{
         test: /\.(jpe?g|png|gif|svg)$/i,
         loaders: [
             'file?hash=sha512&digest=hex&name=assets/[name]-[hash].[ext]',
             'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
         ]
     }],
+    noParse: /\.min\.js/
   }
 };
 

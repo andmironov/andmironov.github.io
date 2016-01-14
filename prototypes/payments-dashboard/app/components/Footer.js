@@ -1,6 +1,4 @@
 let React = require("react");
-let footerStyles = require("../scss/footer.scss");
-
 
 let Footer = React.createClass({
   render: function() {

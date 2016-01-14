@@ -3,7 +3,7 @@ let Header = require("./components/Header.js");
 let Sidebar = require("./components/Sidebar.js");
 let Footer = require("./components/Footer.js");
 let Graphs = require("./components/Graphs.js");
-let mainSectionStyles = require("./scss/mainSection.scss");
+let mainStyles = require("./scss/main.scss");
 
 let App = React.createClass({
 

@@ -1,16 +1,3 @@
-@import "common";
-
-//Sticky footer
-.app-container {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-}
-
-.main-section {
-  flex: 1;
-}
-
 .footer {
   display: flex;
   justify-content: center;

@@ -1,5 +1,4 @@
 let React = require("react");
-let headerStyles = require("../scss/header.scss");
 
 let Header = React.createClass({
   render: function() {

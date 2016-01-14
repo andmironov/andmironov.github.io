@@ -1,6 +1,4 @@
 let React = require("react");
-let sidebarStyles = require("../scss/sidebar.scss");
-
 
 let Sidebar = React.createClass({
 
