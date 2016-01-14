@@ -1,12 +1,19 @@
 var path = require('path');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var config = {
   entry: ['webpack/hot/dev-server', path.resolve(__dirname, 'app/index.js')],
 
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: 'bundle.js'
+    filename: '[hash].js'
   },
+
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'Payments Dashboard Prototype'
+    })
+  ],
 
   module: {
     loaders: [

@@ -1,5 +1,6 @@
 var path = require('path');
 var node_modules_dir = path.resolve(__dirname, 'node_modules');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var config = {
 
@@ -8,11 +9,17 @@ var config = {
   },
 
   output: {
-    pathInfo: true,
-    filename: 'bundle.min.js',
+    //pathInfo: true,
     path: './dist',
-    publicPath: './dist/'
+    publicPath: './',
+    filename: '[hash].js'
   },
+
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'Payments Dashboard Prototype'
+    })
+  ],
 
   module: {
     loaders: [{
