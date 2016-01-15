@@ -7,7 +7,7 @@ let TotalIncomeGraph = require("./TotalIncomeGraph.js");
 let Graphs = React.createClass({
   render: function() {
     return (
-      <div>
+      <div className="graphs-container">
         <DailyIncomeGraph/>
         <DailyPaymentsGraph/>
         <TotalIncomeGraph/>

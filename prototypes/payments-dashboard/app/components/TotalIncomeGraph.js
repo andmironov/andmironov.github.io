@@ -1,5 +1,7 @@
 import { VictoryLine } from "victory";
 let React = require("react");
+let GraphMore = require("./GraphMore.js");
+
 
 let graphData = [
   {x: 0, y: 0},
@@ -27,9 +29,8 @@ let TotalIncomeGraph = React.createClass({
       <div className="graph">
         <div className="graph__inner">
           <h2 className="graph__title">Total Income</h2>
-          <div className="graph__more-button"></div>
+          <GraphMore/>
           <div className="graph__data-visualisation">
-            <VictoryLine domain={[0, 5]} padding={75} height={500} data={graphData} interpolation="monotone" style={graphStyle} />
           </div>
         </div>
       </div>

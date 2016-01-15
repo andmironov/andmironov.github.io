@@ -17,6 +17,12 @@ let Sidebar = React.createClass({
               {this.props.user.fullName}
             </div>
           </div>
+          <ul className="sidebar-nav">
+            <li className="sidebar-nav__item sidebar-nav__item_current"><a href="/">Overview</a></li>
+            <li className="sidebar-nav__item"><a href="/">Income</a></li>
+            <li className="sidebar-nav__item"><a href="/">Payments</a></li>
+            <li className="sidebar-nav__item"><a href="/">Clients</a></li>
+          </ul>
         </div>
       </div>
     )
