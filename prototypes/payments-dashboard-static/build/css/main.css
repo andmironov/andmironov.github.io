@@ -364,10 +364,17 @@ body {
 
 .graph__line {
   fill: none;
-  stroke: black; }
+  stroke: #4FB972;
+  opacity: 1; }
+
+.graph__hover-line {
+  fill: none;
+  stroke: #979797;
+  stroke-dasharray: 4,2; }
 
 .graph--daily-income-graph .graph__area {
-  fill: #DCF1E3; }
+  fill: #4FB972;
+  opacity: .2; }
 
 .graph--daily-payments-graph .graph__area {
   fill: #D3F1FF; }

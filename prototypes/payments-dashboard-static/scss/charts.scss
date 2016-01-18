@@ -2,11 +2,13 @@
 .graph__grid path{
   display: none;
 }
+
 .graph__grid--y line {
   stroke: #979797;
   stroke-dasharray: 4,2;
   opacity: .4
 }
+
 .graph__grid--x line {
   stroke: #979797;
   stroke-dasharray: 4,2;
@@ -17,6 +19,7 @@
 .graph__axis path{
   display: none;
 }
+
 .graph__axis line {
   display: none;
 }
@@ -31,11 +34,20 @@
 
 .graph__line {
    fill: none;
-   stroke: black;
+   stroke: #4FB972;
+   opacity: 1;
+}
+
+.graph__hover-line {
+  fill: none;
+  stroke: #979797;
+  stroke-dasharray: 4,2;
 }
 
 .graph--daily-income-graph .graph__area {
-  fill: #DCF1E3;
+  fill: #4FB972;
+  opacity: .2;
+
 }
 
 .graph--daily-payments-graph .graph__area {
