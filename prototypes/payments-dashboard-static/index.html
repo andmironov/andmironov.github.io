@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Payments Dashboard</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <link rel="stylesheet" href="build/css/main.css">
+    </head>
+    <body>
+      <div class="app-container">
+
+        <div class="header">
+          <div class="header__inner">
+            <a class="header-logo" href="/"></a>
+            <div class="header-search"></div>
+            <a class="header-menu" href="/"></a>
+          </div>
+        </div>
+
+        <div class="main-section">
+          <div class="main-section__inner">
+
+            <div class="sidebar">
+              <div class="sidebar__inner">
+                <div class="sidebar-user-profile">
+                  <div class="sidebar-user-profile__avatar" style={avatarStyle}></div>
+                  <div class="sidebar-user-profile__name"></div>
+                </div>
+                <ul class="sidebar-nav">
+                  <li class="sidebar-nav__item sidebar-nav__item_current"><a href="/">Overview</a></li>
+                  <li class="sidebar-nav__item"><a href="/">Income</a></li>
+                  <li class="sidebar-nav__item"><a href="/">Payments</a></li>
+                  <li class="sidebar-nav__item"><a href="/">Clients</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="graphs-container">
+              <div class="graph graph--daily-income-graph">
+                <div class="graph__inner">
+                  <h2 class="graph__title">Income</h2>
+                  <div class="graph__more-button">
+                    <a class="graph__more-button-link" href="/"></a>
+                  </div>
+                  <div class="data-swithers">
+                    <div class="data-swither data-swither--active" data-direction="today">
+                      <div class="data-swither__amount">$1367</div>
+                      <div class="data-swither__day">today</div>
+                      <div class="data-swither__trend data-swither__trend--positive"></div>
+                      <div class="data-swither__percent data-swither__percent--positive">+10%</div>
+                    </div>
+                    <div class="data-swither" data-direction="yesterday">
+                      <div class="data-swither__amount">$1260</div>
+                      <div class="data-swither__day">yesterday</div>
+                      <div class="data-swither__trend data-swither__trend--negative"></div>
+                      <div class="data-swither__percent data-swither__percent--negative">-7%</div>
+                    </div>
+                  </div>
+                  <div class="graph__data-visualisation">
+                  </div>
+                </div>
+              </div>
+
+              <div class="graph graph--daily-payments-graph">
+                <div class="graph__inner">
+                  <h2 class="graph__title">Payments</h2>
+                  <div class="graph__more-button">
+                    <a class="graph__more-button-link" href="/"></a>
+                  </div>
+                  <div class="graph__data-visualisation">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="footer">
+          <div class="footer__inner">
+            Footer
+          </div>
+        </div>
+      </div>
+    <script src="build/js/app.js"></script>
+    </body>
+</html>

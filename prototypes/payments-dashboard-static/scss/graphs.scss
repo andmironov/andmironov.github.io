@@ -1,0 +1,133 @@
+.graphs-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width:: 910px;
+}
+
+.graph {
+  width: 440px;
+  height: 480px;
+  margin: 30px 0 0 0;
+  background-color: $colorWhite;
+  position: relative;
+}
+
+.graph__title {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 12px;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
+
+.graph__more-button {
+  position: absolute;
+  text-align: center;
+  right: 22px;
+  top: 30px;
+  width: 17px;
+  height: 17px;
+}
+
+.graph__more-button-link {
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  background-image: url(../assets/more_icon.svg);
+  background-size: 3px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.data-swithers {
+  position: absolute;
+  top: 70px;
+  left: 30px;
+  height: 140px;
+}
+
+.data-swither {
+  display: inline-block;
+  vertical-align: top;
+  width: 140px;
+  height: 80px;
+  margin: 0 20px 0 0;
+  padding: 12px;
+  background: $colorWhite;
+  border-radius: 6px;
+  border: 1px solid #EBEBEB;
+  position: relative;
+  cursor: pointer;
+  transition: border .1s ease;
+}
+
+.data-swither:hover {
+  border: 1px solid #91DBA9;
+}
+
+.data-swither--active {
+  border: 1px solid #BAE4C8;
+}
+
+.data-swither__amount {
+  font-family: "MuseoSansLight";
+  font-size: 25px;
+  color: $colorDarkPurple;
+  letter-spacing: 1px;
+  padding: 0 0 8px 0;
+}
+
+.data-swither__day {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 12px;
+  color: $colorMutedText;
+}
+
+.data-swither__trend {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background-image: url(../assets/positive_trend_icon.svg);
+  background-size: 24px;
+}
+
+.data-swither__trend.data-swither__trend--positive {
+  background-image: url(../assets/positive_trend_icon.svg);
+}
+
+.data-swither__trend.data-swither__trend--negative {
+  background-image: url(../assets/negative_trend_icon.svg);
+}
+
+.data-swither__percent {
+  position: absolute;
+  text-align: right;
+  right: 12px;
+  bottom: 12px;
+  letter-spacing: 1px;
+  font-size: 12px;
+}
+
+.data-swither__percent.data-swither__percent--positive {
+  color: #4CAD6C
+}
+
+.data-swither__percent.data-swither__percent--negative {
+  color: #colorMutedText
+}
+
+.graph__data-visualisation {
+  height: 320px;
+  width: 440px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}

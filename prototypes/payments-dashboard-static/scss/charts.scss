@@ -1,0 +1,43 @@
+//Grid
+.graph__grid path{
+  display: none;
+}
+.graph__grid--y line {
+  stroke: #979797;
+  stroke-dasharray: 4,2;
+  opacity: .4
+}
+.graph__grid--x line {
+  stroke: #979797;
+  stroke-dasharray: 4,2;
+  opacity: .4
+}
+
+//Axes
+.graph__axis path{
+  display: none;
+}
+.graph__axis line {
+  display: none;
+}
+
+//Ales labels
+.graph__axis text {
+    font-family: 'MuseoSansRegular';
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.graph__line {
+   fill: none;
+   stroke: black;
+}
+
+.graph--daily-income-graph .graph__area {
+  fill: #DCF1E3;
+}
+
+.graph--daily-payments-graph .graph__area {
+  fill: #D3F1FF;
+}
