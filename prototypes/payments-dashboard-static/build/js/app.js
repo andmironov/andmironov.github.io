@@ -46,6 +46,10 @@ var initialYScale = d3.scale.linear()
                       .domain([100, d3.max(dataset, function(d) { return d[1] + 300 })])
                       .range([graphHeight, graphHeight]);
 
+var tooltipYScale = d3.scale.linear()
+                      .domain([100, d3.max(dataset, function(d) { return d[1] + 300 })])
+                      .range([0, 0]);
+
 var yScale = d3.scale.linear()
                      .domain([100, d3.max(dataset, function(d) { return d[1] + 300 })])
                      .range([graphHeight - graphTopPadding - graphBottomPadding, 1]);
@@ -95,7 +99,10 @@ svg.append("clipPath")
    .attr("width", graphWidth - 70)
    .attr("height", graphHeight - 70);
 
-// Hover line
+//Add clippath for tooltip
+//Add clippath for hoverline
+
+// All hover line
 var hoverLineGroup = svg.append("g")
 					              .attr("class", "graph__hover-line");
 
@@ -106,29 +113,25 @@ var hoverLine = hoverLineGroup.append("line")
                               .attr("y2", (graphHeight))
                               .style("opacity", 0);
 
-svg.on("mouseover", function() {focus.style("opacity", 1)})
-   .on("mouseout", mouseOut)
-   .on("mousemove", mouseMove);
-
-svg.append("g")
+var graphAxisX = svg.append("g")
   .attr("class", "graph__axis graph__axis--x")
   .attr("transform", "translate(" + xAxisPadding[3] + ", " + (graphHeight - xAxisPadding[2]) + ")")
   .call(xAxis);
 
-svg.append("g")
+var graphAxisY =  svg.append("g")
   .attr("class", "graph__axis graph__axis--y")
   .attr("transform", "translate(" + (graphWidth - xAxisPadding[1]) + ", " + (xAxisPadding[0] + graphTopPadding) + ")")
   .style("text-anchor", "end")
   .call(yAxis);
 
 //Draw area
-svg.append("path")
+var graphArea = svg.append("path")
    .attr("class", "graph__area")
    .datum(dataset)
    .attr("d", area);
 
 //Draw line
-svg.append("path")
+var graphLine = svg.append("path")
    .attr("class", "graph__line")
    .datum(dataset)
    .attr("d", line);
@@ -157,8 +160,9 @@ dataset.forEach(function(d, i) {
 
 //Add tooltips
 var focus = svg.append("g")
-     .attr("class", "focus")
-     .style("opacity", 0);
+     .attr("class", "graph__focus")
+     .style("opacity", 0)
+     .attr("transform", "translate(-10, -10)");
 
 focus.append("circle")
     .attr("r", 6.2)
@@ -189,15 +193,35 @@ svg.append("g")
    .style("text-anchor", "end")
    .call(yGrid);
 
+//Register Events
+svg.on("mouseover", function() {focus.style("opacity", 1)})
+   .on("mouseout", mouseOut)
+   .on("mousemove", mouseMove);
+
+d3.selectAll(graphContainer + " .data-swither")
+  .on("click", function(){
+
+   var currentFlagClassName = "data-swither--active";
+
+   var elems = document.querySelectorAll(graphContainer + " .data-swither.data-swither--active");
+   [].forEach.call(elems, function(el) {
+       el.classList.remove(currentFlagClassName);
+   });
+
+   this.classList.add(currentFlagClassName);
+
+   var direction = this.getAttribute("data-direction");
+   moveGraph(direction);
+ });
+
+ //Event handlers
  function mouseMove() {
    var m = d3.mouse(this);
 
-   //move hoverline
    hoverLine.attr("x1", m[0])
             .attr("x2", m[0])
             .style("opacity", .4)
 
-   //tooltip
    var x0 = xScale.invert(m[0]);
    var i = bisectDate(dataset, x0, 1);
    var d0 = dataset[i - 1];
@@ -205,9 +229,9 @@ svg.append("g")
    if(!d0 || !d1) return;
    var d = x0 - parseTime(d0[0]) > parseTime(d1[0]) - x0 ? d1 : d0;
 
-   d3.select(graphContainer + " .focus")
-     .transition()
-     .duration(50)
+   focus.transition()
+     .ease("linear")
+     .duration(100)
      .attr("transform", "translate(" + xScale(parseTime(d[0])) + "," + yScale(d[1]) + ")");
 
    focus.select("text").text(d[1]);
@@ -219,25 +243,8 @@ svg.append("g")
    return;
  }
 
-//Events
-d3.selectAll(graphContainer + " .data-swither")
-  .on("click", function(){
-
-    var currentFlagClassName = "data-swither--active";
-
-    var elems = document.querySelectorAll(graphContainer + " .data-swither.data-swither--active");
-    [].forEach.call(elems, function(el) {
-        el.classList.remove(currentFlagClassName);
-    });
-
-    this.classList.add(currentFlagClassName);
-
-    var direction = this.getAttribute("data-direction");
-    moveGraph(direction);
-  });
-
 //Draw graph with animation
-setTimeout(drawGraph, 250);
+setTimeout(drawGraph, 0);
 function drawGraph() {
     initialYScale.range([graphHeight - graphTopPadding - graphBottomPadding, 1]);
     var t = svg.transition().duration(750);
@@ -284,10 +291,11 @@ function moveGraph(direction) {
     currentPosition = "today";
   }
 
+  graphAxisX.transition().duration(750).call(xAxis);
+  graphArea.transition().duration(750).attr("d", area);
+  graphLine.transition().duration(750).attr("d", line);
+
   var t = svg.transition().duration(750);
-  t.select(".graph__axis--x").call(xAxis);
-  t.select(".graph__area").attr("d", area);
-  t.select(".graph__line").attr("d", line);
   t.selectAll(".graph__circle")
    .attr("cx", function(d) {return xScale(parseTime(d[0]))})
    .attr("cy", function(d) {return yScale(d[1])})
@@ -385,16 +393,17 @@ dataset.forEach(function(d, i) {
           .attr("cy", function(d) {return yScale(d[1])})
           .transition()
           .duration(750)
-          .delay(50 * i)
+          .delay(80 * i)
           .attr("transform", "translate(0, 0)")
           .attr("opacity", "1")
           .attr("r", 6);
 });
 
-//Create tooltips
+//Add tooltips
 var focus = svg.append("g")
-     .attr("class", "focus")
-     .style("opacity", 0);
+     .attr("class", "graph__focus")
+     .style("opacity", 0)
+     .attr("transform", "translate(-10, -10)");
 
 focus.append("circle")
     .attr("r", 6.2)
@@ -435,10 +444,6 @@ var hoverLine = hoverLineGroup.append("line")
                               .attr("y2", (graphHeight))
                               .style("opacity", 0);
 
-svg.on("mouseover", function() {focus.style("opacity", 1)})
-   .on("mouseout", mouseOut)
-   .on("mousemove", mouseMove);
-
 svg.append("g")
   .attr("class", "graph__axis graph__axis--x")
   .attr("transform", "translate(" + xAxisPadding[3] + ", " + (graphHeight - xAxisPadding[2]) + ")")
@@ -458,35 +463,10 @@ svg.append("g")
    .style("text-anchor", "end")
    .call(yGrid);
 
-function mouseMove() {
-  var m = d3.mouse(this);
-
-  //move hoverline
-  hoverLine.attr("x1", m[0])
-           .attr("x2", m[0])
-           .style("opacity", .4)
-
-  //tooltip
-  var x0 = xScale.invert(m[0]);
-  var i = bisectDate(dataset, x0, 1);
-  var d0 = dataset[i - 1];
-  var d1 = dataset[i];
-  if(!d0 || !d1) return;
-  var d = x0 - parseTime(d0[0]) > parseTime(d1[0]) - x0 ? d1 : d0;
-
-  d3.select(graphContainer + " .focus")
-    .transition()
-    .duration(50)
-    .attr("transform", "translate(" + xScale(parseTime(d[0])) + "," + yScale(d[1]) + ")");
-
-  focus.select("text").text(d[1]);
-}
-
-function mouseOut() {
-  hoverLine.style("opacity", 0);
-  focus.style("opacity", 0);
-  return;
-}
+//Register Events
+svg.on("mouseover", function() {focus.style("opacity", 1)})
+  .on("mouseout", mouseOut)
+  .on("mousemove", mouseMove);
 
 d3.selectAll(graphContainer + " .data-swither")
   .on("click", function(){
@@ -499,6 +479,34 @@ d3.selectAll(graphContainer + " .data-swither")
     var direction = this.getAttribute("data-direction");
     moveGraph(direction);
   });
+
+  //Event handlers
+  function mouseMove() {
+    var m = d3.mouse(this);
+
+    hoverLine.attr("x1", m[0])
+             .attr("x2", m[0])
+             .style("opacity", .4)
+
+    var x0 = xScale.invert(m[0]);
+    var i = bisectDate(dataset, x0, 1);
+    var d0 = dataset[i - 1];
+    var d1 = dataset[i];
+    if(!d0 || !d1) return;
+    var d = x0 - parseTime(d0[0]) > parseTime(d1[0]) - x0 ? d1 : d0;
+
+    focus.transition()
+      .ease("linear")
+      .duration(100)
+      .attr("transform", "translate(" + xScale(parseTime(d[0])) + "," + yScale(d[1]) + ")");
+    focus.select("text").text(d[1]);
+  }
+
+  function mouseOut() {
+    hoverLine.style("opacity", 0);
+    focus.style("opacity", 0);
+    return;
+  }
 
 //Update graph on swither click with animation
 var currentPosition = "today";
@@ -531,9 +539,129 @@ if(t==e.dx){for((r||s>e.dy)&&(s=e.dy);++i<a;)u=n[i],u.x=o,u.y=c,u.dy=s,o+=u.dx=M
 },{}],4:[function(require,module,exports){
 var d3 = require("./lib/d3.js");
 var dailyIncomeGraphNew4 = require("./dailyIncomeGraphNew4.js");
+var weeklyIncomeGraph = require("./weeklyIncomeGraph.js");
 var dailyPaymentsGraphNew6 = require("./dailyPaymentsGraphNew6.js");
 
-},{"./dailyIncomeGraphNew4.js":1,"./dailyPaymentsGraphNew6.js":2,"./lib/d3.js":3}]},{},[4])
+},{"./dailyIncomeGraphNew4.js":1,"./dailyPaymentsGraphNew6.js":2,"./lib/d3.js":3,"./weeklyIncomeGraph.js":5}],5:[function(require,module,exports){
+var d3 = require("./lib/d3.js");
+var dataset = [
+                {
+                  week: "7–13 DEC",
+                  data: [[0, 940], [0, 100], [0, 940], [0, 1300], [0, 1100], [0, 1300] ]
+                },
+
+                {
+                  week: "14–20 DEC",
+                  data: [[0, 940], [0, 100], [0, 940], [0, 1300], [0, 1100], [0, 1300] ]
+                },
+
+                {
+                  week: "21–27 DEC",
+                  data: [[0, 940], [0, 100], [0, 940], [0, 1300], [0, 1100], [0, 1300] ]
+                }
+              ];
+
+var graphContainer = ".graph--weekly-income-graph";
+var graphContainerInner = graphContainer + " .graph__data-visualisation";
+
+var interpolation = "basis";
+
+var graphTopPadding = 20;
+var graphBottomPadding = 50;
+var graphRightPadding = 50;
+var xAxisPadding = [0, 20, 20, 0];
+
+//Chart settings
+var graphWidth = 440;
+var graphHeight = 380 + graphTopPadding;
+
+
+var xGroupScale = d3.scale.ordinal()
+                          .domain(dataset.map(function(d) { return d.week }))
+                          .rangeRoundBands([0, graphWidth-graphRightPadding], .1);
+
+var xBarScale = d3.scale.ordinal()
+                        .domain(dataset.map(function(d) { return d.data }))
+                        .rangeRoundBands([0, xGroupScale.rangeBand()]);
+
+var yScale = d3.scale.linear()
+                     .domain([100, d3.max(dataset, function(d) {
+                       return d3.max(function(i){
+                         console.log(i);
+                         return i.data
+                       })
+                     })])
+                     .range([graphHeight - graphTopPadding - graphBottomPadding, 1]);
+
+var yGrid = d3.svg.axis()
+                  .scale(yScale)
+                  .orient("right")
+                  .tickSize(graphWidth)
+                  .tickFormat("")
+                  .ticks(3);
+
+var xAxis = d3.svg.axis()
+                  .scale(xGroupScale)
+                  .ticks(4)
+                  .orient("top");
+
+var yAxis = d3.svg.axis()
+                  .scale(yScale)
+                  .orient("left")
+                  .tickFormat(d3.format(".0f"))
+                  .ticks(3);
+
+
+var svg = d3.select(graphContainerInner)
+						.append("svg")
+						.attr("width", graphWidth)
+						.attr("height", graphHeight);
+
+var week = svg.selectAll(".graph__week")
+              .data(dataset)
+              .enter()
+              .append("g")
+              .attr("class", "graph__week")
+              .attr("transform", function(d) { return "translate(" + xGroupScale(d.week) + "," + graphHeight + ")"; });
+/*
+week.selectAll("rect")
+    .data(function(d) { return d.data; })
+    .enter()
+    .append("rect")
+    .attr("width", xBarScale.rangeBand())
+    .attr("x", function(d) { return xBarScale(d.data); })
+    .attr("y", function(d) { return yScale(d.value); })
+    .attr("height", function(d) { return height - y(d.value); })
+    .style("fill", function(d) { return color(d.name); });
+*/
+
+//Add clippath for the grid
+svg.append("clipPath")
+   .attr("id", "gridClip")
+   .append("rect")
+   .attr("width", graphWidth - 70)
+   .attr("height", graphHeight - 70);
+
+svg.append("g")
+  .attr("class", "graph__axis graph__axis--x")
+  .attr("transform", "translate(" + xAxisPadding[3] + ", " + (graphHeight - xAxisPadding[2]) + ")")
+  .call(xAxis);
+
+svg.append("g")
+  .attr("class", "graph__axis graph__axis--y")
+  .attr("transform", "translate(" + (graphWidth - xAxisPadding[1]) + ", " + (xAxisPadding[0] + graphTopPadding) + ")")
+  .style("text-anchor", "end")
+  .call(yAxis);
+
+//Draw grid
+svg.append("g")
+   .attr("class", "graph__grid graph__grid--y")
+   .attr("clip-path", "url(#gridClip)")
+   .attr("transform", "translate(0, " + graphTopPadding + ")")
+   .style("text-anchor", "end")
+   .call(yGrid);
+
+},{"./lib/d3.js":3}]},{},[4])
 
 
 //# sourceMappingURL=app.js.map

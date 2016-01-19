@@ -45,6 +45,10 @@ var initialYScale = d3.scale.linear()
                       .domain([100, d3.max(dataset, function(d) { return d[1] + 300 })])
                       .range([graphHeight, graphHeight]);
 
+var tooltipYScale = d3.scale.linear()
+                      .domain([100, d3.max(dataset, function(d) { return d[1] + 300 })])
+                      .range([0, 0]);
+
 var yScale = d3.scale.linear()
                      .domain([100, d3.max(dataset, function(d) { return d[1] + 300 })])
                      .range([graphHeight - graphTopPadding - graphBottomPadding, 1]);
@@ -94,7 +98,10 @@ svg.append("clipPath")
    .attr("width", graphWidth - 70)
    .attr("height", graphHeight - 70);
 
-// Hover line
+//Add clippath for tooltip
+//Add clippath for hoverline
+
+// All hover line
 var hoverLineGroup = svg.append("g")
 					              .attr("class", "graph__hover-line");
 
@@ -105,29 +112,25 @@ var hoverLine = hoverLineGroup.append("line")
                               .attr("y2", (graphHeight))
                               .style("opacity", 0);
 
-svg.on("mouseover", function() {focus.style("opacity", 1)})
-   .on("mouseout", mouseOut)
-   .on("mousemove", mouseMove);
-
-svg.append("g")
+var graphAxisX = svg.append("g")
   .attr("class", "graph__axis graph__axis--x")
   .attr("transform", "translate(" + xAxisPadding[3] + ", " + (graphHeight - xAxisPadding[2]) + ")")
   .call(xAxis);
 
-svg.append("g")
+var graphAxisY =  svg.append("g")
   .attr("class", "graph__axis graph__axis--y")
   .attr("transform", "translate(" + (graphWidth - xAxisPadding[1]) + ", " + (xAxisPadding[0] + graphTopPadding) + ")")
   .style("text-anchor", "end")
   .call(yAxis);
 
 //Draw area
-svg.append("path")
+var graphArea = svg.append("path")
    .attr("class", "graph__area")
    .datum(dataset)
    .attr("d", area);
 
 //Draw line
-svg.append("path")
+var graphLine = svg.append("path")
    .attr("class", "graph__line")
    .datum(dataset)
    .attr("d", line);
@@ -156,8 +159,9 @@ dataset.forEach(function(d, i) {
 
 //Add tooltips
 var focus = svg.append("g")
-     .attr("class", "focus")
-     .style("opacity", 0);
+     .attr("class", "graph__focus")
+     .style("opacity", 0)
+     .attr("transform", "translate(-10, -10)");
 
 focus.append("circle")
     .attr("r", 6.2)
@@ -188,15 +192,35 @@ svg.append("g")
    .style("text-anchor", "end")
    .call(yGrid);
 
+//Register Events
+svg.on("mouseover", function() {focus.style("opacity", 1)})
+   .on("mouseout", mouseOut)
+   .on("mousemove", mouseMove);
+
+d3.selectAll(graphContainer + " .data-swither")
+  .on("click", function(){
+
+   var currentFlagClassName = "data-swither--active";
+
+   var elems = document.querySelectorAll(graphContainer + " .data-swither.data-swither--active");
+   [].forEach.call(elems, function(el) {
+       el.classList.remove(currentFlagClassName);
+   });
+
+   this.classList.add(currentFlagClassName);
+
+   var direction = this.getAttribute("data-direction");
+   moveGraph(direction);
+ });
+
+ //Event handlers
  function mouseMove() {
    var m = d3.mouse(this);
 
-   //move hoverline
    hoverLine.attr("x1", m[0])
             .attr("x2", m[0])
             .style("opacity", .4)
 
-   //tooltip
    var x0 = xScale.invert(m[0]);
    var i = bisectDate(dataset, x0, 1);
    var d0 = dataset[i - 1];
@@ -204,9 +228,9 @@ svg.append("g")
    if(!d0 || !d1) return;
    var d = x0 - parseTime(d0[0]) > parseTime(d1[0]) - x0 ? d1 : d0;
 
-   d3.select(graphContainer + " .focus")
-     .transition()
-     .duration(50)
+   focus.transition()
+     .ease("linear")
+     .duration(100)
      .attr("transform", "translate(" + xScale(parseTime(d[0])) + "," + yScale(d[1]) + ")");
 
    focus.select("text").text(d[1]);
@@ -218,25 +242,8 @@ svg.append("g")
    return;
  }
 
-//Events
-d3.selectAll(graphContainer + " .data-swither")
-  .on("click", function(){
-
-    var currentFlagClassName = "data-swither--active";
-
-    var elems = document.querySelectorAll(graphContainer + " .data-swither.data-swither--active");
-    [].forEach.call(elems, function(el) {
-        el.classList.remove(currentFlagClassName);
-    });
-
-    this.classList.add(currentFlagClassName);
-
-    var direction = this.getAttribute("data-direction");
-    moveGraph(direction);
-  });
-
 //Draw graph with animation
-setTimeout(drawGraph, 250);
+setTimeout(drawGraph, 0);
 function drawGraph() {
     initialYScale.range([graphHeight - graphTopPadding - graphBottomPadding, 1]);
     var t = svg.transition().duration(750);
@@ -283,10 +290,11 @@ function moveGraph(direction) {
     currentPosition = "today";
   }
 
+  graphAxisX.transition().duration(750).call(xAxis);
+  graphArea.transition().duration(750).attr("d", area);
+  graphLine.transition().duration(750).attr("d", line);
+
   var t = svg.transition().duration(750);
-  t.select(".graph__axis--x").call(xAxis);
-  t.select(".graph__area").attr("d", area);
-  t.select(".graph__line").attr("d", line);
   t.selectAll(".graph__circle")
    .attr("cx", function(d) {return xScale(parseTime(d[0]))})
    .attr("cy", function(d) {return yScale(d[1])})

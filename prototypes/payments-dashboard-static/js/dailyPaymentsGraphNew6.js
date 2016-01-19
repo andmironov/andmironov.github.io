@@ -87,16 +87,17 @@ dataset.forEach(function(d, i) {
           .attr("cy", function(d) {return yScale(d[1])})
           .transition()
           .duration(750)
-          .delay(50 * i)
+          .delay(80 * i)
           .attr("transform", "translate(0, 0)")
           .attr("opacity", "1")
           .attr("r", 6);
 });
 
-//Create tooltips
+//Add tooltips
 var focus = svg.append("g")
-     .attr("class", "focus")
-     .style("opacity", 0);
+     .attr("class", "graph__focus")
+     .style("opacity", 0)
+     .attr("transform", "translate(-10, -10)");
 
 focus.append("circle")
     .attr("r", 6.2)
@@ -137,10 +138,6 @@ var hoverLine = hoverLineGroup.append("line")
                               .attr("y2", (graphHeight))
                               .style("opacity", 0);
 
-svg.on("mouseover", function() {focus.style("opacity", 1)})
-   .on("mouseout", mouseOut)
-   .on("mousemove", mouseMove);
-
 svg.append("g")
   .attr("class", "graph__axis graph__axis--x")
   .attr("transform", "translate(" + xAxisPadding[3] + ", " + (graphHeight - xAxisPadding[2]) + ")")
@@ -160,35 +157,10 @@ svg.append("g")
    .style("text-anchor", "end")
    .call(yGrid);
 
-function mouseMove() {
-  var m = d3.mouse(this);
-
-  //move hoverline
-  hoverLine.attr("x1", m[0])
-           .attr("x2", m[0])
-           .style("opacity", .4)
-
-  //tooltip
-  var x0 = xScale.invert(m[0]);
-  var i = bisectDate(dataset, x0, 1);
-  var d0 = dataset[i - 1];
-  var d1 = dataset[i];
-  if(!d0 || !d1) return;
-  var d = x0 - parseTime(d0[0]) > parseTime(d1[0]) - x0 ? d1 : d0;
-
-  d3.select(graphContainer + " .focus")
-    .transition()
-    .duration(50)
-    .attr("transform", "translate(" + xScale(parseTime(d[0])) + "," + yScale(d[1]) + ")");
-
-  focus.select("text").text(d[1]);
-}
-
-function mouseOut() {
-  hoverLine.style("opacity", 0);
-  focus.style("opacity", 0);
-  return;
-}
+//Register Events
+svg.on("mouseover", function() {focus.style("opacity", 1)})
+  .on("mouseout", mouseOut)
+  .on("mousemove", mouseMove);
 
 d3.selectAll(graphContainer + " .data-swither")
   .on("click", function(){
@@ -201,6 +173,34 @@ d3.selectAll(graphContainer + " .data-swither")
     var direction = this.getAttribute("data-direction");
     moveGraph(direction);
   });
+
+  //Event handlers
+  function mouseMove() {
+    var m = d3.mouse(this);
+
+    hoverLine.attr("x1", m[0])
+             .attr("x2", m[0])
+             .style("opacity", .4)
+
+    var x0 = xScale.invert(m[0]);
+    var i = bisectDate(dataset, x0, 1);
+    var d0 = dataset[i - 1];
+    var d1 = dataset[i];
+    if(!d0 || !d1) return;
+    var d = x0 - parseTime(d0[0]) > parseTime(d1[0]) - x0 ? d1 : d0;
+
+    focus.transition()
+      .ease("linear")
+      .duration(100)
+      .attr("transform", "translate(" + xScale(parseTime(d[0])) + "," + yScale(d[1]) + ")");
+    focus.select("text").text(d[1]);
+  }
+
+  function mouseOut() {
+    hoverLine.style("opacity", 0);
+    focus.style("opacity", 0);
+    return;
+  }
 
 //Update graph on swither click with animation
 var currentPosition = "today";

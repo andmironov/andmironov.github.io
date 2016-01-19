@@ -337,6 +337,9 @@ body {
   bottom: 0;
   left: 0; }
 
+.graph--weekly-income-graph .graph__data-visualisation {
+  height: 400px; }
+
 .graph__grid path {
   display: none; }
 
@@ -370,7 +373,8 @@ body {
 .graph__hover-line {
   fill: none;
   stroke: #979797;
-  stroke-dasharray: 4,2; }
+  stroke-dasharray: 4,2;
+  opacity: 0; }
 
 .graph--daily-income-graph .graph__area {
   fill: #4FB972;
