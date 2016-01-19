@@ -15,6 +15,8 @@ var dataset = [
                 ["2016-01-02 13:10", 900],
                 ["2016-01-02 18:10", 1400]
               ];
+var graphContainer = ".graph--daily-payments-graph";
+var graphContainerInner = graphContainer + " .graph__data-visualisation";
 
 var interpolation = "basis";
 var parseTime = d3.time.format.utc("%Y-%m-%d %H:%M").parse;
@@ -37,10 +39,6 @@ var graphHeight = 300 + graphTopPadding;
 var xScale = d3.time.scale.utc()
                           .domain([todayMidnight, todayBeforeMidnight])
                           .range([0, graphWidth ])
-
-var initialYScale = d3.scale.linear()
-                      .domain([100, d3.max(dataset, function(d) { return d[1] + 100 })])
-                      .range([graphHeight, graphHeight]);
 
 var yScale = d3.scale.linear()
                      .domain([100, d3.max(dataset, function(d) { return d[1] + 100 })])
@@ -66,23 +64,64 @@ var yAxis = d3.svg.axis()
                   .ticks(3);
 
 //Draw
-var svg = d3.select(".graph--daily-income-graph .graph__data-visualisation")
+var svg = d3.select(graphContainerInner)
 						.append("svg")
 						.attr("width", graphWidth)
 						.attr("height", graphHeight);
 
-var area = d3.svg.area()
-                 .x(function(d) { return xScale(parseTime(d[0])) })
-                 .y0(graphHeight)
-                 .y1(function(d) { return initialYScale(d[1]) })
-                 .interpolate(interpolation);
+//Create circles
+var circles = svg.append("g")
+                 .attr("class", "graph__circles")
+                 .attr("width", graphWidth)
+                 .attr("height", graphHeight);
 
-var line = d3.svg.line()
-                .x(function(d) { return xScale(parseTime(d[0])) })
-                .y(function(d) { return initialYScale(d[1]) })
-                .interpolate(interpolation);
+dataset.forEach(function(d, i) {
+  circles.append("circle")
+          .attr("class", "graph__circle")
+          .attr("transform", "translate(0, 40)")
+          .attr("opacity", "0")
+          .datum(d)
+          .attr("cx", function(d) {return xScale(parseTime(d[0]))})
+          .attr("cy", function(d) {return yScale(d[1])})
+          .transition()
+          .duration(750)
+          .delay(50 * i)
+          .attr("transform", "translate(0, 10)")
+          .attr("opacity", "1")
+          .attr("r", 6);
+});
 
-//svg.datum(dataset);
+//Create tooltips
+var tooltips = svg.append("g")
+                 .attr("class", "graph__tooltips")
+                 .attr("width", graphWidth)
+                 .attr("height", graphHeight);
+
+tooltips.selectAll("text")
+        .data(dataset)
+        .enter()
+        .append("rect")
+        .attr("class", "graph__tooltip")
+        .attr("x", function(d) {
+        		return ( xScale(parseTime(d[0])) - 40 );
+        })
+        .attr("y", function(d) {
+        		return ( yScale(d[1]) - 30);
+        })
+        .attr("width", 80)
+        .attr("height", 30)
+        .attr("rx", 16)
+        .attr("ry", 16)
+        .fill("red", 10)
+        .attr("opacity", 0)
+        .append("text")
+        .text(function(d) {
+			   		return d[1];
+			   })
+        .attr("dy", "0em")
+        .attr("text-anchor", "middle")
+
+
 
 //Add clippath for the grid
 svg.append("clipPath")
@@ -123,18 +162,6 @@ svg.append("g")
   .style("text-anchor", "end")
   .call(yAxis);
 
-//Draw area
-svg.append("path")
-   .attr("class", "graph__area")
-   .datum(dataset)
-   .attr("d", area);
-
-//Draw line
-svg.append("path")
-   .attr("class", "graph__line")
-   .datum(dataset)
-   .attr("d", line);
-
 //Draw grid
 svg.append("g")
    .attr("class", "graph__grid graph__grid--y")
@@ -142,67 +169,3 @@ svg.append("g")
    .attr("transform", "translate(0, " + graphTopPadding + ")")
    .style("text-anchor", "end")
    .call(yGrid);
-
-//Events
-d3.selectAll(".graph--daily-income-graph .data-swither")
-  .on("click", function(){
-
-    var currentFlagClassName = "data-swither--active";
-
-    var elems = document.querySelectorAll(".graph--daily-income-graph .data-swither.data-swither--active");
-    [].forEach.call(elems, function(el) {
-        el.classList.remove(currentFlagClassName);
-    });
-
-    this.classList.add(currentFlagClassName);
-
-    var direction = this.getAttribute("data-direction");
-    moveGraph(direction);
-  });
-
-//Draw graph with animation
-setTimeout(drawGraph, 200);
-function drawGraph() {
-    initialYScale.range([graphHeight - graphTopPadding - graphBottomPadding, 1]);
-    var t = svg.transition().duration(750);
-    t.select(".graph__area").attr("d", area);
-    t.select(".graph__line").attr("d", line);
-}
-
-//Update graph data with animation
-//setTimeout(updateGraph, 2000);
-function updateGraph() {
-  var newDataset = dataset;
-  newDataset.push(["2016-01-02 19:30", 2200]);
-  initialYScale.domain([100, d3.max(newDataset, function(d) { return d[1] + 100 })]);
-  yScale.domain([100, d3.max(newDataset, function(d) { return d[1] + 100 })]);
-
-
-  thePath.datum(newDataset);
-  var t = svg.transition().duration(750);
-  t.select(".graph__line").attr("d", line);
-  t.select(".graph__area").attr("d", area);
-  t.select(".graph__axis--y").call(yAxis);
-  t.select(".graph__grid--y").call(yGrid);
-}
-
-//Update graph on swither click with animation
-var currentPosition = "today";
-function moveGraph(direction) {
-  if(direction == currentPosition) return;
-
-  if (direction == "yesterday") {
-    xScale.domain([yesterdayMidnight, yesterdayBeforeMidnight])
-    currentPosition = "yesterday";
-  } else {
-    xScale.domain([todayMidnight, todayBeforeMidnight])
-    currentPosition = "today";
-  }
-
-  var t = svg.transition().duration(750);
-  t.select(".graph__axis--x").call(xAxis);
-  t.select(".graph__area").attr("d", area);
-  t.select(".graph__line").attr("d", line);
-
-  return;
-}

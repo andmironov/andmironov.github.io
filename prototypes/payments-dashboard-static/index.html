@@ -26,7 +26,7 @@
               <div class="sidebar__inner">
                 <div class="sidebar-user-profile">
                   <div class="sidebar-user-profile__avatar" style={avatarStyle}></div>
-                  <div class="sidebar-user-profile__name"></div>
+                  <div class="sidebar-user-profile__name">Christophe Tauziet</div>
                 </div>
                 <ul class="sidebar-nav">
                   <li class="sidebar-nav__item sidebar-nav__item_current"><a href="/">Overview</a></li>
@@ -68,6 +68,20 @@
                   <h2 class="graph__title">Payments</h2>
                   <div class="graph__more-button">
                     <a class="graph__more-button-link" href="/"></a>
+                  </div>
+                  <div class="data-swithers">
+                    <div class="data-swither data-swither--active" data-direction="today">
+                      <div class="data-swither__amount">12</div>
+                      <div class="data-swither__day">today</div>
+                      <div class="data-swither__trend data-swither__trend--positive"></div>
+                      <div class="data-swither__percent data-swither__percent--positive">+10%</div>
+                    </div>
+                    <div class="data-swither" data-direction="yesterday">
+                      <div class="data-swither__amount">14</div>
+                      <div class="data-swither__day">yesterday</div>
+                      <div class="data-swither__trend data-swither__trend--negative"></div>
+                      <div class="data-swither__percent data-swither__percent--negative">-7%</div>
+                    </div>
                   </div>
                   <div class="graph__data-visualisation">
                   </div>

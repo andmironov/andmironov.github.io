@@ -15,6 +15,8 @@ var dataset = [
                 ["2016-01-02 13:10", 900],
                 ["2016-01-02 18:10", 1400]
               ];
+var graphContainer = ".graph--daily-payments-graph";
+var graphContainerInner = graphContainer + " .graph__data-visualisation";
 
 var interpolation = "basis";
 var parseTime = d3.time.format.utc("%Y-%m-%d %H:%M").parse;
@@ -37,10 +39,6 @@ var graphHeight = 300 + graphTopPadding;
 var xScale = d3.time.scale.utc()
                           .domain([todayMidnight, todayBeforeMidnight])
                           .range([0, graphWidth ])
-
-var initialYScale = d3.scale.linear()
-                      .domain([100, d3.max(dataset, function(d) { return d[1] + 100 })])
-                      .range([graphHeight, graphHeight]);
 
 var yScale = d3.scale.linear()
                      .domain([100, d3.max(dataset, function(d) { return d[1] + 100 })])
@@ -66,23 +64,26 @@ var yAxis = d3.svg.axis()
                   .ticks(3);
 
 //Draw
-var svg = d3.select(".graph--daily-income-graph .graph__data-visualisation")
+var svg = d3.select(graphContainerInner)
 						.append("svg")
 						.attr("width", graphWidth)
 						.attr("height", graphHeight);
 
-var area = d3.svg.area()
-                 .x(function(d) { return xScale(parseTime(d[0])) })
-                 .y0(graphHeight)
-                 .y1(function(d) { return initialYScale(d[1]) })
-                 .interpolate(interpolation);
-
-var line = d3.svg.line()
-                .x(function(d) { return xScale(parseTime(d[0])) })
-                .y(function(d) { return initialYScale(d[1]) })
-                .interpolate(interpolation);
-
-//svg.datum(dataset);
+//Create circles
+svg.selectAll("circle")
+   .data(dataset)
+   .enter()
+   .append("circle")
+   .attr("class", "graph__circle")
+   .attr("cx", function(d) {
+   		return xScale(parseTime(d[0]));
+   })
+   .attr("cy", function(d) {
+   		return yScale(d[1]);
+   })
+   .attr("r", function(d) {
+   		return 6;
+   });
 
 //Add clippath for the grid
 svg.append("clipPath")
@@ -123,18 +124,6 @@ svg.append("g")
   .style("text-anchor", "end")
   .call(yAxis);
 
-//Draw area
-svg.append("path")
-   .attr("class", "graph__area")
-   .datum(dataset)
-   .attr("d", area);
-
-//Draw line
-svg.append("path")
-   .attr("class", "graph__line")
-   .datum(dataset)
-   .attr("d", line);
-
 //Draw grid
 svg.append("g")
    .attr("class", "graph__grid graph__grid--y")
@@ -144,12 +133,12 @@ svg.append("g")
    .call(yGrid);
 
 //Events
-d3.selectAll(".graph--daily-income-graph .data-swither")
+d3.selectAll(graphContainer + " .data-swither")
   .on("click", function(){
 
     var currentFlagClassName = "data-swither--active";
 
-    var elems = document.querySelectorAll(".graph--daily-income-graph .data-swither.data-swither--active");
+    var elems = document.querySelectorAll(graphContainer + " .data-swither.data-swither--active");
     [].forEach.call(elems, function(el) {
         el.classList.remove(currentFlagClassName);
     });
@@ -161,48 +150,16 @@ d3.selectAll(".graph--daily-income-graph .data-swither")
   });
 
 //Draw graph with animation
-setTimeout(drawGraph, 200);
+//setTimeout(drawGraph, 200);
 function drawGraph() {
-    initialYScale.range([graphHeight - graphTopPadding - graphBottomPadding, 1]);
-    var t = svg.transition().duration(750);
-    t.select(".graph__area").attr("d", area);
-    t.select(".graph__line").attr("d", line);
-}
-
-//Update graph data with animation
-//setTimeout(updateGraph, 2000);
-function updateGraph() {
-  var newDataset = dataset;
-  newDataset.push(["2016-01-02 19:30", 2200]);
-  initialYScale.domain([100, d3.max(newDataset, function(d) { return d[1] + 100 })]);
-  yScale.domain([100, d3.max(newDataset, function(d) { return d[1] + 100 })]);
 
 
-  thePath.datum(newDataset);
-  var t = svg.transition().duration(750);
-  t.select(".graph__line").attr("d", line);
-  t.select(".graph__area").attr("d", area);
-  t.select(".graph__axis--y").call(yAxis);
-  t.select(".graph__grid--y").call(yGrid);
-}
 
-//Update graph on swither click with animation
-var currentPosition = "today";
-function moveGraph(direction) {
-  if(direction == currentPosition) return;
+  var transitionDelay = 50;
+  var t = svg.transition().duration(750).delay(transitionDelay);
+  var circles = t.selectAll(".graph__circle");
 
-  if (direction == "yesterday") {
-    xScale.domain([yesterdayMidnight, yesterdayBeforeMidnight])
-    currentPosition = "yesterday";
-  } else {
-    xScale.domain([todayMidnight, todayBeforeMidnight])
-    currentPosition = "today";
-  }
-
-  var t = svg.transition().duration(750);
-  t.select(".graph__axis--x").call(xAxis);
-  t.select(".graph__area").attr("d", area);
-  t.select(".graph__line").attr("d", line);
-
-  return;
+  circles.attr("r", function(d) {
+     return 6;
+  });
 }

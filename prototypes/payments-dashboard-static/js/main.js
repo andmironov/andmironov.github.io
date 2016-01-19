@@ -1,4 +1,3 @@
 var d3 = require("./lib/d3.js");
-
-var dailyIncomeGraphNew3 = require("./dailyIncomeGraphNew3.js");
-//var dailyPaymentsGraphNew = require("./dailyPaymentsGraphNew.js");
+var dailyIncomeGraphNew4 = require("./dailyIncomeGraphNew4.js");
+var dailyPaymentsGraphNew6 = require("./dailyPaymentsGraphNew6.js");

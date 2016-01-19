@@ -34,7 +34,7 @@
 
 .graph__line {
    fill: none;
-   stroke: #4FB972;
+   stroke: #91DBA9;
    opacity: 1;
 }
 
@@ -47,9 +47,26 @@
 .graph--daily-income-graph .graph__area {
   fill: #4FB972;
   opacity: .2;
-
 }
 
 .graph--daily-payments-graph .graph__area {
   fill: #D3F1FF;
+}
+
+.graph--daily-payments-graph .graph__circle {
+  fill: #C5EAFC;
+  stroke:#6DCAF6;
+}
+
+.graph--daily-income-graph .graph__circle {
+  fill: #DCF1E3;
+  stroke:#91DBA9;
+}
+
+.focus text {
+  font-family: 'MuseoSansRegular';
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    fill: white;
 }
