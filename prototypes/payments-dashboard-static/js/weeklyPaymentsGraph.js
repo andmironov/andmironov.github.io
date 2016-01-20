@@ -19,7 +19,7 @@ var dataset = [
 
 var max = 28;
 
-var graphContainer = ".graph--weekly-income-graph";
+var graphContainer = ".graph--weekly-payments-graph";
 var graphContainerInner = graphContainer + " .graph__data-visualisation";
 
 var interpolation = "basis";
@@ -74,34 +74,6 @@ var svg = d3.select(graphContainerInner)
 						.attr("width", graphWidth)
 						.attr("height", graphHeight);
 
-//Add tooltips
-var focus = svg.append("g")
-     .attr("class", "graph__focus")
-     .style("opacity", 0)
-     .attr("transform", "translate(-10, -10)");
-
-focus.append("circle")
-    .attr("r", 6.2)
-    .attr("cx", 0)
-    .attr("cy", 0)
-
-var focusRect = focus.append("rect")
-     .attr("x", -30)
-     .attr("y", -40)
-     .attr("rx", 16)
-     .attr("ry", 16)
-     .attr("width", 60)
-     .attr("height", 30)
-     .attr("fill", "#4FB972");
-
-focus.append("text")
-     .attr("x", 0)
-     .attr("y", -25)
-     .attr("fill", "white")
-     .attr("text-anchor", "middle")
-     .attr("dy", ".35em");
-
-
 var week = svg.selectAll(".graph__week")
               .data(dataset)
               .enter()
@@ -121,7 +93,8 @@ week.selectAll("rect")
     .attr("x", function(d, i) { return xBarScale(i) })
     .attr("y", function(d){return initialYScale(d) - graphBottomPadding})
     .attr("height", function(d) { return graphHeight - initialYScale(d) })
-    .attr("fill", function(d, i) { return i > 4 ? "#3F9E5F" : "#65C284"})
+    .attr("fill", function(d, i) { return i > 4 ? "#4496BC" : "#6DCAF6"})
+
 
 //Add clippath for the grid
 svg.append("clipPath")
@@ -149,26 +122,6 @@ svg.append("g")
    .style("text-anchor", "end")
    .call(yGrid);
 
-//Register Events
-svg.on("mouseover", function() {focus.style("opacity", 1)})
- .on("mouseout", mouseOut)
- .on("mousemove", mouseMove);
-
- function mouseMove() {
-   var m = d3.mouse(this);
-   //var x0 = xGroupScale.invert(m[0]);
-
-   console.log(m[0]);
-   console.log(xBarScale.rangeBand());
-   console.log(xGroupScale.rangeBand());
- }
-
- function mouseOut() {
-   focus.style("opacity", 0);
-   return;
- }
-
-//Add observer
 var observer = new DOMObserver();
 
 observer.addElement({

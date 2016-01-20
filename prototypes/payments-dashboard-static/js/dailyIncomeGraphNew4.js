@@ -15,6 +15,7 @@ var dataset = [
                 ["2016-01-02 13:10", 900],
                 ["2016-01-02 18:10", 1400]
               ];
+
 var graphContainer = ".graph--daily-income-graph";
 var graphContainerInner = graphContainer + " .graph__data-visualisation";
 
@@ -72,7 +73,6 @@ var yAxis = d3.svg.axis()
                   .tickFormat(d3.format(".0f"))
                   .ticks(3);
 
-//Draw
 var svg = d3.select(graphContainerInner)
 						.append("svg")
 						.attr("width", graphWidth)
@@ -151,7 +151,7 @@ dataset.forEach(function(d, i) {
           .attr("cy", function(d) {return yScale(d[1])})
           .transition()
           .duration(750)
-          .delay(80 * i)
+          .delay(60 * i)
           .attr("transform", "translate(0, 0)")
           .attr("opacity", "1")
           .attr("r", 6);

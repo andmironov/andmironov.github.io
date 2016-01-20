@@ -16,6 +16,10 @@
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.5.1",
     "gulp-util": "^3.0.7",
+    "lodash.clone": "^4.0.1",
+    "lodash.foreach": "^4.0.0",
+    "lodash.isempty": "^4.0.0",
+    "lodash.isequal": "^4.0.0",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
   }

@@ -16,7 +16,7 @@ var dataset = [
                 ["2016-01-02 18:10", 1400]
               ];
 
-var graphContainer = ".graph--daily-payments-graph";
+var graphContainer = ".graph--total-income-graph";
 var graphContainerInner = graphContainer + " .graph__data-visualisation";
 
 var interpolation = "linear";
@@ -34,7 +34,7 @@ var graphBottomPadding = 50;
 var xAxisPadding = [0, 20, 20, 50];
 
 //Chart settings
-var graphWidth = 440;
+var graphWidth = 910;
 var graphHeight = 300 + graphTopPadding;
 
 
@@ -42,20 +42,24 @@ var xScale = d3.time.scale.utc()
                           .domain([todayMidnight, todayBeforeMidnight])
                           .range([0, graphWidth ])
 
-var yScale = d3.scale.linear()
-                     .domain([100, d3.max(dataset, function(d) { return d[1] + 300 })])
-                     .range([graphHeight - graphTopPadding - graphBottomPadding, 1]);
-
 var initialYScale = d3.scale.linear()
                       .domain([100, d3.max(dataset, function(d) { return d[1] + 300 })])
                       .range([graphHeight, graphHeight]);
+
+var tooltipYScale = d3.scale.linear()
+                      .domain([100, d3.max(dataset, function(d) { return d[1] + 300 })])
+                      .range([0, 0]);
+
+var yScale = d3.scale.linear()
+                     .domain([100, d3.max(dataset, function(d) { return d[1] + 300 })])
+                     .range([graphHeight - graphTopPadding - graphBottomPadding, 1]);
 
 var yGrid = d3.svg.axis()
                   .scale(yScale)
                   .orient("right")
                   .tickSize(graphWidth)
                   .tickFormat("")
-                  .ticks(5);
+                  .ticks(3);
 
 var xAxis = d3.svg.axis()
                   .scale(xScale)
@@ -67,12 +71,13 @@ var yAxis = d3.svg.axis()
                   .scale(yScale)
                   .orient("left")
                   .tickFormat(d3.format(".0f"))
-                  .ticks(5);
+                  .ticks(3);
 
 var svg = d3.select(graphContainerInner)
 						.append("svg")
 						.attr("width", graphWidth)
 						.attr("height", graphHeight);
+
 
 var area = d3.svg.area()
                  .x(function(d) { return xScale(parseTime(d[0])) })
@@ -81,21 +86,54 @@ var area = d3.svg.area()
                  .interpolate(interpolation);
 
 var line = d3.svg.line()
-                 .x(function(d) { return xScale(parseTime(d[0])) })
-                 .y(function(d) { return initialYScale(d[1]) })
-                 .interpolate(interpolation);
+                .x(function(d) { return xScale(parseTime(d[0])) })
+                .y(function(d) { return initialYScale(d[1]) })
+                .interpolate(interpolation);
+
+
+//Add clippath for the grid
+svg.append("clipPath")
+   .attr("id", "gridClip")
+   .append("rect")
+   .attr("width", graphWidth - 70)
+   .attr("height", graphHeight - 70);
+
+//Add clippath for tooltip
+//Add clippath for hoverline
+
+// All hover line
+var hoverLineGroup = svg.append("g")
+					              .attr("class", "graph__hover-line");
+
+var hoverLine = hoverLineGroup.append("line")
+                          		.attr("x1", -1)
+                              .attr("x2", -1)
+                          		.attr("y1", graphTopPadding)
+                              .attr("y2", (graphHeight))
+                              .style("opacity", 0);
+
+var graphAxisX = svg.append("g")
+  .attr("class", "graph__axis graph__axis--x")
+  .attr("transform", "translate(" + xAxisPadding[3] + ", " + (graphHeight - xAxisPadding[2]) + ")")
+  .call(xAxis);
+
+var graphAxisY =  svg.append("g")
+  .attr("class", "graph__axis graph__axis--y")
+  .attr("transform", "translate(" + (graphWidth - xAxisPadding[1]) + ", " + (xAxisPadding[0] + graphTopPadding) + ")")
+  .style("text-anchor", "end")
+  .call(yAxis);
 
 //Draw area
 var graphArea = svg.append("path")
-                    .attr("class", "graph__area")
-                    .datum(dataset)
-                    .attr("d", area);
+   .attr("class", "graph__area")
+   .datum(dataset)
+   .attr("d", area);
 
 //Draw line
 var graphLine = svg.append("path")
-                    .attr("class", "graph__line")
-                    .datum(dataset)
-                    .attr("d", line);
+   .attr("class", "graph__line")
+   .datum(dataset)
+   .attr("d", line);
 
 //Add points
 var circles = svg.append("g")
@@ -109,7 +147,7 @@ dataset.forEach(function(d, i) {
           .attr("transform", "translate(0, -40)")
           .attr("opacity", "0")
           .datum(d)
-          .attr("cx", function(d) {return xScale(parseTime(d[0]))})
+          .attr("cx", function(d) {return xScale(parseTime(d[0])) })
           .attr("cy", function(d) {return yScale(d[1])})
           .transition()
           .duration(750)
@@ -137,7 +175,7 @@ var focusRect = focus.append("rect")
      .attr("ry", 16)
      .attr("width", 60)
      .attr("height", 30)
-     .attr("fill", "#6DCAF6");
+     .attr("fill", "#4FB972");
 
 focus.append("text")
      .attr("x", 0)
@@ -145,35 +183,6 @@ focus.append("text")
      .attr("fill", "white")
      .attr("text-anchor", "middle")
      .attr("dy", ".35em");
-
-//Add clippath for the grid
-svg.append("clipPath")
-   .attr("id", "gridClip")
-   .append("rect")
-   .attr("width", graphWidth - 70)
-   .attr("height", graphHeight - 70);
-
-// Hover line
-var hoverLineGroup = svg.append("g")
-					              .attr("class", "graph__hover-line");
-
-var hoverLine = hoverLineGroup.append("line")
-                          		.attr("x1", -1)
-                              .attr("x2", -1)
-                          		.attr("y1", graphTopPadding)
-                              .attr("y2", (graphHeight))
-                              .style("opacity", 0);
-
-var graphAxisX = svg.append("g")
-  .attr("class", "graph__axis graph__axis--x")
-  .attr("transform", "translate(" + xAxisPadding[3] + ", " + (graphHeight - xAxisPadding[2]) + ")")
-  .call(xAxis);
-
-var graphAxisy = svg.append("g")
-  .attr("class", "graph__axis graph__axis--y")
-  .attr("transform", "translate(" + (graphWidth - xAxisPadding[1]) + ", " + (xAxisPadding[0] + graphTopPadding) + ")")
-  .style("text-anchor", "end")
-  .call(yAxis);
 
 //Draw grid
 svg.append("g")
@@ -185,62 +194,94 @@ svg.append("g")
 
 //Register Events
 svg.on("mouseover", function() {focus.style("opacity", 1)})
-  .on("mouseout", mouseOut)
-  .on("mousemove", mouseMove);
+   .on("mouseout", mouseOut)
+   .on("mousemove", mouseMove);
 
 d3.selectAll(graphContainer + " .data-swither")
   .on("click", function(){
-    var currentFlagClassName = "data-swither--active";
-    var elems = document.querySelectorAll(graphContainer + " .data-swither.data-swither--active");
-    [].forEach.call(elems, function(el) {
-        el.classList.remove(currentFlagClassName);
-    });
-    this.classList.add(currentFlagClassName);
-    var direction = this.getAttribute("data-direction");
-    moveGraph(direction);
-  });
 
-//Event handlers
+   var currentFlagClassName = "data-swither--active";
+
+   var elems = document.querySelectorAll(graphContainer + " .data-swither.data-swither--active");
+   [].forEach.call(elems, function(el) {
+       el.classList.remove(currentFlagClassName);
+   });
+
+   this.classList.add(currentFlagClassName);
+
+   var direction = this.getAttribute("data-direction");
+   moveGraph(direction);
+ });
+
+ //Event handlers
+ function mouseMove() {
+   var m = d3.mouse(this);
+
+   hoverLine.attr("x1", m[0])
+            .attr("x2", m[0])
+            .style("opacity", .4)
+
+   var x0 = xScale.invert(m[0]);
+   var i = bisectDate(dataset, x0, 1);
+   var d0 = dataset[i - 1];
+   var d1 = dataset[i];
+   if(!d0 || !d1) return;
+   var d = x0 - parseTime(d0[0]) > parseTime(d1[0]) - x0 ? d1 : d0;
+
+   focus.transition()
+     .ease("linear")
+     .duration(100)
+     .attr("transform", "translate(" + xScale(parseTime(d[0])) + "," + yScale(d[1]) + ")");
+
+   focus.select("text").text(d[1]);
+ }
+
+ function mouseOut() {
+   hoverLine.style("opacity", 0);
+   focus.style("opacity", 0);
+   return;
+ }
+
 //Draw graph with animation
 setTimeout(drawGraph, 0);
 function drawGraph() {
     initialYScale.range([graphHeight - graphTopPadding - graphBottomPadding, 1]);
-    graphArea.transition().duration(750).attr("d", area);
-    graphLine.transition().duration(750).attr("d", line);
+    var t = svg.transition().duration(750);
+    t.select(".graph__area").attr("d", area);
+    t.select(".graph__line").attr("d", line);
 }
 
+//Update graph data with animation
+//setTimeout(updateGraph, 2000);
 
-function mouseMove() {
-  var m = d3.mouse(this);
+function updateGraph() {
+  var newDataset = dataset;
+  newDataset.push(["2016-01-02 19:30", 2200]);
+  initialYScale.domain([100, d3.max(newDataset, function(d) { return d[1] + 400 })]);
+  yScale.domain([100, d3.max(newDataset, function(d) { return d[1] + 400 })]);
 
-  hoverLine.attr("x1", m[0])
-           .attr("x2", m[0])
-           .style("opacity", .4)
+  var t = svg.transition().duration(750);
 
-  var x0 = xScale.invert(m[0]);
-  var i = bisectDate(dataset, x0, 1);
-  var d0 = dataset[i - 1];
-  var d1 = dataset[i];
-  if(!d0 || !d1) return;
-  var d = x0 - parseTime(d0[0]) > parseTime(d1[0]) - x0 ? d1 : d0;
+  d3.select(".graph__line").datum(newDataset);
+  t.select(".graph__line").attr("d", line);
 
-  focus.transition()
-    .ease("linear")
-    .duration(100)
-    .attr("transform", "translate(" + xScale(parseTime(d[0])) + "," + yScale(d[1]) + ")");
-  focus.select("text").text(d[1]);
-}
+  d3.select(".graph__area").datum(newDataset);
+  t.select(".graph__area").attr("d", area);
 
-function mouseOut() {
-  hoverLine.style("opacity", 0);
-  focus.style("opacity", 0);
-  return;
+  t.select(".graph__axis--y").call(yAxis);
+  t.select(".graph__grid--y").call(yGrid);
+
+  t.selectAll(".graph__circle")
+   .attr("cx", function(d) {return xScale(parseTime(d[0]))})
+   .attr("cy", function(d) {return yScale(d[1])})
+
 }
 
 //Update graph on swither click with animation
 var currentPosition = "today";
 function moveGraph(direction) {
   if(direction == currentPosition) return;
+
   if (direction == "yesterday") {
     xScale.domain([yesterdayMidnight, yesterdayBeforeMidnight])
     currentPosition = "yesterday";
@@ -254,7 +295,7 @@ function moveGraph(direction) {
   graphLine.transition().duration(750).attr("d", line);
 
   var t = svg.transition().duration(750);
-  t.selectAll(graphContainer + " .graph__circle")
+  t.selectAll(".graph__circle")
    .attr("cx", function(d) {return xScale(parseTime(d[0]))})
    .attr("cy", function(d) {return yScale(d[1])})
 

@@ -13,6 +13,10 @@
   position: relative;
 }
 
+.graph.graph--total {
+  width: 910px;
+}
+
 .graph__title {
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -67,9 +71,18 @@
   border: 1px solid #91DBA9;
 }
 
+.graph--daily-payments-graph .data-swither:hover {
+  border: 1px solid #86C5E2;
+}
+
 .data-swither--active {
   border: 1px solid #BAE4C8;
 }
+
+.graph--daily-payments-graph .data-swither--active {
+  border: 1px solid #A9DFF9;
+}
+
 
 .data-swither__amount {
   font-family: "MuseoSansLight";
@@ -103,6 +116,10 @@
   background-image: url(../assets/positive_trend_icon.svg);
 }
 
+.graph--daily-payments-graph .data-swither__trend.data-swither__trend--positive {
+  background-image: url(../assets/blue_positive_trend_icon.svg);
+}
+
 .data-swither__trend.data-swither__trend--negative {
   background-image: url(../assets/negative_trend_icon.svg);
 }
@@ -117,11 +134,11 @@
 }
 
 .data-swither__percent.data-swither__percent--positive {
-  color: #4CAD6C
+  color: $colorMutedText
 }
 
 .data-swither__percent.data-swither__percent--negative {
-  color: #colorMutedText
+  color: $colorMutedText
 }
 
 .graph__data-visualisation {
@@ -132,6 +149,10 @@
   left: 0;
 }
 
-.graph--weekly-income-graph .graph__data-visualisation {
+.graph--total .graph__data-visualisation {
+  width: 910px;
+}
+
+.graph--weekly .graph__data-visualisation {
     height: 400px;
 }

@@ -38,6 +38,12 @@
    opacity: 1;
 }
 
+.graph--daily-payments-graph .graph__line {
+   fill: none;
+   stroke: #6DCAF6;
+   opacity: 1;
+}
+
 .graph__hover-line {
   fill: none;
   stroke: #979797;
@@ -46,6 +52,11 @@
 }
 
 .graph--daily-income-graph .graph__area {
+  fill: #4FB972;
+  opacity: .2;
+}
+
+.graph--total-income-graph .graph__area {
   fill: #4FB972;
   opacity: .2;
 }
@@ -64,10 +75,18 @@
   stroke:#91DBA9;
 }
 
+.graph--total-income-graph .graph__circle {
+  fill: #DCF1E3;
+  stroke:#91DBA9;
+}
+
 .focus text {
   font-family: 'MuseoSansRegular';
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 1px;
     fill: white;
+}
+.graph__bar:hover {
+  fill: black
 }
