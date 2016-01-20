@@ -1,33 +1,36 @@
 var d3 = require("./lib/d3.js");
 var dataset = [
-                ["2015-12-31 00:02", 600],
-                ["2016-01-01 03:44", 900],
-                ["2016-01-01 06:03", 100],
-                ["2016-01-01 10:04", 940],
-                ["2016-01-01 12:50", 1300],
-                ["2016-01-01 14:00", 1100],
-                ["2016-01-01 15:00", 1300],
-                ["2016-01-01 15:30", 400],
+                ["2015-12-27", 7],
 
-                ["2016-01-02 00:13", 200],
-                ["2016-01-02 03:30", 1000],
-                ["2016-01-02 09:50", 1100],
-                ["2016-01-02 13:10", 900],
-                ["2016-01-02 18:10", 1400]
+                ["2015-12-28", 3],
+                ["2015-12-29", 4],
+                ["2015-12-30", 6],
+                ["2015-12-31", 12],
+                ["2016-01-01", 4],
+                ["2016-01-02", 11],
+                ["2016-01-03", 7],
+
+                ["2016-01-04", 12],
+                ["2016-01-05", 8],
+                ["2016-01-06", 12],
+                ["2016-01-07", 4]
               ];
 
 var graphContainer = ".graph--daily-payments-graph";
 var graphContainerInner = graphContainer + " .graph__data-visualisation";
 
 var interpolation = "linear";
-var parseTime = d3.time.format.utc("%Y-%m-%d %H:%M").parse;
+var parseTime = d3.time.format.utc("%Y-%m-%d").parse;
 var bisectDate = d3.bisector(function(d) { return parseTime(d[0]) }).left;
 
-var yesterdayMidnight = parseTime("2016-01-01 00:00");
-var yesterdayBeforeMidnight = parseTime("2016-01-01 23:59");
+var beginningOfLastWeek = parseTime("2015-12-28");
+var endOfLastWeek = parseTime("2016-01-03");
 
-var todayMidnight = parseTime("2016-01-02 00:00");
-var todayBeforeMidnight = parseTime("2016-01-02 23:59");
+var beginningOfCurrentWeek = parseTime("2016-01-04");
+var endOfCurrentWeek = parseTime("2016-01-10");
+
+var graphPadding = {top: 20, right: 40, bottom: 0, left: 20};
+var axesPadding = {top: 0, right: 40, bottom: 20, left: 0};
 
 var graphTopPadding = 20;
 var graphBottomPadding = 50;
@@ -39,15 +42,15 @@ var graphHeight = 300 + graphTopPadding;
 
 
 var xScale = d3.time.scale.utc()
-                          .domain([todayMidnight, todayBeforeMidnight])
-                          .range([0, graphWidth ])
+                          .domain([beginningOfCurrentWeek, endOfCurrentWeek])
+                          .range([graphPadding.left, graphWidth - graphPadding.left - graphPadding.right])
 
 var yScale = d3.scale.linear()
-                     .domain([100, d3.max(dataset, function(d) { return d[1] + 300 })])
+                     .domain([0, d3.max(dataset, function(d) { return d[1] + 10 })])
                      .range([graphHeight - graphTopPadding - graphBottomPadding, 1]);
 
 var initialYScale = d3.scale.linear()
-                      .domain([100, d3.max(dataset, function(d) { return d[1] + 300 })])
+                      .domain([0, d3.max(dataset, function(d) { return d[1] + 10 })])
                       .range([graphHeight, graphHeight]);
 
 var yGrid = d3.svg.axis()
@@ -59,8 +62,8 @@ var yGrid = d3.svg.axis()
 
 var xAxis = d3.svg.axis()
                   .scale(xScale)
-                  .ticks(4)
-                  .tickFormat(d3.time.format.utc("%I%p"))
+                  .ticks(7)
+                  .tickFormat(d3.time.format.utc("%a"))
                   .orient("top");
 
 var yAxis = d3.svg.axis()
@@ -89,12 +92,14 @@ var line = d3.svg.line()
 var graphArea = svg.append("path")
                     .attr("class", "graph__area")
                     .datum(dataset)
+                    .attr("transform", "translate(" + graphPadding.left + ", 0)")
                     .attr("d", area);
 
 //Draw line
 var graphLine = svg.append("path")
                     .attr("class", "graph__line")
                     .datum(dataset)
+                    .attr("transform", "translate(" + graphPadding.left + ", 0)")
                     .attr("d", line);
 
 //Add points
@@ -109,7 +114,7 @@ dataset.forEach(function(d, i) {
           .attr("transform", "translate(0, -40)")
           .attr("opacity", "0")
           .datum(d)
-          .attr("cx", function(d) {return xScale(parseTime(d[0]))})
+          .attr("cx", function(d) {return (xScale(parseTime(d[0])) + graphPadding.left) })
           .attr("cy", function(d) {return yScale(d[1])})
           .transition()
           .duration(750)
@@ -148,7 +153,7 @@ focus.append("text")
 
 //Add clippath for the grid
 svg.append("clipPath")
-   .attr("id", "gridClip")
+   .attr("id", "dailyPaymentsGridClip")
    .append("rect")
    .attr("width", graphWidth - 70)
    .attr("height", graphHeight - 70);
@@ -166,20 +171,20 @@ var hoverLine = hoverLineGroup.append("line")
 
 var graphAxisX = svg.append("g")
   .attr("class", "graph__axis graph__axis--x")
-  .attr("transform", "translate(" + xAxisPadding[3] + ", " + (graphHeight - xAxisPadding[2]) + ")")
+  .attr("transform", "translate(" + graphPadding.left + ", " + (graphHeight - xAxisPadding[2]) + ")")
   .call(xAxis);
 
 var graphAxisy = svg.append("g")
   .attr("class", "graph__axis graph__axis--y")
-  .attr("transform", "translate(" + (graphWidth - xAxisPadding[1]) + ", " + (xAxisPadding[0] + graphTopPadding) + ")")
+  .attr("transform", "translate(" + (graphWidth - xAxisPadding[1]) + ", " + (0) + ")")
   .style("text-anchor", "end")
   .call(yAxis);
 
 //Draw grid
 svg.append("g")
    .attr("class", "graph__grid graph__grid--y")
-   .attr("clip-path", "url(#gridClip)")
-   .attr("transform", "translate(0, " + graphTopPadding + ")")
+   .attr("clip-path", "url(#dailyPaymentsGridClip)")
+   .attr("transform", "translate(0, " + 0 + ")")
    .style("text-anchor", "end")
    .call(yGrid);
 
@@ -227,7 +232,7 @@ function mouseMove() {
   focus.transition()
     .ease("linear")
     .duration(100)
-    .attr("transform", "translate(" + xScale(parseTime(d[0])) + "," + yScale(d[1]) + ")");
+    .attr("transform", "translate(" + (xScale(parseTime(d[0]))+graphPadding.left) + "," + yScale(d[1]) + ")");
   focus.select("text").text(d[1]);
 }
 
@@ -242,10 +247,10 @@ var currentPosition = "today";
 function moveGraph(direction) {
   if(direction == currentPosition) return;
   if (direction == "yesterday") {
-    xScale.domain([yesterdayMidnight, yesterdayBeforeMidnight])
+    xScale.domain([beginningOfLastWeek, endOfLastWeek])
     currentPosition = "yesterday";
   } else {
-    xScale.domain([todayMidnight, todayBeforeMidnight])
+    xScale.domain([beginningOfCurrentWeek, endOfCurrentWeek])
     currentPosition = "today";
   }
 
@@ -255,7 +260,7 @@ function moveGraph(direction) {
 
   var t = svg.transition().duration(750);
   t.selectAll(graphContainer + " .graph__circle")
-   .attr("cx", function(d) {return xScale(parseTime(d[0]))})
+   .attr("cx", function(d) {return (xScale(parseTime(d[0])) + graphPadding.left) })
    .attr("cy", function(d) {return yScale(d[1])})
 
   return;

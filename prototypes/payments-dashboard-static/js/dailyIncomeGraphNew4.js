@@ -93,7 +93,7 @@ var line = d3.svg.line()
 
 //Add clippath for the grid
 svg.append("clipPath")
-   .attr("id", "gridClip")
+   .attr("id", "dailyIncomeGridClip")
    .append("rect")
    .attr("width", graphWidth - 70)
    .attr("height", graphHeight - 70);
@@ -119,7 +119,7 @@ var graphAxisX = svg.append("g")
 
 var graphAxisY =  svg.append("g")
   .attr("class", "graph__axis graph__axis--y")
-  .attr("transform", "translate(" + (graphWidth - xAxisPadding[1]) + ", " + (xAxisPadding[0] + graphTopPadding) + ")")
+  .attr("transform", "translate(" + (graphWidth - xAxisPadding[1]) + ", 0)")
   .style("text-anchor", "end")
   .call(yAxis);
 
@@ -187,8 +187,8 @@ focus.append("text")
 //Draw grid
 svg.append("g")
    .attr("class", "graph__grid graph__grid--y")
-   .attr("clip-path", "url(#gridClip)")
-   .attr("transform", "translate(0, " + graphTopPadding + ")")
+   .attr("clip-path", "url(#dailyIncomeGridClip)")
+   .attr("transform", "translate(0, 0)")
    .style("text-anchor", "end")
    .call(yGrid);
 

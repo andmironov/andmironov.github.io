@@ -1,23 +1,24 @@
 var d3 = require("./lib/d3.js");
 var DOMObserver = require("./lib/DOMObserver.js");
+
 var dataset = [
                 {
                   week: "7–13 DEC",
-                  data: [3, 5, 5, 2, 10, 6, 9]
+                  data: [2500, 1400, 1600, 1250, 980, 2200, 1450]
                 },
 
                 {
                   week: "14–20 DEC",
-                  data: [2, 4, 6, 15, 14, 8, 10]
+                    data: [2500, 1400, 1600, 1250, 980, 2200, 1450]
                 },
 
                 {
                   week: "21–27 DEC",
-                  data: [5, 7, 7, 8, 18, 21, 12]
+                    data: [2500, 1400, 1600, 1250, 980, 2200, 1450]
                 }
               ];
 
-var max = 28;
+var max = 3400;
 
 var graphContainer = ".graph--weekly-income-graph";
 var graphContainerInner = graphContainer + " .graph__data-visualisation";
@@ -25,33 +26,28 @@ var graphContainerInner = graphContainer + " .graph__data-visualisation";
 var interpolation = "basis";
 var bisect = d3.bisector(function(d) { return d[0] }).left;
 
-
-var graphTopPadding = 20;
-var graphBottomPadding = 60;
-var graphRightPadding = 70;
-var xAxisPadding = [7, 20, 20, 0];
+var graphPadding = {top: 0, right: 70, bottom: 60, left: 0};
+var axesPadding = {top: 0, right: 20, bottom: 20, left: 0};
 
 //Chart settings
 var graphWidth = 440;
-var graphHeight = 380 + graphTopPadding;
-
+var graphHeight = 400;
 
 var xGroupScale = d3.scale.ordinal()
                           .domain(dataset.map(function(d) { return d.week }))
-                          .rangeRoundBands([0, graphWidth-graphRightPadding], .2);
-
+                          .rangeRoundBands([0, graphWidth - graphPadding.right], .2);
 
 var xBarScale = d3.scale.ordinal()
-                        .domain([0, 1, 2, 3, 4, 5, 6])
-                        .rangeRoundBands([1, xGroupScale.rangeBand()], .3);
+                        .domain(d3.range(7))
+                        .rangeRoundBands([0, xGroupScale.rangeBand()], .3);
 
 var initialYScale = d3.scale.linear()
                      .domain([0, max])
-                     .range([graphHeight, graphHeight]);
+                     .range([0, 0]);
 
 var yScale = d3.scale.linear()
                      .domain([0, max])
-                     .range([graphHeight - graphBottomPadding, 0]);
+                     .range([graphHeight , 0]);
 
 var yGrid = d3.svg.axis()
                   .scale(yScale)
@@ -111,7 +107,6 @@ var week = svg.selectAll(".graph__week")
               .attr("class", "graph__week")
               .attr("transform", function(d) { return "translate(" + xGroupScale(d.week) + "," + "0" + ")"; });
 
-
 week.selectAll("rect")
     .data(function(d) { return d.data })
     .enter()
@@ -121,33 +116,34 @@ week.selectAll("rect")
     .attr("rx", 4)
     .attr("ry", 4)
     .attr("x", function(d, i) { return xBarScale(i) })
-    .attr("y", function(d){return initialYScale(d) - graphBottomPadding})
-    .attr("height", function(d) { return graphHeight - initialYScale(d) })
+    .attr("y", graphHeight - graphPadding.bottom)
+    .attr("height", function(d) { return initialYScale(d) })
     .attr("fill", function(d, i) { return i > 4 ? "#3F9E5F" : "#65C284"});
+
 
 //Add clippath for the grid
 svg.append("clipPath")
-   .attr("id", "gridClip")
+   .attr("id", "weeklyIncomeGridClip")
    .append("rect")
    .attr("width", graphWidth - 70)
-   .attr("height", graphHeight - 70);
+   .attr("height", graphHeight );
 
 svg.append("g")
   .attr("class", "graph__axis graph__axis--x")
-  .attr("transform", "translate(" + xAxisPadding[3] + ", " + (graphHeight - xAxisPadding[2]) + ")")
+  .attr("transform", "translate(0, " + (graphHeight - axesPadding.bottom) + ")")
   .call(xAxis);
 
 svg.append("g")
   .attr("class", "graph__axis graph__axis--y")
-  .attr("transform", "translate(" + (graphWidth - xAxisPadding[1]) + ", " + (xAxisPadding[0] + graphTopPadding) + ")")
+  .attr("transform", "translate(" + (graphWidth - axesPadding.right) + ", " + (-graphPadding.bottom) + ")")
   .style("text-anchor", "end")
   .call(yAxis);
 
 //Draw grid
 svg.append("g")
    .attr("class", "graph__grid graph__grid--y")
-   .attr("clip-path", "url(#gridClip)")
-   .attr("transform", "translate(0, " + (xAxisPadding[0] + graphTopPadding) + ")")
+   .attr("clip-path", "url(#weeklyIncomeGridClip)")
+   .attr("transform", "translate(0, " + (-graphPadding.bottom) + ")")
    .style("text-anchor", "end")
    .call(yGrid);
 
@@ -208,18 +204,19 @@ onScrollY();
 
 observer.addCallbacks({
   onScrollYUpdate: onScrollY
-})
+});
 
 var graphShown = false;
+
 function onScrollY() {
   scrollY = observer.getScrollY()
   if(!graphContainerOffsetTop) return;
   if(graphShown) return;
   if((graphContainerOffsetTop - scrollY) <  (viewportHeight - (graphContainerHeight/2))) {
-    initialYScale.range([graphHeight - graphBottomPadding, 0])
+    initialYScale.range([graphHeight , 0]);
     week.selectAll("rect").transition().duration(750)
-        .attr("y", function(d){return initialYScale(d) - graphBottomPadding})
-        .attr("height", function(d) { return graphHeight - initialYScale(d) })
+        .attr("y", function(d){ return initialYScale(d) - graphPadding.bottom })
+        .attr("height", function(d) {return graphHeight - initialYScale(d)})
     graphShown = true;
   }
 }
