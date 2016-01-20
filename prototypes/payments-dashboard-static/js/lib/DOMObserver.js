@@ -29,12 +29,16 @@ var cloneObject = require('lodash.clone');
 
     //Event handlers
     function onScroll() {
+      getScroll();
+      requestTick("scrollY");
+    };
+
+    function getScroll() {
       latestScrollY = window.pageYOffset || document.documentElement.scrollTop;
       if (latestScrollY === currentScrollY)  {
         return;
       }
       currentScrollY = latestScrollY;
-      requestTick("scrollY");
     };
 
     function onResize() {
@@ -94,6 +98,8 @@ var cloneObject = require('lodash.clone');
 
       if (!elementsToObserve.hasOwnProperty(toAdd.name)) {
         elementsToObserve[toAdd.name] = toAdd.element;
+        getScroll();
+
         handleElementDimentions();
         if(toStart) this.start();
       }

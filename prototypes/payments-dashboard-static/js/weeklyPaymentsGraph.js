@@ -122,35 +122,36 @@ svg.append("g")
    .style("text-anchor", "end")
    .call(yGrid);
 
-var observer = new DOMObserver();
+   //Add observer
+   var observer = new DOMObserver();
 
-observer.addElement({
-  element: document.querySelector(graphContainer),
-  name:"graphContainer"
-});
+   observer.addElement({
+     element: document.querySelector(graphContainer),
+     name:"graphContainer"
+   });
 
-var scrollY = observer.getScrollY();
-var graphContaineroffsetTop = observer.getPropertyValue("graphContainer", "offsetTop")
-var viewportHeight = observer.getViewport().height;
-onScrollY();
+   var scrollY = observer.getScrollY();
+   var graphContainerHeight = observer.getPropertyValue("graphContainer", "height")
+   var graphContainerOffsetTop = observer.getPropertyValue("graphContainer", "offsetTop")
+   var viewportHeight = observer.getViewport().height;
 
+   onScrollY();
 
-observer.addCallbacks({
-  onScrollYUpdate: onScrollY
-})
+   observer.addCallbacks({
+     onScrollYUpdate: onScrollY
+   })
 
-var graphShown = false;
-function onScrollY() {
-  scrollY = observer.getScrollY()
+   var graphShown = false;
+   function onScrollY() {
+     scrollY = observer.getScrollY()
+     if(!graphContainerOffsetTop) return;
+     if(graphShown) return;
 
-  if(!graphContaineroffsetTop) return;
-  if(graphShown) return;
-
-  if((graphContaineroffsetTop - scrollY) < viewportHeight/2){
-    initialYScale.range([graphHeight - graphBottomPadding, 0])
-    week.selectAll("rect").transition().duration(750)
-        .attr("y", function(d){return initialYScale(d) - graphBottomPadding})
-        .attr("height", function(d) { return graphHeight - initialYScale(d) })
-    graphShown = true;
-  }
-}
+       if( (graphContainerOffsetTop - scrollY) <  (viewportHeight - (graphContainerHeight/2)) ){
+       initialYScale.range([graphHeight - graphBottomPadding, 0])
+       week.selectAll("rect").transition().duration(750)
+           .attr("y", function(d){return initialYScale(d) - graphBottomPadding})
+           .attr("height", function(d) { return graphHeight - initialYScale(d) })
+       graphShown = true;
+     }
+   }

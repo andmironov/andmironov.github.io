@@ -23,6 +23,8 @@ var graphContainer = ".graph--weekly-income-graph";
 var graphContainerInner = graphContainer + " .graph__data-visualisation";
 
 var interpolation = "basis";
+var bisect = d3.bisector(function(d) { return d[0] }).left;
+
 
 var graphTopPadding = 20;
 var graphBottomPadding = 60;
@@ -121,7 +123,7 @@ week.selectAll("rect")
     .attr("x", function(d, i) { return xBarScale(i) })
     .attr("y", function(d){return initialYScale(d) - graphBottomPadding})
     .attr("height", function(d) { return graphHeight - initialYScale(d) })
-    .attr("fill", function(d, i) { return i > 4 ? "#3F9E5F" : "#65C284"})
+    .attr("fill", function(d, i) { return i > 4 ? "#3F9E5F" : "#65C284"});
 
 //Add clippath for the grid
 svg.append("clipPath")
@@ -150,17 +152,38 @@ svg.append("g")
    .call(yGrid);
 
 //Register Events
-svg.on("mouseover", function() {focus.style("opacity", 1)})
- .on("mouseout", mouseOut)
- .on("mousemove", mouseMove);
+week.on("mouseover", function() {focus.style("opacity", 1)})
+   .on("mouseout", mouseOut)
+   .on("mousemove", mouseMove);
 
  function mouseMove() {
    var m = d3.mouse(this);
-   //var x0 = xGroupScale.invert(m[0]);
+   //console.log(xGroupScale.rangeBand());
 
-   console.log(m[0]);
-   console.log(xBarScale.rangeBand());
-   console.log(xGroupScale.rangeBand());
+   //console.log(m[0]);
+   var range = xBarScale.range();
+   //console.log(range);
+
+   var i = d3.bisectLeft(range, m[0]);
+
+   var d0 = dataset[0].data;
+
+
+    console.log(d0[i-1]);
+
+
+    /*
+   var d0 = dataset[i - 1];
+   var d1 = dataset[i];
+   if(!d0 || !d1) return;
+   var d = x0 - d0[0] > d1[0] - x0 ? d1 : d0;
+
+   focus.transition()
+     .ease("linear")
+     .duration(100)
+     .attr("transform", "translate(" + xScale(parseTime(d[0])) + "," + yScale(d[1]) + ")");
+   focus.select("text").text(d[1]);
+   */
  }
 
  function mouseOut() {
@@ -177,10 +200,11 @@ observer.addElement({
 });
 
 var scrollY = observer.getScrollY();
-var graphContaineroffsetTop = observer.getPropertyValue("graphContainer", "offsetTop")
+var graphContainerHeight = observer.getPropertyValue("graphContainer", "height")
+var graphContainerOffsetTop = observer.getPropertyValue("graphContainer", "offsetTop")
 var viewportHeight = observer.getViewport().height;
-onScrollY();
 
+onScrollY();
 
 observer.addCallbacks({
   onScrollYUpdate: onScrollY
@@ -189,11 +213,9 @@ observer.addCallbacks({
 var graphShown = false;
 function onScrollY() {
   scrollY = observer.getScrollY()
-
-  if(!graphContaineroffsetTop) return;
+  if(!graphContainerOffsetTop) return;
   if(graphShown) return;
-
-  if((graphContaineroffsetTop - scrollY) < viewportHeight/2){
+  if((graphContainerOffsetTop - scrollY) <  (viewportHeight - (graphContainerHeight/2))) {
     initialYScale.range([graphHeight - graphBottomPadding, 0])
     week.selectAll("rect").transition().duration(750)
         .attr("y", function(d){return initialYScale(d) - graphBottomPadding})
