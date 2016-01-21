@@ -4,7 +4,7 @@ var DOMObserver = require("./lib/DOMObserver.js");
 var dataset = [
                 {
                   week: "7–13 DEC",
-                  data: [2500, 1400, 1600, 1250, 980, 2200, 1450]
+                  data: [2200, 1400, 1600, 1250, 980, 2200, 1450]
                 },
 
                 {
@@ -14,7 +14,7 @@ var dataset = [
 
                 {
                   week: "21–27 DEC",
-                    data: [2500, 1400, 1600, 1250, 980, 2200, 1450]
+                    data: [2400, 1400, 1600, 1250, 980, 2200, 1450]
                 }
               ];
 
@@ -148,24 +148,20 @@ svg.append("g")
    .call(yGrid);
 
 //Register Events
-week.on("mouseover", function() {focus.style("opacity", 1)})
+d3.selectAll(".graph__bar").on("mouseover", function() {focus.style("opacity", 1)})
    .on("mouseout", mouseOut)
    .on("mousemove", mouseMove);
 
  function mouseMove() {
+
+
    var m = d3.mouse(this);
-   //console.log(xGroupScale.rangeBand());
+   console.log(m);
 
-   //console.log(m[0]);
-   var range = xBarScale.range();
-   //console.log(range);
-
-   var i = d3.bisectLeft(range, m[0]);
-
-   var d0 = dataset[0].data;
-
-
-    console.log(d0[i-1]);
+   //var range = xBarScale.range();
+   //var i = d3.bisectLeft(range, m[0]);
+   //var d0 = dataset[0].data;
+   //if(d0[i-1]) console.log(d0[i-1]);
 
 
     /*
