@@ -159,6 +159,8 @@ svg.on("mouseover", function() {focus.style("opacity", 1)})
    var m = d3.mouse(this);
    console.log(m[0]);
 
+   d3.selectAll(this).attr("x")
+
   // var xPosition,
   //      parentXPosition,
 	//		yPosition = parseInt(d3.select(this).attr("y") );
