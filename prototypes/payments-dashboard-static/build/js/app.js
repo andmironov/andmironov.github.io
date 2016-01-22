@@ -1282,6 +1282,7 @@ var week = svg.selectAll(".graph__week")
               .enter()
               .append("g")
               .attr("class", "graph__week")
+              .attr("x", function(d, i) { return xGroupScale(d.week) })
               .attr("transform", function(d) { return "translate(" + xGroupScale(d.week) + "," + "0" + ")"; });
 
 week.selectAll("rect")
@@ -1325,7 +1326,7 @@ svg.append("g")
    .call(yGrid);
 
 //Register Events
-d3.selectAll(".graph__bar").on("mouseover", function() {focus.style("opacity", 1)})
+svg.on("mouseover", function() {focus.style("opacity", 1)})
    .on("mouseout", mouseOut)
    .on("mousemove", mouseMove);
 
@@ -1333,7 +1334,15 @@ d3.selectAll(".graph__bar").on("mouseover", function() {focus.style("opacity", 1
 
 
    var m = d3.mouse(this);
-   console.log(m);
+   console.log(m[0]);
+
+  // var xPosition,
+  //      parentXPosition,
+	//		yPosition = parseInt(d3.select(this).attr("y") );
+
+  //    xPosition = parseFloat(d3.select(this).attr("x"));
+  //    parentXPosition = parseFloat(d3.select(this.parentNode).attr("x"));
+  // console.log(parentXPosition);
 
    //var range = xBarScale.range();
    //var i = d3.bisectLeft(range, m[0]);
@@ -1346,13 +1355,14 @@ d3.selectAll(".graph__bar").on("mouseover", function() {focus.style("opacity", 1
    var d1 = dataset[i];
    if(!d0 || !d1) return;
    var d = x0 - d0[0] > d1[0] - x0 ? d1 : d0;
-
+*/
    focus.transition()
      .ease("linear")
      .duration(100)
-     .attr("transform", "translate(" + xScale(parseTime(d[0])) + "," + yScale(d[1]) + ")");
-   focus.select("text").text(d[1]);
-   */
+     .attr("transform", "translate(" + (m[0]) + "," + 40 + ")");
+
+   focus.select("text").text("");
+
  }
 
  function mouseOut() {
