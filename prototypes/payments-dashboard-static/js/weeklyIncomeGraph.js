@@ -155,11 +155,29 @@ svg.on("mouseover", function() {focus.style("opacity", 1)})
 
  function mouseMove() {
 
-
    var m = d3.mouse(this);
-   console.log(m[0]);
 
-   d3.selectAll(this).attr("x")
+   var barpositions = [];
+   var groupRange = xGroupScale.range();
+   var barRange = xBarScale.range();
+
+   groupRange.forEach(function(groupRangeItem, groupRangeItemIndex) {
+
+     barRange.forEach(function(barRangeItem, barRangeItemIndex) {
+       //barpositions[groupRangeItemIndex] =
+     });
+
+   });
+
+   
+
+   console.log(barpositions);
+
+
+   //get y pos of cursor
+   //find out which bar has this y pos
+
+
 
   // var xPosition,
   //      parentXPosition,
