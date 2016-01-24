@@ -1,5 +1,3 @@
-var classNames = require("classnames");
-
 function Menu() {
   var menu = document.querySelector(".header-menu"),
       menuIcon = document.querySelector(".header-menu__icon"),
