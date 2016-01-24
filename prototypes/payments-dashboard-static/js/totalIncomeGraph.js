@@ -474,7 +474,7 @@ function mouseMove() {
        .attr("transform", "translate(" + xScale(parseTime(d[0])) + "," + yScale(d[1]) + ")");
 
   focus.select("text")
-       .text(d[1]);
+       .text("$"+ d[1]);
 
   hoverLine.transition()
            .ease("linear")

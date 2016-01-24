@@ -80,7 +80,7 @@ svg.append("g")
    .attr("transform", "translate(0, " + (-graphPadding.bottom) + ")")
    .style("text-anchor", "end")
    .call(yGrid);
-   
+
 //Add tooltip
  var hoverLineGroup = svg.append("g")
  					              .attr("class", "graph__hover-line");
@@ -243,7 +243,7 @@ function hidetoolTip() {
         .duration(100)
         .attr("transform", "translate(" + (xPosition) + ",40)");
 
-   focus.select("text").text(text);
+   focus.select("text").text("$" + text);
  }
 
 //Add observer

@@ -215,7 +215,7 @@ d3.selectAll(graphContainer + " .data-swither")
      .duration(100)
      .attr("transform", "translate(" + xScale(parseTime(d[0])) + "," + yScale(d[1]) + ")");
 
-   focus.select("text").text(d[1]);
+   focus.select("text").text("$" + d[1]);
  }
 
  function mouseOut() {
@@ -1279,7 +1279,7 @@ function mouseMove() {
        .attr("transform", "translate(" + xScale(parseTime(d[0])) + "," + yScale(d[1]) + ")");
 
   focus.select("text")
-       .text(d[1]);
+       .text("$"+ d[1]);
 
   hoverLine.transition()
            .ease("linear")
@@ -1438,7 +1438,7 @@ svg.append("g")
    .attr("transform", "translate(0, " + (-graphPadding.bottom) + ")")
    .style("text-anchor", "end")
    .call(yGrid);
-   
+
 //Add tooltip
  var hoverLineGroup = svg.append("g")
  					              .attr("class", "graph__hover-line");
@@ -1601,7 +1601,7 @@ function hidetoolTip() {
         .duration(100)
         .attr("transform", "translate(" + (xPosition) + ",40)");
 
-   focus.select("text").text(text);
+   focus.select("text").text("$" + text);
  }
 
 //Add observer

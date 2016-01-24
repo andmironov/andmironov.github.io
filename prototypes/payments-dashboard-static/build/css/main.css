@@ -492,7 +492,7 @@ a.footer__logo:hover {
 .data-swither {
   display: inline-block;
   vertical-align: top;
-  width: 140px;
+  width: 150px;
   height: 80px;
   margin: 0 10px 0 0;
   padding: 12px;
@@ -536,7 +536,7 @@ a.footer__logo:hover {
   height: 24px;
   position: absolute;
   right: 10px;
-  top: 10px;
+  top: 12px;
   background-image: url(../assets/positive_trend_icon_gray.svg);
   background-size: 24px; }
 

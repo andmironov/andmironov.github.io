@@ -214,7 +214,7 @@ d3.selectAll(graphContainer + " .data-swither")
      .duration(100)
      .attr("transform", "translate(" + xScale(parseTime(d[0])) + "," + yScale(d[1]) + ")");
 
-   focus.select("text").text(d[1]);
+   focus.select("text").text("$" + d[1]);
  }
 
  function mouseOut() {
