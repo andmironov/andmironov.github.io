@@ -537,14 +537,14 @@ a.footer__logo:hover {
   position: absolute;
   right: 10px;
   top: 10px;
-  background-image: url(../assets/positive_trend_icon.svg);
+  background-image: url(../assets/positive_trend_icon_gray.svg);
   background-size: 24px; }
 
 .data-swither__trend.data-swither__trend--positive {
-  background-image: url(../assets/positive_trend_icon.svg); }
+  background-image: url(../assets/positive_trend_icon_gray.svg); }
 
 .graph--daily-payments-graph .data-swither__trend.data-swither__trend--positive {
-  background-image: url(../assets/blue_positive_trend_icon.svg); }
+  background-image: url(../assets/positive_trend_icon_gray.svg); }
 
 .data-swither__trend.data-swither__trend--negative {
   background-image: url(../assets/negative_trend_icon.svg); }
@@ -626,7 +626,8 @@ a.footer__logo:hover {
   opacity: .2; }
 
 .graph--daily-payments-graph .graph__area {
-  fill: #D3F1FF; }
+  fill: #6DCAF6;
+  opacity: .3; }
 
 .graph--daily-payments-graph .graph__circle {
   fill: #C5EAFC;

@@ -90,15 +90,12 @@ var line = d3.svg.line()
                 .y(function(d) { return initialYScale(d[1]) })
                 .interpolate(interpolation);
 
-
 //Add clippath for the grid
 svg.append("clipPath")
    .attr("id", "dailyIncomeGridClip")
    .append("rect")
    .attr("width", graphWidth - 70)
    .attr("height", graphHeight - 70);
-
-//Add clippath for tooltip
 
 var graphAxisX = svg.append("g")
   .attr("class", "graph__axis graph__axis--x")
@@ -110,6 +107,14 @@ var graphAxisY =  svg.append("g")
   .attr("transform", "translate(" + (graphWidth - xAxisPadding[1]) + ", 0)")
   .style("text-anchor", "end")
   .call(yAxis);
+
+//Draw grid
+svg.append("g")
+   .attr("class", "graph__grid graph__grid--y")
+   .attr("clip-path", "url(#dailyIncomeGridClip)")
+   .attr("transform", "translate(0, 0)")
+   .style("text-anchor", "end")
+   .call(yGrid);
 
 //Draw area
 var graphArea = svg.append("path")
@@ -171,14 +176,6 @@ focus.append("text")
      .attr("fill", "white")
      .attr("text-anchor", "middle")
      .attr("dy", ".35em");
-
-//Draw grid
-svg.append("g")
-   .attr("class", "graph__grid graph__grid--y")
-   .attr("clip-path", "url(#dailyIncomeGridClip)")
-   .attr("transform", "translate(0, 0)")
-   .style("text-anchor", "end")
-   .call(yGrid);
 
 //Register Events
 svg.on("mouseover", function() {focus.style("opacity", 1)})

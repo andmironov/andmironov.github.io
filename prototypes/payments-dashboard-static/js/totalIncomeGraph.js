@@ -335,6 +335,24 @@ var line = d3.svg.line()
                  .y(function(d) { return initialYScale(d[1]) })
                  .interpolate(interpolation);
 
+//Draw grid
+svg.append("g")
+   .attr("class", "graph__grid graph__grid--y")
+   .attr("clip-path", "url(#totalPaymentsGridClip)")
+   .attr("transform", "translate(0, " + 0 + ")")
+   .style("text-anchor", "end")
+   .call(yGrid);
+
+//Add hoverline
+var hoverLineGroup = svg.append("g")
+					              .attr("class", "graph__hover-line");
+
+var hoverLine = hoverLineGroup.append("line")
+                         		  .attr("x1", -1)
+                              .attr("x2", -1)
+                              .attr("y1", 40)
+                              .attr("y2", graphHeight - graphPadding.bottom)
+                              .style("opacity", 0);
 //Draw area
 var graphArea = svg.append("path")
                    .attr("class", "graph__area")
@@ -350,16 +368,6 @@ var graphLine = svg.append("path")
                    .attr("d", line);
 
 //Add tooltips
-var hoverLineGroup = svg.append("g")
- 					              .attr("class", "graph__hover-line");
-
-var hoverLine = hoverLineGroup.append("line")
-                          		.attr("x1", -1)
-                              .attr("x2", -1)
-                          		.attr("y1", 40)
-                              .attr("y2", graphHeight - graphPadding.bottom)
-                              .style("opacity", 0);
-
 var focus = svg.append("g")
                .attr("class", "graph__focus")
                .attr("transform", "translate(-10, -10)");
@@ -408,14 +416,6 @@ var graphAxisy = svg.append("g")
   .attr("transform", "translate(" + (graphWidth - xAxisPadding[1]) + ", " + (0) + ")")
   .style("text-anchor", "end")
   .call(yAxis);
-
-//Draw grid
-svg.append("g")
-   .attr("class", "graph__grid graph__grid--y")
-   .attr("clip-path", "url(#totalPaymentsGridClip)")
-   .attr("transform", "translate(0, " + 0 + ")")
-   .style("text-anchor", "end")
-   .call(yGrid);
 
 d3.selectAll(graphContainer + " .data-swither")
   .on("click", function(){

@@ -88,6 +88,14 @@ var line = d3.svg.line()
                  .y(function(d) { return initialYScale(d[1]) })
                  .interpolate(interpolation);
 
+//Draw grid
+svg.append("g")
+   .attr("class", "graph__grid graph__grid--y")
+   .attr("clip-path", "url(#dailyPaymentsGridClip)")
+   .attr("transform", "translate(0, " + 0 + ")")
+   .style("text-anchor", "end")
+   .call(yGrid);
+
 //Draw area
 var graphArea = svg.append("path")
                     .attr("class", "graph__area")
@@ -168,14 +176,6 @@ var graphAxisy = svg.append("g")
   .attr("transform", "translate(" + (graphWidth - xAxisPadding[1]) + ", " + (0) + ")")
   .style("text-anchor", "end")
   .call(yAxis);
-
-//Draw grid
-svg.append("g")
-   .attr("class", "graph__grid graph__grid--y")
-   .attr("clip-path", "url(#dailyPaymentsGridClip)")
-   .attr("transform", "translate(0, " + 0 + ")")
-   .style("text-anchor", "end")
-   .call(yGrid);
 
 //Register Events
 svg.on("mouseover", function() {focus.style("opacity", 1)})

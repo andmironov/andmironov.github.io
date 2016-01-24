@@ -108,16 +108,16 @@
   position: absolute;
   right: 10px;
   top: 10px;
-  background-image: url(../assets/positive_trend_icon.svg);
+  background-image: url(../assets/positive_trend_icon_gray.svg);
   background-size: 24px;
 }
 
 .data-swither__trend.data-swither__trend--positive {
-  background-image: url(../assets/positive_trend_icon.svg);
+  background-image: url(../assets/positive_trend_icon_gray.svg);
 }
 
 .graph--daily-payments-graph .data-swither__trend.data-swither__trend--positive {
-  background-image: url(../assets/blue_positive_trend_icon.svg);
+  background-image: url(../assets/positive_trend_icon_gray.svg);
 }
 
 .data-swither__trend.data-swither__trend--negative {

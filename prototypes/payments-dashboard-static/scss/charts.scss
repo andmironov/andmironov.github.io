@@ -24,7 +24,7 @@
   display: none;
 }
 
-//Ales labels
+//Axis labels
 .graph__axis text {
     font-family: 'MuseoSansRegular';
     font-size: 12px;
@@ -48,7 +48,6 @@
   fill: none;
   stroke: #979797;
   stroke-dasharray: 4,2;
-  //opacity: 0;
   transition: opacity 0.1s ease;
 }
 
@@ -63,7 +62,8 @@
 }
 
 .graph--daily-payments-graph .graph__area {
-  fill: #D3F1FF;
+  fill: #6DCAF6;
+  opacity: .3;
 }
 
 .graph--daily-payments-graph .graph__circle {
