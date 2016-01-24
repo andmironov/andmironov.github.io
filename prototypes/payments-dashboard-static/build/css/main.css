@@ -33,6 +33,116 @@ table {
 div {
   box-sizing: border-box; }
 
+/* ----------------------------------------------------------------------------------------------------
+
+Super Form Reset
+
+A couple of things to watch out for:
+
+- IE8: If a text input doesn't have padding on all sides or none the text won't be centered.
+- The default border sizes on text inputs in all UAs seem to be slightly different. You're better off using custom borders.
+- You NEED to set the font-size and family on all form elements
+- Search inputs need to have their appearance reset and the box-sizing set to content-box to match other UAs
+- You can style the upload button in webkit using ::-webkit-file-upload-button
+- ::-webkit-file-upload-button selectors can't be used in the same selector as normal ones. FF and IE freak out.
+- IE: You don't need to fake inline-block with labels and form controls in IE. They function as inline-block.
+- By turning off ::-webkit-search-decoration, it removes the extra whitespace on the left on search inputs
+
+----------------------------------------------------------------------------------------------------*/
+input,
+label,
+select,
+button,
+textarea {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  display: inline-block;
+  vertical-align: middle;
+  white-space: normal;
+  background: none;
+  line-height: 1;
+  /* Browsers have different default form fonts */
+  font-size: 13px;
+  font-family: Arial; }
+
+/* Remove the stupid outer glow in Webkit */
+input:focus {
+  outline: 0; }
+
+/* Box Sizing Reset
+-----------------------------------------------*/
+/* All of our custom controls should be what we expect them to be */
+input,
+textarea {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box; }
+
+/* These elements are usually rendered a certain way by the browser */
+button,
+input[type=reset],
+input[type=button],
+input[type=submit],
+input[type=checkbox],
+input[type=radio],
+select {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+/* Text Inputs
+-----------------------------------------------*/
+/* Button Controls
+-----------------------------------------------*/
+input[type=checkbox],
+input[type=radio] {
+  width: 13px;
+  height: 13px; }
+
+/* File Uploads
+-----------------------------------------------*/
+/* Search Input
+-----------------------------------------------*/
+/* Make webkit render the search input like a normal text field */
+input[type=search] {
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box; }
+
+/* Turn off the recent search for webkit. It adds about 15px padding on the left */
+::-webkit-search-decoration {
+  display: none; }
+
+/* Buttons
+-----------------------------------------------*/
+button,
+input[type="reset"],
+input[type="button"],
+input[type="submit"] {
+  /* Fix IE7 display bug */
+  overflow: visible;
+  width: auto; }
+
+/* IE8 and FF freak out if this rule is within another selector */
+::-webkit-file-upload-button {
+  padding: 0;
+  border: 0;
+  background: none; }
+
+/* Textarea
+-----------------------------------------------*/
+textarea {
+  /* Move the label to the top */
+  vertical-align: top;
+  /* Turn off scroll bars in IE unless needed */
+  overflow: auto; }
+
+/* Selects
+-----------------------------------------------*/
+select[multiple] {
+  /* Move the label to the top */
+  vertical-align: top; }
+
 /* font-family: "MuseoSansRegular"; */
 @font-face {
   font-family: "MuseoSansRegular";
@@ -142,14 +252,25 @@ body {
 
 .header-search {
   background-color: whitesmoke;
+  border: 1px solid whitesmoke;
   height: 40px;
   width: 200px;
   background-image: url(../assets/search_icon.svg);
   background-size: 19px;
   background-repeat: no-repeat;
   background-position: 164px center;
-  padding: 20px 12px;
   border-radius: 20px; }
+
+.header-search__input {
+  height: 18px;
+  border-radius: 20px;
+  width: 170px;
+  padding: 12px 15px 10px; }
+
+.header-search__input::-webkit-input-placeholder {
+  font-size: 14px;
+  color: #A8A8A8;
+  font-family: "MuseoSansLight"; }
 
 .header-menu {
   display: block;
@@ -158,13 +279,39 @@ body {
   position: relative;
   cursor: pointer; }
 
+.header-menu__notification {
+  position: absolute;
+  z-index: 800;
+  top: -10px;
+  left: -10px;
+  background-color: #6c4499;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  transform: scale(0.5);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.135, 1.425); }
+
+.header-menu__notification-counter {
+  position: absolute;
+  z-index: 900;
+  top: -6px;
+  left: -10px;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  font-size: 12px;
+  color: white;
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity .2s ease, transform .2s ease; }
+
 .header-menu__line {
   position: absolute;
   left: 0;
   background-color: #343038;
   height: 2px;
   width: 20px;
-  transition: transform .2s linear; }
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.135, 1.425); }
 
 .header-menu__line:nth-child(1) {
   top: 0;
@@ -172,14 +319,21 @@ body {
 
 .header-menu__line:nth-child(2) {
   top: 6px;
-  transform: scaleX(0.8) translate3d(-2px, 0, 0); }
+  transform: scaleX(0.76) translate3d(-3px, 0, 0); }
 
 .header-menu__line:nth-child(3) {
   top: 12px;
-  transform: scaleX(1.1) translate3d(1px, 0, 0); }
+  transform: scaleX(1.2) translate3d(1.5px, 0, 0); }
 
 .header-menu:hover .header-menu__line {
   transform: scaleX(1) translate3d(0, 0, 0); }
+
+.header-menu:hover .header-menu__notification {
+  transform: scaleX(1); }
+
+.header-menu:hover .header-menu__notification-counter {
+  opacity: 1;
+  transform: scaleX(1); }
 
 .footer {
   display: flex;
@@ -256,7 +410,7 @@ a.footer__logo:hover {
   align-items: center;
   flex-direction: column;
   text-align: center;
-  padding: 30px 0 50px 0; }
+  padding: 30px 0 40px 0; }
 
 .sidebar-user-profile__avatar {
   height: 80px;
@@ -265,10 +419,12 @@ a.footer__logo:hover {
   border-radius: 50%;
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat; }
+  background-repeat: no-repeat;
+  background-image: url(../assets/chris.jpg); }
 
 .sidebar-user-profile__name {
-  margin: 20px 0 0 0; }
+  margin: 15px 0 0 0;
+  font-size: 14px; }
 
 .sidebar-nav {
   padding: 0 0 20px 0; }
@@ -338,7 +494,7 @@ a.footer__logo:hover {
   vertical-align: top;
   width: 140px;
   height: 80px;
-  margin: 0 20px 0 0;
+  margin: 0 10px 0 0;
   padding: 12px;
   background: white;
   border-radius: 6px;

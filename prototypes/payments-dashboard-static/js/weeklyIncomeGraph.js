@@ -73,6 +73,51 @@ var svg = d3.select(graphContainerInner)
 						.attr("width", graphWidth)
 						.attr("height", graphHeight);
 
+//Draw grid
+svg.append("g")
+   .attr("class", "graph__grid graph__grid--y")
+   .attr("clip-path", "url(#weeklyIncomeGridClip)")
+   .attr("transform", "translate(0, " + (-graphPadding.bottom) + ")")
+   .style("text-anchor", "end")
+   .call(yGrid);
+   
+//Add tooltip
+ var hoverLineGroup = svg.append("g")
+ 					              .attr("class", "graph__hover-line");
+
+ var hoverLine = hoverLineGroup.append("line")
+                          		  .attr("x1", -1)
+                                .attr("x2", -1)
+                          		  .attr("y1", 40)
+                                .attr("y2", graphHeight - graphPadding.bottom)
+                                .style("opacity", 0);
+
+ var focus = svg.append("g")
+      .attr("class", "graph__focus")
+      .style("opacity", 0)
+      .attr("transform", "translate(-10, -10)");
+
+ focus.append("circle")
+     .attr("r", 6.2)
+     .attr("cx", 0)
+     .attr("cy", 0)
+
+ var focusRect = focus.append("rect")
+      .attr("x", -30)
+      .attr("y", -40)
+      .attr("rx", 16)
+      .attr("ry", 16)
+      .attr("width", 60)
+      .attr("height", 30)
+      .attr("fill", "#4FB972");
+
+ focus.append("text")
+      .attr("x", 0)
+      .attr("y", -25)
+      .attr("fill", "white")
+      .attr("text-anchor", "middle")
+      .attr("dy", ".35em");
+
 var week = svg.selectAll(".graph__week")
               .data(dataset)
               .enter()
@@ -111,51 +156,6 @@ svg.append("g")
   .attr("transform", "translate(" + (graphWidth - axesPadding.right) + ", " + (-graphPadding.bottom) + ")")
   .style("text-anchor", "end")
   .call(yAxis);
-
-//Draw grid
-svg.append("g")
-   .attr("class", "graph__grid graph__grid--y")
-   .attr("clip-path", "url(#weeklyIncomeGridClip)")
-   .attr("transform", "translate(0, " + (-graphPadding.bottom) + ")")
-   .style("text-anchor", "end")
-   .call(yGrid);
-
-//Add tooltip
- var hoverLineGroup = svg.append("g")
- 					              .attr("class", "graph__hover-line");
-
- var hoverLine = hoverLineGroup.append("line")
-                          		  .attr("x1", -1)
-                                .attr("x2", -1)
-                          		  .attr("y1", 40)
-                                .attr("y2", graphHeight - graphPadding.bottom)
-                                .style("opacity", 0);
-
- var focus = svg.append("g")
-      .attr("class", "graph__focus")
-      .style("opacity", 0)
-      .attr("transform", "translate(-10, -10)");
-
- focus.append("circle")
-     .attr("r", 6.2)
-     .attr("cx", 0)
-     .attr("cy", 0)
-
- var focusRect = focus.append("rect")
-      .attr("x", -30)
-      .attr("y", -40)
-      .attr("rx", 16)
-      .attr("ry", 16)
-      .attr("width", 60)
-      .attr("height", 30)
-      .attr("fill", "#4FB972");
-
- focus.append("text")
-      .attr("x", 0)
-      .attr("y", -25)
-      .attr("fill", "white")
-      .attr("text-anchor", "middle")
-      .attr("dy", ".35em");
 
 //Register Events
 var groupRange = xGroupScale.range();

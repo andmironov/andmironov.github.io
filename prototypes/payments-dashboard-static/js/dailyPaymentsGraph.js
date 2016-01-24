@@ -136,11 +136,11 @@ focus.append("circle")
     .attr("cy", 0)
 
 var focusRect = focus.append("rect")
-     .attr("x", -30)
+     .attr("x", -20)
      .attr("y", -40)
      .attr("rx", 16)
      .attr("ry", 16)
-     .attr("width", 60)
+     .attr("width", 40)
      .attr("height", 30)
      .attr("fill", "#6DCAF6");
 
