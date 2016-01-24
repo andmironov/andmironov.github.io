@@ -76,9 +76,9 @@
   stroke:#91DBA9;
 }
 
-.graph--total-income-graph .graph__circle {
-  fill: #DCF1E3;
-  stroke:#91DBA9;
+.graph--total-income-graph .graph__circle.graph__circle--moving {
+  fill: #000;
+  stroke:#000;
 }
 
 .focus text {

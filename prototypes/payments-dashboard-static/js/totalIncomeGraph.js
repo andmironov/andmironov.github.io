@@ -350,7 +350,7 @@ var hoverLineGroup = svg.append("g")
 var hoverLine = hoverLineGroup.append("line")
                          		  .attr("x1", -1)
                               .attr("x2", -1)
-                              .attr("y1", 40)
+                              .attr("y1", 30)
                               .attr("y2", graphHeight - graphPadding.bottom)
                               .style("opacity", 0);
 //Draw area
@@ -371,11 +371,6 @@ var graphLine = svg.append("path")
 var focus = svg.append("g")
                .attr("class", "graph__focus")
                .attr("transform", "translate(-10, -10)");
-
- focus.append("circle")
-      .attr("r", 6.2)
-      .attr("cx", 0)
-      .attr("cy", 0)
 
  var focusRect = focus.append("rect")
                       .attr("x", -30)

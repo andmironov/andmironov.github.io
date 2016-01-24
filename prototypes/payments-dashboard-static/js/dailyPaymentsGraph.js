@@ -207,7 +207,7 @@ function drawGraph() {
 function mouseMove() {
   var m = d3.mouse(this);
 
-  var x0 = xScale.invert(m[0]);
+  var x0 = xScale.invert(m[0]-graphPadding.left);
   var i = bisectDate(dataset, x0, 1);
   var d0 = dataset[i - 1];
   var d1 = dataset[i];
@@ -225,6 +225,7 @@ function mouseOut() {
   focus.style("opacity", 0);
   return;
 }
+
 
 //Update graph on swither click with animation
 var currentPosition = "today";
