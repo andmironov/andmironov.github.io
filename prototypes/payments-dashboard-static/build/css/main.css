@@ -459,7 +459,7 @@ a.footer__logo:hover {
   fill: none;
   stroke: #979797;
   stroke-dasharray: 4,2;
-  opacity: 0; }
+  transition: opacity 0.1s ease; }
 
 .graph--daily-income-graph .graph__area {
   fill: #4FB972;
@@ -491,8 +491,12 @@ a.footer__logo:hover {
   letter-spacing: 1px;
   fill: white; }
 
-.graph__bar:hover {
-  fill: black; }
+.graph__focus {
+  opacity: 0;
+  transition: opacity 0.1s ease, transform 0.1s ease; }
+
+.graph__focus.graph__focus--shown {
+  opacity: 1; }
 
 /*!
  * animate.css -http://daneden.me/animate

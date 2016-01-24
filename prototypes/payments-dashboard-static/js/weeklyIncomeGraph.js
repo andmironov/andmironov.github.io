@@ -18,16 +18,17 @@ var dataset = [
                 }
               ];
 
-var max = 3400;
+var max = 3800;
 
 var graphContainer = ".graph--weekly-income-graph";
 var graphContainerInner = graphContainer + " .graph__data-visualisation";
 
 var interpolation = "basis";
-var bisect = d3.bisector(function(d) { return d[0] }).left;
 
 var graphPadding = {top: 0, right: 70, bottom: 60, left: 0};
 var axesPadding = {top: 0, right: 20, bottom: 20, left: 0};
+
+var weeklyIncomegraphShown = false;
 
 //Chart settings
 var graphWidth = 440;
@@ -72,34 +73,6 @@ var svg = d3.select(graphContainerInner)
 						.attr("width", graphWidth)
 						.attr("height", graphHeight);
 
-//Add tooltips
-var focus = svg.append("g")
-     .attr("class", "graph__focus")
-     .style("opacity", 0)
-     .attr("transform", "translate(-10, -10)");
-
-focus.append("circle")
-    .attr("r", 6.2)
-    .attr("cx", 0)
-    .attr("cy", 0)
-
-var focusRect = focus.append("rect")
-     .attr("x", -30)
-     .attr("y", -40)
-     .attr("rx", 16)
-     .attr("ry", 16)
-     .attr("width", 60)
-     .attr("height", 30)
-     .attr("fill", "#4FB972");
-
-focus.append("text")
-     .attr("x", 0)
-     .attr("y", -25)
-     .attr("fill", "white")
-     .attr("text-anchor", "middle")
-     .attr("dy", ".35em");
-
-
 var week = svg.selectAll(".graph__week")
               .data(dataset)
               .enter()
@@ -120,7 +93,6 @@ week.selectAll("rect")
     .attr("y", graphHeight - graphPadding.bottom)
     .attr("height", function(d) { return initialYScale(d) })
     .attr("fill", function(d, i) { return i > 4 ? "#3F9E5F" : "#65C284"});
-
 
 //Add clippath for the grid
 svg.append("clipPath")
@@ -148,69 +120,130 @@ svg.append("g")
    .style("text-anchor", "end")
    .call(yGrid);
 
+//Add tooltip
+ var hoverLineGroup = svg.append("g")
+ 					              .attr("class", "graph__hover-line");
+
+ var hoverLine = hoverLineGroup.append("line")
+                          		  .attr("x1", -1)
+                                .attr("x2", -1)
+                          		  .attr("y1", 40)
+                                .attr("y2", graphHeight - graphPadding.bottom)
+                                .style("opacity", 0);
+
+ var focus = svg.append("g")
+      .attr("class", "graph__focus")
+      .style("opacity", 0)
+      .attr("transform", "translate(-10, -10)");
+
+ focus.append("circle")
+     .attr("r", 6.2)
+     .attr("cx", 0)
+     .attr("cy", 0)
+
+ var focusRect = focus.append("rect")
+      .attr("x", -30)
+      .attr("y", -40)
+      .attr("rx", 16)
+      .attr("ry", 16)
+      .attr("width", 60)
+      .attr("height", 30)
+      .attr("fill", "#4FB972");
+
+ focus.append("text")
+      .attr("x", 0)
+      .attr("y", -25)
+      .attr("fill", "white")
+      .attr("text-anchor", "middle")
+      .attr("dy", ".35em");
+
 //Register Events
-svg.on("mouseover", function() {focus.style("opacity", 1)})
+var groupRange = xGroupScale.range();
+var groupRangeBand = xGroupScale.rangeBand();
+
+var barRange = xBarScale.range();
+var barRangeBand = xBarScale.rangeBand();
+
+//Get bar positions
+var bars = [];
+groupRange.forEach(function(groupRangeItem, groupRangeItemIndex) {
+  bars[groupRangeItemIndex] = barRange.map(function(barRangeItem, barRangeItemIndex) {
+    item = [];
+    item[0] = barRangeItem + groupRangeItem + barRangeBand/2 ;
+    item[1] = dataset[groupRangeItemIndex].data[barRangeItemIndex];
+    return item;
+  });
+});
+
+var flatternedBars = d3.merge(bars);
+var barPositions = flatternedBars.map(function(item){return item[0]})
+var barData = flatternedBars.map(function(item){return item[1]})
+
+svg.on("mouseover", mouseover)
    .on("mouseout", mouseOut)
    .on("mousemove", mouseMove);
 
- function mouseMove() {
+function mouseover() {
+  var m = d3.mouse(this);
 
-   var m = d3.mouse(this);
+  //Show hoverline and tooltip only if user hovers on graph
+  if(m[0] > groupRange[0] && m[0] < (groupRange[groupRange.length - 1] + groupRangeBand)) showtoolTip();
+}
 
-   var barpositions = [];
-   var groupRange = xGroupScale.range();
-   var barRange = xBarScale.range();
+function mouseMove() {
+  var m = d3.mouse(this);
 
-   groupRange.forEach(function(groupRangeItem, groupRangeItemIndex) {
+  //Hide tooltip if user hovers not on graph
+  if(m[0] < groupRange[0] || m[0] > (groupRange[groupRange.length - 1] + groupRangeBand)) hidetoolTip();
 
-     barRange.forEach(function(barRangeItem, barRangeItemIndex) {
-       //barpositions[groupRangeItemIndex] =
-     });
+  //Find which bar is hovered
+  var i = d3.bisect(barPositions, m[0]);
 
-   });
+  var d0 = barData[i - 1];
+  var d1 = barData[i];
+  var d;
+  if (!d0) { d = barData[i]; p = barPositions[i]; }
+  if (!d1) { d = barData[i - 1]; p = barPositions[i - 1]; }
 
-   
+  if (d0 && d1) {
+    if(Math.abs(barPositions[i - 1] - m[0]) > Math.abs(barPositions[i] - m[0])){
+      d = barData[i];
+      p = barPositions[i];
+    } else {
+      d = barData[i - 1];
+      p = barPositions[i - 1];
+    }
+  }
 
-   console.log(barpositions);
+  updateTooltip(p, d);
+}
 
+function mouseOut() {
+  hidetoolTip();
+}
 
-   //get y pos of cursor
-   //find out which bar has this y pos
+function showtoolTip() {
+  focus.style("opacity", 1);
+  hoverLine.style("opacity", .4);
+}
 
+function hidetoolTip() {
+  focus.style("opacity", 0);
+  hoverLine.style("opacity", 0);
+}
 
+ function updateTooltip(xPosition, text) {
+   hoverLine.transition()
+            .ease("linear")
+            .duration(100)
+            .attr("transform", "translate(" + (xPosition + 1) + ", 0)");
 
-  // var xPosition,
-  //      parentXPosition,
-	//		yPosition = parseInt(d3.select(this).attr("y") );
-
-  //    xPosition = parseFloat(d3.select(this).attr("x"));
-  //    parentXPosition = parseFloat(d3.select(this.parentNode).attr("x"));
-  // console.log(parentXPosition);
-
-   //var range = xBarScale.range();
-   //var i = d3.bisectLeft(range, m[0]);
-   //var d0 = dataset[0].data;
-   //if(d0[i-1]) console.log(d0[i-1]);
-
-
-    /*
-   var d0 = dataset[i - 1];
-   var d1 = dataset[i];
-   if(!d0 || !d1) return;
-   var d = x0 - d0[0] > d1[0] - x0 ? d1 : d0;
-*/
    focus.transition()
-     .ease("linear")
-     .duration(100)
-     .attr("transform", "translate(" + (m[0]) + "," + 40 + ")");
+        .ease("linear")
+        .duration(100)
+        .attr("transform", "translate(" + (xPosition) + ",40)");
 
-   focus.select("text").text("");
-
- }
-
- function mouseOut() {
-   focus.style("opacity", 0);
-   return;
+   focus.select("text").text(text);
  }
 
 //Add observer
@@ -232,17 +265,16 @@ observer.addCallbacks({
   onScrollYUpdate: onScrollY
 });
 
-var graphShown = false;
-
 function onScrollY() {
   scrollY = observer.getScrollY()
-  if(!graphContainerOffsetTop) return;
-  if(graphShown) return;
-  if((graphContainerOffsetTop - scrollY) <  (viewportHeight - (graphContainerHeight/2))) {
-    initialYScale.range([graphHeight , 0]);
-    week.selectAll("rect").transition().duration(750)
-        .attr("y", function(d){ return initialYScale(d) - graphPadding.bottom })
-        .attr("height", function(d) {return graphHeight - initialYScale(d)})
-    graphShown = true;
-  }
+  if((graphContainerOffsetTop - scrollY) < (viewportHeight - (graphContainerHeight/2))) drawGraph();
+}
+
+function drawGraph() {
+  if(weeklyIncomegraphShown) return;
+  initialYScale.range([graphHeight , 0]);
+  week.selectAll("rect").transition().duration(750)
+      .attr("y", function(d){ return initialYScale(d) - graphPadding.bottom })
+      .attr("height", function(d) {return graphHeight - initialYScale(d)})
+  weeklyIncomegraphShown = true;
 }
