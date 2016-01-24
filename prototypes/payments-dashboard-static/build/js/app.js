@@ -1,7 +1,7 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var d3 = require("./lib/d3.js");
 var dataset = [
-                ["2015-12-31 00:02", 1000],
+                ["2015-12-31 02:02", 1000],
                 ["2016-01-01 03:44", 900],
                 ["2016-01-01 07:03", 1200],
                 ["2016-01-01 10:04", 940],
@@ -10,7 +10,7 @@ var dataset = [
                 ["2016-01-01 15:00", 1300],
                 ["2016-01-01 15:30", 900],
 
-                ["2016-01-02 00:13", 200],
+                ["2016-01-02 02:03", 400],
                 ["2016-01-02 03:30", 1000],
                 ["2016-01-02 09:50", 1100],
                 ["2016-01-02 13:10", 900],
