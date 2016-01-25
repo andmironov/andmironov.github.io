@@ -98,7 +98,7 @@ var cloneObject = require('lodash.clone');
 
       if (!elementsToObserve.hasOwnProperty(toAdd.name)) {
         elementsToObserve[toAdd.name] = toAdd.element;
-        getScroll();
+        onScroll();
 
         handleElementDimentions();
         if(toStart) this.start();

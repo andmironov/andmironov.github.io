@@ -475,7 +475,6 @@ function mouseMove() {
            .ease("linear")
            .duration(100)
            .attr("transform", "translate(" + (xScale(parseTime(d[0])) + 1) + "," + 0 + ")");
-
 }
 
 function mouseOut() {
@@ -540,7 +539,13 @@ observer.addCallbacks({
   onScrollYUpdate: onScrollY
 });
 
+var graphDrawn = false;
+
 function onScrollY() {
+  if(graphDrawn) return;
   scrollY = observer.getScrollY();
-  if((graphContainerOffsetTop - scrollY) <  (viewportHeight - (graphContainerHeight/2))) drawGraph();
+  if((graphContainerOffsetTop - scrollY) <  (viewportHeight - (graphContainerHeight/2))) {
+    drawGraph();
+    graphDrawn = true;
+  }
 }

@@ -175,7 +175,10 @@ focus.append("text")
      .attr("y", -25)
      .attr("fill", "white")
      .attr("text-anchor", "middle")
+     .attr("class", "graph__focus-text")
      .attr("dy", ".35em");
+
+var focusText = document.querySelector(".graph__focus-text");
 
 //Register Events
 svg.on("mouseover", function() {focus.style("opacity", 1)})
@@ -214,7 +217,7 @@ d3.selectAll(graphContainer + " .data-swither")
      .duration(100)
      .attr("transform", "translate(" + xScale(parseTime(d[0])) + "," + yScale(d[1]) + ")");
 
-   focus.select("text").text("$" + d[1]);
+   focusText.textContent = "$" + d[1];
  }
 
  function mouseOut() {
@@ -229,32 +232,6 @@ function drawGraph() {
     var t = svg.transition().duration(750);
     t.select(".graph__area").attr("d", area);
     t.select(".graph__line").attr("d", line);
-}
-
-//Update graph data with animation
-//setTimeout(updateGraph, 2000);
-
-function updateGraph() {
-  var newDataset = dataset;
-  newDataset.push(["2016-01-02 19:30", 2200]);
-  initialYScale.domain([100, d3.max(newDataset, function(d) { return d[1] + 400 })]);
-  yScale.domain([100, d3.max(newDataset, function(d) { return d[1] + 400 })]);
-
-  var t = svg.transition().duration(750);
-
-  d3.select(".graph__line").datum(newDataset);
-  t.select(".graph__line").attr("d", line);
-
-  d3.select(".graph__area").datum(newDataset);
-  t.select(".graph__area").attr("d", area);
-
-  t.select(".graph__axis--y").call(yAxis);
-  t.select(".graph__grid--y").call(yGrid);
-
-  t.selectAll(".graph__circle")
-   .attr("cx", function(d) {return xScale(parseTime(d[0]))})
-   .attr("cy", function(d) {return yScale(d[1])})
-
 }
 
 //Update graph on swither click with animation
