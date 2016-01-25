@@ -1,5 +1,6 @@
 .header {
   height: 80px;
+  width: 100%;
   padding: 20px 0;
   background-color: $colorWhite;
   display: flex;
@@ -7,8 +8,9 @@
 }
 
 .header__inner {
-  width: 1140px;
-  min-width: 1140px;
+  width: 1200px;
+  min-width: 1200px;
+  padding: 0 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
