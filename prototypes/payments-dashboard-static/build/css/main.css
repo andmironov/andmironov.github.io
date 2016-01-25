@@ -472,7 +472,6 @@ a.footer__logo:hover {
 .main-section__inner {
   width: 1140px;
   min-width: 1140px;
-  padding: 0 20px;
   display: flex;
   justify-content: space-between;
   align-items: flex-start; }
