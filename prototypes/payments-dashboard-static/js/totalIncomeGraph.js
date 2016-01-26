@@ -386,7 +386,10 @@ var focus = svg.append("g")
       .attr("y", -25)
       .attr("fill", "white")
       .attr("text-anchor", "middle")
+      .attr("class", "graph__focus-text")
       .attr("dy", ".35em");
+
+var focusText = document.querySelector(graphContainer + " .graph__focus-text");
 
 var circle = svg.append("circle")
                 .attr("class", "graph__circle graph__circle--moving")
@@ -468,8 +471,7 @@ function mouseMove() {
        .duration(100)
        .attr("transform", "translate(" + xScale(parseTime(d[0])) + "," + yScale(d[1]) + ")");
 
-  focus.select("text")
-       .text("$"+ d[1]);
+  focusText.textContent = "$" + d[1];
 
   hoverLine.transition()
            .ease("linear")
@@ -482,13 +484,13 @@ function mouseOut() {
 }
 
 function showtoolTip() {
-  d3.select(graphContainer + " .graph__focus").classed({"graph__focus--shown": true});
+  focus.style("opacity", 1);
   hoverLine.style("opacity", .4);
   circle.style("opacity", 1);
 }
 
 function hidetoolTip() {
-  d3.select(graphContainer + " .graph__focus").classed({"graph__focus--shown": false});
+  focus.style("opacity", 0);
   hoverLine.style("opacity", 0);
   circle.style("opacity", 0);
 }

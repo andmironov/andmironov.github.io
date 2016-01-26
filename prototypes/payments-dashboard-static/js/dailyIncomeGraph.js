@@ -178,7 +178,7 @@ focus.append("text")
      .attr("class", "graph__focus-text")
      .attr("dy", ".35em");
 
-var focusText = document.querySelector(".graph__focus-text");
+var focusText = document.querySelector(graphContainer + " .graph__focus-text");
 
 //Register Events
 svg.on("mouseover", function() {focus.style("opacity", 1)})

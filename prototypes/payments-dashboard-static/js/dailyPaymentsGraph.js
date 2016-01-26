@@ -157,7 +157,10 @@ focus.append("text")
      .attr("y", -25)
      .attr("fill", "white")
      .attr("text-anchor", "middle")
+     .attr("class", "graph__focus-text")
      .attr("dy", ".35em");
+
+var focusText = document.querySelector(graphContainer + " .graph__focus-text");
 
 //Add clippath for the grid
 svg.append("clipPath")
@@ -218,7 +221,8 @@ function mouseMove() {
     .ease("linear")
     .duration(100)
     .attr("transform", "translate(" + (xScale(parseTime(d[0]))+graphPadding.left) + "," + yScale(d[1]) + ")");
-  focus.select("text").text(d[1]);
+
+   focusText.textContent = d[1];
 }
 
 function mouseOut() {

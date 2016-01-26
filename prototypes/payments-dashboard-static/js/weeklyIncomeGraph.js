@@ -116,7 +116,10 @@ svg.append("g")
       .attr("y", -25)
       .attr("fill", "white")
       .attr("text-anchor", "middle")
+      .attr("class", "graph__focus-text")
       .attr("dy", ".35em");
+
+var focusText = document.querySelector(graphContainer + " .graph__focus-text");
 
 var week = svg.selectAll(".graph__week")
               .data(dataset)
@@ -243,7 +246,7 @@ function hidetoolTip() {
         .duration(100)
         .attr("transform", "translate(" + (xPosition) + ",40)");
 
-   focus.select("text").text("$" + text);
+    focusText.textContent = "$" + text;
  }
 
 //Add observer

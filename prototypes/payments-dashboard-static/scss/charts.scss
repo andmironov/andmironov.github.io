@@ -83,21 +83,12 @@
 
 .focus text {
   font-family: 'MuseoSansRegular';
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    fill: white;
-}
-
-.graph__bar:hover {
-  //fill: black
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  fill: white;
 }
 
 .graph__focus {
-  opacity: 0;
-  transition: opacity 0.1s ease, transform 0.1s ease;
-}
-
-.graph__focus.graph__focus--shown {
-  opacity: 1;
+  transition: opacity 0.2s linear, transform 0.2s linear;
 }

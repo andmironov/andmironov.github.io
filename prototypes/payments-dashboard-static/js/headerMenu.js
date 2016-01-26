@@ -9,6 +9,7 @@ function Menu() {
       menuIconOpenedClassName = "header-menu__icon--opened",
       menuIconHoveredClassName = "header-menu__icon--hovered",
       menuDropdownOpenedClassName = "header-menu__nav--opened",
+      
       self = this;
 
   //Event handlers
