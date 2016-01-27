@@ -285,7 +285,8 @@ var xAxisPadding = [0, 20, 20, 50];
 
 //Chart settings
 var graphWidth = 910;
-var graphHeight = 280 + graphTopPadding;
+var graphHeight = 290 + graphTopPadding;
+
 
 var peaks = dataset.filter(function(d){if(parseTime(d[0]) >= beginningOf3monthsPeriod) return d})
 
@@ -306,18 +307,18 @@ var yGrid = d3.svg.axis()
                   .orient("right")
                   .tickSize(graphWidth)
                   .tickFormat("")
-                  .ticks(6);
+                  .ticks(4);
 
 var xAxis = d3.svg.axis()
                   .scale(xScale)
-                  .ticks(6)
+                  .ticks(5)
                   .orient("top");
 
 var yAxis = d3.svg.axis()
                   .scale(yScale)
                   .orient("left")
                   .tickFormat(d3.format(".0f"))
-                  .ticks(6);
+                  .ticks(4);
 
 var svg = d3.select(graphContainerInner)
 						.append("svg")
