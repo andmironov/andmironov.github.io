@@ -473,7 +473,8 @@ a.footer__logo:hover {
   height: 480px;
   margin: 30px 0 0 0;
   background-color: white;
-  position: relative; }
+  position: relative;
+  transition: box-shadow .2s ease; }
 
 .graph.graph--total {
   width: 910px; }
@@ -514,7 +515,7 @@ a.footer__logo:hover {
   vertical-align: top;
   width: 150px;
   height: 80px;
-  margin: 0 10px 0 0;
+  margin: 0 15px 0 0;
   padding: 12px;
   background: white;
   border-radius: 6px;
@@ -537,7 +538,7 @@ a.footer__logo:hover {
 
 .data-swither__amount {
   font-family: "MuseoSansLight";
-  font-size: 25px;
+  font-size: 23px;
   color: #343038;
   letter-spacing: 1px;
   padding: 0 0 8px 0; }
@@ -591,7 +592,8 @@ a.footer__logo:hover {
   left: 0; }
 
 .graph--total .graph__data-visualisation {
-  width: 910px; }
+  width: 910px;
+  height: 300px; }
 
 .graph--weekly .graph__data-visualisation {
   height: 400px; }

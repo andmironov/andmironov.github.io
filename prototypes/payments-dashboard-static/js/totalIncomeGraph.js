@@ -285,7 +285,7 @@ var xAxisPadding = [0, 20, 20, 50];
 
 //Chart settings
 var graphWidth = 910;
-var graphHeight = 300 + graphTopPadding;
+var graphHeight = 280 + graphTopPadding;
 
 var peaks = dataset.filter(function(d){if(parseTime(d[0]) >= beginningOf3monthsPeriod) return d})
 

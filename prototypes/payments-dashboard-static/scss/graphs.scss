@@ -11,6 +11,14 @@
   margin: 30px 0 0 0;
   background-color: $colorWhite;
   position: relative;
+  //box-shadow: 1px 2px 8px 0px rgba(198,198,198,0.20);
+  //border-radius: 3px;
+  transition: box-shadow .2s ease;
+}
+
+.graph:hover {
+
+  //box-shadow: 0px 3px 5px 0px rgba(198,198,198,0.70);
 }
 
 .graph.graph--total {
@@ -57,7 +65,7 @@
   vertical-align: top;
   width: 150px;
   height: 80px;
-  margin: 0 10px 0 0;
+  margin: 0 15px 0 0;
   padding: 12px;
   background: $colorWhite;
   border-radius: 6px;
@@ -85,7 +93,7 @@
 
 .data-swither__amount {
   font-family: "MuseoSansLight";
-  font-size: 25px;
+  font-size: 23px;
   color: $colorDarkPurple;
   letter-spacing: 1px;
   padding: 0 0 8px 0;
@@ -150,6 +158,8 @@
 
 .graph--total .graph__data-visualisation {
   width: 910px;
+  height: 300px;
+
 }
 
 .graph--weekly .graph__data-visualisation {
