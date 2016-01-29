@@ -1,0 +1,17 @@
+.direct {
+  background-color: $colorBgLighterBlue;
+  height: 36px;
+  padding: 0 20px;
+  color: $colorLightBlue;
+  border-bottom: 1px solid $colorBgLightBlue;
+  display: flex;
+  align-items: center;
+}
+
+.direct__title {
+  margin-right: 10px;
+}
+
+.direct__provider {
+  margin-left: auto
+}

@@ -10,6 +10,7 @@
   "author": "andmironov",
   "license": "ISC",
   "dependencies": {
+    "classnames": "^2.2.3",
     "d3": "^3.5.12",
     "react": "^0.14.6",
     "react-dom": "^0.14.6",

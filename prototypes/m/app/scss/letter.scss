@@ -1,0 +1,159 @@
+.letter {
+  height: 46px;
+  padding: 0 20px;
+  border-bottom: 1px solid $colorBgLightBlue;
+  background-color: $colorWhite;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+
+  //transition: background-color .1s linear;
+}
+
+.letter:hover {
+  cursor: pointer;
+  background-color: $colorBgLighterBlue;
+}
+
+.letter__checkbox {
+  position: relative;
+  width: 12px;
+  height: 12px;
+  border: 2px solid $colorMidBlue;
+  margin: 0 10px 0 0;
+  flex-shrink: 0;
+  flex-grow: 0;
+
+  //transition: border-color .1s linear, background-color .1s linear;
+}
+
+.letter__checkbox-tick {
+  position: absolute;
+  top: 1px;
+  left: 0px;
+  width: 9px;
+  height: 7px;
+  fill: $colorWhite;
+  opacity: 0;
+
+  transition: opacity .1s linear;
+}
+
+.letter__star {
+  width: 14px;
+  height: 14px;
+  background-size: 14px;
+  margin: 0 10px 0 0;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+
+.letter__star svg {
+  width:14px;
+  height: 13px;
+  fill: $colorMidBlue;
+  transition: fill .2s ease;
+}
+
+.letter__sender {
+  width: 140px;
+  white-space: nowrap;
+  margin: 0 20px 0 0;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+
+.letter__subject {
+  margin: 0 10px 0 0;
+  white-space: nowrap;
+}
+
+.letter__snippet {
+  width: 400px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  color: $colorLightBlue;
+}
+
+.letter__date {
+  width: 46px;
+  text-align: right;
+  margin-left: auto;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+
+
+//States
+.letter_new .letter__checkbox {
+  border-radius: 50%;
+  background-color: $colorBlue;
+  border-color: $colorBlue;
+  //transition: border-radius .2s ease, background-color .1s linear, border-color .1s linear;
+}
+
+//States
+.letter.letter_new:hover .letter__checkbox {
+  border-radius: 0%;
+  background-color: $colorBgLighterBlue;
+  border-color: $colorMidBlue;
+}
+
+.letter.letter_new.letter_checked:hover .letter__checkbox {
+  border-radius: 0;
+  background-color: $colorBlue;
+  border-color: $colorBlue;
+}
+
+.letter_new .letter__sender {
+  font-weight: 700;
+}
+
+.letter_new .letter__subject {
+  font-weight: 700;
+}
+
+.letter_checked {
+  background-color: $colorBgLighterBlue;
+}
+
+.letter_checked .letter__checkbox {
+  background-color: $colorBlue;
+  border-color: $colorBlue;
+}
+
+.letter_checked.letter_new .letter__checkbox {
+  border-radius: 0;
+  background-color: $colorBlue;
+  border-color: $colorBlue;
+}
+
+.letter_checked .letter__checkbox-tick {
+  opacity: 1
+}
+
+.letter_faved .letter__star svg {
+  animation-name: fav;
+  animation-fill-mode: forwards;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out;
+  animation-duration: .3s;
+}
+
+@keyframes fav {
+  10% {
+    fill: $colorOrange;
+  }
+  50% {
+    transform:scale(1.7);
+    fill: $colorOrange;
+  }
+
+  100% {
+    transform:scale(1);
+    fill: $colorOrange;
+  }
+}

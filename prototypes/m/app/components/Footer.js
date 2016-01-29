@@ -5,7 +5,7 @@ let Footer = React.createClass({
     return (
       <div className="footer">
         <div className="footer__inner">
-          Footer
+          
         </div>
       </div>
     )

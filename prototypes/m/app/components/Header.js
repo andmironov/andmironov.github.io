@@ -5,9 +5,17 @@ let Header = React.createClass({
     return (
       <div className="header">
         <div className="header__inner">
-          <a className="header-logo" href="/"></a>
-          <div className="header-search"></div>
-          <a className="header-menu" href="/"></a>
+          <div className="logo-wrap">
+            <a className="logo" href="/"></a>
+          </div>
+          <ul className="menu">
+            <li className="menu__item"><a href="#">Почта</a></li>
+            <li className="menu__item"><a href="#">Адресная книга</a></li>
+            <li className="menu__item"><a href="#">Список дел</a></li>
+            <li className="menu__item"><a href="#">Файлы</a></li>
+          </ul>
+
+          <div className="settings"><a href="#">Настройка</a></div>
         </div>
       </div>
     )

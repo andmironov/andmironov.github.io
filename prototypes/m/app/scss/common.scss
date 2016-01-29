@@ -3,8 +3,14 @@
 @import "fonts";
 
 body {
-  background-color: $colorLightGray;
-  font-family: "MuseoSansRegular" , Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  color: $colorDarkPurple;
+  background-color: $colorBgLightBlue;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: $colorDarkBlue;
+}
+
+body a {
+  text-decoration: none;
+  color: $colorBlue;
 }

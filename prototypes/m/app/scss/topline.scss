@@ -1,0 +1,33 @@
+.topline {
+  display: flex;
+  justify-content: center;
+  height: 36px;
+  background-color: $colorWhite;
+  border-bottom: 1px solid $colorBgLightBlue;
+}
+
+.topline__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1200px;
+}
+
+.product-list__item {
+  font-size: 12px;
+  display: inline-block;
+  margin: 0 25px 0 0;
+}
+
+.product-list__item a{
+  color: $colorDarkBlue;
+  transition: color .1s linear;
+}
+
+.product-list__item a:hover{
+  color: $colorBlue;
+}
+
+.user {
+  font-size: 12px;
+}

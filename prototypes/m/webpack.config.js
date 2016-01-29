@@ -11,7 +11,7 @@ var config = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Payments Dashboard Prototype',
+      title: 'M',
       template: 'app/templates/template.html',
       inject: 'body'
     })

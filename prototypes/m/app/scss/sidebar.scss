@@ -1,48 +1,102 @@
 .sidebar {
-  width: 200px;
-  margin: 30px 0 0 0;
+  width: 300px;
+  margin: 20px 20px 20px 0;
+}
+
+.sidebar__top {
+  padding: 20px 0;
   background-color: $colorWhite;
+  margin: 0 0 20px 0;
 }
 
-.sidebar-user-profile {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+.send-button {
+  background-color: $colorBlue;
+  color: $colorWhite;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  width: 260px;
+  height: 44px;
+  line-height: 44px;
   text-align: center;
-  padding: 30px 0 50px 0;
+  margin: 0 20px;
+  cursor: pointer;
+  transition: background-color .1s ease;
 }
 
-.sidebar-user-profile__avatar {
-  height: 80px;
-  width: 80px;
-  background-color:  $colorLightGray;
-  border-radius: 50%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.sidebar-user-profile__name {
-  margin: 20px 0 0 0;
+.send-button:hover {
+  background-color: $colorDeepBlue
 }
 
 .sidebar-nav {
-  padding: 0 0 20px 0;
+  padding: 15px 0 0 0;
+}
+
+.sidebar-nav__item {
+  display: block;
+  width: 260px;
+  padding: 0 20px;
+  height: 36px;
+  line-height: 36px;
+  cursor: pointer;
 }
 
 .sidebar-nav__item a {
-  padding: 12px 30px;
-  text-decoration: none;
   display: block;
-  color: $colorDarkPurple;
+  color: $colorDarkBlue;
 }
 
-.sidebar-nav__item_current a{
-  color: $colorPurple;
-  border-left: 2px solid $colorPurple;
+.sidebar-nav__item.sidebar-nav__item_more a {
+  color: $colorLightBlue;
 }
 
+.sidebar-nav__item-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+}
+
+.sidebar-nav__item-icon svg {
+  fill: $colorMidBlue;
+  transition: fill .1s ease;
+}
+
+.sidebar-nav__item_current .sidebar-nav__item-icon svg {
+  fill: $colorBlue;
+}
+
+.sidebar-nav__item-title {
+  padding: 0 0 0 15px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.sidebar-nav__item.sidebar-nav__item_current a,
 .sidebar-nav__item a:hover {
-  color: $colorPurple;
+  color: $colorBlue
+}
+
+//more link
+.sidebar-nav__item.sidebar-nav__item_more a:hover {
+  color: $colorMidBlue;
+}
+
+.sidebar-nav__item a:hover .sidebar-nav__item-icon svg {
+  fill: $colorBlue
+}
+
+.sidebar__ad {
+  margin: 20px 0 0 0;
+  padding: 30px;
+  text-align: center;
+  background-color: $colorWhite;
+}
+
+.sidebar__ad__banner {
+  display: inline-block;
+  width: 240px;
+  height: 400px;
+  background-image: url(../assets/ad.jpg);
+  background-size: 240px;
 }

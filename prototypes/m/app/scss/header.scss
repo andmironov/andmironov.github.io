@@ -1,5 +1,5 @@
 .header {
-  height: 80px;
+  height: 65px;
   padding: 20px 0;
   background-color: $colorWhite;
   display: flex;
@@ -7,38 +7,49 @@
 }
 
 .header__inner {
-  width: 1140px;
+  width: 1200px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.header-logo {
-  display: block;
-  width: 110px;
-  height: 20px;
-  background-image: url(../assets/bambora_logo.svg);
-  background-size: 110px;
-  background-repeat: no-repeat;
+.logo-wrap {
+    width: 320px;
 }
 
-.header-search {
-  background-color: $colorLightGray;
-  height: 40px;
-  width: 200px;
-  background-image: url(../assets/search_icon.svg);
-  background-size: 19px;
+.logo {
+  display: block;
+  width: 160px;
+  height: 25px;
+  background-size: 160px;
   background-repeat: no-repeat;
-  background-position: 164px center;
-  padding: 20px 12px;
-  border-radius: 20px;
+  background-image: url("../assets/logo.svg");
 }
 
-.header-menu {
-  display: block;
-  width: 24px;
-  height: 14px;
-  background-image: url(../assets/hamburger_icon.svg);
-  background-size: 24px;
-  background-repeat: no-repeat;
+.menu__item {
+  display: inline-block;
+  margin: 0 25px 0 0;
+}
+
+.menu__item a{
+  color: $colorDarkBlue;
+  transition: color .1s linear;
+}
+
+.menu__item a:hover{
+  color: $colorBlue;
+}
+
+.settings {
+  display: inline-block;
+  margin-left: auto;
+}
+
+.settings a{
+  color: $colorDarkBlue;
+  transition: color .1s linear;
+}
+
+.settings a:hover{
+  color: $colorBlue;
 }
