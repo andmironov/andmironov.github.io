@@ -1,9 +1,14 @@
-let React = require("react");
-let Topline = require("./components/Topline.js");
-let Header = require("./components/Header.js");
-let Sidebar = require("./components/Sidebar.js");
-let List = require("./components/List.js");
-let Footer = require("./components/Footer.js");
+import React from 'react'
+import { Router, Route, Link } from 'react-router'
+
+//Components
+import Topline from "./components/Topline.js"
+import Header from "./components/Header.js"
+import Sidebar from "./components/Sidebar.js"
+import Footer from "./components/Footer.js"
+
+import Inbox from "./components/Inbox.js"
+import Single from "./components/Single.js"
 
 let lettersData = {
   letters: [
@@ -134,7 +139,7 @@ let lettersData = {
       date: "9 Дек"
     },
     {
-      new: false,
+      new: true,
       checked: false,
       faved: false,
       sender: "HeadHunter",
@@ -247,7 +252,7 @@ let App = React.createClass({
         <Header/>
         <div className="main-section">
           <Sidebar/>
-          <List lettersData={this.state.letters}/>
+          <Inbox lettersData={this.state.letters}/>
         </div>
         <Footer/>
       </div>

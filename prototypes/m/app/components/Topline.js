@@ -1,4 +1,4 @@
-let React = require("react");
+import React from 'react'
 
 let Topline = React.createClass({
   render: function() {
