@@ -1,15 +1,16 @@
-let Dispatcher = require("../Dispatcher.js");
-let ItemConstants = require("../constants/ScreenshotConstants.js");
+import Dispatcher from '../Dispatcher'
+import Constants from '../constants/Constants'
+
 let EventEmitter = require('events').EventEmitter;
 let AppDispatcher = new Dispatcher();
 let assign = require('object-assign');
 
-let CHANGE_EVENT = 'change';
+const CHANGE_EVENT = 'change';
 
 //private items object
 let _items = {};
 
-function createItem(text) {
+function selectLetter(item) {
   let id = Date.now();
   _items[id] = {
     id: id,
@@ -46,24 +47,19 @@ let ItemsStore = assign({}, EventEmitter.prototype, {
 
     switch(action.actionType) {
 
-      case ItemConstants.ITEM_CREATE:
+      case Constants.LETTER_SELECT:
         text = action.text.trim();
 
         if (text !== '') {
-          createItem(text);
+          selectLetter(text);
           ItemsStore.emitChange();
         }
         break;
-
-      case ItemConstants.ITEM_DESTROY:
-        deleteItem(action.id);
-        ItemsStore.emitChange();
-        break;
     }
 
-    return true; // No errors. Needed by promise in Dispatcher.
+    return true;
   })
 
 })
-//console.log(ItemsStore.dispatcherIndex)
+
 module.exports = ItemsStore;
