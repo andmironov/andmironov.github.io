@@ -7,8 +7,12 @@ import Header from "./components/Header.js"
 import Sidebar from "./components/Sidebar.js"
 import Footer from "./components/Footer.js"
 
+//Pages
 import Inbox from "./components/Inbox.js"
-import Single from "./components/Single.js"
+import Sent from "./components/Sent.js"
+
+//Styles
+import mainStyles from "./scss/main.scss"
 
 let lettersData = {
   letters: [
@@ -231,7 +235,7 @@ let lettersData = {
   ]
 }
 
-let mainStyles = require("./scss/main.scss");
+
 
 let App = React.createClass({
 

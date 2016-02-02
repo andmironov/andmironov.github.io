@@ -1,7 +1,7 @@
 let React = require("react");
 let classNames = require("classnames");
 
-let Letter = React.createClass({
+let ListItem = React.createClass({
 
   getInitialState: function() {
     return {
@@ -53,4 +53,4 @@ let Letter = React.createClass({
   }
 });
 
-module.exports = Letter;
+module.exports = ListItem;
