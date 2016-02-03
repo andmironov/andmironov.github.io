@@ -1,4 +1,7 @@
 let React = require("react");
+let ReactPropTypes = React.PropTypes;
+
+let LetterActions = require('../actions/LetterActions');
 
 let ListItem = require("./ListItem.js");
 let Direct = require("./Direct.js");
@@ -6,18 +9,29 @@ let InboxListHeader = require("./InboxListHeader.js");
 
 let Inbox = React.createClass({
 
-  render: function() {
+  propTypes: {
+    allLetters: ReactPropTypes.object,
+  },
 
-    let letters = this.props.letters.map( function(item) {
-      return <ListItem new={item.new} checked={item.checked} fav={item.fav} sender={item.sender}  subject={item.subject} snippet={item.snippet} date={item.date} key={Math.random()} />
-    });
+  render: function() {
+    let allLetters = this.props.allLetters.letters;
+
+    let letters;
+    letters = allLetters.filter(function(item) {
+      return item.folder === "inbox"
+    })
+
+    let listItems;
+    listItems = letters.map(function(listItem) {
+      return <ListItem letter={listItem} key={listItem.id}/>
+    })
 
     return (
-        <div>
-          <InboxListHeader/>
-          <Direct/>
-          <div className="letters">{letters}</div>
-        </div>
+      <div>
+        <InboxListHeader/>
+        <Direct/>
+        <div className="letters">{listItems}</div>
+      </div>
     )
   }
 });

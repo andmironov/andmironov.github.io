@@ -1,14 +1,18 @@
 let React = require("react");
 let classNames = require("classnames");
-import letterActions from "../actions/LetterActions.js"
 
-
-let InboxListHeader = React.createClass({
+let SentListHeader = React.createClass({
 
   getInitialState: function() {
     return {
         isCheckboxNavOpened : false
     }
+  },
+
+  toggleCheckboxNav: function() {
+    this.setState({
+      isCheckboxNavOpened: this.state.isCheckboxNavOpened ? false : true,
+    });
   },
 
   render: function() {
@@ -20,8 +24,8 @@ let InboxListHeader = React.createClass({
     return (
       <div className="list__header">
         <div className="checkbox">
-          <div className="checkbox__hole" onClick={this._onToggleCheckAll}></div>
-          <div className="checkbox__bird" onClick={this._toggleCheckboxNavOpened}></div>
+          <div className="checkbox__hole"></div>
+          <div className="checkbox__bird" onClick={this.toggleCheckboxNav}></div>
           <ul className={checkboxNavClassnames}>
             <li className="checkbox__nav-item"><a href="#">Выбрать все</a></li>
             <li className="checkbox__nav-item"><a href="#">Непрочитанные</a></li>
@@ -32,18 +36,7 @@ let InboxListHeader = React.createClass({
         <div className="search">Поиск по входящим</div>
       </div>
     )
-  },
-
-  _toggleCheckboxNavOpened: function() {
-    this.setState({
-      isCheckboxNavOpened: this.state.isCheckboxNavOpened ? false : true,
-    });
-  },
-
-  _onToggleCheckAll: function() {
-    letterActions.toggleCheckAll();
-  },
-
+  }
 });
 
-module.exports = InboxListHeader;
+module.exports = SentListHeader;
