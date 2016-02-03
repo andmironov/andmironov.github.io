@@ -1,11 +1,9 @@
 let React = require("react");
 let ReactPropTypes = React.PropTypes;
 
-let LetterActions = require('../actions/LetterActions');
-
-let ListItem = require("./ListItem.js");
 let Direct = require("./Direct.js");
-let InboxListHeader = require("./InboxListHeader.js");
+let ListHeader = require("./ListHeader.js");
+let Folder = require("./Folder.js");
 
 let Inbox = React.createClass({
 
@@ -14,23 +12,13 @@ let Inbox = React.createClass({
   },
 
   render: function() {
-    let allLetters = this.props.allLetters.letters;
-
-    let letters;
-    letters = allLetters.filter(function(item) {
-      return item.folder === "inbox"
-    })
-
-    let listItems;
-    listItems = letters.map(function(listItem) {
-      return <ListItem letter={listItem} key={listItem.id}/>
-    })
+    let folderName = "inbox";
 
     return (
       <div>
-        <InboxListHeader/>
+        <ListHeader areAllChecked={this.props.areAllChecked} folderName={folderName}/>
         <Direct/>
-        <div className="letters">{listItems}</div>
+        <Folder allLetters={this.props.allLetters} folderName={folderName}/>
       </div>
     )
   }

@@ -5,7 +5,8 @@ import letterStore from "../stores/LetterStore.js"
 
 function getLetters() {
   return {
-    allLetters: letterStore.getAll()
+    allLetters: letterStore.getAll(),
+    areAllChecked: letterStore.areAllChecked(),
   }
 }
 
@@ -32,7 +33,7 @@ let List = React.createClass({
       <div className="main-section">
         <Sidebar/>
         <div className="list">
-          { React.cloneElement (this.props.children, {allLetters: this.state.allLetters}) }
+          { React.cloneElement (this.props.children, {allLetters: this.state.allLetters, areAllChecked: this.state.areAllChecked}) }
         </div>
       </div>
     )

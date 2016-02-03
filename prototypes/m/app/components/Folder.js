@@ -1,24 +1,21 @@
 let React = require("react");
 let ReactPropTypes = React.PropTypes;
-
-let LetterActions = require('../actions/LetterActions');
-
 let ListItem = require("./ListItem.js");
-let Direct = require("./Direct.js");
-let ListHeader = require("./ListHeader.js");
 
-let Sent = React.createClass({
+let Folder = React.createClass({
 
   propTypes: {
     allLetters: ReactPropTypes.object,
+    folderName: ReactPropTypes.string
   },
 
   render: function() {
+    let folderName = this.props.folderName;
     let allLetters = this.props.allLetters.letters;
 
     let letters;
     letters = allLetters.filter(function(item) {
-      return item.folder === "sent"
+      return item.folder === folderName
     })
 
     let listItems;
@@ -27,13 +24,9 @@ let Sent = React.createClass({
     })
 
     return (
-      <div>
-        <ListHeader areAllChecked={this.props.areAllChecked}/>
-        <Direct/>
         <div className="letters">{listItems}</div>
-      </div>
     )
   }
 });
 
-module.exports = Sent;
+module.exports = Folder;
