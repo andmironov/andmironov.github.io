@@ -1,7 +1,7 @@
 let React = require("react");
 let classNames = require("classnames");
 
-let ListHeader = React.createClass({
+let InboxListHeader = React.createClass({
 
   getInitialState: function() {
     return {
@@ -39,4 +39,4 @@ let ListHeader = React.createClass({
   }
 });
 
-module.exports = ListHeader;
+module.exports = InboxListHeader;
