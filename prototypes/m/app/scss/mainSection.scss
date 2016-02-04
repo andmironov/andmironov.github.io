@@ -1,5 +1,10 @@
 .main-section {
   display: flex;
   justify-content: center;
+}
+
+.main-section__inner {
   align-items: flex-start;
+  justify-content: space-between;
+  @extend .u-inner;
 }

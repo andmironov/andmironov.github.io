@@ -28,8 +28,11 @@ let ListItem = React.createClass({
           <svg viewBox="0 0 14 13"><polygon points="7 10.5 2.88550323 12.663119 3.67130219 8.08155948 0.342604386 4.83688104 4.94275162 4.16844052 7 0 9.05724838 4.16844052 13.6573956 4.83688104 10.3286978 8.08155948 11.1144968 12.663119 "></polygon></svg>
         </div>
         <div className="list-item__sender">{letter.sender}</div>
-        <div className="list-item__subject">{letter.subject}</div>
-        <div className="list-item__snippet">{letter.snippet}</div>
+        <div className="list-item__text">
+          <span className="list-item__subject">  {letter.subject}</span>
+          <span className="list-item__snippet">{letter.snippet}</span>
+        </div>
+
         <div className="list-item__date">{letter.date}</div>
       </div>
     )

@@ -1,5 +1,5 @@
-let AppDispatcher = require('../dispatcher/AppDispatcher')
-let LetterConstants = require('../constants/LetterConstants')
+import AppDispatcher from '../dispatcher/AppDispatcher'
+import LetterConstants from '../constants/LetterConstants'
 
 let LetterActions = {
 
@@ -27,7 +27,56 @@ let LetterActions = {
     AppDispatcher.dispatch({
       actionType: LetterConstants.LETTER_TOGGLE_CHECK_ALL
     })
-  }
+  },
+
+  toggleCheckAllInFolder: function(folderName) {
+    AppDispatcher.dispatch({
+      actionType: LetterConstants.LETTER_TOGGLE_CHECK_ALL_IN_FOLDER,
+      folderName: folderName
+    })
+  },
+
+  сheckAllInFolder: function(folderName) {
+    AppDispatcher.dispatch({
+      actionType: LetterConstants.LETTER_CHECK_ALL_IN_FOLDER,
+      folderName: folderName
+    })
+  },
+
+  сheckNoneInFolder: function(folderName) {
+    AppDispatcher.dispatch({
+      actionType: LetterConstants.LETTER_CHECK_NONE_IN_FOLDER,
+      folderName: folderName
+    })
+  },
+
+  checkFavedInFolder: function(folderName) {
+    AppDispatcher.dispatch({
+      actionType: LetterConstants.LETTER_CHECK_FAVED_IN_FOLDER,
+      folderName: folderName
+    })
+  },
+
+  checkUnFavedInFolder: function(folderName) {
+    AppDispatcher.dispatch({
+      actionType: LetterConstants.LETTER_CHECK_UNFAVED_IN_FOLDER,
+      folderName: folderName
+    })
+  },
+
+  checkNewInFolder: function(folderName) {
+    AppDispatcher.dispatch({
+      actionType: LetterConstants.LETTER_CHECK_NEW_IN_FOLDER,
+      folderName: folderName
+    })
+  },
+
+  checkNotNewInFolder: function(folderName) {
+    AppDispatcher.dispatch({
+      actionType: LetterConstants.LETTER_CHECK_NOT_NEW_IN_FOLDER,
+      folderName: folderName
+    })
+  },
 };
 
 module.exports = LetterActions

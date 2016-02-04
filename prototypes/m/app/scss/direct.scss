@@ -10,8 +10,24 @@
 
 .direct__title {
   margin-right: 10px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  flex-grow: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 20%;
+}
+
+.direct__desctiption {
+  white-space: nowrap;
+  flex-shrink: 0;
+  flex-grow: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 50%;
 }
 
 .direct__provider {
-  margin-left: auto
+  margin-left: auto;
+
 }

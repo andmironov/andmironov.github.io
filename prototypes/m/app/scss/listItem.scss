@@ -7,8 +7,6 @@
   align-items: center;
   flex-wrap: nowrap;
   justify-content: flex-start;
-
-  //transition: background-color .1s linear;
 }
 
 .list-item:hover {
@@ -24,8 +22,6 @@
   margin: 0 10px 0 0;
   flex-shrink: 0;
   flex-grow: 0;
-
-  //transition: border-color .1s linear, background-color .1s linear;
 }
 
 .list-item__checkbox-tick {
@@ -63,17 +59,19 @@
   flex-grow: 0;
 }
 
-.list-item__subject {
-  margin: 0 10px 0 0;
-  white-space: nowrap;
-}
-
-.list-item__snippet {
-  width: 400px;
+.list-item__text {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
   color: $colorLightBlue;
+}
+
+.list-item__subject {
+  color: $colorDarkBlue;
+}
+
+.list-item__snippet {
+  padding: 0 0 0 10px;
 }
 
 .list-item__date {
@@ -139,15 +137,21 @@
   animation-direction: alternate;
   animation-iteration-count: 1;
   animation-timing-function: ease-out;
-  animation-duration: .3s;
+  animation-duration: .4s;
 }
 
 @keyframes fav {
   10% {
     fill: $colorOrange;
   }
+
   50% {
-    transform:scale(1.7);
+    transform:scale(1.5);
+    fill: $colorOrange;
+  }
+
+  80% {
+    transform:scale(.7);
     fill: $colorOrange;
   }
 

@@ -2,10 +2,9 @@ import React from"react"
 import Sidebar from "./Sidebar"
 import LetterStore from "../stores/LetterStore"
 
-function getLetters() {
+function getLetters(folderName) {
   return {
-    allLetters: LetterStore.getAll(),
-    areAllChecked: LetterStore.areAllChecked(),
+    allLetters: LetterStore.getAll()
   }
 }
 
@@ -26,8 +25,10 @@ let Mail = React.createClass({
   render: function() {
     return (
       <div className="main-section">
-        <Sidebar/>
-        {React.cloneElement (this.props.children, {allLetters: this.state.allLetters, areAllChecked: this.state.areAllChecked})}
+        <div className="main-section__inner">
+          <Sidebar/>
+          {React.cloneElement (this.props.children, {allLetters: this.state.allLetters})}
+        </div>
       </div>
     )
   },

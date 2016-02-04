@@ -6,7 +6,7 @@
   align-items: center;
 }
 
-.selector{
+.selector {
   position: relative;
   margin: 0 10px 0 20px;
   flex-shrink: 0;
@@ -34,13 +34,44 @@
   transition: opacity .1s linear;
 }
 
-.selector__checkbox.selector__checkbox_checked {
+.selector__checkbox-minus {
+  position: absolute;
+  top: 3px;
+  left: 0px;
+  width: 8px;
+  height: 2px;
+  background-color: $colorWhite;
+  opacity: 0;
+  transition: opacity .1s linear;
+}
+
+.selector__checkbox.selector__checkbox_some-checked {
   background-color: $colorBlue;
   border-color: $colorBlue;
 }
 
-.selector__checkbox_checked .selector__checkbox-tick {
+.selector__checkbox_some-checked .selector__checkbox-tick {
+  opacity: 0
+}
+
+.selector__checkbox_some-checked .selector__checkbox-minus {
   opacity: 1
+}
+
+.selector__checkbox.selector__checkbox_all-checked,
+.selector__checkbox.selector__checkbox_some-checked.selector__checkbox_all-checked {
+  background-color: $colorBlue;
+  border-color: $colorBlue;
+}
+
+.selector__checkbox_all-checked .selector__checkbox-tick,
+.selector__checkbox_all-checked.selector__checkbox_some-checked .selector__checkbox-tick {
+  opacity: 1
+}
+
+.selector__checkbox_all-checked .selector__checkbox-minus,
+.selector__checkbox_all-checked.selector__checkbox_some-checked .selector__checkbox-minus {
+  opacity: 0
 }
 
 .selector__bird {
@@ -82,7 +113,7 @@
 
 .selector__nav-item a {
   display: block;
-  padding: 6px 20px;
+  padding: 6px 25px 6px 20px;
   color: $colorDarkBlue;
   transition: color .1s linear;
 }

@@ -1,0 +1,35 @@
+.u-inner {
+  width: 984px;
+  display: flex;
+}
+.u-folder {
+  width: 664px;
+}
+
+@media (min-width: 1380px) {
+  .u-inner {
+    width: 1340px;
+  }
+  .u-folder {
+    width: 1020px;
+  }
+
+}
+
+@media (min-width: 1280px) and (max-width: 1379px) {
+  .u-inner {
+    width: 1240px;
+  }
+  .u-folder {
+    width: 920px;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .u-inner {
+    width: 984px;
+  }
+  .u-folder {
+    width: 664px;
+  }
+}
