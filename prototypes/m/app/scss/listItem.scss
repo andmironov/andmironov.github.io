@@ -1,4 +1,4 @@
-.letter {
+.list-item {
   height: 46px;
   padding: 0 20px;
   border-bottom: 1px solid $colorBgLightBlue;
@@ -11,12 +11,12 @@
   //transition: background-color .1s linear;
 }
 
-.letter:hover {
+.list-item:hover {
   cursor: pointer;
   background-color: $colorBgLighterBlue;
 }
 
-.letter__checkbox {
+.list-item__checkbox {
   position: relative;
   width: 12px;
   height: 12px;
@@ -28,7 +28,7 @@
   //transition: border-color .1s linear, background-color .1s linear;
 }
 
-.letter__checkbox-tick {
+.list-item__checkbox-tick {
   position: absolute;
   top: 1px;
   left: 0px;
@@ -39,7 +39,7 @@
   transition: opacity .1s linear;
 }
 
-.letter__star {
+.list-item__star {
   width: 14px;
   height: 14px;
   background-size: 14px;
@@ -48,14 +48,14 @@
   flex-grow: 0;
 }
 
-.letter__star svg {
+.list-item__star svg {
   width:14px;
   height: 13px;
   fill: $colorMidBlue;
   transition: fill .2s ease;
 }
 
-.letter__sender {
+.list-item__sender {
   width: 140px;
   white-space: nowrap;
   margin: 0 20px 0 0;
@@ -63,12 +63,12 @@
   flex-grow: 0;
 }
 
-.letter__subject {
+.list-item__subject {
   margin: 0 10px 0 0;
   white-space: nowrap;
 }
 
-.letter__snippet {
+.list-item__snippet {
   width: 400px;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -76,7 +76,7 @@
   color: $colorLightBlue;
 }
 
-.letter__date {
+.list-item__date {
   width: 46px;
   text-align: right;
   margin-left: auto;
@@ -86,7 +86,7 @@
 
 
 //States
-.letter_new .letter__checkbox {
+.list-item_new .list-item__checkbox {
   border-radius: 50%;
   background-color: $colorBlue;
   border-color: $colorBlue;
@@ -94,46 +94,46 @@
 }
 
 //States
-.letter.letter_new:hover .letter__checkbox {
+.list-item.list-item_new:hover .list-item__checkbox {
   border-radius: 0%;
   background-color: $colorBgLighterBlue;
   border-color: $colorMidBlue;
 }
 
-.letter.letter_new.letter_checked:hover .letter__checkbox {
+.list-item.list-item_new.list-item_checked:hover .list-item__checkbox {
   border-radius: 0;
   background-color: $colorBlue;
   border-color: $colorBlue;
 }
 
-.letter_new .letter__sender {
+.list-item_new .list-item__sender {
   font-weight: 700;
 }
 
-.letter_new .letter__subject {
+.list-item_new .list-item__subject {
   font-weight: 700;
 }
 
-.letter_checked {
+.list-item_checked {
   background-color: $colorBgLighterBlue;
 }
 
-.letter_checked .letter__checkbox {
+.list-item_checked .list-item__checkbox {
   background-color: $colorBlue;
   border-color: $colorBlue;
 }
 
-.letter_checked.letter_new .letter__checkbox {
+.list-item_checked.list-item_new .list-item__checkbox {
   border-radius: 0;
   background-color: $colorBlue;
   border-color: $colorBlue;
 }
 
-.letter_checked .letter__checkbox-tick {
+.list-item_checked .list-item__checkbox-tick {
   opacity: 1
 }
 
-.letter_faved .letter__star svg {
+.list-item_faved .list-item__star svg {
   animation-name: fav;
   animation-fill-mode: forwards;
   animation-direction: alternate;

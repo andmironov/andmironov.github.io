@@ -1,40 +1,23 @@
-let React = require("react");
-
-import Sidebar from "./Sidebar.js"
-import letterStore from "../stores/LetterStore.js"
-
-function getLetters() {
-  return {
-    allLetters: letterStore.getAll(),
-    areAllChecked: letterStore.areAllChecked(),
-  }
-}
+import React from "react"
+import ListItem from "./ListItem"
+let ReactPropTypes = React.PropTypes;
 
 let List = React.createClass({
 
-  getInitialState: function() {
-    return getLetters();
-  },
-
-  componentDidMount: function() {
-    letterStore.addChangeListener(this._onChange);
-  },
-
-  componentWillUnmount: function() {
-    letterStore.removeChangeListener(this._onChange);
-  },
-
-  _onChange: function() {
-    this.setState(getLetters());
+  propTypes: {
+    letters: ReactPropTypes.array,
   },
 
   render: function() {
+    let letters = this.props.letters;
+
+    let listItems = letters.map(function(letter) {
+      return <ListItem letter={letter} key={letter.id}/>
+    })
+
     return (
-      <div className="main-section">
-        <Sidebar/>
-        <div className="list">
-          { React.cloneElement (this.props.children, {allLetters: this.state.allLetters, areAllChecked: this.state.areAllChecked}) }
-        </div>
+      <div className="list">
+        {listItems}
       </div>
     )
   }

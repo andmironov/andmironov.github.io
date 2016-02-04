@@ -1,30 +1,29 @@
-let React = require("react");
-let ReactPropTypes = React.PropTypes;
-let ListItem = require("./ListItem.js");
+import React from "react"
+import List from "./List"
+import FolderHeader from "./FolderHeader"
+import Direct from "./Direct"
+let ReactPropTypes = React.PropTypes
 
 let Folder = React.createClass({
 
   propTypes: {
-    allLetters: ReactPropTypes.object,
-    folderName: ReactPropTypes.string
+    areAllChecked: ReactPropTypes.bool,
+    allLetters: ReactPropTypes.object
   },
 
   render: function() {
-    let folderName = this.props.folderName;
     let allLetters = this.props.allLetters.letters;
-
-    let letters;
-    letters = allLetters.filter(function(item) {
+    let folderName = this.props.params.folderName ? this.props.params.folderName : "inbox";
+    let letters = allLetters.filter(function(item) {
       return item.folder === folderName
     })
 
-    let listItems;
-    listItems = letters.map(function(listItem) {
-      return <ListItem letter={listItem} key={listItem.id}/>
-    })
-
     return (
-        <div className="letters">{listItems}</div>
+      <div className="folder">
+        <FolderHeader areAllChecked={this.props.areAllChecked} />
+        <Direct/>
+        <List letters={letters} />
+      </div>
     )
   }
 });
