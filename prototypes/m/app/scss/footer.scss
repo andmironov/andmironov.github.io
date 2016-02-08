@@ -1,2 +1,38 @@
 .footer {
+  display: flex;
+  justify-content: center;
+  padding: 0 0 20px 0;
+}
+
+.footer__inner {
+  align-items: center;
+  @extend .u-inner;
+}
+
+.footer-block_sidebar {
+  width: 320px;
+}
+
+.footer-block_secondary {
+  margin-left: auto;
+}
+
+.footer-block li {
+  display: inline-block;
+  color: $colorLightBlue;
+}
+
+.footer-block li a {
+  color: $colorLightBlue;
+  display: inline-block;
+  padding: 0 10px 0 10px;
+  transition: color .1s ease
+}
+
+.footer-block li a:hover {
+  color: $colorBlue;
+}
+
+.footer-block li:first-child a {
+  padding: 0 10px 0 0
 }

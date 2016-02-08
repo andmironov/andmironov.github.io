@@ -30,3 +30,22 @@
 .user {
   font-size: 12px;
 }
+
+.user__avatar {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  vertical-align: middle;
+  background-color: $colorBgLightBlue;
+  background-image: url(../assets/chris.jpg);
+  background-size: 34px;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0 0 0 6px;
+}
+
+.user__first-name {
+  display: inline-block;
+  vertical-align: middle;
+}

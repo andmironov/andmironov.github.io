@@ -14,8 +14,8 @@ let Topline = React.createClass({
             <li className="product-list__item"><a href="#">Погода</a></li>
           </ul>
           <div className="user">
-          <div className="user__avatar"></div>
           <div className="user__first-name">Константин</div>
+          <div className="user__avatar"></div>
           </div>
         </div>
       </div>

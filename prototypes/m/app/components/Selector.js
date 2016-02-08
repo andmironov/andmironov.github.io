@@ -1,6 +1,7 @@
 import React from "react"
 import classNames from "classnames"
-import letterActions from "../actions/LetterActions.js"
+import LetterActions from "../actions/LetterActions"
+import SelectorButtons from "./SelectorButtons"
 let ReactPropTypes = React.PropTypes
 
 let Selector = React.createClass({
@@ -13,7 +14,7 @@ let Selector = React.createClass({
 
   getInitialState: function() {
     return {
-        isCheckboxNavOpened:false
+      isCheckboxNavOpened:false
     }
   },
 
@@ -47,6 +48,7 @@ let Selector = React.createClass({
           <li className="selector__nav-item"><a href="#" onClick={this._checkUnFaved}>Непомеченные</a></li>
           <li className="selector__nav-item"><a href="#" onClick={this._checkNone}>Ни одного</a></li>
         </ul>
+        <SelectorButtons folderName={this.props.folderName} areSomeChecked={this.props.areSomeChecked}/>
       </div>
     )
   },
@@ -57,38 +59,38 @@ let Selector = React.createClass({
     });
   },
 
-  _checkAll: function() {
+  _checkAll: function(e) {
     e.preventDefault()
-    letterActions.checkAllInFolder(this.props.folderName);
+    LetterActions.checkAllInFolder(this.props.folderName);
   },
 
   _checkNone: function(e) {
     e.preventDefault()
-    letterActions.сheckNoneInFolder(this.props.folderName);
+    LetterActions.сheckNoneInFolder(this.props.folderName);
   },
 
   _toggleCheckAll: function() {
-    letterActions.toggleCheckAllInFolder(this.props.folderName);
+    LetterActions.toggleCheckAllInFolder(this.props.folderName);
   },
 
   _checkFaved: function(e) {
     e.preventDefault()
-    letterActions.checkFavedInFolder(this.props.folderName);
+    LetterActions.checkFavedInFolder(this.props.folderName);
   },
 
   _checkUnFaved: function(e) {
     e.preventDefault()
-    letterActions.checkUnFavedInFolder(this.props.folderName);
+    LetterActions.checkUnFavedInFolder(this.props.folderName);
   },
 
   _checkNew: function(e) {
     e.preventDefault()
-    letterActions.checkNewInFolder(this.props.folderName);
+    LetterActions.checkNewInFolder(this.props.folderName);
   },
 
   _checkNotNew: function(e) {
     e.preventDefault()
-    letterActions.checkNotNewInFolder(this.props.folderName);
+    LetterActions.checkNotNewInFolder(this.props.folderName);
   },
 
 });

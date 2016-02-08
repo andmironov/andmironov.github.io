@@ -4,6 +4,7 @@
   border-bottom: 1px solid $colorBgLightBlue;
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .selector {
@@ -122,23 +123,14 @@
   color: $colorBlue;
 }
 
-.search {
-  width: 200px;
-  height: 33px;
-  padding: 0 0 0 10px;
-  line-height: 33px;
-  color: $colorMidBlue;
-  background-color: $colorBgLighterBlue;
-  margin-left: auto;
-  margin-right: 10px;
-  background-image: url(../assets/search.svg);
-  background-repeat: no-repeat;
-  background-position: 175px 7px;
-  cursor: pointer;
+.selector-buttons {
+  position: absolute;
+  top: 0;
+  left: 40px;
+  opacity: 0;
 
-  transition: background-color .2s ease;
 }
 
-.search:hover {
-  background-color: $colorBgLightBlue;
+.selector-buttons.selector-buttons_expanded {
+  opacity: 1
 }

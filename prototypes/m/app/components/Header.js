@@ -11,7 +11,6 @@ let Header = React.createClass({
           </div>
 
           <ul className="menu">
-            <li className="menu__item"><a href="#">Почта</a></li>
             <li className="menu__item"><a href="#">Адресная книга</a></li>
             <li className="menu__item"><a href="#">Список дел</a></li>
             <li className="menu__item"><a href="#">Файлы</a></li>

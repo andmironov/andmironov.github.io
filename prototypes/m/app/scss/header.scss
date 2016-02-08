@@ -1,6 +1,6 @@
 .header {
   height: 65px;
-  padding: 20px 0;
+  padding: 0 0;
   background-color: $colorWhite;
   display: flex;
   justify-content: center;
@@ -30,12 +30,21 @@
   margin: 0 25px 0 0;
 }
 
-.menu__item a{
+.menu__item a {
+  display: inline-block;
+  height: 65px;
+  line-height: 65px;
   color: $colorDarkBlue;
   transition: color .1s linear;
 }
 
-.menu__item a:hover{
+.menu__item.menu__item-current a{
+  //border-bottom: 2px solid $colorBlue;
+  font-weight: 500;
+}
+
+.menu__item.menu__item-current a,
+.menu__item a:hover {
   color: $colorBlue;
 }
 

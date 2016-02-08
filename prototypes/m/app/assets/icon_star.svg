@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+<svg width="20px" height="19px" viewBox="0 0 20 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
     <!-- Generator: Sketch 3.5.1 (25234) - http://www.bohemiancoding.com/sketch -->
-    <title>Shape</title>
+    <title>icon_star</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
-    <g>
-        <path d="M6.55401627,15.6855467 L7.27025451,11.8869481 L4.48126224,9.22723368 L8.3129245,8.67793979 L10.0000002,5.24847415 L11.6870755,8.67793979 L15.4613039,9.22723368 L12.7297455,11.8869481 L13.3775636,15.6855467 L10,13.8702243 L6.55401627,15.6855467 Z M16.030413,19.3001515 L14.8571163,12.6051632 L19.7574133,7.82962424 L13.0167843,6.99517829 L10,0.740448538 L7.03924572,6.99517829 L0.242586728,7.82962424 L5.15600597,12.6051632 L3.96958696,19.3001515 L9.99999964,16.0151363 L16.030413,19.3001515 Z"></path>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <path d="M15.7878263,18.559703 L14.6145296,11.8647147 L19.5148266,7.0891757 L12.7741976,6.25472975 L9.75741327,0 L6.79665899,6.25472975 L0,7.0891757 L4.91341924,11.8647147 L3.72700023,18.559703 L9.75741291,15.2746878 L15.7878263,18.559703 L15.7878263,18.559703 Z M7.02766778,11.1464996 L4.23867551,8.48678514 L8.07033777,7.93749125 L9.75741347,4.50802561 L11.4444888,7.93749125 L15.2187172,8.48678514 L12.4871588,11.1464996 L13.1349769,14.9450982 L9.75741327,13.1297758 L6.31142954,14.9450982 L7.02766778,11.1464996 Z" ></path>
     </g>
 </svg>
