@@ -22,6 +22,7 @@
   height: 12px;
   border: 2px solid $colorMidBlue;
   cursor: pointer;
+  transition: border-color .2s ease;
 }
 
 .selector__checkbox-tick {
@@ -34,6 +35,11 @@
   opacity: 0;
   transition: opacity .1s linear;
 }
+
+.selector__checkbox:hover{
+  border-color: $colorLightBlue
+}
+
 
 .selector__checkbox-minus {
   position: absolute;
@@ -81,12 +87,24 @@
   display: inline-block;
   vertical-align: middle;
   padding: 6px;
-  width: 10px;
-  height: 5px;
-  background-image: url(../assets/bird.svg);
-  background-size: 10px;
-  background-repeat: no-repeat;
-  background-position: center;
+  width: 12px;
+  height: 8px;
+}
+
+.selector__bird svg{
+  display: block;
+  width: 12px;
+  height: 8px;
+  fill: $colorMidBlue;
+  transition: fill .2s ease;
+}
+
+.selector__bird:hover svg{
+  fill: $colorLightBlue;
+}
+
+.selector__checkbox_nav_opened .selector__bird svg{
+  fill: $colorLightBlue;
 }
 
 .selector__nav {

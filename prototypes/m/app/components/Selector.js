@@ -26,7 +26,7 @@ let Selector = React.createClass({
     let selectorClassnames = classNames({
       'selector__checkbox': true,
       'selector__checkbox_all-checked': this.props.areAllChecked,
-      'selector__checkbox_some-checked': this.props.areSomeChecked,
+      'selector__checkbox_some-checked': this.props.areSomeChecked
     });
 
     let selectorNavClassnames = classNames({
@@ -40,7 +40,11 @@ let Selector = React.createClass({
           <svg viewBox="0 0 9 7" className="selector__checkbox-tick"><path d="M3.18937182,6.75830078 L0,3.46309132 L1.01985037,2.44324095 L3.18937178,4.80468826 L7.99406007,0 L9.05960657,1.06554661 L3.18937182,6.75830078 Z" ></path></svg>
           <div className="selector__checkbox-minus"></div>
         </div>
-        <div className="selector__bird" onClick={this._toggleCheckboxNavOpened}></div>
+        <div className="selector__bird" onClick={this._toggleCheckboxNavOpened}>
+          <svg>
+            <path d="M6,4.82842712 L1.75735931,0.585786438 L0.343145751,2 L5.29289322,6.94974747 L6,7.65685425 L11.6568542,2 L10.2426407,0.585786438 L6,4.82842712 L6,4.82842712 L6,4.82842712 Z"></path>
+          </svg>
+        </div>
         <ul className={selectorNavClassnames}>
           <li className="selector__nav-item"><a href="#" onClick={this._checkNew}>Новые</a></li>
           <li className="selector__nav-item"><a href="#" onClick={this._checkNotNew}>Прочитанные</a></li>
