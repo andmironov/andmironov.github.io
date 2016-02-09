@@ -1,4 +1,5 @@
 import React from 'react'
+import User from "./User"
 
 let Topline = React.createClass({
   render: function() {
@@ -13,10 +14,7 @@ let Topline = React.createClass({
             <li className="product-list__item"><a href="#">Знакомства</a></li>
             <li className="product-list__item"><a href="#">Погода</a></li>
           </ul>
-          <div className="user">
-          <div className="user__first-name">Константин</div>
-          <div className="user__avatar"></div>
-          </div>
+          <User/>
         </div>
       </div>
     )

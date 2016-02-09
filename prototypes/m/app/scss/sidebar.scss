@@ -91,6 +91,14 @@
   transition: opacity .2s ease, transform .2s ease;
 }
 
+.sidebar-nav__item-counter {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: right;
+  float: right;
+  color: $colorBlue;
+}
+
 .sidebar-nav__item.sidebar-nav__item_current a,
 .sidebar-nav__item a:hover {
   color: $colorBlue

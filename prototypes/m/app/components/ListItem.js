@@ -14,6 +14,7 @@ let ListItem = React.createClass({
 
     let letterClassnames = classNames({
       'list-item': true,
+      'list-item_reg': !letter.new && !letter.checked,
       'list-item_new': letter.new,
       'list-item_checked': letter.checked,
       'list-item_faved': letter.faved

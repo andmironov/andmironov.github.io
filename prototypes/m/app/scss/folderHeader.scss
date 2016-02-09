@@ -9,9 +9,27 @@
 
 .selector {
   position: relative;
+  height: 54px;
   margin: 0 10px 0 20px;
+  display: flex;
+  align-items: center;
   flex-shrink: 0;
   flex-grow: 0;
+}
+
+.selector__counter {
+  display: none;
+  cursor: pointer;
+  padding: 0 0 0 10px;
+  color: $colorLightBlue
+}
+
+.selector_some-checked .selector__counter {
+  display: block;
+}
+
+.selector_some-checked .selector__bird {
+  padding: 6px 6px 6px 4px;
 }
 
 .selector__checkbox {
@@ -40,7 +58,6 @@
   border-color: $colorLightBlue
 }
 
-
 .selector__checkbox-minus {
   position: absolute;
   top: 3px;
@@ -52,32 +69,32 @@
   transition: opacity .1s linear;
 }
 
-.selector__checkbox.selector__checkbox_some-checked {
+.selector_some-checked .selector__checkbox {
   background-color: $colorBlue;
   border-color: $colorBlue;
 }
 
-.selector__checkbox_some-checked .selector__checkbox-tick {
+.selector_some-checked .selector__checkbox-tick {
   opacity: 0
 }
 
-.selector__checkbox_some-checked .selector__checkbox-minus {
+.selector_some-checked .selector__checkbox-minus {
   opacity: 1
 }
 
-.selector__checkbox.selector__checkbox_all-checked,
-.selector__checkbox.selector__checkbox_some-checked.selector__checkbox_all-checked {
+.selector_all-checked .selector__checkbox,
+.selector_all-checked.selector_some-checked .selector__checkbox {
   background-color: $colorBlue;
   border-color: $colorBlue;
 }
 
-.selector__checkbox_all-checked .selector__checkbox-tick,
+.selector_all-checked .selector__checkbox-tick,
 .selector__checkbox_all-checked.selector__checkbox_some-checked .selector__checkbox-tick {
   opacity: 1
 }
 
 .selector__checkbox_all-checked .selector__checkbox-minus,
-.selector__checkbox_all-checked.selector__checkbox_some-checked .selector__checkbox-minus {
+.selector_all-checked.selector_some-checked .selector__checkbox-minus {
   opacity: 0
 }
 
@@ -103,7 +120,7 @@
   fill: $colorLightBlue;
 }
 
-.selector__checkbox_nav_opened .selector__bird svg{
+.selector_nav-opened .selector__bird svg{
   fill: $colorLightBlue;
 }
 
@@ -123,7 +140,7 @@
   transition: visibility .5s linear 0s, opacity .2s ease, transform .3s cubic-bezier(0.175, 0.885, 0.135, 1.425);
 }
 
-.selector__nav.selector__nav_opened {
+.selector_nav-opened .selector__nav {
   transition-delay: 0s;
   visibility: visible;
   opacity: 1;
@@ -142,13 +159,58 @@
 }
 
 .selector-buttons {
-  position: absolute;
-  top: 0;
-  left: 40px;
+  padding: 0 15px;
+  display: flex;
   opacity: 0;
+}
 
+.selector-button {
+  padding: 8px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  position: relative;
+}
+
+.selector-button svg {
+  fill: $colorIconBlue;
+  display: block;
+  width: 20px;
+  height: 20px;
+  transition: fill .2s ease;
+}
+
+.selector-button:hover svg {
+  fill: $colorDarkBlue;
 }
 
 .selector-buttons.selector-buttons_expanded {
   opacity: 1
+}
+
+.selector-button__label {
+  display: block;
+  height: auto;
+  width: auto;
+  text-align: center;
+  line-height: 0;
+  position: absolute;
+  background-color: $colorDarkBlue;
+  color: $colorWhite;
+  padding: 20px;
+  top: -45px;
+  left: 50%;
+  white-space: nowrap;
+
+  opacity: 0;
+  transform: translate3d(-50%, 4px ,0) scale(.9);
+  visibility: hidden;
+  transition: visibility .3s linear 0s, opacity .3s ease, transform .3s cubic-bezier(0.175, 0.885, 0.135, 1.425);
+
+}
+
+.selector-button:hover .selector-button__label {
+  opacity: 1;
+  visibility: visible;
+  transform: translate3d(-50%, 0 ,0) scale(1);
 }

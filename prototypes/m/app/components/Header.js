@@ -14,6 +14,10 @@ let Header = React.createClass({
             <li className="menu__item"><a href="#">Адресная книга</a></li>
             <li className="menu__item"><a href="#">Список дел</a></li>
             <li className="menu__item"><a href="#">Файлы</a></li>
+            <li className="menu__item menu__item_ad">
+              <div className="menu__item_ad-image"></div>
+              <div className="menu__item_ad-text">Уборка квартир от Qlean</div>
+            </li>
           </ul>
 
           <div className="settings"><a href="#">Настройка</a></div>

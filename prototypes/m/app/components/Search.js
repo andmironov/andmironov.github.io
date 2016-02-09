@@ -25,7 +25,10 @@ let Search = React.createClass({
   },
 
   componentWillReceiveProps: function() {
-    this.setState({isSearchDropdownExpanded:false})
+    this.setState({
+      isSearchDropdownExpanded: false,
+      isSearchExpanded: false
+    })
   },
 
   render: function() {
@@ -33,11 +36,12 @@ let Search = React.createClass({
     let searchClassnames = classNames({
       'search': true,
       'search_expanded': this.state.isSearchExpanded,
+      'search_dropdown-expanded': this.state.isSearchDropdownExpanded,
     })
 
     let searchDropdownClassnames = classNames({
       'search__dropdown': true,
-      'search__dropdown_expanded': this.state.isSearchDropdownExpanded,
+
     })
 
     let searchTypesList = searchTypes.map((item, i) => {
@@ -56,10 +60,10 @@ let Search = React.createClass({
 
         <div className={searchClassnames}>
           <div className="search__field"><input type="text" placeholder="Поиск по входящим"/></div>
-          <div className={searchDropdownClassnames}>
+          <div className="search__dropdown">
             <div className="search__dropdown-selected" onClick={this._toggleSearchDropdown}>
               <div className="search__dropdown-selected-text">{this.state.currentSearchType}</div>
-              <div className="search__dropdown-bird"></div>
+              <div className="search__dropdown-bird"><svg><path d="M6,4.82842712 L1.75735931,0.585786438 L0.343145751,2 L5.29289322,6.94974747 L6,7.65685425 L11.6568542,2 L10.2426407,0.585786438 L6,4.82842712 L6,4.82842712 L6,4.82842712 Z"></path></svg></div>
             </div>
             <ul className="search__dropdown-nav">{searchTypesList}</ul>
           </div>

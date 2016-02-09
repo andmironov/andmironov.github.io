@@ -4,14 +4,18 @@ import LetterStore from "../stores/LetterStore"
 
 function getLetters(folderName) {
   return {
-    allLetters: LetterStore.getAll()
+    allLetters: LetterStore.getAll(),
+    inboxNewCount: LetterStore.countNewInFolder(folderName),
+    areAllChecked: LetterStore.areAllInFolderChecked(folderName),
+    areSomeChecked: LetterStore.areSomeInFolderChecked(folderName),
+    checkedCount: LetterStore.countCheckedInFolder(folderName),
   }
 }
 
 let Mail = React.createClass({
 
   getInitialState: function() {
-    return getLetters();
+    return getLetters(this.props.params.folderName);
   },
 
   componentDidMount: function() {

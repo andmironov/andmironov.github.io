@@ -30,6 +30,36 @@
   margin: 0 25px 0 0;
 }
 
+.menu__item_ad {
+  color: #20A052;
+  cursor: pointer;
+}
+
+.menu__item_ad-image {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 6px;
+
+  width: 27px;
+  height: 27px;
+  background-size: 27px;
+  background-repeat: no-repeat;
+  background-image: url("../assets/ad.png");
+}
+
+.menu__item_ad-text {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.menu__item_ad:hover .menu__item_ad-image{
+  opacity: .8
+}
+
+.menu__item_ad:hover .menu__item_ad-text {
+  opacity: .8
+}
+
 .menu__item a {
   display: inline-block;
   height: 65px;

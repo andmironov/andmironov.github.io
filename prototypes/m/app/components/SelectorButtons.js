@@ -27,11 +27,11 @@ let SelectorButtons = React.createClass({
       'selector-buttons': true,
       'selector-buttons_expanded': this.props.areSomeChecked,
     });
+
     let folderName = this.props.folderName;
     let mainButtons = buttonConfigs[folderName].main.map(buttonName => {
       return <SelectorButton buttonName={buttonName}/>;
     });
-
 
     return (
       <ul className={selectorNavClassnames}>

@@ -13,12 +13,12 @@
   display: block;
   width: 18px;
   height: 18px;
-  fill: $colorMidBlue;
+  fill: $colorIconBlue;
   transition: fill .2s ease;
 }
 
 .search-icon:hover svg{
-  fill: $colorLightBlue
+  fill: $colorDarkBlue
 }
 
 .search {
@@ -58,7 +58,10 @@
 }
 
 .search__field input::placeholder{
-  color: $colorMidBlue
+  color: $colorMidBlue;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
 }
 
 .search__button {
@@ -76,28 +79,49 @@
 
 .search__dropdown {
   position: relative;
+  padding: 0 15px;
   flex-shrink: 0;
   flex-grow: 0;
-  padding: 0 10px;
+}
+
+.search__dropdown-selected {
+  display: flex;
+  align-items: center;
 }
 
 .search__dropdown-selected-text {
+  color: $colorMidBlue;
   cursor: pointer;
+  display: block;
+  padding: 0 6px 0 0;
+  transition: color .2s ease;
 }
 
-.search__dropdown-selected-text::after {
-  content: "";
-  box-sizing: content-box;
-  display: inline-block;
-  vertical-align: middle;
-  padding: 6px;
-  width: 10px;
-  height: 5px;
-  background-image: url(../assets/bird.svg);
-  background-size: 10px;
-  background-repeat: no-repeat;
-  background-position: center;
+.search__dropdown-bird {
+  display: block;
+  cursor: pointer;
+  width: 12px;
+  height: 8px;
 }
+
+.search__dropdown-bird svg{
+  display: block;
+  width: 12px;
+  height: 8px;
+  fill: $colorMidBlue;
+  transition: fill .2s ease;
+}
+
+.search__dropdown-selected:hover .search__dropdown-selected-text,
+.search_dropdown-expanded .search__dropdown-selected-text {
+  color: $colorLightBlue;
+}
+
+.search__dropdown-selected:hover .search__dropdown-bird svg,
+.search_dropdown-expanded .search__dropdown-bird svg{
+  fill: $colorLightBlue;
+}
+
 
 .search__dropdown-nav {
   position: absolute;
@@ -115,7 +139,7 @@
   transition: visibility .5s linear 0s, opacity .2s ease, transform .3s cubic-bezier(0.175, 0.885, 0.135, 1.425);
 }
 
-.search__dropdown_expanded .search__dropdown-nav{
+.search_dropdown-expanded .search__dropdown-nav{
   transition-delay: 0s;
   visibility: visible;
   opacity: 1;
@@ -123,7 +147,6 @@
 }
 
 .search__dropdown-nav-item {
-  //border-left: 2px solid $colorWhite;
   transition: border-color .2s ease
 }
 

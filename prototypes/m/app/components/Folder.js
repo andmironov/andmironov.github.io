@@ -9,7 +9,8 @@ function getFolderState(folderName) {
   return {
     folderName: folderName,
     areAllChecked: LetterStore.areAllInFolderChecked(folderName),
-    areSomeChecked: LetterStore.areSomeInFolderChecked(folderName)
+    areSomeChecked: LetterStore.areSomeInFolderChecked(folderName),
+    checkedCount: LetterStore.countCheckedInFolder(folderName),
   }
 }
 
@@ -37,7 +38,7 @@ let Folder = React.createClass({
 
     return (
       <div className="folder">
-        <FolderHeader areAllChecked={this.state.areAllChecked} areSomeChecked={this.state.areSomeChecked} folderName={this.state.folderName}/>
+        <FolderHeader checkedCount={this.state.checkedCount} areAllChecked={this.state.areAllChecked} areSomeChecked={this.state.areSomeChecked} folderName={this.state.folderName}/>
         <Direct/>
         <List letters={letters} />
       </div>

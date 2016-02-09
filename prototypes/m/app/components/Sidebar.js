@@ -1,13 +1,14 @@
 import React from "react"
 import { Link } from "react-router"
 import classNames from "classnames"
-
+import LetterStore from "../stores/LetterStore"
 
 let Sidebar = React.createClass({
 
   getInitialState: function() {
     return {
-      isSidebarNavExpanded:false
+      isSidebarNavExpanded:false,
+      inboxNewCount: LetterStore.countNewInFolder("inbox"),
     }
   },
 
@@ -30,6 +31,7 @@ let Sidebar = React.createClass({
               <Link to="mail/folder/inbox">
                 <span className="sidebar-nav__item-icon sidebar-nav__item-icon_inbox"><svg viewBox="0 0 20 18"><g><path d="M16,2 L16,11 L2,11 L2,2 L16,2 L16,2 Z M0,0 L0,13 L18,13 L18,0 L0,0 L0,0 Z"></path><path d="M9,8.22890361 L16.5812382,2.81373347 L15.4187618,1.18626653 L9.00000008,6.00921642 L2.58123819,1.18626653 L1.41876181,2.81373347 L9,8.22890361 Z"></path></g></svg></span>
                 <span className="sidebar-nav__item-title">Входящие</span>
+                <span className="sidebar-nav__item-counter">{this.state.inboxNewCount}</span>
               </Link>
             </li>
 
@@ -56,7 +58,7 @@ let Sidebar = React.createClass({
 
             <li className="sidebar-nav__item sidebar-nav__item-secondary">
               <Link to="mail/folder/sent">
-                <span className="sidebar-nav__item-icon sidebar-nav__item-icon_star"><svg viewBox="-4 0 20 22"><g><path d="M2,14 L10,14 L10,6 L2,6 L2,14 Z M0,4 L12,4 L12,16 L0,16 L0,4 L0,4 L0,4 Z" ></path><path d="M4,1 L4,0 L8,0 L8,1 L12,1 L12,3 L0,3 L0,1 L4,1 Z" ></path></g></svg></span>
+                <span className="sidebar-nav__item-icon sidebar-nav__item-icon_star"><svg><g><rect opacity="0" x="0" y="0" width="20" height="20"></rect><path d="M6,16 L14,16 L14,8 L6,8 L6,16 Z M4,6 L16,6 L16,18 L4,18 L4,6 L4,6 L4,6 Z"></path><path d="M8,3 L8,2 L12,2 L12,3 L16,3 L16,5 L4,5 L4,3 L8,3 Z"></path></g></svg></span>
                 <span className="sidebar-nav__item-title">Корзина</span>
                 <span className="sidebar-nav__item-cleanUpLink">Очистить</span>
               </Link>
@@ -64,7 +66,7 @@ let Sidebar = React.createClass({
 
             <li className="sidebar-nav__item sidebar-nav__item-secondary">
               <Link to="mail/folder/sent">
-                <span className="sidebar-nav__item-icon sidebar-nav__item-icon_star"><svg viewBox="-2 0 20 22"><g><path d="M8,14 L8,14 C11.3137085,14 14,11.3137085 14,8 C14,4.6862915 11.3137085,2 8,2 C4.6862915,2 2,4.6862915 2,8 C2,11.3137085 4.6862915,14 8,14 L8,14 Z M8,16 L8,16 C3.581722,16 0,12.418278 0,8 C0,3.581722 3.581722,0 8,0 C12.418278,0 16,3.581722 16,8 C16,12.418278 12.418278,16 8,16 L8,16 Z" ></path><path d="M1.86838715,3.93930621 L13.1232051,13.3510708 L14.4062067,11.8168261 L3.1513888,2.40506152 L1.86838715,3.93930621 L1.86838715,3.93930621 Z"></path></g></svg></span>
+                <span className="sidebar-nav__item-icon sidebar-nav__item-icon_star"><svg><g><rect opacity="0" x="0" y="0" width="20" height="20"></rect><path d="M10,16 L10,16 C13.3137085,16 16,13.3137085 16,10 C16,6.6862915 13.3137085,4 10,4 C6.6862915,4 4,6.6862915 4,10 C4,13.3137085 6.6862915,16 10,16 L10,16 Z M10,18 L10,18 C5.581722,18 2,14.418278 2,10 C2,5.581722 5.581722,2 10,2 C14.418278,2 18,5.581722 18,10 C18,14.418278 14.418278,18 10,18 L10,18 Z"></path><path d="M3.86838715,5.93930621 L15.1232051,15.3510708 L16.4062067,13.8168261 L5.1513888,4.40506152 L3.86838715,5.93930621 L3.86838715,5.93930621 Z"></path></g></svg></span>
                 <span className="sidebar-nav__item-title">Спам</span>
                 <span className="sidebar-nav__item-cleanUpLink">Очистить</span>
               </Link>

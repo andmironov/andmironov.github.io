@@ -63,6 +63,30 @@ let letterStore = assign({}, EventEmitter.prototype, {
     return folder.some(item => item.checked)
   },
 
+  countNewInFolder: function(folderName) {
+    let count;
+    let folder = _letters.letters.filter(function(item) {
+      return item.folder == folderName
+    })
+    let newInFolder = folder.filter(function(item) {
+      return item.new == true
+    })
+    count = newInFolder.length
+    return count
+  },
+
+  countCheckedInFolder: function(folderName) {
+    let count;
+    let folder = _letters.letters.filter(function(item) {
+      return item.folder == folderName
+    })
+    let newInFolder = folder.filter(function(item) {
+      return item.checked == true
+    })
+    count = newInFolder.length
+    return count
+  },
+
   emitChange: function() {
     this.emit(CHANGE_EVENT)
   },
