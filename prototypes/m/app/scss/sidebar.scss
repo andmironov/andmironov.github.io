@@ -66,6 +66,7 @@
 }
 
 .sidebar-nav__item-icon svg {
+  display: block;
   fill: $colorMidBlue;
   transition: fill .1s ease;
 }

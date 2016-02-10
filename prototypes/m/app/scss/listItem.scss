@@ -10,6 +10,7 @@
 }
 
 .list-item:hover {
+  background-color: $colorBgLighterBlue;
   cursor: pointer;
 }
 
@@ -18,11 +19,11 @@
   width: 12px;
   height: 12px;
   border: 2px solid $colorMidBlue;
+  background-color: transparent;
   margin: 0 10px 0 0;
   flex-shrink: 0;
   flex-grow: 0;
 }
-
 
 .list-item__checkbox-tick {
   position: absolute;
@@ -42,6 +43,7 @@
   margin: 0 10px 0 0;
   flex-shrink: 0;
   flex-grow: 0;
+  transition: fill .2s ease
 }
 
 .list-item__star svg {
@@ -87,6 +89,23 @@
 }
 
 //States
+
+//Checked
+.list_some-are-checked .list-item {
+  background-color: $colorBgLighterBlue;
+}
+
+.list_some-are-checked .list-item.list-item_checked {
+  background-color: $colorWhite;
+}
+
+.list_some-are-checked .list-item_new .list-item__checkbox {
+  border-radius: 0%;
+  background-color: transparent;
+  border-color: $colorMidBlue;
+}
+
+//New
 .list-item_new .list-item__checkbox {
   border-radius: 50%;
   background-color: $colorBlue;
@@ -95,8 +114,12 @@
 
 .list-item.list-item_new:hover .list-item__checkbox {
   border-radius: 0%;
-  background-color: $colorWhite;
+  background-color: transparent;
   border-color: $colorMidBlue;
+}
+
+.list_some-are-checked .list-item.list-item_new:hover .list-item__checkbox {
+  background-color: $colorBgLighterBlue;
 }
 
 .list-item.list-item_new.list-item_checked:hover .list-item__checkbox {
@@ -111,10 +134,6 @@
 
 .list-item_new .list-item__subject {
   font-weight: 700;
-}
-
-.list-item_checked {
-  background-color: $colorBgSkyBlue;
 }
 
 .list-item_checked .list-item__checkbox {
@@ -133,12 +152,16 @@
 }
 
 .list-item_faved .list-item__star svg {
-  animation-name: fav;
-  animation-fill-mode: forwards;
-  animation-direction: alternate;
-  animation-iteration-count: 1;
-  animation-timing-function: ease-out;
-  animation-duration: .4s;
+  fill: $colorOrange;
+}
+
+.list-item_faved .list-item__star svg {
+  //animation-name: fav;
+  //animation-fill-mode: forwards;
+  //animation-direction: alternate;
+  //animation-iteration-count: 1;
+  //animation-timing-function: ease-out;
+  //animation-duration: .4s;
 }
 
 @keyframes fav {

@@ -2,6 +2,7 @@ import AppDispatcher from '../dispatcher/AppDispatcher'
 import { EventEmitter } from 'events'
 import LetterConstants from '../constants/LetterConstants'
 import assign from 'object-assign'
+import _ from 'lodash'
 
 const CHANGE_EVENT = 'change'
 
@@ -64,19 +65,39 @@ let letterStore = assign({}, EventEmitter.prototype, {
   },
 
   countNewInFolder: function(folderName) {
-    let count;
+    let count
+
     let folder = _letters.letters.filter(function(item) {
       return item.folder == folderName
     })
     let newInFolder = folder.filter(function(item) {
+      if (folderName == "drafts") return true
       return item.new == true
     })
     count = newInFolder.length
+
+    return count
+  },
+
+  countNewInFolders: function() {
+    let count = {}
+
+    let allFolders = _.flatMap(_letters.letters, (item) => {
+      return item.folder
+    })
+
+    let uniqFolders = _.uniq(allFolders);
+
+    uniqFolders.forEach((key, value) => {
+      count[key] = this.countNewInFolder(key)
+    })
+
     return count
   },
 
   countCheckedInFolder: function(folderName) {
-    let count;
+    let count
+
     let folder = _letters.letters.filter(function(item) {
       return item.folder == folderName
     })
@@ -357,7 +378,7 @@ let _letters = {
       new: false,
       checked: false,
       faved: false,
-      folder: "inbox",
+      folder: "drafts",
       sender: "Алексей Петров",
       subject: "Разрешение на охоту",
       snippet: "Привет, хотел у вас узнать по поводу разрешения на охоту. Тут такое дело",
@@ -434,7 +455,7 @@ let _letters = {
       new: false,
       checked: false,
       faved: false,
-      folder: "inbox",
+      folder: "sent",
       sender: "HeadHunter",
       subject: "Андрей, почему вы ушли с предыдущей работы?",
       snippet: "Поиск вакансий Отклики на вакансии Мы на мобильных Продвижение резюме Статьи> 5 причин неудач в",

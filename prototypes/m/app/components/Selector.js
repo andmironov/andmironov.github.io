@@ -9,7 +9,6 @@ let Selector = React.createClass({
   propTypes: {
     areAllChecked: ReactPropTypes.bool,
     areSomeChecked: ReactPropTypes.bool,
-    folderName: ReactPropTypes.string,
     checkedCount: ReactPropTypes.number
   },
 
@@ -20,7 +19,7 @@ let Selector = React.createClass({
   },
 
   componentWillReceiveProps: function() {
-    this.setState({isCheckboxNavOpened:false})
+    this.setState({ isCheckboxNavOpened:false })
   },
 
   render: function() {
@@ -29,8 +28,8 @@ let Selector = React.createClass({
       'selector': true,
       'selector_all-checked': this.props.areAllChecked,
       'selector_some-checked': this.props.areSomeChecked,
-      'selector_nav-opened': this.state.isCheckboxNavOpened,
-    });
+      'selector_nav-opened': this.state.isCheckboxNavOpened
+    })
 
     return (
       <div className={selectorClassnames}>
@@ -51,7 +50,7 @@ let Selector = React.createClass({
           <li className="selector__nav-item"><a href="#" onClick={this._checkUnFaved}>Непомеченные</a></li>
           <li className="selector__nav-item"><a href="#" onClick={this._checkNone}>Ни одного</a></li>
         </ul>
-        <SelectorButtons folderName={this.props.folderName} areSomeChecked={this.props.areSomeChecked}/>
+        <SelectorButtons {...this.props} />
       </div>
     )
   },
@@ -64,38 +63,38 @@ let Selector = React.createClass({
 
   _checkAll: function(e) {
     e.preventDefault()
-    LetterActions.checkAllInFolder(this.props.folderName);
+    LetterActions.checkAllInFolder(this.props.params.folderName)
   },
 
   _checkNone: function(e) {
     e.preventDefault()
-    LetterActions.сheckNoneInFolder(this.props.folderName);
+    LetterActions.сheckNoneInFolder(this.props.params.folderName)
   },
 
   _toggleCheckAll: function() {
-    LetterActions.toggleCheckAllInFolder(this.props.folderName);
+    LetterActions.toggleCheckAllInFolder(this.props.params.folderName)
   },
 
   _checkFaved: function(e) {
     e.preventDefault()
-    LetterActions.checkFavedInFolder(this.props.folderName);
+    LetterActions.checkFavedInFolder(this.props.params.folderName)
   },
 
   _checkUnFaved: function(e) {
     e.preventDefault()
-    LetterActions.checkUnFavedInFolder(this.props.folderName);
+    LetterActions.checkUnFavedInFolder(this.props.params.folderName)
   },
 
   _checkNew: function(e) {
     e.preventDefault()
-    LetterActions.checkNewInFolder(this.props.folderName);
+    LetterActions.checkNewInFolder(this.props.params.folderName)
   },
 
   _checkNotNew: function(e) {
     e.preventDefault()
-    LetterActions.checkNotNewInFolder(this.props.folderName);
+    LetterActions.checkNotNewInFolder(this.props.params.folderName)
   },
 
 });
 
-module.exports = Selector;
+module.exports = Selector

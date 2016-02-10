@@ -11,14 +11,13 @@ let FolderHeader = React.createClass({
   propTypes: {
     areAllChecked: ReactPropTypes.bool,
     areSomeChecked: ReactPropTypes.bool,
-    folderName: ReactPropTypes.string,
-    checkedCount: ReactPropTypes.number
+    checkedCount: ReactPropTypes.number,
   },
 
   render: function() {
     return (
       <div className="folder-header">
-        <Selector checkedCount={this.props.checkedCount} areAllChecked={this.props.areAllChecked} areSomeChecked={this.props.areSomeChecked} folderName={this.props.folderName}/>
+        <Selector {...this.props} />
         <div className="refresh"></div>
         <Search/>
       </div>

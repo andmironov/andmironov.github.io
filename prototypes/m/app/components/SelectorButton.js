@@ -9,7 +9,7 @@ let SelectorButton = React.createClass({
   },
 
   render: function() {
-    let uniqueButtonClassName = 'selector-button_' + this.props.buttonName;
+    let uniqueButtonClassName = 'selector-button_' + this.props.buttonName
     let buttonClassnames = classNames(uniqueButtonClassName, {
       'selector-button': true
     })
@@ -36,4 +36,4 @@ let SelectorButton = React.createClass({
   }
 })
 
-module.exports = SelectorButton;
+module.exports = SelectorButton

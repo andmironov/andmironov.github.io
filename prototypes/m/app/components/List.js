@@ -1,11 +1,13 @@
 import React from "react"
 import ListItem from "./ListItem"
-let ReactPropTypes = React.PropTypes;
+import classNames from "classnames"
+let ReactPropTypes = React.PropTypes
 
 let List = React.createClass({
 
   propTypes: {
     letters: ReactPropTypes.array,
+    areSomeChecked: ReactPropTypes.bool
   },
 
   render: function() {
@@ -15,12 +17,17 @@ let List = React.createClass({
       return <ListItem letter={letter} key={letter.id}/>
     })
 
+    let listClassnames = classNames({
+      'list': true,
+      'list_some-are-checked': this.props.areSomeChecked
+    })
+
     return (
-      <div className="list">
+      <div className={listClassnames}>
         {listItems}
       </div>
     )
   }
-});
+})
 
-module.exports = List;
+module.exports = List

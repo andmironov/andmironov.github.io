@@ -1,5 +1,5 @@
 import React from 'react'
-import classNames from "classnames";
+import classNames from "classnames"
 import letterActions from "../actions/LetterActions.js"
 let ReactPropTypes = React.PropTypes
 
@@ -18,7 +18,7 @@ let ListItem = React.createClass({
       'list-item_new': letter.new,
       'list-item_checked': letter.checked,
       'list-item_faved': letter.faved
-    });
+    })
 
     return (
       <div className={letterClassnames}>
@@ -48,4 +48,4 @@ let ListItem = React.createClass({
   },
 });
 
-module.exports = ListItem;
+module.exports = ListItem
