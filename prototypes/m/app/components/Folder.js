@@ -1,6 +1,7 @@
 import React from "react"
 import List from "./List"
 import FolderHeader from "./FolderHeader"
+import StickyFolderHeader from "./StickyFolderHeader"
 import Direct from "./Direct"
 let ReactPropTypes = React.PropTypes
 
