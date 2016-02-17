@@ -24,7 +24,7 @@ let Mail = React.createClass({
     return (
       <div className="main-section">
         <div className="main-section__inner">
-          <Sidebar newLettersCount={this.state.newLettersCount} />
+          <Sidebar {...this.props} newLettersCount={this.state.newLettersCount} />
           {React.cloneElement (this.props.children, {...this.state})}
         </div>
       </div>

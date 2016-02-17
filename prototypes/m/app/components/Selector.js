@@ -44,11 +44,13 @@ let Selector = React.createClass({
           <svg><path d="M6,4.82842712 L1.75735931,0.585786438 L0.343145751,2 L5.29289322,6.94974747 L6,7.65685425 L11.6568542,2 L10.2426407,0.585786438 L6,4.82842712 L6,4.82842712 L6,4.82842712 Z"></path></svg>
         </div>
         <ul className="selector__nav">
-          <li className="selector__nav-item"><a href="#" onClick={this._checkNew}>Новые</a></li>
+          <li className="selector__nav-item"><a href="#" onClick={this._checkAll}>Выбрать все</a></li>
+          <li className="selector__nav-item"><a href="#" onClick={this._checkNew}>Непрочитанные</a></li>
           <li className="selector__nav-item"><a href="#" onClick={this._checkNotNew}>Прочитанные</a></li>
-          <li className="selector__nav-item"><a href="#" onClick={this._checkFaved}>Помеченные</a></li>
-          <li className="selector__nav-item"><a href="#" onClick={this._checkUnFaved}>Непомеченные</a></li>
+          <li className="selector__nav-item"><a href="#" onClick={this._checkFaved}>Отмеченные</a></li>
+          <li className="selector__nav-item"><a href="#" onClick={this._checkUnFaved}>Неотмеченные</a></li>
           <li className="selector__nav-item"><a href="#" onClick={this._checkNone}>Ни одного</a></li>
+
         </ul>
         <SelectorButtons {...this.props} />
       </div>

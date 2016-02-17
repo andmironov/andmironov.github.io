@@ -97,7 +97,11 @@
   vertical-align: middle;
   text-align: right;
   float: right;
-  color: $colorBlue;
+  color: $colorLightBlue;
+}
+
+.sidebar-nav__item_current .sidebar-nav__item-counter {
+  color: $colorBlue
 }
 
 .sidebar-nav__item.sidebar-nav__item_current a,

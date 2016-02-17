@@ -43,6 +43,13 @@ let LetterActions = {
     })
   },
 
+  checkAllInFolder: function(folderName) {
+    AppDispatcher.dispatch({
+      actionType: LetterConstants.LETTER_CHECK_ALL_IN_FOLDER,
+      folderName: folderName
+    })
+  },
+
   сheckNoneInFolder: function(folderName) {
     AppDispatcher.dispatch({
       actionType: LetterConstants.LETTER_CHECK_NONE_IN_FOLDER,

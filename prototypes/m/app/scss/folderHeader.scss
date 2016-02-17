@@ -2,9 +2,63 @@
   height: 54px;
   line-height: 54px;
   border-bottom: 1px solid $colorBgLightBlue;
+  position: relative;
   display: flex;
   align-items: center;
+  justify-content: center;
+}
+
+.folder-header__inner {
+  justify-content: space-between;
+  align-items: center;
+  @extend .u-inner;
+}
+
+.folder-header .send-button {
+  height: 34px;
+  line-height: 34px;
+  width: auto;
+  display: inline-block;
+  padding: 0 24px;
+  margin: 0;
+}
+
+.folder-header__sidebar {
+  width: 320px;
+  margin: 0 0 0 0;
+  border-right: 1px solid $colorBgLightBlue
+}
+
+.folder-header__main {
   position: relative;
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.folder-header.folder-header_sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 54px;
+  width: 100%;
+  background-color: $colorWhite;
+  border-bottom: none;
+  z-index: 999;
+  box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.09);
+
+  opacity: 1;
+  visibility: hidden;
+  transform: translate3d(0, -100% ,0) scale(1);
+  transition: visibility .5s linear 0s, opacity .2s ease, transform .2s cubic-bezier(0.000, 0.000, 0.580, 1.000);
+}
+
+.folder-header.folder-header_sticky.folder-header_expanded {
+  transform: translate3d(0, 0, 0) scale(1);
+  opacity: 1;
+  visibility: visible;
 }
 
 .selector {
@@ -21,7 +75,7 @@
   display: none;
   cursor: pointer;
   padding: 0 0 0 10px;
-  color: $colorLightBlue
+  color: $colorIconBlue
 }
 
 .selector_some-checked .selector__counter {
@@ -159,35 +213,45 @@
 }
 
 .selector-buttons {
-  padding: 0 15px;
+  padding: 0 14px;
   display: flex;
   opacity: 0;
 }
 
 .selector-button {
-  padding: 8px;
-  width: 20px;
-  height: 20px;
+  padding: 0 20px 0 0;
   cursor: pointer;
   position: relative;
 }
 
 .selector-button svg {
   fill: $colorIconBlue;
-  display: block;
+  display: inline-block;
+  vertical-align: middle;
   width: 20px;
   height: 20px;
   transition: fill .2s ease;
+}
+
+.selector-button__label {
+  display: inline-block;
+  vertical-align: middle;
+  color: $colorIconBlue;
+  padding: 0 0 0 5px;
 }
 
 .selector-button:hover svg {
   fill: $colorDarkBlue;
 }
 
+.selector-button:hover .selector-button__label {
+  color: $colorDarkBlue;
+}
+
 .selector-buttons.selector-buttons_expanded {
   opacity: 1
 }
-
+/*
 .selector-button__label {
   display: block;
   height: auto;
@@ -206,11 +270,10 @@
   transform: translate3d(-50%, 4px ,0) scale(.9);
   visibility: hidden;
   transition: visibility .3s linear 0s, opacity .3s ease, transform .3s cubic-bezier(0.175, 0.885, 0.135, 1.425);
-
 }
-
 .selector-button:hover .selector-button__label {
   opacity: 1;
   visibility: visible;
   transform: translate3d(-50%, 0 ,0) scale(1);
 }
+*/

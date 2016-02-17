@@ -15,6 +15,7 @@ let FolderHeader = React.createClass({
   },
 
   render: function() {
+    
     return (
       <div className="folder-header">
         <Selector {...this.props} />

@@ -1,7 +1,7 @@
 import React from "react"
 import List from "./List"
 import FolderHeader from "./FolderHeader"
-import StickyFolderHeader from "./StickyFolderHeader"
+import FolderHeaderSticky from "./FolderHeaderSticky"
 import Direct from "./Direct"
 let ReactPropTypes = React.PropTypes
 
@@ -13,7 +13,7 @@ let Folder = React.createClass({
     areAllChecked: ReactPropTypes.bool,
     areSomeChecked: ReactPropTypes.bool,
     checkedCount: ReactPropTypes.number,
-    params: ReactPropTypes.object,
+    params: ReactPropTypes.object
   },
 
   render: function() {
@@ -27,11 +27,12 @@ let Folder = React.createClass({
     return (
       <div className="folder">
         <FolderHeader {...this.props} />
+        <FolderHeaderSticky {...this.props} />
         <Direct/>
         <List letters={letters} areSomeChecked={this.props.areSomeChecked} />
       </div>
     )
   }
-});
+})
 
-module.exports = Folder;
+module.exports = Folder
