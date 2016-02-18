@@ -49,10 +49,12 @@ let SidebarNav = React.createClass({
   },
 
   render: function() {
-    let currentFolderName = this.props.params.folderName;
+    let currentFolderName = this.props.params.folderName
+
 
     let folders = this.state.folders.map((folder, i) => {
-      return <SidebarItem key={i} isCurrent={folder.name == currentFolderName} link={folder.link} title={folder.title} counter={this.props.newLettersCount[folder.name]} icon={folder.icon} />
+      let IsNavItemHidden = (i > 2) ? true : false
+      return <SidebarItem key={i} isCurrent={folder.name == currentFolderName} link={folder.link} title={folder.title} counter={this.props.newLettersCount[folder.name]} icon={folder.icon} isHidden={IsNavItemHidden}/>
     })
 
     let sidebarNavClassnames = classNames({

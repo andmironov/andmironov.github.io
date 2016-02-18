@@ -89,6 +89,8 @@ let letterStore = assign({}, EventEmitter.prototype, {
     let uniqFolders = _.uniq(allFolders);
 
     uniqFolders.forEach((key, value) => {
+      //REVIEW: dont count sent
+      if (key == "sent") return
       count[key] = this.countNewInFolder(key)
     })
 

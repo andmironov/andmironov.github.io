@@ -1,0 +1,54 @@
+.compose {
+  background-color: $colorWhite;
+  margin: 20px 0;
+
+  @extend .u-folder;
+}
+
+.compose-form__wrap {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid $colorBgLightBlue;
+  background-color: white;
+}
+
+.compose-form__wrap_textarea {
+  padding: 20px;
+}
+
+.compose-form__wrap_disabled {
+  background-color: $colorBgLighterBlue
+}
+
+.compose-form__input {
+  display: block;
+  height: 52px;
+  width: 100%;
+  color: $colorDarkBlue;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.compose-form__textarea:focus {
+  outline: none;
+}
+
+.compose-form__label {
+  display: block;
+  color: $colorLightBlue;
+  padding: 0 10px 0 20px;
+}
+
+.compose-form__textarea {
+  height: 370px;
+  width: 100%;
+  background-color: white;
+}
+
+.compose-form__actions {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

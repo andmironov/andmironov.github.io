@@ -15,7 +15,7 @@ let Sidebar = React.createClass({
     return (
       <div className="sidebar">
         <div className="sidebar__top">
-          <SendButton/>
+          <SendButton {...this.props} />
           <SidebarNav {...this.props}/>
         </div>
         <SidebarAd/>

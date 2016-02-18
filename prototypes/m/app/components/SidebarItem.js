@@ -7,18 +7,19 @@ let SidebarItem = React.createClass({
 
   propTypes: {
     isCurrent: ReactPropTypes.bool,
+    isHidden: ReactPropTypes.bool,
     link: ReactPropTypes.string,
     title: ReactPropTypes.string,
     counter: ReactPropTypes.number,
     icon: ReactPropTypes.element
-
   },
 
   render: function() {
 
     let sidebarItemClassNames = classNames({
       "sidebar-nav__item": true,
-      "sidebar-nav__item_current": this.props.isCurrent
+      "sidebar-nav__item_current": this.props.isCurrent,
+      "sidebar-nav__item-secondary": this.props.isHidden
     })
 
     return (

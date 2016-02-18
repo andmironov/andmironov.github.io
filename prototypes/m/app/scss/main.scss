@@ -1,14 +1,19 @@
 @import "common";
 @import "layout";
+@import "buttons";
 
 //Components
 @import "topline";
 @import "user";
 @import "header";
 @import "mainSection";
+
 @import "folder";
 @import "folderHeader";
 @import "search";
+
+@import "compose";
+
 @import "direct";
 @import "listItem";
 @import "footer";

@@ -92,9 +92,10 @@
   vertical-align: middle;
   width: 12px;
   height: 12px;
-  border: 2px solid $colorMidBlue;
+  border: 2px solid;
+  border-color: $colorMidBlue;
   cursor: pointer;
-  transition: border-color .2s ease;
+  //transition: border-color .2s ease;
 }
 
 .selector__checkbox-tick {

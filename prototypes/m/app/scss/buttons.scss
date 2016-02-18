@@ -1,0 +1,42 @@
+.button {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color .1s ease;
+}
+
+.button.button_primary {
+  background-color: $colorBlue;
+  color: $colorWhite;
+}
+
+.button.button_transparent {
+  background-color: transparent;
+  color: $colorLightBlue;
+}
+
+.button.button_big {
+  width: auto;
+  padding: 0 24px;
+  height: 44px;
+  line-height: 44px;
+}
+
+//custom
+.button.button_send {
+  //background-image: url(../assets/icon_sent_diagonal.svg);
+  //background-position: 15px center;
+}
+
+
+//states
+.button.button_primary:hover {
+  background-color: $colorDeepBlue
+}
+
+.button.button_transparent:hover {
+  background-color: $colorBgLightBlue;
+}
