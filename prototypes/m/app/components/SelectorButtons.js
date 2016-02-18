@@ -11,6 +11,10 @@ let buttonConfigs = {
   sent: {
     "main" : ["folder", "trash"],
     "more" : ["tag"]
+  },
+  starred: {
+    "main" : ["folder", "trash", "unstar"],
+    "more" : ["tag"]
   }
 }
 
