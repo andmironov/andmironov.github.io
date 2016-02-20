@@ -11,7 +11,8 @@ let StickyFolderHeader = React.createClass({
   propTypes: {
     areAllChecked: ReactPropTypes.bool,
     areSomeChecked: ReactPropTypes.bool,
-    checkedCount: ReactPropTypes.number
+    checkedCount: ReactPropTypes.number,
+    currentFolderName: ReactPropTypes.string
   },
 
   getInitialState: function() {

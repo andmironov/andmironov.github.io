@@ -10,25 +10,24 @@ let Filter = React.createClass({
   propTypes: {
     allLetters: ReactPropTypes.object,
     newLettersCount: ReactPropTypes.object,
-    areAllChecked: ReactPropTypes.bool,
-    areSomeChecked: ReactPropTypes.bool,
-    checkedCount: ReactPropTypes.number,
-    params: ReactPropTypes.object
   },
 
   render: function() {
+    //REVIEW: FIX LOGIC, USE REDUX?
     let allLetters = this.props.allLetters.letters
-    let currentFilterType = this.props.params.filterType
+    let currentFilterType = "starred";
+    let lettersInCurrentFilter = this._getFilteredLetters(allLetters, "starred")
 
-    console.log(allLetters);
-    let letters = this._getFilteredLetters(allLetters, "starred")
+    let areSomeChecked = this._areSomeLettersInCurrentFilterChecked(lettersInCurrentFilter)
+    let areAllChecked = this._areAllLettersInCurrentFilterChecked(lettersInCurrentFilter)
+    let checkedCount = this._checkedLettersInCurrentFilterCount(lettersInCurrentFilter)
 
     return (
       <div className="folder">
-        <FolderHeader {...this.props} />
-        <FolderHeaderSticky {...this.props} />
+        <FolderHeader areSomeChecked={areSomeChecked} areAllChecked={areAllChecked} checkedCount={checkedCount} currentFolderName={currentFilterType}/>
+        <FolderHeaderSticky areSomeChecked={areSomeChecked} areAllChecked={areAllChecked} checkedCount={checkedCount} currentFolderName={currentFilterType}/>
         <Direct/>
-        <List letters={letters} areSomeChecked={this.props.areSomeChecked} />
+        <List letters={lettersInCurrentFilter} areSomeChecked={areSomeChecked} />
       </div>
     )
   },
@@ -38,15 +37,28 @@ let Filter = React.createClass({
 
     switch (filterType) {
       case "starred":
-      console.log(letters);
         fileredLetters = letters.filter(function(item) {
           return item.faved == true
         })
       break
     }
     return fileredLetters
-  }
+  },
 
+  _areSomeLettersInCurrentFilterChecked: function(lettersInCurrentFilter) {
+    return lettersInCurrentFilter.some(item => item.checked)
+  },
+
+  _areAllLettersInCurrentFilterChecked: function(lettersInCurrentFilter) {
+    return lettersInCurrentFilter.every(item => item.checked)
+  },
+
+  _checkedLettersInCurrentFilterCount: function(lettersInCurrentFilter) {
+    let checkedInFolder = lettersInCurrentFilter.filter(function(item) {
+      return item.checked == true
+    })
+    return checkedInFolder.length
+  }
 })
 
 module.exports = Filter

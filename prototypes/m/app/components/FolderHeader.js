@@ -12,10 +12,11 @@ let FolderHeader = React.createClass({
     areAllChecked: ReactPropTypes.bool,
     areSomeChecked: ReactPropTypes.bool,
     checkedCount: ReactPropTypes.number,
+    currentFolderName: ReactPropTypes.string
   },
 
   render: function() {
-    
+
     return (
       <div className="folder-header">
         <Selector {...this.props} />

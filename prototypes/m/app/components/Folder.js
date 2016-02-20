@@ -9,29 +9,44 @@ let Folder = React.createClass({
 
   propTypes: {
     allLetters: ReactPropTypes.object,
-    newLettersCount: ReactPropTypes.object,
-    areAllChecked: ReactPropTypes.bool,
-    areSomeChecked: ReactPropTypes.bool,
-    checkedCount: ReactPropTypes.number,
-    params: ReactPropTypes.object
+    newLettersCount: ReactPropTypes.object
   },
 
   render: function() {
     let allLetters = this.props.allLetters.letters
-    let folderName = this.props.params.folderName
+    let currentFolderName = this.props.params.folderName
 
-    let letters = allLetters.filter(function(item) {
-      return item.folder == folderName
+    let lettersInCurrentFolder = allLetters.filter(function(item) {
+      return item.folder == currentFolderName
     })
+
+    let areSomeChecked = this._areSomeLettersInCurrentFolderChecked(lettersInCurrentFolder)
+    let areAllChecked = this._areAllLettersInCurrentFolderChecked(lettersInCurrentFolder)
+    let checkedCount = this._checkedLettersInCurrentFolderCount(lettersInCurrentFolder)
 
     return (
       <div className="folder">
-        <FolderHeader {...this.props} />
-        <FolderHeaderSticky {...this.props} />
+        <FolderHeader areSomeChecked={areSomeChecked} areAllChecked={areAllChecked} checkedCount={checkedCount} currentFolderName={currentFolderName}/>
+        <FolderHeaderSticky areSomeChecked={areSomeChecked} areAllChecked={areAllChecked} checkedCount={checkedCount} currentFolderName={currentFolderName}/>
         <Direct/>
-        <List letters={letters} areSomeChecked={this.props.areSomeChecked} />
+        <List letters={lettersInCurrentFolder} areSomeChecked={areSomeChecked} />
       </div>
     )
+  },
+
+  _areSomeLettersInCurrentFolderChecked: function(lettersInCurrentFolder) {
+    return lettersInCurrentFolder.some(item => item.checked)
+  },
+
+  _areAllLettersInCurrentFolderChecked: function(lettersInCurrentFolder) {
+    return lettersInCurrentFolder.every(item => item.checked)
+  },
+
+  _checkedLettersInCurrentFolderCount: function(lettersInCurrentFolder) {
+    let checkedInFolder = lettersInCurrentFolder.filter(function(item) {
+      return item.checked == true
+    })
+    return checkedInFolder.length
   }
 })
 

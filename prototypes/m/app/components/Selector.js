@@ -9,7 +9,8 @@ let Selector = React.createClass({
   propTypes: {
     areAllChecked: ReactPropTypes.bool,
     areSomeChecked: ReactPropTypes.bool,
-    checkedCount: ReactPropTypes.number
+    checkedCount: ReactPropTypes.number,
+    currentFolderName: ReactPropTypes.string
   },
 
   getInitialState: function() {
@@ -65,36 +66,36 @@ let Selector = React.createClass({
 
   _checkAll: function(e) {
     e.preventDefault()
-    LetterActions.checkAllInFolder(this.props.params.folderName)
+    LetterActions.checkAllInFolder(this.props.currentFolderName)
   },
 
   _checkNone: function(e) {
     e.preventDefault()
-    LetterActions.сheckNoneInFolder(this.props.params.folderName)
+    LetterActions.сheckNoneInFolder(this.props.currentFolderName)
   },
 
   _toggleCheckAll: function() {
-    LetterActions.toggleCheckAllInFolder(this.props.params.folderName)
+    LetterActions.toggleCheckAllInFolder(this.props.currentFolderName)
   },
 
   _checkFaved: function(e) {
     e.preventDefault()
-    LetterActions.checkFavedInFolder(this.props.params.folderName)
+    LetterActions.checkFavedInFolder(this.props.currentFolderName)
   },
 
   _checkUnFaved: function(e) {
     e.preventDefault()
-    LetterActions.checkUnFavedInFolder(this.props.params.folderName)
+    LetterActions.checkUnFavedInFolder(this.props.currentFolderName)
   },
 
   _checkNew: function(e) {
     e.preventDefault()
-    LetterActions.checkNewInFolder(this.props.params.folderName)
+    LetterActions.checkNewInFolder(this.props.currentFolderName)
   },
 
   _checkNotNew: function(e) {
     e.preventDefault()
-    LetterActions.checkNotNewInFolder(this.props.params.folderName)
+    LetterActions.checkNotNewInFolder(this.props.currentFolderName)
   },
 
 });

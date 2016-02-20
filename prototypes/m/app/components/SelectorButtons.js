@@ -22,7 +22,7 @@ let SelectorButtons = React.createClass({
 
   propTypes: {
     areSomeChecked: ReactPropTypes.bool,
-    folderName: ReactPropTypes.string,
+    currentFolderName: ReactPropTypes.string,
   },
 
   render: function() {
@@ -32,9 +32,9 @@ let SelectorButtons = React.createClass({
       'selector-buttons_expanded': this.props.areSomeChecked,
     });
 
-    let folderName = this.props.params.folderName
+    let currentFolderName = this.props.currentFolderName
 
-    let mainButtons = buttonConfigs[folderName].main.map((buttonName, i) => {
+    let mainButtons = buttonConfigs[currentFolderName].main.map((buttonName, i) => {
       return <SelectorButton buttonName={buttonName} key={i} />;
     });
 

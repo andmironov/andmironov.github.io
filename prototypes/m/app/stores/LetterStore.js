@@ -50,6 +50,10 @@ let letterStore = assign({}, EventEmitter.prototype, {
     return _letters
   },
 
+  getFiltered: function(cb) {
+    return _letters.letters.filter(cb(letter))
+  },
+
   areAllInFolderChecked: function(folderName) {
     let folder = _letters.letters.filter(function(item) {
       return item.folder == folderName
@@ -103,10 +107,10 @@ let letterStore = assign({}, EventEmitter.prototype, {
     let folder = _letters.letters.filter(function(item) {
       return item.folder == folderName
     })
-    let newInFolder = folder.filter(function(item) {
+    let checkedInFolder = folder.filter(function(item) {
       return item.checked == true
     })
-    count = newInFolder.length
+    count = checkedInFolder.length
     return count
   },
 
