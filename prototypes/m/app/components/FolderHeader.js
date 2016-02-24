@@ -12,6 +12,7 @@ let FolderHeader = React.createClass({
     areAllChecked: ReactPropTypes.bool,
     areSomeChecked: ReactPropTypes.bool,
     checkedCount: ReactPropTypes.number,
+
     currentFolderName: ReactPropTypes.string
   },
 

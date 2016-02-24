@@ -6,6 +6,7 @@ import Mail from "./Mail"
 import Folder from "./Folder"
 import Filter from "./Filter"
 import Compose from "./Compose"
+import Open from "./Open"
 
 let Root = React.createClass({
   render() {
@@ -13,9 +14,11 @@ let Root = React.createClass({
       <Router>
         <Route path='/' component={App}>
           <Route path="mail" component={Mail}>
-            <Route name="folder" path="folder/:folderName" component={Folder} />
             <Route name="compose" path="compose" component={Compose} />
-            <Route name="filter" path="filter/:filterType" component={Filter} />
+            <Route name="open" path="open" component={Open} />
+            <Route name="folder" path="folder/:filterType" component={Folder} />
+
+            <Route name="filter" path="filter/:filterType/:filterName" component={Filter} />
           </Route>
         </Route>
       </Router>
@@ -23,4 +26,4 @@ let Root = React.createClass({
   }
 });
 
-module.exports = Root;
+module.exports = Root

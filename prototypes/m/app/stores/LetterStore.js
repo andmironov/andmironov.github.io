@@ -10,14 +10,14 @@ function update(id, updates) {
   _letters.letters[id] = assign({}, _letters.letters[id], updates)
 }
 
-function updateAll(updates) {
-  _letters.letters.map(item => update(item.id, updates))
-}
-
 function updateAllInFolder(updates, folderName) {
   _letters.letters.map(item => {
     if(item.folder == folderName) update(item.id, updates)
   })
+}
+
+function updateFiltered(updates, filter) {
+  _letters.letters.filter(filter).map(item => update(item.id, updates))
 }
 
 function checkFavedInFolder(folderName) {
@@ -149,8 +149,8 @@ AppDispatcher.register(function(action) {
       letterStore.emitChange()
       break
 
-    case LetterConstants.LETTER_CHECK_ALL_IN_FOLDER:
-      updateAllInFolder({checked: true}, action.folderName)
+    case LetterConstants.MESSAGES_CHECK_ALL:
+      updateFiltered({checked: true}, action.filter)
       letterStore.emitChange()
       break
 
@@ -211,6 +211,15 @@ AppDispatcher.register(function(action) {
       break
   }
 })
+
+let starred = new Set();
+
+let folders = {
+  inbox: new Set(),
+  sent: new Set(),
+  spam: new Set(),
+  drafts: new Set()
+}
 
 let _letters = {
   letters: [

@@ -66,7 +66,7 @@ let Selector = React.createClass({
 
   _checkAll: function(e) {
     e.preventDefault()
-    LetterActions.checkAllInFolder(this.props.currentFolderName)
+    LetterActions.checkAllFiltered(this.props.filter)
   },
 
   _checkNone: function(e) {

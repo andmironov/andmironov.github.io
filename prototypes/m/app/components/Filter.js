@@ -13,48 +13,58 @@ let Filter = React.createClass({
   },
 
   render: function() {
-    //REVIEW: FIX LOGIC, USE REDUX?
-    let allLetters = this.props.allLetters.letters
-    let currentFilterType = "starred";
-    let lettersInCurrentFilter = this._getFilteredLetters(allLetters, "starred")
+    let allMessages = this.props.allLetters.letters
+    let currentFilter = this._getCurrentFilter()
+    let filteredMessages = allMessages.filter(currentFilter)
 
-    let areSomeChecked = this._areSomeLettersInCurrentFilterChecked(lettersInCurrentFilter)
-    let areAllChecked = this._areAllLettersInCurrentFilterChecked(lettersInCurrentFilter)
-    let checkedCount = this._checkedLettersInCurrentFilterCount(lettersInCurrentFilter)
+    let areSomeChecked = this._areSomeMessagesChecked(filteredMessages)
+    let areAllChecked = this._areAllMessagesChecked(filteredMessages)
+    let checkedCount = this._checkedMessagesCount(filteredMessages)
+
+    let currentFolderName = this.props.params.filterName
+
 
     return (
       <div className="folder">
-        <FolderHeader areSomeChecked={areSomeChecked} areAllChecked={areAllChecked} checkedCount={checkedCount} currentFolderName={currentFilterType}/>
-        <FolderHeaderSticky areSomeChecked={areSomeChecked} areAllChecked={areAllChecked} checkedCount={checkedCount} currentFolderName={currentFilterType}/>
+        <FolderHeader filter={currentFilter} areSomeChecked={areSomeChecked} areAllChecked={areAllChecked} checkedCount={checkedCount} currentFolderName={currentFolderName}/>
         <Direct/>
-        <List letters={lettersInCurrentFilter} areSomeChecked={areSomeChecked} />
+        <List letters={filteredMessages} areSomeChecked={areSomeChecked} />
       </div>
     )
   },
 
-  _getFilteredLetters: function(letters, filterType) {
-    let fileredLetters
+  _getCurrentFilter: function() {
+    let currentFilterType = this.props.params.filterType
+    let currentFilterName = this.props.params.filterName
 
-    switch (filterType) {
+    let filter
+
+    switch (currentFilterType) {
+      case "folder":
+        filter = (message) => { return message.folder == currentFilterName }
+      break
       case "starred":
-        fileredLetters = letters.filter(function(item) {
-          return item.faved == true
-        })
+        filter = (message) => { return message.starred == true }
+      break
+      case "tag":
+        filter = (message) => { return message.tag == currentFilterName }
       break
     }
-    return fileredLetters
+
+    return filter
   },
 
-  _areSomeLettersInCurrentFilterChecked: function(lettersInCurrentFilter) {
-    return lettersInCurrentFilter.some(item => item.checked)
+
+  _areSomeMessagesChecked: function(messages) {
+    return messages.some(item => item.checked)
   },
 
-  _areAllLettersInCurrentFilterChecked: function(lettersInCurrentFilter) {
-    return lettersInCurrentFilter.every(item => item.checked)
+  _areAllMessagesChecked: function(messages) {
+    return messages.every(item => item.checked)
   },
 
-  _checkedLettersInCurrentFilterCount: function(lettersInCurrentFilter) {
-    let checkedInFolder = lettersInCurrentFilter.filter(function(item) {
+  _checkedMessagesCount: function(messages) {
+    let checkedInFolder = messages.filter(function(item) {
       return item.checked == true
     })
     return checkedInFolder.length

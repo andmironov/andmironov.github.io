@@ -3,6 +3,13 @@ import LetterConstants from '../constants/LetterConstants'
 
 let LetterActions = {
 
+  checkAllFiltered: function(filter) {
+    AppDispatcher.dispatch({
+      actionType: LetterConstants.MESSAGES_CHECK_ALL,
+      filter: filter
+    })
+  },
+
   toggleChecked: function(letter) {
     let id = letter.id;
     let actionType = letter.checked ? LetterConstants.LETTER_UNCHECK : LetterConstants.LETTER_CHECK;
@@ -32,20 +39,6 @@ let LetterActions = {
   toggleCheckAllInFolder: function(folderName) {
     AppDispatcher.dispatch({
       actionType: LetterConstants.LETTER_TOGGLE_CHECK_ALL_IN_FOLDER,
-      folderName: folderName
-    })
-  },
-
-  сheckAllInFolder: function(folderName) {
-    AppDispatcher.dispatch({
-      actionType: LetterConstants.LETTER_CHECK_ALL_IN_FOLDER,
-      folderName: folderName
-    })
-  },
-
-  checkAllInFolder: function(folderName) {
-    AppDispatcher.dispatch({
-      actionType: LetterConstants.LETTER_CHECK_ALL_IN_FOLDER,
       folderName: folderName
     })
   },

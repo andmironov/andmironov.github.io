@@ -5,19 +5,19 @@ import LetterStore from "../stores/LetterStore"
 let Mail = React.createClass({
 
   getInitialState: function() {
-    return getData(this.props.params.folderName);
+    return getData()
   },
 
   componentDidMount: function() {
-    LetterStore.addChangeListener(this._onChange);
+    LetterStore.addChangeListener(this._onChange)
   },
 
   componentWillUnmount: function() {
-    LetterStore.removeChangeListener(this._onChange);
+    LetterStore.removeChangeListener(this._onChange)
   },
 
   componentWillReceiveProps: function() {
-    this.setState(getData(this.props.params.folderName))
+    this.setState(getData())
   },
 
   render: function() {
@@ -32,18 +32,14 @@ let Mail = React.createClass({
   },
 
   _onChange: function() {
-    this.setState(getData(this.props.params.folderName))
+    this.setState(getData())
   }
 })
 
-function getData(folderName) {
+function getData() {
   return {
-    folderName: folderName,
     allLetters: LetterStore.getAll(),
-    newLettersCount: LetterStore.countNewInFolders(),
-    areAllChecked: LetterStore.areAllInFolderChecked(folderName),
-    areSomeChecked: LetterStore.areSomeInFolderChecked(folderName),
-    checkedCount: LetterStore.countCheckedInFolder(folderName),
+    newLettersCount: LetterStore.countNewInFolders()
   }
 }
 
