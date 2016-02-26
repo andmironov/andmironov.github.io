@@ -1,0 +1,24 @@
+.list {
+  background-color: $colorWhite;
+}
+
+.list.list_empty {
+  background-color: $colorWhite;
+  min-height: 261px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.list.list_empty:after {
+  content: "В этой папке нет писем";
+  display: block;
+  padding: 100px 0 0 0;
+  background-image: url(../assets/icon_no_mail.svg);
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 80px;
+  font-size: 18px;
+  font-weight: 300;
+  color: $colorMidBlue
+}

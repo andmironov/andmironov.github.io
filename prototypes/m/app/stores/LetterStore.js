@@ -6,42 +6,17 @@ import _ from 'lodash'
 
 const CHANGE_EVENT = 'change'
 
-function update(id, updates) {
+function updateOne(id, updates) {
   _letters.letters[id] = assign({}, _letters.letters[id], updates)
 }
 
-function updateAllInFolder(updates, folderName) {
-  _letters.letters.map(item => {
-    if(item.folder == folderName) update(item.id, updates)
-  })
-}
-
 function updateFiltered(updates, filter) {
-  _letters.letters.filter(filter).map(item => update(item.id, updates))
+  _letters.letters.filter(filter).map(item => updateOne(item.id, updates))
 }
 
-function checkFavedInFolder(folderName) {
-  _letters.letters.map(item => {
-    if(item.folder == folderName && item.faved) update(item.id, {checked: true})
-  })
-}
-
-function checkUnFavedInFolder(folderName) {
-  _letters.letters.map(item => {
-    if(item.folder == folderName && !item.faved) update(item.id, {checked: true})
-  })
-}
-
-function checkNewInFolder(folderName) {
-  _letters.letters.map(item => {
-    if(item.folder == folderName && item.new) update(item.id, {checked: true})
-  })
-}
-
-function checkNotNewInFolder(folderName) {
-  _letters.letters.map(item => {
-    if(item.folder == folderName && !item.new) update(item.id, {checked: true})
-  })
+function updateSomeFiltered(updates, filter, some) {
+  let filtered = _letters.letters.filter(filter).filter(some)
+  filtered.map(item => updateOne(item.id, updates))
 }
 
 let letterStore = assign({}, EventEmitter.prototype, {
@@ -54,18 +29,9 @@ let letterStore = assign({}, EventEmitter.prototype, {
     return _letters.letters.filter(cb(letter))
   },
 
-  areAllInFolderChecked: function(folderName) {
-    let folder = _letters.letters.filter(function(item) {
-      return item.folder == folderName
-    })
-    return folder.every(item => item.checked)
-  },
-
-  areSomeInFolderChecked: function(folderName) {
-    let folder = _letters.letters.filter(function(item) {
-      return item.folder == folderName
-    })
-    return folder.some(item => item.checked)
+  areSomeFilteredChecked: function(filter) {
+    let filtered = _letters.letters.filter(filter)
+    return filtered.some(item => item.checked)
   },
 
   countNewInFolder: function(folderName) {
@@ -130,96 +96,89 @@ let letterStore = assign({}, EventEmitter.prototype, {
 AppDispatcher.register(function(action) {
 
   switch(action.actionType) {
+
     case LetterConstants.LETTER_CHECK:
-      update(action.id, {checked: true})
+      updateOne(action.id, {checked: true})
       letterStore.emitChange()
       break
 
     case LetterConstants.LETTER_UNCHECK:
-      update(action.id, {checked: false})
-      letterStore.emitChange()
-      break
-
-    case LetterConstants.LETTER_TOGGLE_CHECK_ALL:
-      if (letterStore.areAllChecked()) {
-        updateAll({checked: false})
-      } else {
-        updateAll({checked: true})
-      }
-      letterStore.emitChange()
-      break
-
-    case LetterConstants.MESSAGES_CHECK_ALL:
-      updateFiltered({checked: true}, action.filter)
-      letterStore.emitChange()
-      break
-
-    case LetterConstants.LETTER_CHECK_NONE_IN_FOLDER:
-      updateAllInFolder({checked: false}, action.folderName)
-      letterStore.emitChange()
-      break
-
-    case LetterConstants.LETTER_TOGGLE_CHECK_ALL_IN_FOLDER:
-      if (letterStore.areSomeInFolderChecked(action.folderName)) {
-        updateAllInFolder({checked: false}, action.folderName)
-      } else {
-        updateAllInFolder({checked: true}, action.folderName)
-      }
-      letterStore.emitChange()
-      break
-
-    case LetterConstants.LETTER_CHECK_FAVED_IN_FOLDER:
-      if (letterStore.areSomeInFolderChecked(action.folderName)) {
-        updateAllInFolder({checked: false}, action.folderName)
-      }
-      checkFavedInFolder(action.folderName)
-      letterStore.emitChange()
-      break
-
-    case LetterConstants.LETTER_CHECK_UNFAVED_IN_FOLDER:
-      if (letterStore.areSomeInFolderChecked(action.folderName)) {
-        updateAllInFolder({checked: false}, action.folderName)
-      }
-      checkUnFavedInFolder(action.folderName)
-      letterStore.emitChange()
-      break
-
-    case LetterConstants.LETTER_CHECK_NEW_IN_FOLDER:
-      if (letterStore.areSomeInFolderChecked(action.folderName)) {
-        updateAllInFolder({checked: false}, action.folderName)
-      }
-      checkNewInFolder(action.folderName)
-      letterStore.emitChange()
-      break
-
-    case LetterConstants.LETTER_CHECK_NOT_NEW_IN_FOLDER:
-      if (letterStore.areSomeInFolderChecked(action.folderName)) {
-        updateAllInFolder({checked: false}, action.folderName)
-      }
-      checkNotNewInFolder(action.folderName)
+      updateOne(action.id, {checked: false})
       letterStore.emitChange()
       break
 
     case LetterConstants.LETTER_FAV:
-      update(action.id, {faved: true})
+      updateOne(action.id, {faved: true})
       letterStore.emitChange()
       break
 
     case LetterConstants.LETTER_UNFAV:
-      update(action.id, {faved: false})
+      updateOne(action.id, {faved: false})
+      letterStore.emitChange()
+      break
+
+    case LetterConstants.CHECK_FILTERED:
+      updateFiltered({checked: true}, action.filter)
+      letterStore.emitChange()
+      break
+
+    case LetterConstants.UNCHECK_FILTERED:
+      updateFiltered({checked: false}, action.filter)
+      letterStore.emitChange()
+      break
+
+    case LetterConstants.TOGGLE_CHECK_FILTERED:
+      if (letterStore.areSomeFilteredChecked(action.filter)) {
+        updateFiltered({checked: false}, action.filter)
+      } else {
+        updateFiltered({checked: true}, action.filter)
+      }
+      letterStore.emitChange()
+      break
+
+    case LetterConstants.CHECK_FAVED_FILTERED:
+      if (letterStore.areSomeFilteredChecked(action.filter)) {
+        updateFiltered({checked: false}, action.filter)
+      }
+      updateSomeFiltered({checked: true}, action.filter, (item) => {
+        return item.faved
+      })
+      letterStore.emitChange()
+      break
+
+    case LetterConstants.CHECK_UNFAVED_FILTERED:
+      if (letterStore.areSomeFilteredChecked(action.filter)) {
+        updateFiltered({checked: false}, action.filter)
+      }
+      updateSomeFiltered({checked: true}, action.filter, (item) => {
+        return !item.faved
+      })
+      letterStore.emitChange()
+      break
+
+    case LetterConstants.CHECK_NEW_FILTERED:
+      if (letterStore.areSomeFilteredChecked(action.filter)) {
+        updateFiltered({checked: false}, action.filter)
+      }
+      updateSomeFiltered({checked: true}, action.filter, (item) => {
+        return item.new
+      })
+      letterStore.emitChange()
+      break
+
+    case LetterConstants.CHECK_NOT_NEW_FILTERED:
+      if (letterStore.areSomeFilteredChecked(action.filter)) {
+        updateFiltered({checked: false}, action.filter)
+      }
+      updateSomeFiltered({checked: true}, action.filter, (item) => {
+        return !item.new
+      })
       letterStore.emitChange()
       break
   }
 })
 
-let starred = new Set();
-
-let folders = {
-  inbox: new Set(),
-  sent: new Set(),
-  spam: new Set(),
-  drafts: new Set()
-}
+let _folders = ["inbox", "sent", "faved", "drafts", "bin", "spam"]
 
 let _letters = {
   letters: [

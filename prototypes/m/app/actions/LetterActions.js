@@ -3,9 +3,23 @@ import LetterConstants from '../constants/LetterConstants'
 
 let LetterActions = {
 
-  checkAllFiltered: function(filter) {
+  checkFiltered: function(filter) {
     AppDispatcher.dispatch({
-      actionType: LetterConstants.MESSAGES_CHECK_ALL,
+      actionType: LetterConstants.CHECK_FILTERED,
+      filter: filter
+    })
+  },
+
+  unCheckFiltered: function(filter) {
+    AppDispatcher.dispatch({
+      actionType: LetterConstants.UNCHECK_FILTERED,
+      filter: filter
+    })
+  },
+
+  toggleCheckFiltered: function(filter) {
+    AppDispatcher.dispatch({
+      actionType: LetterConstants.TOGGLE_CHECK_FILTERED,
       filter: filter
     })
   },
@@ -30,51 +44,31 @@ let LetterActions = {
     })
   },
 
-  toggleCheckAll: function() {
+  checkFavedFiltered: function(filter) {
     AppDispatcher.dispatch({
-      actionType: LetterConstants.LETTER_TOGGLE_CHECK_ALL
+      actionType: LetterConstants.CHECK_FAVED_FILTERED,
+      filter: filter
     })
   },
 
-  toggleCheckAllInFolder: function(folderName) {
+  checkUnFavedFiltered: function(filter) {
     AppDispatcher.dispatch({
-      actionType: LetterConstants.LETTER_TOGGLE_CHECK_ALL_IN_FOLDER,
-      folderName: folderName
+      actionType: LetterConstants.CHECK_UNFAVED_FILTERED,
+      filter: filter
     })
   },
 
-  сheckNoneInFolder: function(folderName) {
+  checkNewFiltered: function(filter) {
     AppDispatcher.dispatch({
-      actionType: LetterConstants.LETTER_CHECK_NONE_IN_FOLDER,
-      folderName: folderName
+      actionType: LetterConstants.CHECK_NEW_FILTERED,
+      filter: filter
     })
   },
 
-  checkFavedInFolder: function(folderName) {
+  checkNotNewFiltered: function(filter) {
     AppDispatcher.dispatch({
-      actionType: LetterConstants.LETTER_CHECK_FAVED_IN_FOLDER,
-      folderName: folderName
-    })
-  },
-
-  checkUnFavedInFolder: function(folderName) {
-    AppDispatcher.dispatch({
-      actionType: LetterConstants.LETTER_CHECK_UNFAVED_IN_FOLDER,
-      folderName: folderName
-    })
-  },
-
-  checkNewInFolder: function(folderName) {
-    AppDispatcher.dispatch({
-      actionType: LetterConstants.LETTER_CHECK_NEW_IN_FOLDER,
-      folderName: folderName
-    })
-  },
-
-  checkNotNewInFolder: function(folderName) {
-    AppDispatcher.dispatch({
-      actionType: LetterConstants.LETTER_CHECK_NOT_NEW_IN_FOLDER,
-      folderName: folderName
+      actionType: LetterConstants.CHECK_NOT_NEW_FILTERED,
+      filter: filter
     })
   },
 };

@@ -1,0 +1,59 @@
+.single {
+  background-color: $colorWhite;
+  margin: 20px 0;
+
+  @extend .u-folder;
+}
+
+.message-header {
+  position: relative;
+  padding: 20px;
+  border-bottom: 1px solid;
+  border-color: $colorBgLightBlue;
+}
+
+.message-subject {
+  font-weight: 500;
+  font-size: 20px;
+  padding: 0 0 20px 0;
+}
+
+.message-date {
+  color: $colorLightBlue;
+  text-align: right;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+.message-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: $colorBgLightBlue;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 15px 0 0;
+}
+
+.message-contacts {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.message-from {
+  padding: 0 0 8px 0;
+}
+
+.message-from__email {
+  color: $colorLightBlue
+}
+
+.message-to__label {
+  color: $colorLightBlue
+}
+
+.message-body{
+  background-color: $colorWhite;
+  padding: 20px;
+}

@@ -18,13 +18,12 @@ let SidebarItem = React.createClass({
 
     let sidebarItemClassNames = classNames({
       "sidebar-nav__item": true,
-      "sidebar-nav__item_current": this.props.isCurrent,
       "sidebar-nav__item-secondary": this.props.isHidden
     })
 
     return (
       <li className={sidebarItemClassNames}>
-        <Link to={this.props.link}>
+        <Link to={this.props.link} activeClassName="sidebar-nav__item_current">
           <span className="sidebar-nav__item-icon sidebar-nav__item-icon_inbox">{this.props.icon}</span>
           <span className="sidebar-nav__item-title">{this.props.title}</span>
           <span className="sidebar-nav__item-counter">{this.props.counter}</span>

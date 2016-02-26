@@ -3,10 +3,9 @@ import classNames from "classnames"
 let ReactPropTypes = React.PropTypes
 
 let searchTypes = [
+  "Везде",
   "Письма",
-  "Отправитель",
-  "Получатель",
-  "Тема"
+  "Контакты"
 ]
 
 let Search = React.createClass({
@@ -59,7 +58,7 @@ let Search = React.createClass({
         </div>
 
         <div className={searchClassnames}>
-          <div className="search__field"><input type="text" placeholder="Поиск по входящим"/></div>
+          <div className="search__field"><input type="text" placeholder="Поиск писем и контактов"/></div>
           <div className="search__dropdown">
             <div className="search__dropdown-selected" onClick={this._toggleSearchDropdown}>
               <div className="search__dropdown-selected-text">{this.state.currentSearchType}</div>

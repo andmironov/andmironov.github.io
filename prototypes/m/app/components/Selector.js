@@ -7,26 +7,29 @@ let ReactPropTypes = React.PropTypes
 let Selector = React.createClass({
 
   propTypes: {
+    isEmpty: ReactPropTypes.bool,
     areAllChecked: ReactPropTypes.bool,
     areSomeChecked: ReactPropTypes.bool,
-    checkedCount: ReactPropTypes.number,
-    currentFolderName: ReactPropTypes.string
+    checkedCount: ReactPropTypes.number
   },
 
   getInitialState: function() {
     return {
-      isCheckboxNavOpened:false
+      isCheckboxNavOpened: false
     }
   },
 
   componentWillReceiveProps: function() {
-    this.setState({ isCheckboxNavOpened:false })
+    this.setState({
+      isCheckboxNavOpened:false
+    })
   },
 
   render: function() {
 
     let selectorClassnames = classNames({
       'selector': true,
+      'selector_disabled': this.props.isEmpty,
       'selector_all-checked': this.props.areAllChecked,
       'selector_some-checked': this.props.areSomeChecked,
       'selector_nav-opened': this.state.isCheckboxNavOpened
@@ -39,11 +42,12 @@ let Selector = React.createClass({
           <div className="selector__checkbox-minus"></div>
         </div>
 
-        <div className="selector__counter"onClick={this._toggleCheckboxNavOpened}>{this.props.checkedCount} выбрано</div>
+        <div className="selector__counter" onClick={this._toggleCheckboxNavOpened}>{this.props.checkedCount} выбрано</div>
 
         <div className="selector__bird" onClick={this._toggleCheckboxNavOpened}>
           <svg><path d="M6,4.82842712 L1.75735931,0.585786438 L0.343145751,2 L5.29289322,6.94974747 L6,7.65685425 L11.6568542,2 L10.2426407,0.585786438 L6,4.82842712 L6,4.82842712 L6,4.82842712 Z"></path></svg>
         </div>
+
         <ul className="selector__nav">
           <li className="selector__nav-item"><a href="#" onClick={this._checkAll}>Выбрать все</a></li>
           <li className="selector__nav-item"><a href="#" onClick={this._checkNew}>Непрочитанные</a></li>
@@ -51,7 +55,6 @@ let Selector = React.createClass({
           <li className="selector__nav-item"><a href="#" onClick={this._checkFaved}>Отмеченные</a></li>
           <li className="selector__nav-item"><a href="#" onClick={this._checkUnFaved}>Неотмеченные</a></li>
           <li className="selector__nav-item"><a href="#" onClick={this._checkNone}>Ни одного</a></li>
-
         </ul>
         <SelectorButtons {...this.props} />
       </div>
@@ -59,6 +62,7 @@ let Selector = React.createClass({
   },
 
   _toggleCheckboxNavOpened: function() {
+    if (this.props.isEmpty) return false 
     this.setState({
       isCheckboxNavOpened: this.state.isCheckboxNavOpened ? false : true,
     });
@@ -66,36 +70,36 @@ let Selector = React.createClass({
 
   _checkAll: function(e) {
     e.preventDefault()
-    LetterActions.checkAllFiltered(this.props.filter)
+    LetterActions.checkFiltered(this.props.filter)
   },
 
   _checkNone: function(e) {
     e.preventDefault()
-    LetterActions.сheckNoneInFolder(this.props.currentFolderName)
+    LetterActions.unCheckFiltered(this.props.filter)
   },
 
   _toggleCheckAll: function() {
-    LetterActions.toggleCheckAllInFolder(this.props.currentFolderName)
+    LetterActions.toggleCheckFiltered(this.props.filter)
   },
 
   _checkFaved: function(e) {
     e.preventDefault()
-    LetterActions.checkFavedInFolder(this.props.currentFolderName)
+    LetterActions.checkFavedFiltered(this.props.filter)
   },
 
   _checkUnFaved: function(e) {
     e.preventDefault()
-    LetterActions.checkUnFavedInFolder(this.props.currentFolderName)
+    LetterActions.checkUnFavedFiltered(this.props.filter)
   },
 
   _checkNew: function(e) {
     e.preventDefault()
-    LetterActions.checkNewInFolder(this.props.currentFolderName)
+    LetterActions.checkNewFiltered(this.props.filter)
   },
 
   _checkNotNew: function(e) {
     e.preventDefault()
-    LetterActions.checkNotNewInFolder(this.props.currentFolderName)
+    LetterActions.checkNotNewFiltered(this.props.filter)
   },
 
 });

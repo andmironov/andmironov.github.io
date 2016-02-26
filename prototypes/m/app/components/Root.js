@@ -6,7 +6,7 @@ import Mail from "./Mail"
 import Folder from "./Folder"
 import Filter from "./Filter"
 import Compose from "./Compose"
-import Open from "./Open"
+import Single from "./Single"
 
 let Root = React.createClass({
   render() {
@@ -15,9 +15,11 @@ let Root = React.createClass({
         <Route path='/' component={App}>
           <Route path="mail" component={Mail}>
             <Route name="compose" path="compose" component={Compose} />
-            <Route name="open" path="open" component={Open} />
-            <Route name="folder" path="folder/:filterType" component={Folder} />
 
+            <Route name="single" path="single" component={Single} />
+            <Route name="single" path="single/:messageId" component={Single} />
+
+            <Route name="filter" path="filter/:filterType" component={Filter} />
             <Route name="filter" path="filter/:filterType/:filterName" component={Filter} />
           </Route>
         </Route>

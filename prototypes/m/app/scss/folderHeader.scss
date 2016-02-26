@@ -153,6 +153,14 @@
   opacity: 0
 }
 
+.selector_disabled .selector__checkbox {
+  background-color: $colorBgLighterBlue;
+}
+
+.selector_disabled .selector__checkbox:hover {
+  border-color: $colorMidBlue;
+}
+
 .selector__bird {
   cursor: pointer;
   box-sizing: content-box;
@@ -171,9 +179,18 @@
   transition: fill .2s ease;
 }
 
+.selector_disabled .selector__bird {
+  opacity: .7
+}
+
 .selector__bird:hover svg{
   fill: $colorLightBlue;
 }
+
+.selector_disabled .selector__bird:hover svg {
+  fill: $colorMidBlue;
+}
+
 
 .selector_nav-opened .selector__bird svg{
   fill: $colorLightBlue;
@@ -252,6 +269,7 @@
 .selector-buttons.selector-buttons_expanded {
   opacity: 1
 }
+
 /*
 .selector-button__label {
   display: block;
@@ -278,3 +296,96 @@
   transform: translate3d(-50%, 0 ,0) scale(1);
 }
 */
+
+.back-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 30px;
+  border-right: 1px solid;
+  border-color: $colorBgLightBlue;
+  cursor: pointer;
+}
+
+.back-button .back-button__icon,
+.back-button .back-button__icon svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+.back-button .back-button__icon {
+  transform: translate3d(0, 0, 0);
+  transition: transform .2s ease;
+}
+
+.back-button .back-button__icon svg {
+  fill: $colorIconBlue;
+  transition: fill .2s ease;
+}
+
+.back-button:hover .back-button__icon {
+  transform: translate3d(-4px, 0, 0);
+}
+
+.back-button:hover .back-button__icon svg{
+  fill: $colorDarkBlue;
+}
+
+.header-buttons {
+  padding: 0 14px;
+  display: flex;
+  opacity: 1;
+}
+
+.header-actions {
+  display: flex;
+  margin-left: auto;
+}
+
+.button-dropdown {
+
+}
+
+.button-dropdown  {
+  position: absolute;
+  top: 45px;
+  left: -5px;
+  padding: 15px 0;
+  background-color: $colorWhite;
+  box-shadow: -2px 2px 10px 0px rgba(46,49,53,0.19);
+  z-index: 800;
+  line-height: 20px;
+
+  opacity: 0;
+  transform: translate3d(0, 10px ,0) scale(1);
+  visibility: hidden;
+  transition: visibility .5s linear 0s, opacity .2s ease, transform .3s cubic-bezier(0.175, 0.885, 0.135, 1.425);
+}
+
+.button-dropdown_opened .button-dropdown  {
+  transition-delay: 0s;
+  visibility: visible;
+  opacity: 1;
+  transform: translate3d(0, 0 ,0) scale(1);
+}
+
+.button-dropdown__item {
+  white-space: nowrap;
+}
+
+.button-dropdown__item a {
+  display: block;
+  padding: 6px 25px 6px 20px;
+  color: $colorDarkBlue;
+  transition: color .1s linear;
+}
+
+.button-dropdown__item a:hover {
+  color: $colorBlue;
+}
+
+.selector-button.button-dropdown_opened svg {
+  fill: $colorDarkBlue;
+}

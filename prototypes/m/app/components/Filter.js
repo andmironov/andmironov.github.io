@@ -17,57 +17,62 @@ let Filter = React.createClass({
     let currentFilter = this._getCurrentFilter()
     let filteredMessages = allMessages.filter(currentFilter)
 
+    let isEmpty = this._isEmpty(filteredMessages)
     let areSomeChecked = this._areSomeMessagesChecked(filteredMessages)
     let areAllChecked = this._areAllMessagesChecked(filteredMessages)
     let checkedCount = this._checkedMessagesCount(filteredMessages)
 
-    let currentFolderName = this.props.params.filterName
-
-
     return (
       <div className="folder">
-        <FolderHeader filter={currentFilter} areSomeChecked={areSomeChecked} areAllChecked={areAllChecked} checkedCount={checkedCount} currentFolderName={currentFolderName}/>
+        <FolderHeader filter={currentFilter} areSomeChecked={areSomeChecked} areAllChecked={areAllChecked} checkedCount={checkedCount} isEmpty={isEmpty}/>
+        <FolderHeaderSticky filter={currentFilter} areSomeChecked={areSomeChecked} areAllChecked={areAllChecked} checkedCount={checkedCount} isEmpty={isEmpty}/>
         <Direct/>
-        <List letters={filteredMessages} areSomeChecked={areSomeChecked} />
+        <List letters={filteredMessages} areSomeChecked={areSomeChecked} isEmpty={isEmpty}/>
       </div>
     )
   },
 
   _getCurrentFilter: function() {
-    let currentFilterType = this.props.params.filterType
-    let currentFilterName = this.props.params.filterName
+    let filterType = this.props.params.filterType
 
     let filter
 
-    switch (currentFilterType) {
+    switch (filterType) {
       case "folder":
-        filter = (message) => { return message.folder == currentFilterName }
+        filter = (message) => { return message.folder == this.props.params.filterName }
       break
-      case "starred":
-        filter = (message) => { return message.starred == true }
+
+      case "faved":
+        filter = (message) => { return message.faved }
       break
+
       case "tag":
-        filter = (message) => { return message.tag == currentFilterName }
+        filter = (message) => { return message.tag == this.props.params.filterName }
       break
     }
 
     return filter
   },
 
+  _isEmpty: function(messages) {
+    if (messages.length > 0) return false
+    return true
+  },
 
   _areSomeMessagesChecked: function(messages) {
-    return messages.some(item => item.checked)
+    return messages.some(massage => massage.checked)
   },
 
   _areAllMessagesChecked: function(messages) {
-    return messages.every(item => item.checked)
+    if (messages.length > 0) return messages.every(massage => massage.checked)
+    return false
   },
 
   _checkedMessagesCount: function(messages) {
-    let checkedInFolder = messages.filter(function(item) {
-      return item.checked == true
+    let checked = messages.filter(function(message) {
+      return message.checked == true
     })
-    return checkedInFolder.length
+    return checked.length
   }
 })
 

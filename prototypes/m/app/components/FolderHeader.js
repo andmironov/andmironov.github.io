@@ -9,15 +9,13 @@ let ReactPropTypes = React.PropTypes
 let FolderHeader = React.createClass({
 
   propTypes: {
+    isEmpty: ReactPropTypes.bool,
     areAllChecked: ReactPropTypes.bool,
     areSomeChecked: ReactPropTypes.bool,
-    checkedCount: ReactPropTypes.number,
-
-    currentFolderName: ReactPropTypes.string
+    checkedCount: ReactPropTypes.number
   },
 
   render: function() {
-
     return (
       <div className="folder-header">
         <Selector {...this.props} />

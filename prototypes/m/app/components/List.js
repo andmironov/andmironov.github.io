@@ -7,11 +7,13 @@ let List = React.createClass({
 
   propTypes: {
     letters: ReactPropTypes.array,
-    areSomeChecked: ReactPropTypes.bool
+    areSomeChecked: ReactPropTypes.bool,
+    isEmpty: ReactPropTypes.bool
   },
 
   render: function() {
-    let letters = this.props.letters;
+    let letters = this.props.letters
+    let isListEmpty = this.props.isEmpty
 
     let listItems = letters.map(function(letter) {
       return <ListItem letter={letter} key={letter.id}/>
@@ -19,7 +21,8 @@ let List = React.createClass({
 
     let listClassnames = classNames({
       'list': true,
-      'list_some-are-checked': this.props.areSomeChecked
+      'list_some-are-checked': this.props.areSomeChecked,
+      'list_empty': isListEmpty
     })
 
     return (

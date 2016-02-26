@@ -4,15 +4,16 @@ import letterActions from "../actions/LetterActions"
 import Selector from "./Selector"
 import Search from "./Search"
 import SendButton from "./SendButton"
+
 let ReactPropTypes = React.PropTypes
 
 let StickyFolderHeader = React.createClass({
 
   propTypes: {
+    isEmpty: ReactPropTypes.bool,
     areAllChecked: ReactPropTypes.bool,
     areSomeChecked: ReactPropTypes.bool,
-    checkedCount: ReactPropTypes.number,
-    currentFolderName: ReactPropTypes.string
+    checkedCount: ReactPropTypes.number
   },
 
   getInitialState: function() {
@@ -58,7 +59,7 @@ let StickyFolderHeader = React.createClass({
   },
 
   _handleScroll: function() {
-    //TODO: fix the logic
+    //TODO: fix the fucking logic
 
     let latestScrollY = window.pageYOffset || document.documentElement.scrollTop
 

@@ -105,10 +105,10 @@
   color: $colorBlue
 }
 
-.sidebar-nav__item.sidebar-nav__item_current a,
-.sidebar-nav__item a:hover {
+.sidebar-nav__item a.sidebar-nav__item_current {
   color: $colorBlue
 }
+
 
 .sidebar-nav__item a:hover .sidebar-nav__item-cleanUpLink {
   transform: translate3d(0, 0, 0);
@@ -126,6 +126,9 @@
 }
 
 .sidebar-nav__item a:hover .sidebar-nav__item-icon svg {
+  fill: $colorIconBlue
+}
+.sidebar-nav__item a.sidebar-nav__item_current:hover .sidebar-nav__item-icon svg {
   fill: $colorBlue
 }
 
