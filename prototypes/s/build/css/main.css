@@ -1,0 +1,445 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500&subset=latin,cyrillic);
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after {
+  content: "";
+  content: none; }
+
+q:before, q:after {
+  content: "";
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+div {
+  box-sizing: border-box; }
+
+/* ----------------------------------------------------------------------------------------------------
+
+Super Form Reset
+
+A couple of things to watch out for:
+
+- IE8: If a text input doesn't have padding on all sides or none the text won't be centered.
+- The default border sizes on text inputs in all UAs seem to be slightly different. You're better off using custom borders.
+- You NEED to set the font-size and family on all form elements
+- Search inputs need to have their appearance reset and the box-sizing set to content-box to match other UAs
+- You can style the upload button in webkit using ::-webkit-file-upload-button
+- ::-webkit-file-upload-button selectors can't be used in the same selector as normal ones. FF and IE freak out.
+- IE: You don't need to fake inline-block with labels and form controls in IE. They function as inline-block.
+- By turning off ::-webkit-search-decoration, it removes the extra whitespace on the left on search inputs
+
+----------------------------------------------------------------------------------------------------*/
+input,
+label,
+select,
+button,
+textarea {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  display: inline-block;
+  vertical-align: middle;
+  white-space: normal;
+  background: none;
+  line-height: 1;
+  /* Browsers have different default form fonts */
+  font-size: 13px;
+  font-family: Arial; }
+
+/* Remove the stupid outer glow in Webkit */
+input:focus {
+  outline: 0; }
+
+/* Box Sizing Reset
+-----------------------------------------------*/
+/* All of our custom controls should be what we expect them to be */
+input,
+textarea {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box; }
+
+/* These elements are usually rendered a certain way by the browser */
+button,
+input[type=reset],
+input[type=button],
+input[type=submit],
+input[type=checkbox],
+input[type=radio],
+select {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+/* Text Inputs
+-----------------------------------------------*/
+/* Button Controls
+-----------------------------------------------*/
+input[type=checkbox],
+input[type=radio] {
+  width: 13px;
+  height: 13px; }
+
+/* File Uploads
+-----------------------------------------------*/
+/* Search Input
+-----------------------------------------------*/
+/* Make webkit render the search input like a normal text field */
+input[type=search] {
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box; }
+
+/* Turn off the recent search for webkit. It adds about 15px padding on the left */
+::-webkit-search-decoration {
+  display: none; }
+
+/* Buttons
+-----------------------------------------------*/
+button,
+input[type="reset"],
+input[type="button"],
+input[type="submit"] {
+  /* Fix IE7 display bug */
+  overflow: visible;
+  width: auto; }
+
+/* IE8 and FF freak out if this rule is within another selector */
+::-webkit-file-upload-button {
+  padding: 0;
+  border: 0;
+  background: none; }
+
+/* Textarea
+-----------------------------------------------*/
+textarea {
+  /* Move the label to the top */
+  vertical-align: top;
+  /* Turn off scroll bars in IE unless needed */
+  overflow: auto; }
+
+/* Selects
+-----------------------------------------------*/
+select[multiple] {
+  /* Move the label to the top */
+  vertical-align: top; }
+
+body {
+  background-color: #EEF2F5;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #808591;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased; }
+
+*::-moz-selection {
+  background: #B574F0;
+  color: #FFFFFF; }
+
+*::selection {
+  background: #B574F0;
+  color: #FFFFFF; }
+
+a {
+  text-decoration: none;
+  color: #808591;
+  transition: color .2s ease; }
+
+a:hover {
+  color: #2BA6E9; }
+
+p {
+  font-size: 14px;
+  line-height: 24px; }
+
+h2 {
+  color: #515C71;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 35px; }
+
+h3 {
+  color: #515C71;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px; }
+
+.header {
+  width: 100%;
+  position: absolute;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.header-inner {
+  width: 960px;
+  display: flex;
+  justify-content: space-between; }
+
+.logo {
+  display: block;
+  width: 50px;
+  height: 50px;
+  background-image: url(../assets/logo2@2x.png);
+  background-size: 43px;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer; }
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; }
+
+.nav a {
+  display: flex;
+  margin: 0 0 0 50px; }
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative; }
+
+.slide {
+  width: 100%;
+  height: 96vh;
+  min-height: 705px;
+  max-height: 855px;
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid #DDE2E6;
+  overflow: hidden; }
+
+.slide-inner {
+  display: flex;
+  justify-content: space-between; }
+
+.slide--narrow .slide-inner {
+  width: 960px; }
+
+.slide--wide .slide-inner {
+  width: 1160px; }
+
+.slide--top .slide-col {
+  display: flex;
+  align-items: center; }
+
+.slide--top .slide-col.slide-col__text {
+  width: 360px; }
+
+.slide--top .slide-col.slide-col__phone {
+  align-items: flex-end;
+  justify-content: flex-end;
+  width: 300px; }
+
+.slide--blocks .slide-inner {
+  flex-wrap: wrap; }
+
+.slide--blocks .slide-row {
+  width: 100%; }
+
+.slide--blocks .slide-row__text .slide-row-inner {
+  display: flex;
+  flex-direction: row;
+  justify-content: center; }
+
+.slide--blocks .slide-row__text .slide-row-inner .tagline {
+  padding: 80px 0 0 0;
+  width: 360px; }
+
+.slide--blocks .slide-row__blokcs {
+  display: flex;
+  align-items: flex-end; }
+
+.slide-blocks {
+  flex-shrink: 0;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 0 0 110px 0;
+  justify-content: space-between; }
+
+.slide-blocks.slide-blocks__hidden {
+  transform: translate3d(0, 20px, 0);
+  opacity: 0;
+  transition: transform .4s ease, opacity .4s ease; }
+
+.slide-blocks.shown {
+  transform: translate3d(0, 0, 0);
+  opacity: 1; }
+
+.slide-block {
+  flex-shrink: 0;
+  flex-grow: 0;
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  height: 275px;
+  width: 360px; }
+
+.slide-block-inner {
+  padding: 50px; }
+
+.block-icon {
+  width: 30px;
+  height: 30px;
+  margin: 0 0 20px 0;
+  background-size: 30px;
+  background-repeat: no-repeat; }
+
+.block-icon__lock {
+  background-image: url(../assets/icon-key.svg); }
+
+.block-icon__wand {
+  background-image: url(../assets/icon-wand.svg); }
+
+.block-icon__coins {
+  background-image: url(../assets/icon-stablecoin.svg); }
+
+.slide-block h3 {
+  padding: 0 0 10px 0; }
+
+.email-caption {
+  padding: 30px 0 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate3d(0, 20px, 0);
+  opacity: 0;
+  transition: transform .4s ease, opacity .4s ease; }
+
+.email-caption.shown {
+  transform: translate3d(0, 0, 0);
+  opacity: 1; }
+
+.email-caption-inner {
+  position: relative;
+  width: 240px; }
+
+.email-caption-input {
+  display: block;
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  height: 16px;
+  width: 175px;
+  padding: 16px 50px 14px 15px;
+  background-color: #FFFFFF;
+  border-radius: 8px; }
+
+.email-caption-button {
+  display: block;
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  height: 34px;
+  width: 34px;
+  border-radius: 50%;
+  background-color: rgba(182, 116, 241, 0.2);
+  background-image: url(../assets/arrow.svg);
+  background-size: 24px;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer; }
+
+.email-caption-input::-webkit-input-placeholder {
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  color: #BFC2C8; }
+
+.shaky {
+  animation-duration: .6s;
+  animation-fill-mode: both;
+  animation-name: shakeIt;
+  animation-timing-function: ease; }
+
+.focused {
+  animation-duration: .4s;
+  animation-fill-mode: both;
+  animation-name: focuseIt;
+  animation-timing-function: ease; }
+
+@keyframes shakeIt {
+  0%, 100% {
+    transform: translate3d(0, 0, 0); }
+  20%, 60% {
+    transform: translate3d(-4px, 0, 0); }
+  40%, 80% {
+    transform: translate3d(4px, 0, 0); } }
+
+@keyframes focuseIt {
+  0%, 100% {
+    transform: translate3d(0, 0, 0); }
+  50% {
+    transform: scale(1.03); } }
+
+.tagline {
+  display: flex;
+  flex-direction: column;
+  width: 360px; }
+
+.tagline.tagline__hidden {
+  transform: translate3d(0, 20px, 0);
+  opacity: 0;
+  transition: transform .4s ease, opacity .4s ease; }
+
+.tagline.shown {
+  transform: translate3d(0, 0, 0);
+  opacity: 1; }
+
+.tagline-title {
+  text-align: center;
+  padding: 0 0 20px 0; }
+
+.tagline-text {
+  line-height: 24px;
+  text-align: center; }
+
+.phone {
+  display: block;
+  width: 295px;
+  height: 603px;
+  background-image: url(../assets/phone@2x.png);
+  background-size: 295px;
+  background-repeat: no-repeat;
+  background-position: top;
+  position: relative; }
+
+.phone--cut {
+  top: 62px; }
+
+.phone-inner {
+  position: absolute;
+  left: 12px;
+  top: 61px;
+  width: 272px;
+  height: 483px;
+  background-image: url(../assets/multi6.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  border: 1px solid #D2D7DB;
+  border-radius: 1px; }

@@ -1,0 +1,14 @@
+.slide--top .slide-col {
+  display: flex;
+  align-items: center;
+}
+
+.slide--top .slide-col.slide-col__text {
+  width: 360px;
+}
+
+.slide--top .slide-col.slide-col__phone {
+  align-items: flex-end;
+  justify-content: flex-end;
+  width: 300px;
+}
