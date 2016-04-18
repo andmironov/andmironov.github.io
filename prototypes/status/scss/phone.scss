@@ -1,0 +1,28 @@
+.phone {
+  display: block;
+  width: 295px;
+  height: 603px;
+  background-image: url(../assets/phone@2x.png);
+  background-size: 295px;
+  background-repeat: no-repeat;
+  background-position: top;
+  position: relative;
+}
+
+.phone--cut {
+  top: 62px;
+}
+
+.phone-inner {
+  position: absolute;
+  left: 12px;
+  top: 61px;
+  width: 272px;
+  height: 483px;
+  background-image: url(../assets/multi6.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  border: 1px solid #D2D7DB;
+  border-radius: 1px;
+}

@@ -11,79 +11,23 @@
   height: 96vh;
   min-height: 705px;
   max-height: 855px;
-  
+
   display: flex;
   justify-content: center;
+  
   border-bottom: 1px solid $colorBorderGrey;
   overflow: hidden;
 }
 
-.slide--narrow  .slide-inner {
-  width: 960px;
+.slide-inner {
   display: flex;
   justify-content:space-between;
 }
 
-.slide-col {
-  display: flex;
-  align-items: center;
+.slide--narrow .slide-inner {
+  width: 960px;
 }
 
-.slide-col.slide-col--text {
-  width: 360px;
-}
-
-.slide-col.slide-col--phone {
-  align-items: flex-end;
-  justify-content: flex-end;
-  width: 300px;
-}
-
-.tagline {
-  display: flex;
-  flex-direction: column;
-}
-
-.slide-title {
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 35px;
-  text-align: center;
-  color: $colorTextDarkGrey;
-  padding: 0 0 20px 0;
-}
-
-.slide-text {
-  line-height: 24px;
-  text-align: center;
-}
-
-.phone {
-  display: block;
-  width: 295px;
-  height: 603px;
-  background-image: url(../assets/phone@2x.png);
-  background-size: 295px;
-  background-repeat: no-repeat;
-  background-position: top;
-  position: relative;
-}
-
-.phone--cut {
-    top: 62px;
-}
-
-
-.phone-inner {
-  position: absolute;
-  left: 12px;
-  top: 61px;
-  width: 272px;
-  height: 483px;
-  background-image: url(../assets/multi6.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top;
-  border: 1px solid #D2D7DB;
-  border-radius: 1px;
+.slide--wide .slide-inner {
+  width: 1160px;
 }

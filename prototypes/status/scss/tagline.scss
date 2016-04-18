@@ -1,0 +1,15 @@
+.tagline {
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+}
+
+.tagline-title {
+  text-align: center;
+  padding: 0 0 20px 0;
+}
+
+.tagline-text {
+  line-height: 24px;
+  text-align: center;
+}

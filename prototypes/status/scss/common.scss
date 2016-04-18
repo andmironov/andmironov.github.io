@@ -23,3 +23,22 @@ a {
 a:hover {
   color: $colorTextBrightBlue;
 }
+
+p {
+  font-size: 14px;
+  line-height: 24px;
+}
+
+h2 {
+  color: $colorTextDarkGrey;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 35px;
+}
+
+h3 {
+  color: $colorTextDarkGrey;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+}
