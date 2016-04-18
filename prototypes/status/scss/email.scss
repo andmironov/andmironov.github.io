@@ -64,11 +64,12 @@
   }
 
   20%, 60% {
-    transform: translate3d(-8px, 0, 0);
+    transform: translate3d(-4px, 0, 0);
   }
 
   40%, 80% {
-    transform: translate3d(8px, 0, 0);
+    transform: translate3d(4px, 0, 0);
+
   }
 }
 
@@ -78,6 +79,6 @@
   }
 
   50% {
-    transform: scale(1.04);
+    transform: scale(1.03);
   }
 }
