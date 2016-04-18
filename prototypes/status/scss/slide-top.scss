@@ -1,3 +1,4 @@
+
 .slide--top .slide-col {
   display: flex;
   align-items: center;
@@ -5,6 +6,10 @@
 
 .slide--top .slide-col.slide-col__text {
   width: 360px;
+}
+
+.slide--top .slide-col.slide-col__text .slide-col-inner{
+  padding: 60px 0 0 0;
 }
 
 .slide--top .slide-col.slide-col__phone {

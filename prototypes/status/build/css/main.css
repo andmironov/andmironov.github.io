@@ -227,7 +227,7 @@ h3 {
 .slide {
   width: 100%;
   height: 96vh;
-  min-height: 705px;
+  min-height: 680px;
   max-height: 855px;
   display: flex;
   justify-content: center;
@@ -250,6 +250,9 @@ h3 {
 
 .slide--top .slide-col.slide-col__text {
   width: 360px; }
+
+.slide--top .slide-col.slide-col__text .slide-col-inner {
+  padding: 60px 0 0 0; }
 
 .slide--top .slide-col.slide-col__phone {
   align-items: flex-end;

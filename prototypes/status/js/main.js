@@ -43,29 +43,23 @@ function focusInput() {
 //Add observer
 var observer = new DOMObserver();
 
+var mainSlideElement = document.querySelectorAll(".slide--top")[0]
 var taglineElement = document.querySelectorAll(".slide--top .tagline")[0]
 var emailCaptionElement = document.querySelectorAll(".email-caption")[0]
 
 observer.addElement({
-  element: taglineElement,
-  name:"tagline"
+  element: mainSlideElement,
+  name:"mainSlide"
 })
 
-observer.addElement({
-  element: emailCaptionElement,
-  name:"emailCaption"
-})
 
 var scrollY = observer.getScrollY();
 var viewportHeight = observer.getViewport().height;
 
-var taglineHeight = observer.getPropertyValue("tagline", "height")
-var taglineOffsetTop = observer.getPropertyValue("tagline", "offsetTop")
+var mainSlideHeight = observer.getPropertyValue("mainSlide", "height")
+var mainSlideOffsetTop = observer.getPropertyValue("mainSlide", "offsetTop")
 
-var emailCaptionHeight = observer.getPropertyValue("emailCaption", "height")
-var emailCaptionOffsetTop = observer.getPropertyValue("emailCaption", "offsetTop")
-
-onScrollY();
+onScrollY()
 
 observer.addCallbacks({
   onScrollYUpdate: onScrollY
@@ -73,29 +67,15 @@ observer.addCallbacks({
 
 function onScrollY() {
   scrollY = observer.getScrollY()
-  if((taglineOffsetTop - scrollY) < (viewportHeight - (taglineHeight/2))) showTagline();
-  if((emailCaptionOffsetTop - scrollY) < (viewportHeight - (emailCaptionHeight/2))) showEmailCaption();
+  if((mainSlideOffsetTop - scrollY) < (viewportHeight - (mainSlideHeight/2))) showMainSlide();
 }
 
 
-//tagline animation
-var taglineShown = false
-function showTagline() {
-  if(taglineShown) return
-
-  taglineShown = true
-  setTimeout(function(){
-    taglineElement.classList.add("shown")
-  }, 400)
-}
-
-//email caption animation
-var emailCaptionShown = false
-function showEmailCaption() {
-  if(emailCaptionShown) return
-
-  emailCaptionShown = true
-  setTimeout(function(){
-    emailCaptionElement.classList.add("shown")
-  }, 500)
+//showMainSlide animation
+var mainSlideShown = false
+function showMainSlide() {
+  if(mainSlideShown) return
+  mainSlideShown = true
+  setTimeout(function(){taglineElement.classList.add("shown")}, 400)
+  setTimeout(function(){emailCaptionElement.classList.add("shown")}, 500)
 }
