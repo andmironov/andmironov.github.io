@@ -39,3 +39,63 @@ function focusInput() {
     }, 400)
   }
 }
+
+//Add observer
+var observer = new DOMObserver();
+
+var taglineElement = document.querySelectorAll(".slide--top .tagline")[0]
+var emailCaptionElement = document.querySelectorAll(".email-caption")[0]
+
+observer.addElement({
+  element: taglineElement,
+  name:"tagline"
+})
+
+observer.addElement({
+  element: emailCaptionElement,
+  name:"emailCaption"
+})
+
+var scrollY = observer.getScrollY();
+var viewportHeight = observer.getViewport().height;
+
+var taglineHeight = observer.getPropertyValue("tagline", "height")
+var taglineOffsetTop = observer.getPropertyValue("tagline", "offsetTop")
+
+var emailCaptionHeight = observer.getPropertyValue("emailCaption", "height")
+var emailCaptionOffsetTop = observer.getPropertyValue("emailCaption", "offsetTop")
+
+onScrollY();
+
+observer.addCallbacks({
+  onScrollYUpdate: onScrollY
+})
+
+function onScrollY() {
+  scrollY = observer.getScrollY()
+  if((taglineOffsetTop - scrollY) < (viewportHeight - (taglineHeight/2))) showTagline();
+  if((emailCaptionOffsetTop - scrollY) < (viewportHeight - (emailCaptionHeight/2))) showEmailCaption();
+}
+
+
+//tagline animation
+var taglineShown = false
+function showTagline() {
+  if(taglineShown) return
+
+  taglineShown = true
+  setTimeout(function(){
+    taglineElement.classList.add("shown")
+  }, 400)
+}
+
+//email caption animation
+var emailCaptionShown = false
+function showEmailCaption() {
+  if(emailCaptionShown) return
+
+  emailCaptionShown = true
+  setTimeout(function(){
+    emailCaptionElement.classList.add("shown")
+  }, 500)
+}

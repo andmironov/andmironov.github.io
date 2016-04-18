@@ -4,6 +4,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transform: translate3d(0, 20px, 0);
+  opacity: 0;
+  transition: transform .4s ease, opacity .4s ease;
+}
+
+.email-caption.shown {
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
 }
 
 .email-caption-inner {

@@ -13,11 +13,20 @@ body {
    -webkit-font-smoothing: antialiased;
 }
 
+*::-moz-selection {
+  background: $colorTextPurple;
+  color: $colorWhite;
+}
+
+*::selection {
+  background: $colorTextPurple;
+  color: $colorWhite;
+}
+
 a {
   text-decoration: none;
   color: $colorTextGrey;
   transition: color .2s ease;
-
 }
 
 a:hover {
