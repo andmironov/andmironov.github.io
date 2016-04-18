@@ -1,0 +1,83 @@
+
+.email-caption {
+  padding: 30px 0 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.email-caption-inner {
+  position: relative;
+  width: 240px;
+}
+
+.email-caption-input {
+  display: block;
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  height: 16px;
+  width: 210px;
+  padding: 15px;
+  background-color: $colorWhite;
+  border-radius: 8px;
+}
+
+.email-caption-button {
+  display: block;
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  height: 34px;
+  width: 34px;
+  border-radius: 50%;
+  background-color: $colorPurpleTransprent;
+  background-image: url(../assets/arrow.svg);
+  background-size: 24px;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+.email-caption-input::-webkit-input-placeholder {
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  color: $colorTextLightGrey;
+}
+
+.shaky {
+  animation-duration: .6s;
+  animation-fill-mode: both;
+  animation-name: shakeIt;
+  animation-timing-function: ease
+}
+
+.focused {
+  animation-duration: .4s;
+  animation-fill-mode: both;
+  animation-name: focuseIt;
+  animation-timing-function: ease
+}
+
+@keyframes shakeIt {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  20%, 60% {
+    transform: translate3d(-8px, 0, 0);
+  }
+
+  40%, 80% {
+    transform: translate3d(8px, 0, 0);
+  }
+}
+
+@keyframes focuseIt {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: scale(1.04);
+  }
+}

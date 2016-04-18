@@ -200,7 +200,7 @@ a:hover {
   justify-content: center;
   position: relative; }
 
-.top-slide {
+.slide {
   width: 100%;
   height: 96vh;
   min-height: 705px;
@@ -209,22 +209,19 @@ a:hover {
   border-bottom: 1px solid #DDE2E6;
   overflow: hidden; }
 
-.top-slide-inner {
+.slide--narrow .slide-inner {
   width: 960px;
   display: flex;
   justify-content: space-between; }
 
-.top-slide-col {
+.slide-col {
   display: flex;
   align-items: center; }
 
-.top-slide-col-inner {
-  display: block; }
-
-.top-slide-col.top-slide-col__left {
+.slide-col.slide-col--text {
   width: 360px; }
 
-.top-slide-col.top-slide-col__right {
+.slide-col.slide-col--phone {
   align-items: flex-end;
   justify-content: flex-end;
   width: 300px; }
@@ -253,7 +250,9 @@ a:hover {
   background-size: 295px;
   background-repeat: no-repeat;
   background-position: top;
-  position: relative;
+  position: relative; }
+
+.phone--cut {
   top: 62px; }
 
 .phone-inner {
@@ -308,3 +307,29 @@ a:hover {
   font-family: Roboto, sans-serif;
   font-size: 14px;
   color: #BFC2C8; }
+
+.shaky {
+  animation-duration: .6s;
+  animation-fill-mode: both;
+  animation-name: shakeIt;
+  animation-timing-function: ease; }
+
+.focused {
+  animation-duration: .4s;
+  animation-fill-mode: both;
+  animation-name: focuseIt;
+  animation-timing-function: ease; }
+
+@keyframes shakeIt {
+  0%, 100% {
+    transform: translate3d(0, 0, 0); }
+  20%, 60% {
+    transform: translate3d(-8px, 0, 0); }
+  40%, 80% {
+    transform: translate3d(8px, 0, 0); } }
+
+@keyframes focuseIt {
+  0%, 100% {
+    transform: translate3d(0, 0, 0); }
+  50% {
+    transform: scale(1.04); } }
