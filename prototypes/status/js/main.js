@@ -46,6 +46,7 @@ var observer = new DOMObserver();
 var mainSlideElement = document.querySelectorAll(".slide--top")[0]
 var taglineElement = document.querySelectorAll(".slide--top .tagline")[0]
 var emailCaptionElement = document.querySelectorAll(".email-caption")[0]
+var headerElement = document.querySelectorAll(".header")[0]
 
 observer.addElement({
   element: mainSlideElement,
@@ -53,9 +54,8 @@ observer.addElement({
 })
 
 
-var scrollY = observer.getScrollY();
-var viewportHeight = observer.getViewport().height;
-
+var scrollY = observer.getScrollY()
+var viewportHeight = observer.getViewport().height
 var mainSlideHeight = observer.getPropertyValue("mainSlide", "height")
 var mainSlideOffsetTop = observer.getPropertyValue("mainSlide", "offsetTop")
 
@@ -78,4 +78,5 @@ function showMainSlide() {
   mainSlideShown = true
   setTimeout(function(){taglineElement.classList.add("shown")}, 400)
   setTimeout(function(){emailCaptionElement.classList.add("shown")}, 500)
+  setTimeout(function(){headerElement.classList.add("shown")}, 1000)
 }
