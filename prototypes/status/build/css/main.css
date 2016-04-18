@@ -432,7 +432,7 @@ h3 {
   display: block;
   width: 295px;
   height: 603px;
-  background-image: url(../assets/phone@2x.png);
+  background-image: url(../assets/phone.svg);
   background-size: 295px;
   background-repeat: no-repeat;
   background-position: top;
@@ -451,5 +451,5 @@ h3 {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
-  border: 1px solid #D2D7DB;
-  border-radius: 1px; }
+  border: 1px solid #DDE2E6;
+  border-radius: 2px; }
