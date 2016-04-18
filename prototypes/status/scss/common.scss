@@ -1,0 +1,23 @@
+@import "reset";
+@import "formReset.scss";
+@import "colors";
+@import "fonts";
+
+body {
+  background-color: $colorBg;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: $colorTextGrey;
+  text-rendering: optimizeLegibility;
+   -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: $colorTextGrey;
+}
+
+a:hover {
+  color: $colorTextPurple;
+}
