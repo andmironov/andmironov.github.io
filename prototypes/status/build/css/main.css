@@ -281,7 +281,7 @@ h3 {
   width: 360px; }
 
 .slide--top .slide-col.slide-col__text .slide-col-inner {
-  padding: 60px 0 0 0; }
+  padding: 100px 0 0 0; }
 
 .slide--top .slide-col.slide-col__phone {
   align-items: flex-end;
@@ -362,7 +362,7 @@ h3 {
   justify-content: center;
   transform: translate3d(0, 20px, 0);
   opacity: 0;
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.135, 1.425), opacity 0.4s ease; }
+  transition: transform .4s ease, opacity .4s ease; }
 
 .email-caption.shown {
   transform: translate3d(0, 0, 0);
@@ -436,7 +436,7 @@ h3 {
 .tagline.tagline__hidden {
   transform: translate3d(0, 20px, 0);
   opacity: 0;
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.135, 1.425), opacity 0.4s ease; }
+  transition: transform .4s ease, opacity .4s ease; }
 
 .tagline.shown {
   transform: translate3d(0, 0, 0);
