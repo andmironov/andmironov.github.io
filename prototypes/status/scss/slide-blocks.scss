@@ -22,7 +22,7 @@
   align-items: flex-end;
 }
 
-.slide-blocks {
+.blocks {
   flex-shrink: 0;
   flex-grow: 0;
   display: flex;
@@ -32,13 +32,13 @@
   justify-content: space-between;
 }
 
-.slide-blocks.slide-blocks__hidden {
+.blocks.slide-blocks__hidden {
   transform: translate3d(0, 20px, 0);
   opacity: 0;
   transition: transform .4s ease, opacity .4s ease;
 }
 
-.slide-blocks.shown {
+.blocks.shown {
   transform: translate3d(0, 0, 0);
   opacity: 1;
 }

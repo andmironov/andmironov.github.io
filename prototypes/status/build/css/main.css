@@ -307,7 +307,7 @@ h3 {
   display: flex;
   align-items: flex-end; }
 
-.slide-blocks {
+.blocks {
   flex-shrink: 0;
   flex-grow: 0;
   display: flex;
@@ -316,12 +316,12 @@ h3 {
   padding: 0 0 110px 0;
   justify-content: space-between; }
 
-.slide-blocks.slide-blocks__hidden {
+.blocks.slide-blocks__hidden {
   transform: translate3d(0, 20px, 0);
   opacity: 0;
   transition: transform .4s ease, opacity .4s ease; }
 
-.slide-blocks.shown {
+.blocks.shown {
   transform: translate3d(0, 0, 0);
   opacity: 1; }
 
@@ -354,6 +354,95 @@ h3 {
 
 .slide-block h3 {
   padding: 0 0 10px 0; }
+
+.slide--colorful {
+  background-color: #FFFFFF; }
+
+.slide--colorful .slide-col {
+  display: flex;
+  align-items: center; }
+
+.slide--colorful .slide-col.slide-col__text {
+  width: 360px; }
+
+.slide--colorful .slide-col.slide-col__colorful {
+  width: 760px; }
+
+.colorful-blocks {
+  height: 496px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between; }
+
+.colorful-block {
+  background-color: #EEF2F5;
+  border-radius: 8px;
+  width: 360px;
+  height: 228px; }
+
+.colorful-block-inner {
+  padding: 50px; }
+
+.colorful-icon {
+  height: 30px;
+  width: 30px;
+  margin: 0 0 20px 0;
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.colorful-title {
+  margin: 0 0 10px 0;
+  font-weight: 500; }
+
+.colorful-block__transparent {
+  background-color: #E3EBFA; }
+
+.colorful-block__transparent .colorful-title {
+  color: #586377; }
+
+.colorful-block__transparent .colorful-text {
+  color: #8B95A8; }
+
+.colorful-block__transparent .colorful-icon {
+  background-image: url(../assets/icon_eye.svg); }
+
+.colorful-block__decentralized {
+  background-color: #EDE7F7; }
+
+.colorful-block__decentralized .colorful-title {
+  color: #706584; }
+
+.colorful-block__decentralized .colorful-text {
+  color: #8D859E; }
+
+.colorful-block__decentralized .colorful-icon {
+  background-image: url(../assets/icon_decentralized.svg); }
+
+.colorful-block__secure {
+  background-color: #DFF4E9; }
+
+.colorful-block__secure .colorful-title {
+  color: #52695D; }
+
+.colorful-block__secure .colorful-text {
+  color: #7B9286; }
+
+.colorful-block__secure .colorful-icon {
+  background-image: url(../assets/icon_lock_green.svg); }
+
+.colorful-block__ethereum {
+  background-color: #FAE6E4; }
+
+.colorful-block__ethereum .colorful-title {
+  color: #715856; }
+
+.colorful-block__ethereum .colorful-text {
+  color: #A28582; }
+
+.colorful-block__ethereum .colorful-icon {
+  background-image: url(../assets/icon_ethereum.svg); }
 
 .email-caption {
   padding: 30px 0 0 0;
