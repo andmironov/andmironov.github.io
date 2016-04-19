@@ -379,7 +379,14 @@ h3 {
   background-color: #EEF2F5;
   border-radius: 8px;
   width: 360px;
-  height: 228px; }
+  height: 228px;
+  transform: translate3d(0, 20px, 0);
+  opacity: 0;
+  transition: transform .4s ease, opacity .4s ease; }
+
+.colorful-block.shown {
+  transform: translate3d(0, 0, 0);
+  opacity: 1; }
 
 .colorful-block-inner {
   padding: 50px; }
