@@ -451,6 +451,21 @@ h3 {
 .colorful-block__ethereum .colorful-icon {
   background-image: url(../assets/icon_ethereum.svg); }
 
+.slide--bubbles .slide-col {
+  display: flex;
+  align-items: center; }
+
+.slide--bubbles .slide-col.slide-col__text {
+  width: 445px; }
+
+.slide--bubbles .slide-col.slide-col__text .slide-col-inner {
+  padding: 100px 0 0 0; }
+
+.slide--bubbles .slide-col.slide-col__phone {
+  align-items: center;
+  justify-content: flex-end;
+  width: 300px; }
+
 .email-caption {
   padding: 30px 0 0 0;
   display: flex;
@@ -571,3 +586,123 @@ h3 {
   background-position: top;
   border: 1px solid #D2D7DB;
   border-radius: 2px; }
+
+.bubbles {
+  width: 445px;
+  height: 245px;
+  position: relative;
+  margin: 60px 0; }
+
+.bubble {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  padding: 12px 12px 10px 12px;
+  border-radius: 14px;
+  background-color: #FFFFFF;
+  transition: transform .4s ease, opacity .4s ease; }
+
+.bubble.shown {
+  transform: translate3d(0, 0, 0) scale(1);
+  opacity: 1; }
+
+.bubble__password {
+  padding-right: 42px; }
+
+.bubble__location {
+  padding-right: 92px; }
+
+.tag {
+  padding: 5px 12px;
+  border-radius: 12px;
+  color: #FFFFFF;
+  font-size: 12px;
+  background-color: #DD847D;
+  display: inline-block; }
+
+.tag__pink {
+  background-color: #D975CC; }
+
+.tag__red {
+  background-color: #DD847D; }
+
+.tag__purple {
+  background-color: #A187D5; }
+
+.tag__green {
+  background-color: #5FC48D; }
+
+.tag__blue {
+  background-color: #7099E6; }
+
+.bubble-content {
+  margin: 12px 0 0 0;
+  color: #212121;
+  max-width: 120px;
+  line-height: 20px; }
+
+.bubble__transaction .bubble-content {
+  margin-top: 20px; }
+
+.bubble-number {
+  font-weight: 200;
+  font-size: 34px; }
+
+.bubble-currency {
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: #BFC2C8; }
+
+.bubble-icon {
+  display: block;
+  position: absolute;
+  top: 16px;
+  right: 12px;
+  height: 16px;
+  width: 16px;
+  background-size: 16px;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer; }
+
+.bubble-map {
+  position: absolute;
+  right: 12px;
+  bottom: 16px;
+  width: 60px;
+  height: 60px;
+  margin: 0 0 0 16px;
+  background-size: 60px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url(../assets/map.png); }
+
+.bubble-icon__lock {
+  background-image: url(../assets/icon_lock_gray.svg); }
+
+.bubble__status {
+  transform: translate3d(-20px, -10px, 0) scale(1.1);
+  opacity: 0; }
+
+.bubble__transaction {
+  left: 132px;
+  top: -16px;
+  transform: translate3d(0, -20px, 0) scale(1.1);
+  opacity: 0; }
+
+.bubble__name {
+  left: 279px;
+  transform: translate3d(20px, -10px, 0) scale(1.1);
+  opacity: 0; }
+
+.bubble__password {
+  top: 106px;
+  left: 21px;
+  transform: translate3d(-10px, 20px, 0) scale(1.1);
+  opacity: 0; }
+
+.bubble__location {
+  top: 106px;
+  left: 223px;
+  transform: translate3d(10px, 20px, 0) scale(1.1);
+  opacity: 0; }

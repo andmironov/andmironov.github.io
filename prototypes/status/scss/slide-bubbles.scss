@@ -1,0 +1,19 @@
+
+.slide--bubbles .slide-col {
+  display: flex;
+  align-items: center;
+}
+
+.slide--bubbles .slide-col.slide-col__text {
+  width: 445px;
+}
+
+.slide--bubbles .slide-col.slide-col__text .slide-col-inner{
+  padding: 100px 0 0 0;
+}
+
+.slide--bubbles .slide-col.slide-col__phone {
+  align-items: center;
+  justify-content: flex-end;
+  width: 300px;
+}

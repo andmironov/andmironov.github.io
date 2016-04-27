@@ -45,7 +45,10 @@ var observer = new DOMObserver();
 
 var mainSlideElement = document.querySelectorAll(".slide--top")[0]
 var colorfulSlideElement = document.querySelectorAll(".slide--colorful")[0]
+var bubblesSlideElement = document.querySelectorAll(".slide--bubbles")[0]
+
 var colorfulSlideBlocksElements = document.querySelectorAll(".colorful-blocks .colorful-block")
+var bubblesSlideBlocksElements = document.querySelectorAll(".slide--bubbles .bubble")
 var taglineElement = document.querySelectorAll(".slide--top .tagline")[0]
 var emailCaptionElement = document.querySelectorAll(".email-caption")[0]
 var headerElement = document.querySelectorAll(".header")[0]
@@ -60,15 +63,21 @@ observer.addElement({
   name:"colorfulSlide"
 })
 
+observer.addElement({
+  element: bubblesSlideElement,
+  name:"bubblesSlide"
+})
+
 
 var scrollY = observer.getScrollY()
 var viewportHeight = observer.getViewport().height
 
 var mainSlideHeight = observer.getPropertyValue("mainSlide", "height")
+var bubblesSlideHeight = observer.getPropertyValue("bubblesSlide", "height")
 var mainSlideOffsetTop = observer.getPropertyValue("mainSlide", "offsetTop")
 
-var colorfulSlideHeight = observer.getPropertyValue("colorfulSlide", "height")
 var colorfulSlideOffsetTop = observer.getPropertyValue("colorfulSlide", "offsetTop")
+var bubblesSlideOffsetTop = observer.getPropertyValue("bubblesSlide", "offsetTop")
 
 onScrollY()
 
@@ -79,7 +88,8 @@ observer.addCallbacks({
 function onScrollY() {
   scrollY = observer.getScrollY()
   if((mainSlideOffsetTop - scrollY) < (viewportHeight - (mainSlideHeight/2))) showMainSlide();
-  if((colorfulSlideOffsetTop - scrollY) < (viewportHeight - (colorfulSlideHeight/2))) showColorfulSlide();
+  if((colorfulSlideOffsetTop - scrollY) < (viewportHeight - (200))) showColorfulSlide();
+  if((bubblesSlideOffsetTop - scrollY) < (viewportHeight - (bubblesSlideHeight/2))) showBubblesSlide();
 }
 
 
@@ -107,5 +117,24 @@ function showColorfulSlide() {
 function showColorfulSlideBlock(i) {
   setTimeout(function(){
     colorfulSlideBlocksElements[i].classList.add("shown")
+  }, i*120)
+}
+
+
+//showBubblesSlide animation
+var bubblesSlideShown = false
+function showBubblesSlide() {
+  if(bubblesSlideShown) return
+  bubblesSlideShown = true
+
+  for (var i = bubblesSlideBlocksElements.length; i--;){
+    showBubblesSlideBlock(i)
+  }
+
+}
+
+function showBubblesSlideBlock(i) {
+  setTimeout(function(){
+    bubblesSlideBlocksElements[i].classList.add("shown")
   }, i*120)
 }
