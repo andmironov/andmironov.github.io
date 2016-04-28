@@ -255,7 +255,7 @@ h3 {
 
 .slide {
   width: 100%;
-  height: 96vh;
+  height: 90vh;
   min-height: 680px;
   max-height: 855px;
   display: flex;
@@ -280,7 +280,7 @@ h3 {
 .slide.slide--top {
   height: 100vh;
   background: linear-gradient(-180deg, #F5F7F9 0%, #EEF2F5 100%);
-  min-height: 800px; }
+  min-height: 776px; }
 
 .slide--top .slide-inner {
   width: 100%;
@@ -290,7 +290,7 @@ h3 {
 
 .slide-inner-top {
   display: flex;
-  width: 1040px;
+  width: 1000px;
   justify-content: space-between; }
 
 .slide--top .slide-col {
@@ -324,13 +324,14 @@ h3 {
 
 .slide--top .slide-col.slide-col__phone .phone {
   position: absolute;
-  left: 0;
+  right: 0;
   top: 0; }
 
 .slide--top .slide-col.slide-col__phone .phone.phone__main {
-  left: 140px; }
+  right: 0; }
 
 .slide--top .slide-col.slide-col__phone .phone.phone__secondary {
+  right: 150px;
   top: 60px; }
 
 .slide--colorful {
