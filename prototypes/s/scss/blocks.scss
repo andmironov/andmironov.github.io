@@ -1,0 +1,70 @@
+.blocks {
+  flex-shrink: 0;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  width: 1040px;
+  justify-content: space-between;
+
+}
+
+.blocks.slide-blocks__hidden {
+  transform: translate3d(0, 20px, 0);
+  opacity: 0;
+  transition: transform .4s ease, opacity .4s ease;
+}
+
+.blocks.shown {
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+}
+
+.slide-block {
+  flex-shrink: 1;
+  flex-grow: 1;
+  background-color: $colorWhite;
+  height: 240px;
+}
+
+.slide-block.slide-block__1 .slide-block-inner{
+  padding-left: 0;
+}
+
+.slide-block.slide-block__2 {
+  flex-grow: 1.4;
+  border-right: 1px solid;
+  border-left: 1px solid;
+  border-color:$colorBorderGrey;
+}
+
+.slide-block.slide-block__3 {
+  padding-right: 0;
+}
+
+.slide-block-inner {
+  padding: 40px 60px 40px 50px;
+}
+
+.block-icon {
+  width: 30px;
+  height: 30px;
+  margin: 0 0 20px 0;
+  background-size: 30px;
+  background-repeat: no-repeat;
+}
+
+.block-icon__lock {
+  background-image: url(../assets/icon-key.svg);
+}
+
+.block-icon__wand {
+  background-image: url(../assets/icon-wand.svg);
+}
+
+.block-icon__coins {
+  background-image: url(../assets/icon-stablecoin.svg);
+}
+
+.slide-block h3 {
+  padding: 0 0 10px 0;
+}

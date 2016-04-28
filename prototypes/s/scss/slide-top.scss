@@ -1,7 +1,36 @@
+.slide.slide--top {
+  height: 100vh;
+  background: linear-gradient(-180deg, #F5F7F9 0%, #EEF2F5 100%);
+}
+
+.slide--top .slide-inner{
+  width: 100%;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.slide-inner-top {
+  display: flex;
+  width: 1040px;
+  justify-content: space-between;
+}
 
 .slide--top .slide-col {
   display: flex;
   align-items: center;
+}
+
+.slide--top .slide-row.slide-row__blokcs {
+  width: 100%;
+  height: 240px;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  background-color: $colorWhite;
+  position: relative;
+  z-index: 999;
+  border-top: 1px solid $colorBorderGrey;
 }
 
 .slide--top .slide-col.slide-col__text {
@@ -9,11 +38,27 @@
 }
 
 .slide--top .slide-col.slide-col__text .slide-col-inner{
-  padding: 100px 0 0 0;
+  padding: 0 0 0 0;
 }
 
 .slide--top .slide-col.slide-col__phone {
   align-items: flex-end;
   justify-content: flex-end;
-  width: 300px;
+  width: 409px;
+  height: 460px;
+  position: relative;
+}
+
+.slide--top .slide-col.slide-col__phone .phone{
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.slide--top .slide-col.slide-col__phone .phone.phone__main {
+  left: 140px
+}
+
+.slide--top .slide-col.slide-col__phone .phone.phone__secondary {
+  top: 60px
 }

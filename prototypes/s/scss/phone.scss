@@ -1,24 +1,32 @@
 .phone {
   display: block;
-  width: 295px;
-  height: 603px;
-  background-image: url(../assets/phone@2x.png);
-  background-size: 295px;
+  width: 275px;
+  height: 562px;
+  background-image: url(../assets/phone_new.svg);
+  background-size: 275px;
   background-repeat: no-repeat;
   background-position: top;
   position: relative;
 }
 
+.phone.phone_ios {
+  background-image: url(../assets/phone_new_ios.svg);
+}
+
 .phone--cut {
-  top: 60px;
+  top: 98px;
+}
+
+.phone--cut-more {
+  top: 150px;
 }
 
 .phone-inner {
   position: absolute;
   left: 12px;
-  top: 61px;
-  width: 272px;
-  height: 483px;
+  top: 58px;
+  width: 252px;
+  height: 449px;
   background-image: url(../assets/multi6.png);
   background-size: cover;
   background-repeat: no-repeat;
@@ -33,5 +41,5 @@
 
 .phone-inner.phone-inner__3 {
   background-image: url(../assets/discover.png);
-  
+
 }
