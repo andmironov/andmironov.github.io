@@ -613,6 +613,9 @@ h3 {
   background-color: #FFFFFF;
   border-radius: 8px; }
 
+.email-caption__top .email-caption-input {
+  background-color: #F1E4FC; }
+
 .email-caption-button {
   display: block;
   position: absolute;
@@ -628,10 +631,18 @@ h3 {
   background-position: center;
   cursor: pointer; }
 
+.email-caption__top .email-caption-button {
+  background-color: #FFFFFF; }
+
 .email-caption-input::-webkit-input-placeholder {
   font-family: Roboto, sans-serif;
   font-size: 14px;
   color: #BFC2C8; }
+
+.email-caption__top .email-caption-input::-webkit-input-placeholder {
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  color: #D4BEE7; }
 
 .shaky {
   animation-duration: .6s;
