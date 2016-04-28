@@ -134,8 +134,9 @@ var accessSlideShown = false
 function showAccessSlide() {
   if(accessSlideShown) return
   mainSlideShown = true
-  setTimeout(function(){getAccessTaglineElement.classList.add("shown")}, 400)
-  setTimeout(function(){getAccessInputElement.classList.add("shown")}, 500)
+  setTimeout(function(){getAccessTaglineElement.classList.add("shown")}, 150)
+  setTimeout(function(){getAccessInputElement.classList.add("shown")}, 250)
+  
 }
 
 //showColorfulSlide animation
