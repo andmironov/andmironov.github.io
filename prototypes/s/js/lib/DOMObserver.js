@@ -25,7 +25,7 @@ var cloneObject = require('lodash.clone');
 
     //Options
     //FIX
-    var intervalDuration = 150;
+    var intervalDuration = 300;
 
     //Event handlers
     function onScroll() {

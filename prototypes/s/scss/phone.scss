@@ -10,7 +10,7 @@
 }
 
 .phone--cut {
-  top: 62px;
+  top: 60px;
 }
 
 .phone-inner {
@@ -24,5 +24,14 @@
   background-repeat: no-repeat;
   background-position: top;
   border: 1px solid #D2D7DB;
-  border-radius: 1px;
+  border-radius: 2px;
+}
+
+.phone-inner.phone-inner__2 {
+  background-image: url(../assets/chat.png);
+}
+
+.phone-inner.phone-inner__3 {
+  background-image: url(../assets/discover.png);
+  
 }

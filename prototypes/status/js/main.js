@@ -136,7 +136,7 @@ function showAccessSlide() {
   mainSlideShown = true
   setTimeout(function(){getAccessTaglineElement.classList.add("shown")}, 150)
   setTimeout(function(){getAccessInputElement.classList.add("shown")}, 250)
-  
+
 }
 
 //showColorfulSlide animation

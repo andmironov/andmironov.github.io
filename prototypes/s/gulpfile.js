@@ -7,6 +7,7 @@ var uglify = require('gulp-uglify');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var connect = require('gulp-connect');
+var autoprefixer = require('gulp-autoprefixer');
 
 gulp.task('js', function () {
   var b = browserify({
@@ -29,6 +30,10 @@ gulp.task('sass', function () {
   gulp.src('./scss/main.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('./build/css'))
+    .pipe(autoprefixer({
+			browsers: ['last 2 versions'],
+			cascade: false
+		}))
     .pipe(connect.reload());
 });
 

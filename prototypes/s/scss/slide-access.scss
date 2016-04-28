@@ -1,0 +1,43 @@
+.slide--access {
+  background: linear-gradient(8deg, #B674F1 15%, #6B93E7 62%, #2BABEE 82%);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none
+}
+.slide--access .slide-inner {
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.slide--access .slide-row {
+  width: 100%;
+}
+
+.slide--access .slide-row__text .slide-row-inner {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.slide--access .slide-row__text .slide-row-inner .tagline {
+  padding: 0 0 0 0;
+  width: 360px;
+}
+
+.slide--access .slide-row__email{
+  display: flex;
+  justify-content: center;
+  padding-top: 10px
+}
+
+.slide--access .slide-row__email .email-caption{
+  width: 240px;
+  height: 76px;
+}
+
+.slide--access .slide-row__blokcs {
+  display: flex;
+  align-items: flex-end;
+}

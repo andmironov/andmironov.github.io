@@ -19,8 +19,15 @@
   text-align: center;
   padding: 0 0 20px 0;
 }
+.tagline__inversed .tagline-title {
+  color: $colorWhite
+}
 
 .tagline-text {
   line-height: 24px;
   text-align: center;
+}
+
+.tagline__inversed .tagline-text {
+  color: $colorWhite
 }
