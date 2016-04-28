@@ -4,6 +4,13 @@
   align-items: center;
 }
 
+.slide--bubbles .slide-col.slide-col__text .slide-col-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .slide--bubbles .slide-col.slide-col__text {
   width: 445px;
 }
