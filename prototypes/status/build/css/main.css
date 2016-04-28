@@ -611,6 +611,12 @@ h3 {
   border: 1px solid #D2D7DB;
   border-radius: 2px; }
 
+.phone-inner.phone-inner__2 {
+  background-image: url(../assets/chat.png); }
+
+.phone-inner.phone-inner__3 {
+  background-image: url(../assets/discover.png); }
+
 .bubbles {
   width: 445px;
   height: 245px;
