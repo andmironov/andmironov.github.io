@@ -1,0 +1,71 @@
+.cards {
+  position: relative;
+  margin: 60px 0;
+  display: flex;
+  justify-content: space-between;
+  width: 560px;
+
+}
+
+.card {
+  width: 160px;
+  height: 210px;
+  border-radius: 4px;
+  background-color: $colorBgLight;
+  //border: 1px solid $colorBorderLightGrey;
+  transition: transform .4s ease, opacity .4s ease;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.card-avatar {
+  margin-top: 25px;
+  position: relative;
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: $colorBg;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.card-avatar::after{
+  content: "";
+  height: 23px;
+  width: 23px;
+  position: absolute;
+  background-size: 23px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url(../assets/badge.png);
+  bottom: -4px;
+  right: -4px
+}
+
+.card.card__1 .card-avatar {
+  background-image: url(../assets/avatar1.png);
+}
+
+.card.card__2 .card-avatar {
+  background-image: url(../assets/avatar2.png);
+}
+
+.card.card__3 .card-avatar {
+  background-image: url(../assets/avatar3.png);
+}
+
+.card-name {
+  color: $colorTextDarkGrey;
+  font-weight: 500;
+  margin-top: 14px;
+}
+
+.card-description {
+  padding: 10px 20px 20px 20px;
+  font-size: 12px;
+  line-height: 18px;
+}

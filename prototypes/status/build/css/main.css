@@ -466,6 +466,30 @@ h3 {
   justify-content: flex-end;
   width: 300px; }
 
+.slide--cards {
+  background-color: #FFFFFF; }
+
+.slide--cards .slide-col {
+  display: flex;
+  align-items: center; }
+
+.slide--cards .slide-col.slide-col__text .slide-col-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.slide--cards .slide-col.slide-col__text {
+  width: 560px; }
+
+.slide--cards .slide-col.slide-col__text .slide-col-inner {
+  padding: 100px 0 0 0; }
+
+.slide--cards .slide-col.slide-col__phone {
+  align-items: center;
+  justify-content: flex-end;
+  width: 300px; }
+
 .email-caption {
   padding: 30px 0 0 0;
   display: flex;
@@ -706,3 +730,65 @@ h3 {
   left: 223px;
   transform: translate3d(10px, 20px, 0) scale(1.1);
   opacity: 0; }
+
+.cards {
+  position: relative;
+  margin: 60px 0;
+  display: flex;
+  justify-content: space-between;
+  width: 560px; }
+
+.card {
+  width: 160px;
+  height: 210px;
+  border-radius: 4px;
+  background-color: #F5F7F9;
+  transition: transform .4s ease, opacity .4s ease;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center; }
+
+.card-avatar {
+  margin-top: 25px;
+  position: relative;
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #EEF2F5;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.card-avatar::after {
+  content: "";
+  height: 23px;
+  width: 23px;
+  position: absolute;
+  background-size: 23px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url(../assets/badge.png);
+  bottom: -4px;
+  right: -4px; }
+
+.card.card__1 .card-avatar {
+  background-image: url(../assets/avatar1.png); }
+
+.card.card__2 .card-avatar {
+  background-image: url(../assets/avatar2.png); }
+
+.card.card__3 .card-avatar {
+  background-image: url(../assets/avatar3.png); }
+
+.card-name {
+  color: #515C71;
+  font-weight: 500;
+  margin-top: 14px; }
+
+.card-description {
+  padding: 10px 20px 20px 20px;
+  font-size: 12px;
+  line-height: 18px; }
