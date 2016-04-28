@@ -255,7 +255,7 @@ h3 {
 
 .slide {
   width: 100%;
-  height: 90vh;
+  height: 86vh;
   min-height: 680px;
   max-height: 855px;
   display: flex;
@@ -280,7 +280,8 @@ h3 {
 .slide.slide--top {
   height: 100vh;
   background: linear-gradient(-180deg, #F5F7F9 0%, #EEF2F5 100%);
-  min-height: 776px; }
+  min-height: 786px;
+  max-height: 1000px; }
 
 .slide--top .slide-inner {
   width: 100%;
@@ -290,7 +291,7 @@ h3 {
 
 .slide-inner-top {
   display: flex;
-  width: 1040px;
+  width: 960px;
   justify-content: space-between; }
 
 .slide--top .slide-col {
@@ -325,14 +326,21 @@ h3 {
 .slide--top .slide-col.slide-col__phone .phone {
   position: absolute;
   right: 0;
-  top: 0; }
+  top: 0;
+  opacity: 0;
+  transform: translate3d(0, 60px, 0);
+  transition: transform .4s ease, opacity .4s ease; }
 
-.slide--top .slide-col.slide-col__phone .phone.phone__main {
+.slide--top .slide-col.slide-col__phone .phone.shown {
+  transform: translate3d(0, 0, 0);
+  opacity: 1; }
+
+.slide--top .slide-col.slide-col__phone .phone.phone--main {
   right: 0; }
 
-.slide--top .slide-col.slide-col__phone .phone.phone__secondary {
-  right: 150px;
-  top: 60px; }
+.slide--top .slide-col.slide-col__phone .phone.phone--secondary {
+  right: 180px;
+  top: 40px; }
 
 .slide--colorful {
   background: #FFFFFF; }
@@ -447,9 +455,12 @@ h3 {
   padding: 100px 0 0 0; }
 
 .slide--bubbles .slide-col.slide-col__phone {
-  align-items: center;
+  align-items: flex-end;
   justify-content: flex-end;
   width: 324px; }
+
+.slide.slide--cards {
+  border: none; }
 
 .slide--cards .slide-col {
   display: flex;
@@ -468,7 +479,7 @@ h3 {
   padding: 100px 0 0 0; }
 
 .slide--cards .slide-col.slide-col__phone {
-  align-items: center;
+  align-items: flex-end;
   justify-content: flex-end;
   width: 324px; }
 
@@ -714,11 +725,11 @@ h3 {
   background-size: 324px;
   background-image: url(../assets/phone_big.svg); }
 
-.phone.phone_ios {
+.phone.phone--ios {
   background-image: url(../assets/phone_new_ios.svg); }
 
 .phone--cut {
-  top: 83px; }
+  top: 76px; }
 
 .phone--cut-more {
   top: 150px; }

@@ -58,6 +58,8 @@ var emailCaptionElement = document.querySelectorAll(".email-caption")[0]
 var getAccessInputElement = document.querySelectorAll(".email-caption")[1]
 var getAccessTaglineElement = document.querySelectorAll(".slide--access .tagline")[0]
 var headerElement = document.querySelectorAll(".header")[0]
+var mainPhoneElement = document.querySelectorAll(".phone--main")[0]
+var secondaryPhoneElement = document.querySelectorAll(".phone--secondary")[0]
 
 observer.addElement({
   element: mainSlideElement,
@@ -125,7 +127,11 @@ function showMainSlide() {
   if(mainSlideShown) return
   mainSlideShown = true
   setTimeout(function(){taglineElement.classList.add("shown")}, 400)
+  setTimeout(function(){mainPhoneElement.classList.add("shown")},600)
+
   setTimeout(function(){emailCaptionElement.classList.add("shown")}, 500)
+  setTimeout(function(){secondaryPhoneElement.classList.add("shown")}, 700)
+
   setTimeout(function(){headerElement.classList.add("shown")}, 1000)
 }
 
