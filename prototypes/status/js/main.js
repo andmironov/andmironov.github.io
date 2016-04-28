@@ -106,7 +106,6 @@ function onScrollY() {
   if((cardsSlideOffsetTop - scrollY) < (viewportHeight - (cardsSlideHeight/1.6))) showCardsSlide();
 }
 
-
 //showMainSlide animation
 var mainSlideShown = false
 function showMainSlide() {
