@@ -40,15 +40,18 @@ function focusInput() {
   }
 }
 
+
 //Add observer
 var observer = new DOMObserver();
 
 var mainSlideElement = document.querySelectorAll(".slide--top")[0]
 var colorfulSlideElement = document.querySelectorAll(".slide--colorful")[0]
 var bubblesSlideElement = document.querySelectorAll(".slide--bubbles")[0]
+var cardsSlideElement = document.querySelectorAll(".slide--cards")[0]
 
 var colorfulSlideBlocksElements = document.querySelectorAll(".colorful-blocks .colorful-block")
 var bubblesSlideBlocksElements = document.querySelectorAll(".slide--bubbles .bubble")
+var cardsSlideBlocksElements = document.querySelectorAll(".cards .card")
 var taglineElement = document.querySelectorAll(".slide--top .tagline")[0]
 var emailCaptionElement = document.querySelectorAll(".email-caption")[0]
 var headerElement = document.querySelectorAll(".header")[0]
@@ -68,16 +71,26 @@ observer.addElement({
   name:"bubblesSlide"
 })
 
+observer.addElement({
+  element: cardsSlideElement,
+  name:"cardsSlide"
+})
+
 
 var scrollY = observer.getScrollY()
 var viewportHeight = observer.getViewport().height
 
 var mainSlideHeight = observer.getPropertyValue("mainSlide", "height")
-var bubblesSlideHeight = observer.getPropertyValue("bubblesSlide", "height")
 var mainSlideOffsetTop = observer.getPropertyValue("mainSlide", "offsetTop")
 
-var colorfulSlideOffsetTop = observer.getPropertyValue("colorfulSlide", "offsetTop")
+var bubblesSlideHeight = observer.getPropertyValue("bubblesSlide", "height")
 var bubblesSlideOffsetTop = observer.getPropertyValue("bubblesSlide", "offsetTop")
+
+var colorfulSlideOffsetTop = observer.getPropertyValue("colorfulSlide", "offsetTop")
+
+var cardsSlideHeight = observer.getPropertyValue("cardsSlide", "height")
+var cardsSlideOffsetTop = observer.getPropertyValue("cardsSlide", "offsetTop")
+
 
 onScrollY()
 
@@ -89,7 +102,8 @@ function onScrollY() {
   scrollY = observer.getScrollY()
   if((mainSlideOffsetTop - scrollY) < (viewportHeight - (mainSlideHeight/2))) showMainSlide();
   if((colorfulSlideOffsetTop - scrollY) < (viewportHeight - (200))) showColorfulSlide();
-  if((bubblesSlideOffsetTop - scrollY) < (viewportHeight - (bubblesSlideHeight/2))) showBubblesSlide();
+  if((bubblesSlideOffsetTop - scrollY) < (viewportHeight - (bubblesSlideHeight/1.8))) showBubblesSlide();
+  if((cardsSlideOffsetTop - scrollY) < (viewportHeight - (cardsSlideHeight/1.6))) showCardsSlide();
 }
 
 
@@ -136,5 +150,23 @@ function showBubblesSlide() {
 function showBubblesSlideBlock(i) {
   setTimeout(function(){
     bubblesSlideBlocksElements[i].classList.add("shown")
+  }, i*120)
+}
+
+//showCardsSlide animation
+var cardsSlideShown = false
+function showCardsSlide() {
+  if(cardsSlideShown) return
+  cardsSlideShown = true
+
+  for (var i = cardsSlideBlocksElements.length; i--;){
+    showCardsSlideBlock(i)
+  }
+
+}
+
+function showCardsSlideBlock(i) {
+  setTimeout(function(){
+    cardsSlideBlocksElements[i].classList.add("shown")
   }, i*120)
 }

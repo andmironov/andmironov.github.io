@@ -748,7 +748,14 @@ h3 {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center; }
+  align-items: center;
+  opacity: 0;
+  transform: translate3d(-40px, 0, 0) scale(1);
+  transition: transform .4s ease, opacity .4s ease; }
+
+.card.shown {
+  transform: translate3d(0, 0, 0) scale(1);
+  opacity: 1; }
 
 .card-avatar {
   margin-top: 25px;
