@@ -9,12 +9,19 @@
   position: relative;
 }
 
+.phone__big {
+  width: 324px;
+  height: 664px;
+  background-size: 324px;
+  background-image: url(../assets/phone_big.svg);
+}
+
 .phone.phone_ios {
   background-image: url(../assets/phone_new_ios.svg);
 }
 
 .phone--cut {
-  top: 98px;
+  top: 83px;
 }
 
 .phone--cut-more {
@@ -33,6 +40,11 @@
   background-position: top;
   border: 1px solid #D2D7DB;
   border-radius: 2px;
+}
+
+.phone__big .phone-inner {
+  width: 299px;
+  height: 532px;
 }
 
 .phone-inner.phone-inner__2 {

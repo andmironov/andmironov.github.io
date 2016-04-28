@@ -290,7 +290,7 @@ h3 {
 
 .slide-inner-top {
   display: flex;
-  width: 1000px;
+  width: 1040px;
   justify-content: space-between; }
 
 .slide--top .slide-col {
@@ -449,7 +449,7 @@ h3 {
 .slide--bubbles .slide-col.slide-col__phone {
   align-items: center;
   justify-content: flex-end;
-  width: 300px; }
+  width: 324px; }
 
 .slide--cards .slide-col {
   display: flex;
@@ -470,10 +470,10 @@ h3 {
 .slide--cards .slide-col.slide-col__phone {
   align-items: center;
   justify-content: flex-end;
-  width: 300px; }
+  width: 324px; }
 
 .slide--access {
-  background: linear-gradient(8deg, #B674F1 15%, #6B93E7 62%, #2BABEE 82%);
+  background: linear-gradient(16deg, #B674F1 52%, #6B93E7 86%, #2BABEE 100%);
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -697,11 +697,17 @@ h3 {
   background-position: top;
   position: relative; }
 
+.phone__big {
+  width: 324px;
+  height: 664px;
+  background-size: 324px;
+  background-image: url(../assets/phone_big.svg); }
+
 .phone.phone_ios {
   background-image: url(../assets/phone_new_ios.svg); }
 
 .phone--cut {
-  top: 98px; }
+  top: 83px; }
 
 .phone--cut-more {
   top: 150px; }
@@ -718,6 +724,10 @@ h3 {
   background-position: top;
   border: 1px solid #D2D7DB;
   border-radius: 2px; }
+
+.phone__big .phone-inner {
+  width: 299px;
+  height: 532px; }
 
 .phone-inner.phone-inner__2 {
   background-image: url(../assets/chat.png); }
