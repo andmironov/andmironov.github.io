@@ -177,7 +177,7 @@ h2 {
   color: #515C71;
   font-weight: 400;
   font-size: 22px;
-  line-height: 35px; }
+  line-height: 32px; }
 
 h3 {
   color: #515C71;
@@ -339,7 +339,7 @@ h3 {
   right: 0; }
 
 .slide--top .slide-col.slide-col__phone .phone.phone--secondary {
-  right: 180px;
+  right: 190px;
   top: 40px; }
 
 .slide--colorful {
@@ -697,7 +697,7 @@ h3 {
 
 .tagline-title {
   text-align: center;
-  padding: 0 0 20px 0; }
+  padding: 0 0 12px 0; }
 
 .tagline__inversed .tagline-title {
   color: #FFFFFF; }
