@@ -523,6 +523,7 @@ h3 {
 .footer {
   background-color: #FFFFFF;
   height: 320px;
+  min-height: 320px;
   display: flex;
   justify-content: center;
   align-items: center; }
