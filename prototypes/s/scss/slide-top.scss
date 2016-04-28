@@ -26,6 +26,8 @@
   height: 240px;
   display: flex;
   flex-shrink: 0;
+  flex-grow: 0;
+  
   justify-content: center;
   background-color: $colorWhite;
   position: relative;
