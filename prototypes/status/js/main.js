@@ -48,12 +48,15 @@ var mainSlideElement = document.querySelectorAll(".slide--top")[0]
 var colorfulSlideElement = document.querySelectorAll(".slide--colorful")[0]
 var bubblesSlideElement = document.querySelectorAll(".slide--bubbles")[0]
 var cardsSlideElement = document.querySelectorAll(".slide--cards")[0]
+var accessSlideElement = document.querySelectorAll(".slide--access")[0]
 
 var colorfulSlideBlocksElements = document.querySelectorAll(".colorful-blocks .colorful-block")
 var bubblesSlideBlocksElements = document.querySelectorAll(".slide--bubbles .bubble")
 var cardsSlideBlocksElements = document.querySelectorAll(".cards .card")
 var taglineElement = document.querySelectorAll(".slide--top .tagline")[0]
 var emailCaptionElement = document.querySelectorAll(".email-caption")[0]
+var getAccessInputElement = document.querySelectorAll(".email-caption")[1]
+var getAccessTaglineElement = document.querySelectorAll(".slide--access .tagline")[0]
 var headerElement = document.querySelectorAll(".header")[0]
 
 observer.addElement({
@@ -76,6 +79,11 @@ observer.addElement({
   name:"cardsSlide"
 })
 
+observer.addElement({
+  element: accessSlideElement,
+  name:"accessSlide"
+})
+
 
 var scrollY = observer.getScrollY()
 var viewportHeight = observer.getViewport().height
@@ -91,6 +99,10 @@ var colorfulSlideOffsetTop = observer.getPropertyValue("colorfulSlide", "offsetT
 var cardsSlideHeight = observer.getPropertyValue("cardsSlide", "height")
 var cardsSlideOffsetTop = observer.getPropertyValue("cardsSlide", "offsetTop")
 
+var accessSlideHeight = observer.getPropertyValue("accessSlide", "height")
+var accessSlideOffsetTop = observer.getPropertyValue("accessSlide", "offsetTop")
+
+
 
 onScrollY()
 
@@ -104,6 +116,7 @@ function onScrollY() {
   if((colorfulSlideOffsetTop - scrollY) < (viewportHeight - (200))) showColorfulSlide();
   if((bubblesSlideOffsetTop - scrollY) < (viewportHeight - (bubblesSlideHeight/1.8))) showBubblesSlide();
   if((cardsSlideOffsetTop - scrollY) < (viewportHeight - (cardsSlideHeight/1.6))) showCardsSlide();
+  if((accessSlideOffsetTop - scrollY) < (viewportHeight - (accessSlideHeight/2.5))) showAccessSlide();
 }
 
 //showMainSlide animation
@@ -114,6 +127,15 @@ function showMainSlide() {
   setTimeout(function(){taglineElement.classList.add("shown")}, 400)
   setTimeout(function(){emailCaptionElement.classList.add("shown")}, 500)
   setTimeout(function(){headerElement.classList.add("shown")}, 1000)
+}
+
+//showAccessSlide animation
+var accessSlideShown = false
+function showAccessSlide() {
+  if(accessSlideShown) return
+  mainSlideShown = true
+  setTimeout(function(){getAccessTaglineElement.classList.add("shown")}, 400)
+  setTimeout(function(){getAccessInputElement.classList.add("shown")}, 500)
 }
 
 //showColorfulSlide animation
