@@ -31,17 +31,17 @@
 
 .card:nth-child(1) {
   transition: transform .4s ease, opacity .4s ease;
-  transition-delay: 0
+  transition-delay: 0;
 }
 
 .card:nth-child(2) {
   transition: transform .4s ease, opacity .4s ease;
-  transition-delay: .120s
+  transition-delay: .120s;
 }
 
 .card:nth-child(3) {
   transition: transform .4s ease, opacity .4s ease;
-  transition-delay: .240s
+  transition-delay: .240s;
 }
 
 .card-avatar {
