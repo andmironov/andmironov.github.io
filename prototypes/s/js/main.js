@@ -180,15 +180,6 @@ var cardsSlideShown = false
 function showCardsSlide() {
   if(cardsSlideShown) return
   cardsSlideShown = true
-
-  for (var i = cardsSlideBlocksElements.length; i--;){
-    showCardsSlideBlock(i)
-  }
-
-}
-
-function showCardsSlideBlock(i) {
-  setTimeout(function(){
-    cardsSlideBlocksElements[i].classList.add("shown")
-  }, i*120)
+  cardsSlideElement.classList.add("shown")
+  
 }

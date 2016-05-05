@@ -863,12 +863,23 @@ h3 {
   justify-content: flex-start;
   align-items: center;
   opacity: 0;
-  transform: translate3d(-40px, 0, 0) scale(1);
-  transition: transform .4s ease, opacity .4s ease; }
+  transform: translate3d(-40px, 0, 0) scale(1); }
 
-.card.shown {
+.shown .card {
   transform: translate3d(0, 0, 0) scale(1);
   opacity: 1; }
+
+.card:nth-child(1) {
+  transition: transform .4s ease, opacity .4s ease;
+  transition-delay: 0; }
+
+.card:nth-child(2) {
+  transition: transform .4s ease, opacity .4s ease;
+  transition-delay: .120s; }
+
+.card:nth-child(3) {
+  transition: transform .4s ease, opacity .4s ease;
+  transition-delay: .240s; }
 
 .card-avatar {
   margin-top: 25px;
