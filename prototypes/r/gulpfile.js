@@ -8,7 +8,8 @@ var browserify = require('browserify'),
     sourcemaps = require('gulp-sourcemaps'),
     connect = require('gulp-connect'),
     autoprefixer = require('gulp-autoprefixer'),
-    staticHash = require('gulp-static-hash')
+    staticHash = require('gulp-static-hash'),
+    imagemin = require('gulp-imagemin')
 
 gulp.task('js', function () {
   var b = browserify({
@@ -44,6 +45,12 @@ gulp.task('html', function () {
         .pipe(gulp.dest(''))
 })
 
+gulp.task('images', function () {
+  gulp.src('assets/*')
+      .pipe(imagemin())
+      .pipe(gulp.dest('build/assets/'))
+})
+
 gulp.task('webserver', function() {
   connect.server({
     livereload: true
@@ -51,8 +58,9 @@ gulp.task('webserver', function() {
 })
 
 gulp.task('watch', function () {
-  gulp.watch('./scss/*.scss', ['sass', 'html'])
-  gulp.watch('./js/*.js', ['js', 'html'])
+  gulp.watch('scss/*.scss', ['sass', 'html'])
+  gulp.watch('js/*.js', ['js', 'html'])
+  gulp.watch('assets/*', ['images'])
 })
 
 gulp.task('default', ['webserver', 'watch'])

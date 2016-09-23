@@ -15,50 +15,10 @@
   opacity: 1;
 }
 
-
 .header-inner {
   width: 960px;
   display: flex;
   justify-content: space-between;
-}
-
-.logo-wrap {
-  display: block;
-  width: 50px;
-  height: 50px;
-  cursor: pointer;
-  position: relative;
-}
-
-.logo {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 86px;
-  height: 77px;
-
-  background-image: url(../assets/logo2@2x.png);
-  background-size: 43px;
-  background-repeat: no-repeat;
-  background-position: center;
-
-  z-index: 900
-}
-
-.logo-shadow {
-  position: absolute;
-  top: 2px;
-  left: 11px;
-
-  background-image: url(../assets/logo-shadow.png);
-  width: 73px;
-  height: 74px;
-  background-size: 73px;
-  background-repeat: no-repeat;
-  background-position: center;
-  cursor: pointer;
-
-  z-index: 800
 }
 
 .nav {
