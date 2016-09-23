@@ -1,33 +1,19 @@
 .header {
-  width: 100%;
-  position: absolute;
-  padding: 10px 0;
   display: flex;
   justify-content: center;
-  align-items: center;
-  transform: translate3d(0, -20px, 0);
-  opacity: 0;
-  transition: transform .6s ease, opacity .6s ease;
+  position: absolute;
 }
 
-.header.shown {
-  transform: translate3d(0, 0, 0);
-  opacity: 1;
-}
-
-.header-inner {
-  width: 960px;
+.header__inner {
   display: flex;
-  justify-content: space-between;
+  width: 1240px;
 }
 
-.nav {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
+.logo {
+  width: 208px;
+  height: 40px;
 }
 
-.nav a {
-  display: flex;
-  margin: 0 0 0 50px;
+.logo svg path {
+  fill: $colorBlue;
 }

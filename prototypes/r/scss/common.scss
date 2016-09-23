@@ -4,50 +4,45 @@
 @import "fonts";
 
 body {
-  background-color: $colorBg;
+  background-color: $colorWhite;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 14px;
-  color: $colorTextGrey;
+  line-height: 20px;
+  color: $colorBlack;
   text-rendering: optimizeLegibility;
    -webkit-font-smoothing: antialiased;
 }
 
 *::-moz-selection {
-  background: $colorTextPurple;
+  background: $colorBlue;
   color: $colorWhite;
 }
 
 *::selection {
-  background: $colorTextPurple;
+  background: $colorBlue;
   color: $colorWhite;
 }
 
 a {
+  color: $colorBlue;
   text-decoration: none;
-  color: $colorTextGrey;
-  transition: color .2s ease;
+  transition: opacity .2s ease;
 }
 
 a:hover {
-  color: $colorTextBrightBlue;
+  opacity: .7;
 }
 
 p {
   font-size: 14px;
-  line-height: 24px;
+  line-height: 20px;
 }
 
 h2 {
-  color: $colorTextDarkGrey;
-  font-weight: 400;
-  font-size: 22px;
-  line-height: 32px;
+
 }
 
 h3 {
-  color: $colorTextDarkGrey;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 28px;
+
 }

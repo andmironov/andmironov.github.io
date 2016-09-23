@@ -33,7 +33,7 @@ gulp.task('sass', function () {
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('./build/css'))
     .pipe(autoprefixer({
-			browsers: ['last 2 versions'],
+			browsers: ['last 4 versions'],
 			cascade: false
 		}))
     .pipe(connect.reload())

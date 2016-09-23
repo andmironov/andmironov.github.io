@@ -145,179 +145,62 @@ select[multiple] {
   vertical-align: top; }
 
 body {
-  background-color: #F5F7F9;
+  background-color: white;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 14px;
-  color: #808591;
+  line-height: 20px;
+  color: #262626;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased; }
 
 *::-moz-selection {
-  background: #B574F0;
-  color: #FFFFFF; }
+  background: #315efb;
+  color: white; }
 
 *::selection {
-  background: #B574F0;
-  color: #FFFFFF; }
+  background: #315efb;
+  color: white; }
 
 a {
+  color: #315efb;
   text-decoration: none;
-  color: #808591;
-  transition: color .2s ease; }
+  transition: opacity .2s ease; }
 
 a:hover {
-  color: #2BA6E9; }
+  opacity: .7; }
 
 p {
   font-size: 14px;
-  line-height: 24px; }
-
-h2 {
-  color: #515C71;
-  font-weight: 400;
-  font-size: 22px;
-  line-height: 32px; }
-
-h3 {
-  color: #515C71;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 28px; }
+  line-height: 20px; }
 
 .header {
-  width: 100%;
-  position: absolute;
-  padding: 10px 0;
   display: flex;
   justify-content: center;
-  align-items: center;
-  transform: translate3d(0, -20px, 0);
-  opacity: 0;
-  transition: transform .6s ease, opacity .6s ease; }
+  position: absolute; }
 
-.header.shown {
-  transform: translate3d(0, 0, 0);
-  opacity: 1; }
-
-.header-inner {
-  width: 960px;
+.header__inner {
   display: flex;
-  justify-content: space-between; }
-
-.logo-wrap {
-  display: block;
-  width: 50px;
-  height: 50px;
-  cursor: pointer;
-  position: relative; }
+  width: 1240px; }
 
 .logo {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 86px;
-  height: 77px;
-  background-image: url(../assets/logo2@2x.png);
-  background-size: 43px;
-  background-repeat: no-repeat;
-  background-position: center;
-  z-index: 900; }
+  width: 208px;
+  height: 40px; }
 
-.logo-shadow {
-  position: absolute;
-  top: 2px;
-  left: 11px;
-  background-image: url(../assets/logo-shadow.png);
-  width: 73px;
-  height: 74px;
-  background-size: 73px;
-  background-repeat: no-repeat;
-  background-position: center;
-  cursor: pointer;
-  z-index: 800; }
+.logo svg path {
+  fill: #315efb; }
 
-.nav {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end; }
+.slide {
+  height: 100vh; }
 
-.nav a {
-  display: flex;
-  margin: 0 0 0 50px; }
+.slide--cover {
+  background-color: #2d384b; }
 
 .footer {
-  background-color: #FFFFFF;
-  height: 320px;
-  min-height: 320px;
   display: flex;
-  justify-content: center;
-  align-items: center; }
+  justify-content: center; }
 
-.footer-inner {
-  height: 124px;
+.footer__inner {
   display: flex;
-  flex-direction: row; }
-
-.footer-col {
-  width: 300px;
-  flex-shrink: 0;
-  flex-grow: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between; }
-
-.footer-logo {
-  margin: 20px 0;
-  display: block;
-  width: 43px;
-  height: 39px;
-  background-image: url(../assets/logo_gray.svg);
-  background-size: 43px;
-  background-repeat: no-repeat;
-  background-position: center; }
-
-.footer-social-icons {
-  display: flex;
-  width: 130px;
-  justify-content: space-between; }
-
-.footer-nav {
-  display: flex;
-  width: 180px;
-  justify-content: space-between; }
-
-.footer-nav-item {
-  display: block; }
-
-.social-icon {
-  display: block;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background-color: #9A9EA7;
-  background-size: 18px;
-  background-repeat: no-repeat;
-  background-position: center;
-  transition: background-color .1s linear; }
-
-.social-icon:hover {
-  background-color: #2BA6E9; }
-
-.social-icon.social-icon__github {
-  background-image: url(../assets/icon_github.svg); }
-
-.social-icon.social-icon__facebook {
-  background-image: url(../assets/icon_fb.svg); }
-
-.social-icon.social-icon__twitter {
-  background-image: url(../assets/icon_twitter.svg); }
-
-.footer-description {
-  padding-bottom: 25px;
-  text-align: center;
-  width: 200px;
-  color: #808591;
-  font-size: 14px;
-  line-height: 24px; }
+  width: 1240px;
+  text-align: center; }
