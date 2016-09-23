@@ -1,0 +1,323 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500&subset=latin,cyrillic);
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after {
+  content: "";
+  content: none; }
+
+q:before, q:after {
+  content: "";
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+div {
+  box-sizing: border-box; }
+
+/* ----------------------------------------------------------------------------------------------------
+
+Super Form Reset
+
+A couple of things to watch out for:
+
+- IE8: If a text input doesn't have padding on all sides or none the text won't be centered.
+- The default border sizes on text inputs in all UAs seem to be slightly different. You're better off using custom borders.
+- You NEED to set the font-size and family on all form elements
+- Search inputs need to have their appearance reset and the box-sizing set to content-box to match other UAs
+- You can style the upload button in webkit using ::-webkit-file-upload-button
+- ::-webkit-file-upload-button selectors can't be used in the same selector as normal ones. FF and IE freak out.
+- IE: You don't need to fake inline-block with labels and form controls in IE. They function as inline-block.
+- By turning off ::-webkit-search-decoration, it removes the extra whitespace on the left on search inputs
+
+----------------------------------------------------------------------------------------------------*/
+input,
+label,
+select,
+button,
+textarea {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  display: inline-block;
+  vertical-align: middle;
+  white-space: normal;
+  background: none;
+  line-height: 1;
+  /* Browsers have different default form fonts */
+  font-size: 13px;
+  font-family: Arial; }
+
+/* Remove the stupid outer glow in Webkit */
+input:focus {
+  outline: 0; }
+
+/* Box Sizing Reset
+-----------------------------------------------*/
+/* All of our custom controls should be what we expect them to be */
+input,
+textarea {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box; }
+
+/* These elements are usually rendered a certain way by the browser */
+button,
+input[type=reset],
+input[type=button],
+input[type=submit],
+input[type=checkbox],
+input[type=radio],
+select {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+/* Text Inputs
+-----------------------------------------------*/
+/* Button Controls
+-----------------------------------------------*/
+input[type=checkbox],
+input[type=radio] {
+  width: 13px;
+  height: 13px; }
+
+/* File Uploads
+-----------------------------------------------*/
+/* Search Input
+-----------------------------------------------*/
+/* Make webkit render the search input like a normal text field */
+input[type=search] {
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box; }
+
+/* Turn off the recent search for webkit. It adds about 15px padding on the left */
+::-webkit-search-decoration {
+  display: none; }
+
+/* Buttons
+-----------------------------------------------*/
+button,
+input[type="reset"],
+input[type="button"],
+input[type="submit"] {
+  /* Fix IE7 display bug */
+  overflow: visible;
+  width: auto; }
+
+/* IE8 and FF freak out if this rule is within another selector */
+::-webkit-file-upload-button {
+  padding: 0;
+  border: 0;
+  background: none; }
+
+/* Textarea
+-----------------------------------------------*/
+textarea {
+  /* Move the label to the top */
+  vertical-align: top;
+  /* Turn off scroll bars in IE unless needed */
+  overflow: auto; }
+
+/* Selects
+-----------------------------------------------*/
+select[multiple] {
+  /* Move the label to the top */
+  vertical-align: top; }
+
+body {
+  background-color: #F5F7F9;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #808591;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased; }
+
+*::-moz-selection {
+  background: #B574F0;
+  color: #FFFFFF; }
+
+*::selection {
+  background: #B574F0;
+  color: #FFFFFF; }
+
+a {
+  text-decoration: none;
+  color: #808591;
+  transition: color .2s ease; }
+
+a:hover {
+  color: #2BA6E9; }
+
+p {
+  font-size: 14px;
+  line-height: 24px; }
+
+h2 {
+  color: #515C71;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 32px; }
+
+h3 {
+  color: #515C71;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px; }
+
+.header {
+  width: 100%;
+  position: absolute;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translate3d(0, -20px, 0);
+  opacity: 0;
+  transition: transform .6s ease, opacity .6s ease; }
+
+.header.shown {
+  transform: translate3d(0, 0, 0);
+  opacity: 1; }
+
+.header-inner {
+  width: 960px;
+  display: flex;
+  justify-content: space-between; }
+
+.logo-wrap {
+  display: block;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  position: relative; }
+
+.logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 86px;
+  height: 77px;
+  background-image: url(../assets/logo2@2x.png);
+  background-size: 43px;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 900; }
+
+.logo-shadow {
+  position: absolute;
+  top: 2px;
+  left: 11px;
+  background-image: url(../assets/logo-shadow.png);
+  width: 73px;
+  height: 74px;
+  background-size: 73px;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  z-index: 800; }
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; }
+
+.nav a {
+  display: flex;
+  margin: 0 0 0 50px; }
+
+.footer {
+  background-color: #FFFFFF;
+  height: 320px;
+  min-height: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.footer-inner {
+  height: 124px;
+  display: flex;
+  flex-direction: row; }
+
+.footer-col {
+  width: 300px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; }
+
+.footer-logo {
+  margin: 20px 0;
+  display: block;
+  width: 43px;
+  height: 39px;
+  background-image: url(../assets/logo_gray.svg);
+  background-size: 43px;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.footer-social-icons {
+  display: flex;
+  width: 130px;
+  justify-content: space-between; }
+
+.footer-nav {
+  display: flex;
+  width: 180px;
+  justify-content: space-between; }
+
+.footer-nav-item {
+  display: block; }
+
+.social-icon {
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #9A9EA7;
+  background-size: 18px;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: background-color .1s linear; }
+
+.social-icon:hover {
+  background-color: #2BA6E9; }
+
+.social-icon.social-icon__github {
+  background-image: url(../assets/icon_github.svg); }
+
+.social-icon.social-icon__facebook {
+  background-image: url(../assets/icon_fb.svg); }
+
+.social-icon.social-icon__twitter {
+  background-image: url(../assets/icon_twitter.svg); }
+
+.footer-description {
+  padding-bottom: 25px;
+  text-align: center;
+  width: 200px;
+  color: #808591;
+  font-size: 14px;
+  line-height: 24px; }
