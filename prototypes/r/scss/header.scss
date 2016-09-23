@@ -1,0 +1,19 @@
+.header {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+}
+
+.header__inner {
+  display: flex;
+  width: 1240px;
+}
+
+.logo {
+  width: 208px;
+  height: 40px;
+}
+
+.logo svg path {
+  fill: $colorBlue;
+}

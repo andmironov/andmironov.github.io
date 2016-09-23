@@ -181,20 +181,12 @@ function showBubblesSlideBlock(i) {
   }, i*120)
 }
 
+
 //showCardsSlide animation
 var cardsSlideShown = false
 function showCardsSlide() {
   if(cardsSlideShown) return
   cardsSlideShown = true
+  cardsSlideElement.classList.add("shown")
 
-  for (var i = cardsSlideBlocksElements.length; i--;){
-    showCardsSlideBlock(i)
-  }
-
-}
-
-function showCardsSlideBlock(i) {
-  setTimeout(function(){
-    cardsSlideBlocksElements[i].classList.add("shown")
-  }, i*120)
 }
