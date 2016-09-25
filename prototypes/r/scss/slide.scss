@@ -1,7 +1,44 @@
 .slide {
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.slide--cover {
+.slide__columns {
+  width: 1200px;
+  display: flex;
+  height: 60%;
+}
+
+.slide__column {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  align-content: center;
+  width: 50%;
+}
+
+.slide.shown {
+  background-color: red;
+}
+
+.slide--one {
   background-color: $colorDarkBlue;
+}
+
+.slide--two {
+  background-color: $colorLightBlue;
+}
+
+.slide--three {
+  background-color: $colorWhite;
+}
+
+.slide--four {
+  background-color: $colorBlue;
+}
+
+.slide--five {
+  background-color: $colorWhite;
 }

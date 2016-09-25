@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40 (33762) - http://www.bohemiancoding.com/sketch -->
+    <title>arr_left</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="UI-" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="4" transform="translate(-94.000000, -366.000000)" fill="#FFFFFF">
+            <g id="&gt;&lt;" transform="translate(94.000000, 366.000000)">
+                <g id="arr_left">
+                    <rect id="bg" opacity="0" x="0" y="0" width="50" height="50"></rect>
+                    <polygon id="shape" points="20.2032014 23.9266615 20.1968251 25.8808214 33.1968251 10.8379364 30.9269845 8.87634935 17.9269845 23.9192343 17.0849614 24.8935772 17.9206081 25.8733942 30.9206081 41.1162234 33.2032014 39.1694908"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,77 @@
+.caroucel {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.caroucel__nav {
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  left: 0;
+  top: 50%;
+  margin: -15px 0 0 0;
+}
+
+.caroucel__arrow {
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  background-size: cover;
+  cursor: pointer;
+  transition: opacity .2s ease;
+}
+
+.caroucel__arrow:hover {
+  opacity: .7
+}
+
+.caroucel__arrow.caroucel__arrow--left {
+  position: absolute;
+  left: 30px;
+  background-image: url("../assets/arr_left.svg");
+}
+
+.caroucel__arrow.caroucel__arrow--right {
+  position: absolute;
+  right: 30px;
+  background-image: url("../assets/arr_right.svg");
+}
+
+.caroucel__wrap {
+  display: flex;
+  height: 60%;
+  align-items: flex-start;
+  width: 1200px;
+}
+
+.caroucel__item {
+  width: 1200px;
+  position: absolute;
+
+  visibility: hidden;
+  opacity: 0;
+}
+
+.caroucel__item.caroucel__item--current {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+.caroucel__columns {
+  width: 1200px;
+  display: flex;
+  height: 60%;
+}
+
+.caroucel__column {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  align-content: center;
+  width: 50%;
+}

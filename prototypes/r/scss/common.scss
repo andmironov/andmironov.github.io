@@ -34,13 +34,39 @@ a:hover {
   opacity: .7;
 }
 
+.button {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  border-radius: 50px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: $colorWhite;
+  background-color: $colorBlue;
+  line-height: 15px;
+  padding: 16px 30px 14px;
+  transition: background-color .2s ease;
+}
+.button:hover {
+  background: rgba(39, 75, 200, 1);
+  opacity: 1;
+}
+
 p {
   font-size: 14px;
   line-height: 20px;
 }
 
-h2 {
+.lead {
+  font-size: 20px;
+  line-height: 30px;
+  margin: 0 0 30px 0;
+}
 
+h2 {
+  font-size: 55px;
+  line-height: 65px;
+  margin: 0 0 20px 0;
 }
 
 h3 {
