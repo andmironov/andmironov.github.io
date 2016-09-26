@@ -212,7 +212,8 @@ h2 {
 
 .header__inner {
   display: flex;
-  width: 1200px;
+  width: 100%;
+  margin: 0 20px;
   padding: 0 20px;
   background-color: white;
   border-radius: 2px;
@@ -227,8 +228,23 @@ h2 {
 .logo svg path {
   fill: #315efb; }
 
+.nav {
+  display: flex; }
+
 .nav a {
   padding: 10px; }
+
+@media (max-width: 1179px) {
+  .nav {
+    display: none; } }
+
+@media (max-width: 600px) {
+  .header {
+    top: 0px; }
+  .header__inner {
+    margin: 0; }
+  .shares {
+    display: none; } }
 
 .shares {
   display: flex;
