@@ -1,4 +1,251 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+// AnimateScroll.js
+// Sunmock Yang Nov. 2015
+
+function animateScroll(target, duration, easing, padding, align, onFinish) {
+	padding = padding ? padding : 0;
+	var docElem = document.documentElement; // to facilitate minification better
+	var windowHeight = docElem.clientHeight;
+	var maxScroll = ( 'scrollMaxY' in window ) ? window.scrollMaxY : (docElem.scrollHeight - windowHeight);
+	var currentY = window.pageYOffset;
+
+	var targetY = currentY;
+	var elementBounds = isNaN(target) ? target.getBoundingClientRect() : 0;
+
+	if (align === "center") {
+		targetY += isNaN(target) ? (elementBounds.top + elementBounds.height/2) : target;
+		targetY -= windowHeight / 2;
+		targetY -= padding
+	}
+	else if (align === "bottom") {
+		targetY += elementBounds.bottom || target;
+		targetY -= windowHeight;
+		targetY += padding
+	}
+	else { // top, undefined
+		targetY += elementBounds.top || target;
+		targetY -= padding
+	}
+	targetY = Math.max(Math.min(maxScroll, targetY), 0);
+
+	var deltaY = targetY - currentY;
+
+	var obj = {
+		targetY: targetY,
+		deltaY: deltaY,
+		duration: (duration) ? duration : 0,
+		easing: (easing in animateScroll.Easing) ? animateScroll.Easing[easing] : animateScroll.Easing.linear,
+		onFinish: onFinish,
+		startTime: Date.now(),
+		lastY: currentY,
+		step: animateScroll.step,
+	};
+
+	window.requestAnimationFrame(obj.step.bind(obj));
+}
+
+// Taken from gre/easing.js
+// https://gist.github.com/gre/1650294
+animateScroll.Easing = {
+	linear: function (t) { return t },
+	easeInQuad: function (t) { return t*t },
+	easeOutQuad: function (t) { return t*(2-t) },
+	easeInOutQuad: function (t) { return t<.5 ? 2*t*t : -1+(4-2*t)*t },
+	easeInCubic: function (t) { return t*t*t },
+	easeOutCubic: function (t) { return (--t)*t*t+1 },
+	easeInOutCubic: function (t) { return t<.5 ? 4*t*t*t : (t-1)*(2*t-2)*(2*t-2)+1 },
+	easeInQuart: function (t) { return t*t*t*t },
+	easeOutQuart: function (t) { return 1-(--t)*t*t*t },
+	easeInOutQuart: function (t) { return t<.5 ? 8*t*t*t*t : 1-8*(--t)*t*t*t },
+	easeInQuint: function (t) { return t*t*t*t*t },
+	easeOutQuint: function (t) { return 1+(--t)*t*t*t*t },
+	easeInOutQuint: function (t) { return t<.5 ? 16*t*t*t*t*t : 1+16*(--t)*t*t*t*t }
+};
+
+animateScroll.step = function () {
+	if (this.lastY !== window.pageYOffset && this.onFinish) {
+		this.onFinish();
+		return;
+	}
+
+	// Calculate how much time has passed
+	var t = Math.min((Date.now() - this.startTime) / this.duration, 1);
+
+	// Scroll window amount determined by easing
+	var y = this.targetY - ((1 - this.easing(t)) * (this.deltaY));
+	window.scrollTo(window.scrollX, y);
+
+	// Continue animation as long as duration hasn't surpassed
+	if (t !== 1) {
+		this.lastY = window.pageYOffset;
+		window.requestAnimationFrame(this.step.bind(this));
+	} else {
+		if (this.onFinish) this.onFinish();
+	}
+}
+
+module.exports = animateScroll;
+
+},{}],2:[function(require,module,exports){
+let forEach = require('lodash.forEach'),
+    extendObject = require('lodash.assign')
+
+function Caroucel(options) {
+  options = extendObject(Caroucel.options, options)
+
+  this.items = options.items
+  this.wrap = options.wrap
+  this.currentClassname = "caroucel__item--current"
+  this.currentIndex = 0
+  this.arrowLeft = document.querySelectorAll(".caroucel__arrow--left")[0],
+  this.arrowRight = document.querySelectorAll(".caroucel__arrow--right")[0]
+}
+
+Caroucel.prototype = {
+  constructor : Caroucel,
+
+  init: function() {
+
+    this.update(this.currentIndex)
+    this.arrowLeft.addEventListener("click", this.moveLeft.bind(this))
+    this.arrowRight.addEventListener("click", this.moveRight.bind(this))
+  },
+
+  update: function(newIndex, direction) {
+    let oldIndex = this.currentIndex
+
+    this.updateItems(newIndex, direction, oldIndex)
+    this.updateNav(newIndex, direction, oldIndex)
+    this.updateWrap(newIndex)
+
+    this.currentIndex = newIndex
+
+    return
+  },
+
+  updateItems: function(newIndex, direction, oldIndex) {
+    let classname = this.currentClassname
+    this.addTemporaryClassName(oldIndex, direction)
+
+    forEach(this.items, function(el, i) {
+      i !== newIndex ? el.classList.remove(classname) : el.classList.add(classname)
+    })
+  },
+
+  updateNav: function(newIndex) {
+    switch (newIndex) {
+      case this.items.length - 1:
+        this.disableArrow("right")
+        this.enableArrow("left")
+        break;
+
+      case 0:
+        this.disableArrow("left")
+        this.enableArrow("right")
+        break;
+
+      default:
+        this.enableArrow("all")
+    }
+  },
+
+  moveLeft: function() {
+    if(this.currentIndex > 0) {
+      let newIndex = this.currentIndex - 1
+      this.update(newIndex, "left")
+    }
+    return
+  },
+
+  moveRight: function() {
+    if(this.currentIndex < (this.items.length - 1)) {
+      let newIndex = this.currentIndex + 1
+      this.update(newIndex, "right")
+    }
+    return
+  },
+
+  disableArrow: function(arrow) {
+    switch (arrow) {
+      case "left":
+        this.arrowLeft.classList.add("disabled")
+        break;
+
+      case "right":
+        this.arrowRight.classList.add("disabled")
+        break;
+
+      case "all":
+        this.arrowLeft.classList.add("disabled")
+        this.arrowRight.classList.add("disabled")
+        break;
+    }
+  },
+
+  enableArrow: function(arrow) {
+    switch (arrow) {
+      case "left":
+        this.arrowLeft.classList.remove("disabled")
+        break;
+
+      case "right":
+        this.arrowRight.classList.remove("disabled")
+        break;
+
+      case "all":
+        this.arrowLeft.classList.remove("disabled")
+        this.arrowRight.classList.remove("disabled")
+        break;
+    }
+  },
+
+  addTemporaryClassName: function(index, direction) {
+    let item = this.items[index]
+
+    switch (direction) {
+      case "right":
+        item.classList.add("moving-left")
+        setTimeout(function(){
+          item.classList.remove("moving-left")
+        }, 500)
+        break;
+
+      case "left":
+        item.classList.add("moving-right")
+        setTimeout(function(){
+          item.classList.remove("moving-right")
+        }, 500)
+        break;
+    }
+  },
+
+  inverseDirection: function(direction) {
+    let inversedDirection
+    switch (direction) {
+      case "right":
+        inversedDirection = "left"
+        break;
+
+      case "left":
+        inversedDirection = "right"
+        break;
+    }
+    return inversedDirection
+  },
+
+  updateWrap: function(newIndex) {
+    newIndex == 0 ? this.wrap.classList.add("slide--blue") : this.wrap.classList.remove("slide--blue")
+  }
+}
+
+Caroucel.options = {
+  items: document.querySelectorAll(".caroucel__item"),
+  wrap: document.querySelectorAll(".slide--four")[0]
+}
+
+module.exports = Caroucel
+
+},{"lodash.assign":7,"lodash.forEach":9}],3:[function(require,module,exports){
 window.requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame;
 
 /**
@@ -43,7 +290,7 @@ Debouncer.prototype = {
 
 module.exports = Debouncer
 
-},{}],2:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 let isEqual = require('lodash.isequal'),
     forEach = require('lodash.foreach'),
     isEmpty = require('lodash.isempty'),
@@ -94,7 +341,7 @@ Scrllr.prototype = {
     let currentScrollY  = this.getScrollY(),
         scrollDirection = currentScrollY > this.lastKnownScrollY ? 'down' : 'up'
 
-    this.onScrollCallback()
+    this.onScrollCallback(currentScrollY)
     this.lastKnownScrollY = currentScrollY
   },
 
@@ -111,41 +358,137 @@ Scrllr.options = {
 
 module.exports = Scrllr
 
-},{"./Debouncer":1,"lodash.assign":4,"lodash.clone":5,"lodash.foreach":6,"lodash.isempty":7,"lodash.isequal":8}],3:[function(require,module,exports){
+},{"./Debouncer":3,"lodash.assign":7,"lodash.clone":8,"lodash.foreach":10,"lodash.isempty":11,"lodash.isequal":12}],5:[function(require,module,exports){
 let Scrllr = require("./lib/Scrllr.js"),
-    forEach = require('lodash.foreach')
+    Caroucel = require('./caroucel.js'),
+    animateScroll = require('./animatescroll.js'),
+    forEach = require('lodash.foreach'),
+    animatedScrollTo = require('animated-scrollto')
 
-let scrllr = new Scrllr({
-  onScrollCallback: cb
 
-})
+let scrllr = new Scrllr({ onScrollCallback: cb })
 scrllr.init()
 
+let caroucel = new Caroucel()
+caroucel.init()
 
-let slides = document.querySelectorAll(".slide");
-
-forEach(slides, function() {
-
+document.querySelectorAll(".button--description")[0].addEventListener('click', function (e) {
+  document.querySelectorAll(".slide--two .p--hidden")[0].classList.remove("p--hidden")
+  e.preventDefault()
 })
 
-let currentScrollY = 0
+document.querySelectorAll(".button--prediction")[0].addEventListener('click', function (e) {
+  document.querySelectorAll(".slide--three .p--hidden")[0].classList.remove("p--hidden")
+  e.preventDefault()
+})
 
-function getElementProperties(el) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Slides
+
+let slides = document.querySelectorAll(".slide")
+
+
+function getElementProperties(el, scrlly) {
   let rect = el.getBoundingClientRect()
     return {
-      offsetTop: rect.top + (currentScrollY - document.body.clientTop),
+      offsetTop: rect.top,
       height: rect.height,
-      width: rect.width
+      scrollY: rect.top + scrlly
     }
 }
 
-function cb() {
-  currentScrollY = scrllr.getScrollY()
-  //console.log(getElementProperties(slides[1]))
-
+function getViewportHeight() {
+  return Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
 }
 
-},{"./lib/Scrllr.js":2,"lodash.foreach":6}],4:[function(require,module,exports){
+let viewportHeight = getViewportHeight()
+
+let elements = new Array()
+
+function cb(currentScrollY) {
+
+  forEach(slides, function(el, i) {
+    elements[i] = getElementProperties(el, currentScrollY)
+    if(elements[i].offsetTop < (elements[i].height/2) && elements[i].offsetTop > (-Math.abs(elements[i].height/2)) ) showSlide(i)
+  })
+}
+
+
+function showSlide(index) {
+  let classname = "slide--active"
+  slides[index].classList.add(classname)
+}
+
+document.querySelectorAll(".button--scroller")[0].addEventListener('click', function () {
+    animateScroll(elements[1].scrollY, 600, "easeInOutCubic", -10)
+})
+
+},{"./animatescroll.js":1,"./caroucel.js":2,"./lib/Scrllr.js":4,"animated-scrollto":6,"lodash.foreach":10}],6:[function(require,module,exports){
+(function (window) {
+    var requestAnimFrame = (function(){return window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||function(callback){window.setTimeout(callback,1000/60);};})();
+
+    var easeInOutQuad = function (t, b, c, d) {
+        t /= d/2;
+        if (t < 1) return c/2*t*t + b;
+        t--;
+        return -c/2 * (t*(t-2) - 1) + b;
+    };
+
+    var animatedScrollTo = function (element, to, duration, callback) {
+        var start = element.scrollTop,
+        change = to - start,
+        animationStart = +new Date();
+        var animating = true;
+        var lastpos = null;
+
+        var animateScroll = function() {
+            if (!animating) {
+                return;
+            }
+            requestAnimFrame(animateScroll);
+            var now = +new Date();
+            var val = Math.floor(easeInOutQuad(now - animationStart, start, change, duration));
+            if (lastpos) {
+                if (lastpos === element.scrollTop) {
+                    lastpos = val;
+                    element.scrollTop = val;
+                } else {
+                    animating = false;
+                }
+            } else {
+                lastpos = val;
+                element.scrollTop = val;
+            }
+            if (now > animationStart + duration) {
+                element.scrollTop = to;
+                animating = false;
+                if (callback) { callback(); }
+            }
+        };
+        requestAnimFrame(animateScroll);
+    };
+
+    if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+        module.exports = animatedScrollTo;
+    } else {
+        window.animatedScrollTo = animatedScrollTo;
+    }
+})(window);
+
+},{}],7:[function(require,module,exports){
 /**
  * lodash (Custom Build) <https://lodash.com/>
  * Build: `lodash modularize exports="npm" -o ./`
@@ -784,7 +1127,7 @@ function keys(object) {
 
 module.exports = assign;
 
-},{}],5:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 (function (global){
 /**
  * lodash (Custom Build) <https://lodash.com/>
@@ -2545,7 +2888,7 @@ module.exports = clone;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}],6:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 /**
  * lodash (Custom Build) <https://lodash.com/>
  * Build: `lodash modularize exports="npm" -o ./`
@@ -3112,7 +3455,9 @@ function identity(value) {
 
 module.exports = forEach;
 
-},{}],7:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
+arguments[4][9][0].apply(exports,arguments)
+},{"dup":9}],11:[function(require,module,exports){
 (function (global){
 /**
  * lodash (Custom Build) <https://lodash.com/>
@@ -3699,7 +4044,7 @@ module.exports = isEmpty;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}],8:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 (function (global){
 /**
  * lodash (Custom Build) <https://lodash.com/>
@@ -5353,7 +5698,7 @@ module.exports = isEqual;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}]},{},[3])
+},{}]},{},[5])
 
 
 //# sourceMappingURL=app.js.map

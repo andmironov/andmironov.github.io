@@ -1,11 +1,12 @@
 .footer {
   display: flex;
   justify-content: center;
-
+  padding: 50px 0;
 }
 
 .footer__inner {
+  opacity: .6;
   display: flex;
-  width: 1240px;
+  width: 1200px;
   text-align: center;
 }

@@ -1,8 +1,23 @@
 .slide {
   height: 100vh;
+  min-height: 600px;
+  padding: 80px 0 0 0;
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: background-color .3s ease;
+}
+
+.slide.slide--stretchable {
+  align-items: flex-start;
+  height: auto;
+  min-height: 100vh;
+  padding: 180px 0 100px 0;
+}
+
+.slide.slide--one {
+  color: $colorWhite;
 }
 
 .slide__columns {
@@ -19,16 +34,63 @@
   width: 50%;
 }
 
+.slide--stretchable .slide__column {
+  align-content:flex-start;
+}
+
+.slide__column.slide__column--centered {
+  justify-content: center;
+}
+
+.slide__column.slide__column--stars {
+  background-image: url(../assets/stars.png);
+  background-size: 270px;
+  background-repeat: no-repeat;
+  background-position: left top;
+}
+
+.p--hidden {
+  display: none;
+  opacity: 0;
+}
+
+.snake-sign {
+  width: 360px;
+  height: 371px;
+  background-image: url(../assets/sign.png);
+  background-size: 366px;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.snake-sign.snake-sign--smaller {
+  background-image: url(../assets/sign-black.png);
+  background-size: 220px;
+}
+
 .slide.shown {
   background-color: red;
 }
 
+.slide.slide--blue {
+  background-color: $colorBlue;
+}
+
 .slide--one {
   background-color: $colorDarkBlue;
+  color: $colorWhite;
+  background-image: url(../assets/mainImg.png);
+  background-size: 900px;
+  background-repeat: no-repeat;
+  background-position: right bottom;
 }
 
 .slide--two {
   background-color: $colorLightBlue;
+  background-image: url(../assets/map.png);
+  background-size: 720px;
+  background-repeat: no-repeat;
+  background-position: right -100px;
 }
 
 .slide--three {
@@ -36,9 +98,17 @@
 }
 
 .slide--four {
-  background-color: $colorBlue;
+  background-color: $colorDarkBlue;
+  color: $colorWhite
 }
 
 .slide--five {
   background-color: $colorWhite;
 }
+
+.slide--five .slide__column {
+  align-items: flex-start;
+  align-content: flex-start;
+}
+
+//Animations
