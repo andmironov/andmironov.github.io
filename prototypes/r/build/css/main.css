@@ -310,9 +310,11 @@ h2 {
     line-height: 25px;
     margin: 0 0 10px 0; }
   .button--read-more,
-  .button--scroller,
   .button--gallery {
-    display: none; } }
+    display: none; }
+  .button--scroller {
+    display: block;
+    margin: 20px 0 0 0; } }
 
 .shares {
   display: flex;
@@ -388,8 +390,7 @@ h2 {
   .header {
     top: 0px; }
   .header__inner {
-    margin: 0;
-    justify-content: center; }
+    margin: 0; }
   .shares {
     display: none; } }
 
@@ -406,7 +407,7 @@ h2 {
 
 .slide__scroller {
   position: absolute;
-  opacity: .4;
+  opacity: 1x;
   width: 50px;
   height: 50px;
   background-size: 50px;
