@@ -207,12 +207,8 @@ h2 {
   }
 
   .button--read-more,
-  .button--gallery {
-    display: none;
-  }
-
+  .button--gallery,
   .button--scroller {
-    display: block;
-    margin: 20px 0 0 0;
+    display: none;
   }
 }
