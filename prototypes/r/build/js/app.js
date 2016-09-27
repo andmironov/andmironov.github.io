@@ -423,8 +423,15 @@ function createHandler(targetElement) {
   }
 }
 
-document.querySelectorAll(".button--scroller")[0].addEventListener('click', createHandler(slides[1]), false )
-document.querySelectorAll(".slide__scroller")[0].addEventListener('click', createHandler(slides[1]), false )
+document.querySelectorAll(".button--scroller")[0].addEventListener('click', function(event){
+    animateScroll(slides[1], 600, "easeInOutCubic", 0)
+    event.preventDefault()
+})
+document.querySelectorAll(".slide__scroller")[0].addEventListener('click', function(event){
+    animateScroll(slides[1], 600, "easeInOutCubic", 0)
+    event.preventDefault()
+})
+
 
 function update(index, scrollY) {
   showSlide(index)
