@@ -1,14 +1,37 @@
 .slide {
   height: 100vh;
+  min-height: 600px;
+  padding: 80px 0 0 0;
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: background-color .3s ease;
+}
+
+.slide.slide--stretchable {
+  height: auto;
+  min-height: 600px;
+  align-items: flex-start;
+  padding: 160px 0 80px 0;
+}
+
+.slide.slide--wide {
+  justify-content: center;
+}
+
+.slide.slide--one {
+  color: $colorWhite;
 }
 
 .slide__columns {
-  width: 1200px;
+  width: 1100px;
   display: flex;
   height: 60%;
+}
+
+.slide--wide .slide__columns {
+  justify-content: center;
 }
 
 .slide__column {
@@ -19,26 +42,79 @@
   width: 50%;
 }
 
-.slide.shown {
-  background-color: red;
+.slide--stretchable .slide__column {
+  align-content:flex-start;
+}
+
+.slide--wide .slide__column {
+  width: 600px;
+}
+
+.slide__column.slide__column--centered {
+  justify-content: center;
+}
+
+.snake-sign {
+  width: 360px;
+  height: 371px;
+  background-image: url(../assets/sign.png);
+  background-size: 366px;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.snake-sign.snake-sign--smaller {
+  background-image: url(../assets/sign-black.png);
+  background-size: 220px;
+}
+
+.slide.slide--blue {
+  background-color: $colorBlue;
 }
 
 .slide--one {
   background-color: $colorDarkBlue;
+  color: $colorWhite;
+  background-image: url(../assets/mainImg.png);
+  background-size: 900px;
+  background-repeat: no-repeat;
+  background-position: right bottom;
 }
 
 .slide--two {
   background-color: $colorLightBlue;
+  background-image: url(../assets/map.png);
+  background-size: 720px;
+  background-repeat: no-repeat;
+  background-position: right -100px;
 }
 
 .slide--three {
   background-color: $colorWhite;
 }
 
+.slide--three .slide__column--image {
+  background-image: url(../assets/stars.png);
+  background-size: 270px;
+  background-repeat: no-repeat;
+  background-position: left top;
+}
+
 .slide--four {
-  background-color: $colorBlue;
+  background-color: $colorDarkBlue;
+  color: $colorWhite
 }
 
 .slide--five {
   background-color: $colorWhite;
+}
+
+
+
+//Responsive
+@media (max-width: 1179px) {
+  .slide__columns {
+    width: 100%;
+    padding: 0 20px;
+  }
 }

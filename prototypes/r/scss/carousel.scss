@@ -9,6 +9,7 @@
 
 .caroucel__nav {
   position: absolute;
+  z-index: 800;
   width: 100%;
   height: 50px;
   left: 0;
@@ -17,16 +18,17 @@
 }
 
 .caroucel__arrow {
+  padding: 50px;
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 50%;
   width: 50px;
   height: 50px;
-  background-color: transparent;
-  background-size: cover;
+  transform: translate3d(0, 0, 0);
+  background-size: 50px;
+  background-repeat: no-repeat;
+  background-position: center;
   cursor: pointer;
-  transition: opacity .2s ease;
-}
-
-.caroucel__arrow:hover {
-  opacity: .7
+  transition: opacity .2s ease, transform .2s ease,  background-color .2s ease;
 }
 
 .caroucel__arrow.caroucel__arrow--left {
@@ -41,31 +43,72 @@
   background-image: url("../assets/arr_right.svg");
 }
 
+.caroucel__arrow:hover {
+  background-color: rgba(255, 255, 255, .3);
+  transform: scale(1.1);
+  opacity: 1
+}
+
+.caroucel__arrow:active {
+  transform: scale(.9);
+}
+
+.caroucel__arrow.disabled {
+    opacity: .2
+}
+
+.caroucel__arrow.caroucel__arrow--left.disabled {
+  transform: translate3d(-30px, 0, 0);
+}
+
+.caroucel__arrow.caroucel__arrow--right.disabled {
+  transform: translate3d(30px, 0, 0);
+}
+
+.caroucel__arrow.disabled:hover {
+  background-color: rgba(255, 255, 255, 0);
+}
+
 .caroucel__wrap {
   display: flex;
+  position: relative;
   height: 60%;
   align-items: flex-start;
+  justify-content:center;
   width: 1200px;
 }
 
 .caroucel__item {
-  width: 1200px;
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
   position: absolute;
-
+  width: 100%;
+  height: 100%;
+  z-index: 600;
   visibility: hidden;
   opacity: 0;
+  transform: translate3d(-80px, 0, 0);
+  transition: visibility .3s linear 0s, opacity .0s ease, transform .0s ease;
+}
+
+.caroucel__item.caroucel__item--cover {
+  width: 600px;
 }
 
 .caroucel__item.caroucel__item--current {
   visibility: visible;
   opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition: visibility .4s linear, opacity .3s ease, transform .3s ease;
+  z-index: 700;
 }
-
 
 .caroucel__columns {
   width: 1200px;
   display: flex;
-  height: 60%;
+  justify-content:center;
+
 }
 
 .caroucel__column {
@@ -73,5 +116,46 @@
   flex-wrap: wrap;
   align-items: stretch;
   align-content: center;
-  width: 50%;
+  width: 40%;
+}
+
+.caroucel__column.caroucel__column--number {
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  background-image: url(../assets/bigSnake.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: left top;
+
+  opacity: 0;
+  transition: opacity .2s ease;
+  transition-delay: .1s
+}
+
+.caroucel__item--current .caroucel__column.caroucel__column--number {
+  opacity: 1
+}
+
+.caroucel__number {
+  font-size: 300px;
+  font-weight: 700;
+  color: $colorWhite;
+  opacity: 0;
+  transform: translate3d(-20px, 0, 0) scale(.6) rotate(10deg);
+  transition: opacity .3s ease, transform .3s ease;
+  transition-delay: .3s;
+}
+
+.caroucel__item--current .caroucel__number {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+  transition: opacity .3s ease, transform .3s ease;
+}
+
+//Responsive
+@media (max-width: 1179px) {
+  .caroucel__wrap{
+    width: 100%;
+  }
 }

@@ -1,20 +1,4 @@
 .shares {
   display: flex;
-  width: 210px;
   justify-content: space-between;
-}
-
-.shares__item {
-  display: flex;
-  width: 30px;
-  height: 30px;
-  background-color: $colorBlue;
-  border-radius: 50%;
-  justify-content: center;
-  align-items: center;
-}
-
-.shares__icon {
-  width: 20px;
-  height: 20px;
 }

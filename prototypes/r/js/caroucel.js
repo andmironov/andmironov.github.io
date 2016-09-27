@@ -1,82 +1,162 @@
-let extendObject = require('lodash.assign')
+let forEach = require('lodash.forEach'),
+    extendObject = require('lodash.assign')
 
 function Caroucel(options) {
   options = extendObject(Caroucel.options, options)
-  this.caroucelItems = options.caroucelItems
+
+  this.items = options.items
+  this.wrap = options.wrap
+  this.button = options.button
   this.currentClassname = "caroucel__item--current"
   this.currentIndex = 0
+  this.arrowLeft = document.querySelectorAll(".caroucel__arrow--left")[0],
+  this.arrowRight = document.querySelectorAll(".caroucel__arrow--right")[0]
 }
 
 Caroucel.prototype = {
   constructor : Caroucel,
 
-  init : function() {
-    this.currentlItem = this.caroucelItems[this.currentIndex]
+  init: function() {
 
-    let caroucelArrowLeft = document.querySelectorAll(".caroucel__arrow--left")[0],
-        caroucelArrowRight = document.querySelectorAll(".caroucel__arrow--right")[0]
+    this.update(this.currentIndex)
+    this.arrowLeft.addEventListener("click", this.moveLeft.bind(this))
+    this.arrowRight.addEventListener("click", this.moveRight.bind(this))
+    this.button.addEventListener("click", this.moveRight.bind(this))
+  },
 
-    caroucelArrowLeft.addEventListener("click", function() {
-      if(this.currentIndex > 0) this.currentIndex -= 1
+  update: function(newIndex, direction) {
+    let oldIndex = this.currentIndex
 
-      this.caroucelItems = this.caroucelItems[this.currentIndex]
-      makeItemCurrent(this.currentIndex)
-    })
+    this.updateItems(newIndex, direction, oldIndex)
+    this.updateNav(newIndex, direction, oldIndex)
+    this.updateWrap(newIndex)
 
-    caroucelArrowRight.addEventListener("click", function() {
-      if(this.currentIndex < (caroucelItems.length - 1))  this.currentIndex += 1
+    this.currentIndex = newIndex
 
-      this.caroucelItems = this.caroucelItems[this.currentIndex]
-      makeItemCurrent(this.currentIndex)
+    return
+  },
+
+  updateItems: function(newIndex, direction, oldIndex) {
+    let classname = this.currentClassname
+    this.addTemporaryClassName(oldIndex, direction)
+
+    forEach(this.items, function(el, i) {
+      i !== newIndex ? el.classList.remove(classname) : el.classList.add(classname)
     })
   },
 
-  updateCurrentItem: function() {
-    forEach(this.caroucelItems, function(el, index){
-      index !== this.currentIndex ? this.caroucelItems[index].classList.remove(this.currentClassname) : this.caroucelItems[index].classList.add(this.currentClassname)
-    })
+  updateNav: function(newIndex) {
+    switch (newIndex) {
+      case this.items.length - 1:
+        this.disableArrow("right")
+        this.enableArrow("left")
+        break;
+
+      case 0:
+        this.disableArrow("left")
+        this.enableArrow("right")
+        break;
+
+      default:
+        this.enableArrow("all")
+    }
+  },
+
+  moveLeft: function() {
+    if(this.currentIndex > 0) {
+      let newIndex = this.currentIndex - 1
+      this.update(newIndex, "left")
+    }
+    event.preventDefault()
+    return
+  },
+
+  moveRight: function() {
+    if(this.currentIndex < (this.items.length - 1)) {
+      let newIndex = this.currentIndex + 1
+      this.update(newIndex, "right")
+    }
+    event.preventDefault()
+    return
+  },
+
+  disableArrow: function(arrow) {
+    switch (arrow) {
+      case "left":
+        this.arrowLeft.classList.add("disabled")
+        break;
+
+      case "right":
+        this.arrowRight.classList.add("disabled")
+        break;
+
+      case "all":
+        this.arrowLeft.classList.add("disabled")
+        this.arrowRight.classList.add("disabled")
+        break;
+    }
+  },
+
+  enableArrow: function(arrow) {
+    switch (arrow) {
+      case "left":
+        this.arrowLeft.classList.remove("disabled")
+        break;
+
+      case "right":
+        this.arrowRight.classList.remove("disabled")
+        break;
+
+      case "all":
+        this.arrowLeft.classList.remove("disabled")
+        this.arrowRight.classList.remove("disabled")
+        break;
+    }
+  },
+
+  addTemporaryClassName: function(index, direction) {
+    let item = this.items[index]
+
+    switch (direction) {
+      case "right":
+        item.classList.add("moving-left")
+        setTimeout(function(){
+          item.classList.remove("moving-left")
+        }, 500)
+        break;
+
+      case "left":
+        item.classList.add("moving-right")
+        setTimeout(function(){
+          item.classList.remove("moving-right")
+        }, 500)
+        break;
+    }
+  },
+
+  inverseDirection: function(direction) {
+    let inversedDirection
+    switch (direction) {
+      case "right":
+        inversedDirection = "left"
+        break;
+
+      case "left":
+        inversedDirection = "right"
+        break;
+    }
+    return inversedDirection
+  },
+
+  updateWrap: function(newIndex) {
+    newIndex == 0 ? this.wrap.classList.add("slide--blue") : this.wrap.classList.remove("slide--blue")
   }
-
-}
-//-----
-
-let caroucelItems = document.querySelectorAll(".caroucel__item")
-
-caroucel()
-
-function caroucel() {
-  this.currentIndex = 0
-  currentCaroucelItem = caroucelItems[this.currentIndex]
-  makeItemCurrent(this.currentIndex)
-
-  caroucelArrowLeft = document.querySelectorAll(".caroucel__arrow--left")[0]
-  caroucelArrowRight = document.querySelectorAll(".caroucel__arrow--right")[0]
-
-  caroucelArrowLeft.addEventListener("click", function() {
-    if(this.currentIndex > 0) this.currentIndex -= 1
-
-    currentCaroucelItem = caroucelItems[this.currentIndex]
-    makeItemCurrent(this.currentIndex)
-  })
-
-  caroucelArrowRight.addEventListener("click", function() {
-    if(this.currentIndex < (caroucelItems.length - 1))  this.currentIndex += 1
-
-    currentCaroucelItem = caroucelItems[this.currentIndex]
-    makeItemCurrent(this.currentIndex)
-  })
-
-
-}
-
-function makeItemCurrent(this.currentIndex) {
-  let currentCaroucelItemClassname = "caroucel__item--current"
-  forEach(caroucelItems, function(el, index){
-    index !== this.currentIndex ? caroucelItems[index].classList.remove(currentCaroucelItemClassname) : caroucelItems[index].classList.add(currentCaroucelItemClassname)
-  })
-  return
 }
 
 Caroucel.options = {
-  caroucelItems: document.querySelectorAll(".caroucel__item")
+  items: document.querySelectorAll(".caroucel__item"),
+  wrap: document.querySelectorAll(".slide--four")[0],
+  button: document.querySelectorAll(".button--gallery")[0]
 }
+
+module.exports = Caroucel

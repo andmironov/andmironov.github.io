@@ -20,7 +20,7 @@ gulp.task('js', function () {
   return b.bundle()
     .pipe(source('app.js'))
     .pipe(buffer())
-    .pipe(sourcemaps.init({loadMaps: true}))
+    .pipe(sourcemaps.init({loadMaps: false}))
         //.pipe(uglify())
         .on('error', gutil.log)
     .pipe(sourcemaps.write('./'))
@@ -33,7 +33,7 @@ gulp.task('sass', function () {
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('./build/css'))
     .pipe(autoprefixer({
-			browsers: ['last 4 versions'],
+			browsers: ['last 3 versions'],
 			cascade: false
 		}))
     .pipe(connect.reload())

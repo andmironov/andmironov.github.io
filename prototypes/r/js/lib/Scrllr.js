@@ -48,7 +48,7 @@ Scrllr.prototype = {
     let currentScrollY  = this.getScrollY(),
         scrollDirection = currentScrollY > this.lastKnownScrollY ? 'down' : 'up'
 
-    this.onScrollCallback()
+    this.onScrollCallback(currentScrollY)
     this.lastKnownScrollY = currentScrollY
   },
 
