@@ -28,7 +28,6 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
-    "animated-scrollto": "^1.1.0",
     "bootstrap-sass": "^3.3.6",
     "classnames": "^2.2.3"
   }

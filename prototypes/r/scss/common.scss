@@ -46,7 +46,7 @@ a:hover {
   line-height: 15px;
   padding: 16px 30px 14px;
   transform: scale(1);
-  transition: transform .1s ease, background-color .2s ease;
+  transition: transform .1s ease, background-color .2s ease, color .2s ease;
 }
 
 .button:hover {
@@ -62,6 +62,11 @@ a:hover {
   border: 2px solid $colorWhite
 }
 
+.button.button--secondary:hover {
+  background-color: $colorWhite;
+  color: $colorBlue;
+}
+
 .button.button--hidden {
   opacity: 0;
   display: none;
@@ -75,24 +80,23 @@ p {
   opacity: 1;
   transition: display .1s linear opacity .2s ease;
 }
-
-.p--hidden {
+.hidden-text {
   display: none;
-  opacity: 0;
+  opacity: 0
 }
 
 .lead {
   font-family: 'RamblerRegular', 'Roboto', sans-serif;
-  font-size: 20px;
-  line-height: 30px;
-  margin: 0 0 30px 0;
+  font-size: 18px;
+  line-height: 26px;
+  margin: 0 0 50px 0;
 }
 
 .description {
   font-family: 'RamblerRegular', 'Roboto', sans-serif;
   font-size: 15px;
   line-height: 25px;
-  margin: 0 0 15px 0;
+  margin: 0 0 35px 0;
 }
 
 h2 {

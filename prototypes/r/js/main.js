@@ -1,25 +1,6 @@
 let Caroucel = require('./caroucel.js'),
     forEach = require('lodash.foreach')
 
-//Oh dear god
-document.querySelectorAll(".button--description")[0].addEventListener('click', function (e) {
-  document.querySelectorAll(".slide--two .p--hidden")[0].classList.remove("p--hidden")
-  document.querySelectorAll(".button--description")[0].classList.add("button--hidden")
-  e.preventDefault()
-})
-
-document.querySelectorAll(".button--prediction")[0].addEventListener('click', function (e) {
-  document.querySelectorAll(".slide--three .p--hidden")[0].classList.remove("p--hidden")
-  document.querySelectorAll(".button--prediction")[0].classList.add("button--hidden")
-  e.preventDefault()
-})
-
-document.querySelectorAll(".button--astronomy")[0].addEventListener('click', function (e) {
-  document.querySelectorAll(".slide--five .p--hidden")[0].classList.remove("p--hidden")
-  document.querySelectorAll(".button--astronomy")[0].classList.add("button--hidden")
-  e.preventDefault()
-})
-
 //Caroucel
 let caroucel = new Caroucel()
 caroucel.init()
@@ -95,9 +76,24 @@ function updateNav(index) {
 }
 
 function updateHeader(index, scrollY) {
-  console.log(scrollY);
   let el = document.querySelectorAll(".header")[0],
       classname = "header--scrolled"
 
   scrollY > 300 ? el.classList.add(classname) : el.classList.remove(classname)
 }
+//Oh dear god
+document.querySelectorAll(".button--description")[0].addEventListener('click', function (e) {
+  document.querySelectorAll(".slide--two .hidden-text")[0].classList.remove("hidden-text")
+  document.querySelectorAll(".button--description")[0].classList.add("button--hidden")
+  e.preventDefault()
+})
+document.querySelectorAll(".button--prediction")[0].addEventListener('click', function (e) {
+  document.querySelectorAll(".slide--three .hidden-text")[0].classList.remove("hidden-text")
+  document.querySelectorAll(".button--prediction")[0].classList.add("button--hidden")
+  e.preventDefault()
+})
+document.querySelectorAll(".button--astronomy")[0].addEventListener('click', function (e) {
+  document.querySelectorAll(".slide--five .hidden-text")[0].classList.remove("hidden-text")
+  document.querySelectorAll(".button--astronomy")[0].classList.add("button--hidden")
+  e.preventDefault()
+})

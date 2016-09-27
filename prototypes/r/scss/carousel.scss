@@ -18,14 +18,14 @@
 }
 
 .caroucel__arrow {
-  padding: 50px;
+  padding: 30px;
   position: absolute;
-  background-color: rgba(255, 255, 255, 0);
+  background-color: rgba(255, 255, 255, .2);
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   transform: translate3d(0, 0, 0);
-  background-size: 50px;
+  background-size: 30px;
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
@@ -34,12 +34,12 @@
 
 .caroucel__arrow.caroucel__arrow--left {
   left: 30px;
-  background-image: url("../assets/arr_left.svg");
+  background-image: url("../assets/icon_left.svg");
 }
 
 .caroucel__arrow.caroucel__arrow--right {
   right: 30px;
-  background-image: url("../assets/arr_right.svg");
+  background-image: url("../assets/icon_right.svg");
 }
 
 .caroucel__arrow:hover {
@@ -53,15 +53,16 @@
 }
 
 .caroucel__arrow.disabled {
-    opacity: .2
+    opacity: .2;
+    background-color: rgba(255, 255, 255, 0);
 }
 
 .caroucel__arrow.caroucel__arrow--left.disabled {
-  transform: translate3d(-30px, 0, 0);
+  transform: translate3d(-20px, 0, 0);
 }
 
 .caroucel__arrow.caroucel__arrow--right.disabled {
-  transform: translate3d(30px, 0, 0);
+  transform: translate3d(20px, 0, 0);
 }
 
 .caroucel__arrow.disabled:hover {
@@ -73,8 +74,7 @@
   position: relative;
   height: 60%;
   align-items: flex-start;
-  justify-content:center;
-  width: 1200px;
+  width: 1100px;
 }
 
 .caroucel__item {
@@ -92,6 +92,10 @@
 }
 
 .caroucel__item.caroucel__item--cover {
+  justify-content: center;
+}
+
+.caroucel__item.caroucel__item--cover  .caroucel__item__inner {
   width: 600px;
 }
 
@@ -107,7 +111,6 @@
   width: 1200px;
   display: flex;
   justify-content:center;
-
 }
 
 .caroucel__column {
@@ -122,8 +125,8 @@
   align-items: center;
   justify-content: center;
   background-color: transparent;
-  background-image: url(../assets/bigSnake.png);
-  background-size: cover;
+  background-image: url(../assets/snake3.png);
+  background-size: 500px;
   background-repeat: no-repeat;
   background-position: left top;
 
@@ -140,17 +143,17 @@
   font-size: 300px;
   line-height: 340px;
   font-weight: 700;
-  color: $colorWhite;
+  color: $colorBlue;
   opacity: 0;
   transform: translate3d(-20px, 0, 0) scale(.6) rotate(10deg);
   transition: opacity .3s ease, transform .3s ease;
-  transition-delay: .3s;
 }
 
 .caroucel__item--current .caroucel__number {
   opacity: 1;
   transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
   transition: opacity .3s ease, transform .3s ease;
+  transition-delay: .1s
 }
 
 //Responsive
@@ -183,7 +186,7 @@
 
   .caroucel__item.caroucel__item--cover {
     background-color: $colorBlue;
-    padding: 40px 20px 20px 20px;
+    padding: 80px 20px;
   }
 
   .caroucel__columns {
@@ -198,6 +201,7 @@
   .caroucel__column.caroucel__column--number {
     opacity: 1;
     background-size: 240px;
+    background-position: center;
   }
 
   .caroucel__number {

@@ -14,14 +14,14 @@ var browserify = require('browserify'),
 gulp.task('js', function () {
   var b = browserify({
     entries: './js/main.js',
-    debug: true,
+    debug: false,
   })
 
   return b.bundle()
     .pipe(source('app.js'))
     .pipe(buffer())
-    .pipe(sourcemaps.init({loadMaps: false}))
-        //.pipe(uglify())
+    .pipe(sourcemaps.init())
+        //.pipe(uglify()) //throws error
         .on('error', gutil.log)
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('./build/js/'))
