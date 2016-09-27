@@ -350,8 +350,18 @@ h2 {
   transform: translate3d(0, 0, 0);
   background-color: white; }
 
-.logo {
-  width: 208px;
+.logo-wrap {
+  width: 209px;
+  display: flex; }
+
+.logo.logo--main {
+  display: block;
+  width: 112px;
+  height: 40px; }
+
+.logo.logo--secondary {
+  display: block;
+  width: 97px;
   height: 40px; }
 
 .logo svg path {

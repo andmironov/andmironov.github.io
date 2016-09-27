@@ -102,6 +102,7 @@ function Caroucel(options) {
   this.arrowRight = document.querySelectorAll(".caroucel__arrow--right")[0]
 }
 
+
 Caroucel.prototype = {
   constructor : Caroucel,
 

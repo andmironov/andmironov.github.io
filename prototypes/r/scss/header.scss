@@ -28,8 +28,20 @@
 }
 
 
-.logo {
-  width: 208px;
+.logo-wrap {
+  width: 209px;
+  display: flex;
+}
+
+.logo.logo--main {
+  display: block;
+  width: 112px;
+  height: 40px;
+}
+
+.logo.logo--secondary {
+  display: block;
+  width: 97px;
   height: 40px;
 }
 
@@ -70,7 +82,6 @@
 .header--scrolled .nav .nav__item.nav__item--active {
   color: $colorBlue;
 }
-
 
 
 //Responsive
