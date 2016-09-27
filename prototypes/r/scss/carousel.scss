@@ -138,6 +138,7 @@
 
 .caroucel__number {
   font-size: 300px;
+  line-height: 340px;
   font-weight: 700;
   color: $colorWhite;
   opacity: 0;
@@ -171,7 +172,7 @@
   .caroucel__item.caroucel__item--cover {
     background-color: $colorDarkBlue;
     width: 100%;
-    padding: 40px 20px;
+    padding: 40px 20px 20px 20px;
     position: static;
     visibility: visible;
     opacity: 1;
@@ -179,18 +180,31 @@
     transition: visibility .4s linear, opacity .3s ease, transform .3s ease;
     z-index: 700;
   }
+
   .caroucel__item.caroucel__item--cover {
-    background-color: $colorBlue
+    background-color: $colorBlue;
+    padding: 40px 20px 20px 20px;
   }
+
   .caroucel__columns {
     width: 100%;
     flex-wrap: wrap;
   }
+
   .caroucel__column {
     width: 100%;
   }
 
   .caroucel__column.caroucel__column--number {
-    display: none;
+    opacity: 1;
+    background-size: 240px;
+  }
+
+  .caroucel__number {
+    font-size: 180px;
+    line-height: 200px;
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+    transition: opacity .3s ease, transform .3s ease;
   }
 }

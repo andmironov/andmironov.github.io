@@ -1,9 +1,7 @@
 let Caroucel = require('./caroucel.js'),
     forEach = require('lodash.foreach')
 
-
-//Read more
-
+//Oh dear god
 document.querySelectorAll(".button--description")[0].addEventListener('click', function (e) {
   document.querySelectorAll(".slide--two .p--hidden")[0].classList.remove("p--hidden")
   document.querySelectorAll(".button--description")[0].classList.add("button--hidden")
@@ -22,29 +20,11 @@ document.querySelectorAll(".button--astronomy")[0].addEventListener('click', fun
   e.preventDefault()
 })
 
-
-
-
-
-
-
-
 //Caroucel
-
 let caroucel = new Caroucel()
 caroucel.init()
 
-
-
-
-
-
-
-
-
-
 //Slides
-
 let Scrllr = require("./lib/Scrllr.js"),
     animateScroll = require('./animatescroll.js'),
     slides = document.querySelectorAll(".slide"),
@@ -71,7 +51,7 @@ function getViewportHeight() {
 function cb(currentScrollY) {
   forEach(slides, function(el, i) {
     elements[i] = getElementProperties(el, currentScrollY)
-    if(elements[i].offsetTop < (elements[i].height/2) && elements[i].offsetTop > (-Math.abs(elements[i].height/2)) ) update(i)
+    if(elements[i].offsetTop < (elements[i].height/2) && elements[i].offsetTop > (-Math.abs(elements[i].height/2)) ) update(i, currentScrollY)
   })
 
 }
@@ -90,14 +70,14 @@ function createHandler(targetElement) {
   }
 }
 
-
 document.querySelectorAll(".button--scroller")[0].addEventListener('click', createHandler(slides[1]))
 document.querySelectorAll(".slide__scroller")[0].addEventListener('click', createHandler(slides[1]))
 
-function update(index ) {
+function update(index, scrollY) {
   showSlide(index)
   initNav()
   updateNav(index)
+  updateHeader(index, scrollY)
 }
 
 function showSlide(index) {
@@ -112,5 +92,12 @@ function updateNav(index) {
   forEach(nav, function(el, i) {
     i !== index ? el.classList.remove(classname) : el.classList.add(classname)
   })
+}
 
+function updateHeader(index, scrollY) {
+  console.log(scrollY);
+  let el = document.querySelectorAll(".header")[0],
+      classname = "header--scrolled"
+
+  scrollY > 300 ? el.classList.add(classname) : el.classList.remove(classname)
 }

@@ -58,11 +58,12 @@ a:hover {
   transform: scale(.9);
 }
 
-.button--secondary {
+.button.button--secondary {
   border: 2px solid $colorWhite
 }
 
-.button--hidden {
+.button.button--hidden {
+  opacity: 0;
   display: none;
 }
 
@@ -72,6 +73,7 @@ p {
   line-height: 25px;
   padding-bottom: 15px;
   opacity: 1;
+  transition: display .1s linear opacity .2s ease;
 }
 
 .p--hidden {
@@ -146,7 +148,7 @@ h2 {
   transition-delay: .4s;
 }
 
-.slide--active .slide__button{
+.slide--active .slide__button {
   transform: translate3d(0, 0, 0);
   opacity: 1
 }
@@ -160,6 +162,28 @@ h2 {
 }
 
 @media (max-width: 960px) {
+
+  //manually disable animations
+  .slide__title {
+    transform: translate3d(0, 0, 0);
+    opacity: 1
+  }
+
+  .slide__lead {
+    transform: translate3d(0, 0, 0);
+    opacity: 1
+  }
+
+  .slide__description {
+    transform: translate3d(0, 0, 0);
+    opacity: 1
+  }
+
+  .slide__button {
+    transform: translate3d(0, 0, 0);
+    opacity: 1
+  }
+
   .p--hidden {
     display: inline-block;
     opacity: 1;
@@ -178,7 +202,8 @@ h2 {
   }
 
   .button--read-more,
-  .button--scroller {
+  .button--scroller,
+  .button--gallery {
     display: none;
   }
 }
