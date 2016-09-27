@@ -302,8 +302,8 @@ h2 {
   .slide__button {
     transform: translate3d(0, 0, 0);
     opacity: 1; }
-  .p--hidden {
-    display: inline-block;
+  .hidden-text {
+    display: block;
     opacity: 1; }
   .description {
     font-size: 14px;

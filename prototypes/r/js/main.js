@@ -29,30 +29,29 @@ function getViewportHeight() {
   return Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
 }
 
+
 function cb(currentScrollY) {
   forEach(slides, function(el, i) {
     elements[i] = getElementProperties(el, currentScrollY)
     if(elements[i].offsetTop < (elements[i].height/2) && elements[i].offsetTop > (-Math.abs(elements[i].height/2)) ) update(i, currentScrollY)
   })
-
 }
 
 function initNav() {
   forEach(nav, function(el, i) {
     targetElement = slides[i+1]
-    nav[i].addEventListener("click", createHandler(targetElement) )
+    nav[i].addEventListener("click", createHandler(targetElement), false)
   })
 }
 
 function createHandler(targetElement) {
   return function() {
     animateScroll(targetElement, 600, "easeInOutCubic", 0)
-    event.preventDefault()
   }
 }
 
-document.querySelectorAll(".button--scroller")[0].addEventListener('click', createHandler(slides[1]))
-document.querySelectorAll(".slide__scroller")[0].addEventListener('click', createHandler(slides[1]))
+document.querySelectorAll(".button--scroller")[0].addEventListener('click', createHandler(slides[1]), false )
+document.querySelectorAll(".slide__scroller")[0].addEventListener('click', createHandler(slides[1]), false )
 
 function update(index, scrollY) {
   showSlide(index)
@@ -87,11 +86,13 @@ document.querySelectorAll(".button--description")[0].addEventListener('click', f
   document.querySelectorAll(".button--description")[0].classList.add("button--hidden")
   e.preventDefault()
 })
+
 document.querySelectorAll(".button--prediction")[0].addEventListener('click', function (e) {
   document.querySelectorAll(".slide--three .hidden-text")[0].classList.remove("hidden-text")
   document.querySelectorAll(".button--prediction")[0].classList.add("button--hidden")
   e.preventDefault()
 })
+
 document.querySelectorAll(".button--astronomy")[0].addEventListener('click', function (e) {
   document.querySelectorAll(".slide--five .hidden-text")[0].classList.remove("hidden-text")
   document.querySelectorAll(".button--astronomy")[0].classList.add("button--hidden")

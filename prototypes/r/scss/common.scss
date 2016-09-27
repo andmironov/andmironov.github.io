@@ -80,6 +80,7 @@ p {
   opacity: 1;
   transition: display .1s linear opacity .2s ease;
 }
+
 .hidden-text {
   display: none;
   opacity: 0
@@ -188,8 +189,8 @@ h2 {
     opacity: 1
   }
 
-  .p--hidden {
-    display: inline-block;
+  .hidden-text {
+    display: block;
     opacity: 1;
   }
 

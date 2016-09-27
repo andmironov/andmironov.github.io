@@ -17,11 +17,22 @@ Caroucel.prototype = {
   constructor : Caroucel,
 
   init: function() {
+    //hack
+    let self = this
 
     this.update(this.currentIndex)
-    this.arrowLeft.addEventListener("click", this.moveLeft.bind(this))
-    this.arrowRight.addEventListener("click", this.moveRight.bind(this))
-    this.button.addEventListener("click", this.moveRight.bind(this))
+    this.arrowLeft.addEventListener("click", function(event){
+      event.preventDefault()
+      self.moveLeft()
+    })
+    this.arrowRight.addEventListener("click", function(event){
+      event.preventDefault()
+      self.moveRight()
+    })
+    this.button.addEventListener("click",function(event){
+      event.preventDefault()
+       self.moveRight()
+    })
   },
 
   update: function(newIndex, direction) {
@@ -67,8 +78,6 @@ Caroucel.prototype = {
       let newIndex = this.currentIndex - 1
       this.update(newIndex, "left")
     }
-    event.preventDefault()
-    return
   },
 
   moveRight: function() {
@@ -76,8 +85,6 @@ Caroucel.prototype = {
       let newIndex = this.currentIndex + 1
       this.update(newIndex, "right")
     }
-    event.preventDefault()
-    return
   },
 
   disableArrow: function(arrow) {
