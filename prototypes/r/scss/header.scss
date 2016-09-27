@@ -63,19 +63,21 @@
 }
 
 @media (max-width: 960px) {
-
-}
-
-@media (max-width: 600px) {
   .header {
     top: 0px;
   }
 
   .header__inner {
     margin: 0;
+    justify-content:center;
+
   }
 
   .shares {
     display: none;
   }
+}
+
+@media (max-width: 600px) {
+
 }

@@ -19,6 +19,7 @@
 
 .caroucel__arrow {
   padding: 50px;
+  position: absolute;
   background-color: rgba(255, 255, 255, 0);
   border-radius: 50%;
   width: 50px;
@@ -32,13 +33,11 @@
 }
 
 .caroucel__arrow.caroucel__arrow--left {
-  position: absolute;
   left: 30px;
   background-image: url("../assets/arr_left.svg");
 }
 
 .caroucel__arrow.caroucel__arrow--right {
-  position: absolute;
   right: 30px;
   background-image: url("../assets/arr_right.svg");
 }
@@ -157,5 +156,41 @@
 @media (max-width: 1179px) {
   .caroucel__wrap{
     width: 100%;
+  }
+}
+
+@media (max-width: 960px) {
+  .caroucel__wrap {
+    height: auto;
+    flex-wrap: wrap;
+  }
+  .caroucel__nav {
+    display: none;
+  }
+  .caroucel__item,
+  .caroucel__item.caroucel__item--cover {
+    background-color: $colorDarkBlue;
+    width: 100%;
+    padding: 40px 20px;
+    position: static;
+    visibility: visible;
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    transition: visibility .4s linear, opacity .3s ease, transform .3s ease;
+    z-index: 700;
+  }
+  .caroucel__item.caroucel__item--cover {
+    background-color: $colorBlue
+  }
+  .caroucel__columns {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .caroucel__column {
+    width: 100%;
+  }
+
+  .caroucel__column.caroucel__column--number {
+    display: none;
   }
 }
