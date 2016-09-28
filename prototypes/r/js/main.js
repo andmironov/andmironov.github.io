@@ -13,6 +13,7 @@ let Scrllr = require("./lib/Scrllr.js"),
     viewportHeight = getViewportHeight(),
     elements = new Array()
 
+
 let scrllr = new Scrllr({ onScrollCallback: cb })
 scrllr.init()
 
@@ -39,8 +40,8 @@ function cb(currentScrollY) {
 
 function initNav() {
   forEach(nav, function(el, i) {
-    targetElement = slides[i+1]
-    nav[i].addEventListener("click", createHandler(targetElement), false)
+    let targetElement = slides[i+1]
+    nav[i].addEventListener("click", createHandler(targetElement, event))
   })
 }
 
@@ -54,11 +55,11 @@ document.querySelectorAll(".button--scroller")[0].addEventListener('click', func
     animateScroll(slides[1], 600, "easeInOutCubic", 0)
     event.preventDefault()
 })
+
 document.querySelectorAll(".slide__scroller")[0].addEventListener('click', function(event){
     animateScroll(slides[1], 600, "easeInOutCubic", 0)
     event.preventDefault()
 })
-
 
 function update(index, scrollY) {
   showSlide(index)

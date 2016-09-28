@@ -9,7 +9,8 @@ var browserify = require('browserify'),
     connect = require('gulp-connect'),
     autoprefixer = require('gulp-autoprefixer'),
     staticHash = require('gulp-static-hash'),
-    imagemin = require('gulp-imagemin')
+    imagemin = require('gulp-imagemin'),
+    babel = require('gulp-babel')
 
 gulp.task('js', function () {
   var b = browserify({
@@ -20,8 +21,11 @@ gulp.task('js', function () {
   return b.bundle()
     .pipe(source('app.js'))
     .pipe(buffer())
+    .pipe(babel({
+      presets: ['es2015']
+    }))
     .pipe(sourcemaps.init())
-        //.pipe(uglify()) //throws error
+        .pipe(uglify())
         .on('error', gutil.log)
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('./build/js/'))
