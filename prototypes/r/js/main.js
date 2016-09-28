@@ -41,13 +41,14 @@ function cb(currentScrollY) {
 function initNav() {
   forEach(nav, function(el, i) {
     let targetElement = slides[i+1]
-    nav[i].addEventListener("click", createHandler(targetElement, event))
+    nav[i].addEventListener("click", createHandler(targetElement))
   })
 }
 
 function createHandler(targetElement) {
   return function() {
     animateScroll(targetElement, 600, "easeInOutCubic", 0)
+    event.preventDefault()
   }
 }
 
