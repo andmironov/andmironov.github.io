@@ -1,0 +1,214 @@
+.caroucel {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.caroucel__nav {
+  position: absolute;
+  z-index: 800;
+  width: 100%;
+  height: 50px;
+  left: 0;
+  top: 50%;
+  margin: -15px 0 0 0;
+}
+
+.caroucel__arrow {
+  padding: 30px;
+  position: absolute;
+  background-color: rgba(255, 255, 255, .2);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  transform: translate3d(0, 0, 0);
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  transition: opacity .2s ease, transform .2s ease,  background-color .2s ease;
+}
+
+.caroucel__arrow.caroucel__arrow--left {
+  left: 30px;
+  background-image: url("../assets/icon_left.svg");
+}
+
+.caroucel__arrow.caroucel__arrow--right {
+  right: 30px;
+  background-image: url("../assets/icon_right.svg");
+}
+
+.caroucel__arrow:hover {
+  background-color: rgba(255, 255, 255, .3);
+  transform: scale(1.1);
+  opacity: 1
+}
+
+.caroucel__arrow:active {
+  transform: scale(.9);
+}
+
+.caroucel__arrow.disabled {
+    opacity: .2;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.caroucel__arrow.caroucel__arrow--left.disabled {
+  transform: translate3d(-20px, 0, 0);
+}
+
+.caroucel__arrow.caroucel__arrow--right.disabled {
+  transform: translate3d(20px, 0, 0);
+}
+
+.caroucel__arrow.disabled:hover {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.caroucel__wrap {
+  display: flex;
+  position: relative;
+  height: 60%;
+  align-items: flex-start;
+  width: 1100px;
+}
+
+.caroucel__item {
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 600;
+  visibility: hidden;
+  opacity: 0;
+  transform: translate3d(-80px, 0, 0);
+  transition: visibility .3s linear 0s, opacity .0s ease, transform .0s ease;
+}
+
+.caroucel__item.caroucel__item--cover {
+  justify-content: center;
+}
+
+.caroucel__item.caroucel__item--cover  .caroucel__item__inner {
+  width: 600px;
+}
+
+.caroucel__item.caroucel__item--current {
+  visibility: visible;
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition: visibility .4s linear, opacity .3s ease, transform .3s ease;
+  z-index: 700;
+}
+
+.caroucel__columns {
+  width: 1200px;
+  display: flex;
+  justify-content:center;
+}
+
+.caroucel__column {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  align-content: center;
+  width: 40%;
+}
+
+.caroucel__column.caroucel__column--number {
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  background-image: url(../assets/snake3.png);
+  background-size: 500px;
+  background-repeat: no-repeat;
+  background-position: left top;
+
+  opacity: 0;
+  transition: opacity .2s ease;
+  transition-delay: .1s
+}
+
+.caroucel__item--current .caroucel__column.caroucel__column--number {
+  opacity: 1
+}
+
+.caroucel__number {
+  font-size: 300px;
+  line-height: 340px;
+  font-weight: 700;
+  color: $colorBlue;
+  opacity: 0;
+  transform: translate3d(-20px, 0, 0) scale(.6) rotate(10deg);
+  transition: opacity .3s ease, transform .3s ease;
+}
+
+.caroucel__item--current .caroucel__number {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+  transition: opacity .3s ease, transform .3s ease;
+  transition-delay: .1s
+}
+
+//Responsive
+@media (max-width: 1179px) {
+  .caroucel__wrap{
+    width: 100%;
+  }
+}
+
+@media (max-width: 960px) {
+  .caroucel__wrap {
+    height: auto;
+    flex-wrap: wrap;
+  }
+  .caroucel__nav {
+    display: none;
+  }
+  .caroucel__item,
+  .caroucel__item.caroucel__item--cover {
+    background-color: $colorDarkBlue;
+    width: 100%;
+    padding: 40px 20px 20px 20px;
+    position: static;
+    visibility: visible;
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    transition: visibility .4s linear, opacity .3s ease, transform .3s ease;
+    z-index: 700;
+  }
+
+  .caroucel__item.caroucel__item--cover {
+    background-color: $colorBlue;
+    padding: 80px 20px;
+  }
+
+  .caroucel__columns {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .caroucel__column {
+    width: 100%;
+  }
+
+  .caroucel__column.caroucel__column--number {
+    opacity: 1;
+    background-size: 240px;
+    background-position: center;
+  }
+
+  .caroucel__number {
+    font-size: 180px;
+    line-height: 200px;
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+    transition: opacity .3s ease, transform .3s ease;
+  }
+}
