@@ -170,6 +170,19 @@ a {
 a:hover {
   opacity: .7; }
 
+.circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #315efb;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  margin: -15px 0 0 -15px;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  transition: all .1s ease; }
+
 .header {
   width: 100%;
   display: flex;
@@ -178,6 +191,9 @@ a:hover {
   z-index: 900;
   top: 20px;
   left: 0; }
+
+.section {
+  height: 100vh; }
 
 .footer {
   display: flex;

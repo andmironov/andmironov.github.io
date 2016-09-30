@@ -34,6 +34,20 @@ a:hover {
   opacity: .7;
 }
 
+.circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: $colorBlue;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  margin: -15px 0 0 -15px;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  transition: all .1s ease;
+}
+
 //Responsive
 @media (max-width: 960px) {
 

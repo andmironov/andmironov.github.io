@@ -19,16 +19,14 @@ gulp.task('js', function () {
 
   return b.bundle()
     .pipe(source('app.js'))
-    .pipe(buffer())
+    .pipe(buffer({
+      presets: ['es2015']
+    }))
+    .on('error', gutil.log.bind(gutil, 'Browserify Error'))
     .pipe(babel({presets: ["es2015"]}))
+    .pipe(uglify())
     .pipe(sourcemaps.init({loadMaps: true}))
     .pipe(sourcemaps.write('./'))
-    .pipe(uglify())
-    .on('error', gutil.log.bind(gutil, 'Browserify Error'))
-
-
-    //
-
     .pipe(gulp.dest('./build/js/'))
     .pipe(connect.reload())
 })

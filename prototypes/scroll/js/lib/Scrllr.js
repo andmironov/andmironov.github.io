@@ -1,7 +1,7 @@
 let debouncer = require("./Debouncer")
 
 function Scrllr(options) {
-  options.assign(Scrllr.options)
+  options = extend(options, Scrllr.options)
 
   this.lastKnownScrollY = 0
   this.initialised = false
@@ -56,6 +56,35 @@ Scrllr.prototype = {
 
 Scrllr.options = {
   onScrollCallback: function(){}
+}
+
+/**
+ * Helper function for extending objects
+ */
+function extend (object /*, objectN ... */) {
+  if(arguments.length <= 0) {
+    throw new Error('Missing arguments in extend function');
+  }
+
+  var result = object || {},
+      key,
+      i;
+
+  for (i = 1; i < arguments.length; i++) {
+    var replacement = arguments[i] || {};
+
+    for (key in replacement) {
+      // Recurse into object except if the object is a DOM element
+      if(typeof result[key] === 'object' && ! isDOMElement(result[key])) {
+        result[key] = extend(result[key], replacement[key]);
+      }
+      else {
+        result[key] = result[key] || replacement[key];
+      }
+    }
+  }
+
+  return result;
 }
 
 module.exports = Scrllr
