@@ -4,6 +4,7 @@ var browserify = require('browserify'),
     buffer = require('vinyl-buffer'),
     gutil = require('gulp-util'),
     sass = require('gulp-sass'),
+    uglify = require('gulp-uglify'),
     sourcemaps = require('gulp-sourcemaps'),
     connect = require('gulp-connect'),
     autoprefixer = require('gulp-autoprefixer'),
@@ -13,13 +14,21 @@ var browserify = require('browserify'),
 gulp.task('js', function () {
   var b = browserify({
     entries: './js/main.js',
-    debug: false,
+    debug: true,
   })
 
   return b.bundle()
     .pipe(source('app.js'))
     .pipe(buffer())
-    .pipe(babel())
+    .pipe(babel({presets: ["es2015"]}))
+    .pipe(sourcemaps.init({loadMaps: true}))
+    .pipe(sourcemaps.write('./'))
+    .pipe(uglify())
+    .on('error', gutil.log.bind(gutil, 'Browserify Error'))
+
+
+    //
+
     .pipe(gulp.dest('./build/js/'))
     .pipe(connect.reload())
 })
@@ -57,4 +66,4 @@ gulp.task('watch', function () {
   gulp.watch('assets/*', ['images'])
 })
 
-gulp.task('default', ['webserver', 'watch'])
+gulp.task('default', ['webserver', 'watch', 'js'])

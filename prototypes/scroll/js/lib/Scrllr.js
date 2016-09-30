@@ -1,7 +1,7 @@
 let debouncer = require("./Debouncer")
 
 function Scrllr(options) {
-  options.assgn(Scrllr.options
+  options.assign(Scrllr.options)
 
   this.lastKnownScrollY = 0
   this.initialised = false
