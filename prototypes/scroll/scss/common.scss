@@ -42,7 +42,20 @@ a:hover {
   position: fixed;
   left: 50%;
   top: 50%;
-  margin: -15px 0 0 -15px;
+  margin: -15px 0 0 -115px;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  transition: all .1s ease;
+}
+
+.rectangle {
+  width: 30px;
+  height: 30px;
+  background-color: red;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  margin: -15px 0 0 115px;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   transition: all .1s ease;
