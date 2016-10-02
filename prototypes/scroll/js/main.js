@@ -13,64 +13,93 @@ let keyframes = [
   {
     element : circle,
     domain : [0, 400],
-    properties: [
-      ["translateY", [0, 200]],
-      ["opacity", [1, .3]],
-      ["translateX", [0, 100]],
-      ["scale", [1, 2]]
+    animate: [
+      {
+        property : "translateY",
+        range : [0, 200]
+      },
+      {
+        property : "translateX",
+        range : [0, 150]
+      },
+      {
+        property : "opacity",
+        range : [1, .7]
+      }
     ]
   },
   {
     element : rectangle,
-    domain : [100, 400],
-    properties: [
-      ["translateY", [0, 200]],
-      ["opacity", [1, .3]],
-      ["translateX", [0, 100]],
-      ["scale", [1, 2]]
+    domain : [0, 400],
+    animate: [
+      {
+        property : "translateX",
+        range : [0, 200]
+      },
+      {
+        property : "opacity",
+        range : [1, .1]
+      }
     ]
   }
 ]
 
-// 1. Create a scale for each given property
-keyframes.forEach((keyframe, keyframeIndex) => {
-  keyframe.properties.forEach((property) => {
-    scales[property[0]] = createScale(property[0], keyframe.domain, property[1])
+// 1. Create a scale for each property
+keyframes.forEach((keyframe) => {
+  keyframe.animate.forEach((property) => {
+    property.scale = createScale(property.property, keyframe.domain, property.range)
   })
 })
 
-console.log(scales);
+
 
 // 2. Attach a callback to debounced scroll event
 let scrllr = new Scrllr({onScrollCallback: cb}).init()
 
 function cb(scrollY) {
   keyframes.forEach((keyframe) => {
-    console.log( assignCSSToKeyframe(keyframe, scrollY) )
+
+    updateCSS(keyframe.element, calculatePropertyValues(keyframe, scrollY))
   })
 }
 
-function assignCSSToKeyframe(keyframe, scrollY) {
-  let CSS = new Object()
+function calculatePropertyValues(keyframe, scrollY) {
+  let CSSValues = new Object()
 
-  PROPERTIES.forEach((property) => {
-    CSS[property] = getPropertyValue(property, scales, scrollY)
+  PROPERTIES.forEach((propertyName) => {
+    CSSValues[propertyName] = getValue(keyframe, propertyName, scrollY)
   })
 
-  keyframe.element.style.transform = 'translate3d(' + CSS.translateX +'px, ' + CSS.translateY + 'px, 0) scale('+ CSS.scale +')'
-  keyframe.element.style.opacity = CSS.opacity
+  //console.log(CSSValues);
+
+  return CSSValues
 }
 
-function getPropertyValue(property, scales, scrollY) {
-  if (scales.hasOwnProperty(property)) {
-    return scales[property](scrollY)
-  } else {
-    return getDefaultPropertyValue(property)
-  }
+function getValue(keyframe, propertyName, scrollY) {
+  let calculatedValue
+
+  keyframe.animate.forEach((property) => {
+
+    if(property.property === propertyName) {
+      calculatedValue = property.scale(scrollY)
+    } else {
+      calculatedValue = getDefaultPropertyValue(propertyName)
+    }
+    //calculatedValue = (property.property === propertyName) ? property.scale(scrollY) : getDefaultPropertyValue(propertyName)
+  })
+
+  return calculatedValue
 }
 
-function getDefaultPropertyValue(property) {
-  switch (property) {
+
+function updateCSS(element, CSS) {
+  element.style.transform = 'translate3d(' + CSS.translateX +'px, ' + CSS.translateY + 'px, 0) scale('+ CSS.scale +')'
+  element.style.opacity = CSS.opacity
+}
+
+
+function getDefaultPropertyValue(propertyName) {
+  switch (propertyName) {
     case 'translateX':
       return 0
     case 'translateY':
@@ -86,8 +115,8 @@ function getDefaultPropertyValue(property) {
   }
 }
 
-function createScale(property, domain, range) {
-  switch (property) {
+function createScale(propertyName, domain, range) {
+  switch (propertyName) {
     case 'translateX':
     case 'translateY':
     case 'scale':
