@@ -37,6 +37,16 @@ let keyframes = [
         range : [0, 200]
       }
     ]
+  },
+  {
+    element : circle,
+    domain : [100, 400],
+    animate: [
+      {
+        property : "opacity",
+        range : [1, .5]
+      }
+    ]
   }
 ]
 
@@ -47,29 +57,33 @@ keyframes.forEach((keyframe) => {
   })
 })
 
-// 2. Attach a callback to debounced scroll event
+// 2. Find unique elements
+let elements = keyframes.map((keyframe) => { return keyframe.element })
+let uniqueElements = elements.filter((elem, pos, arr) => { return arr.indexOf(elem) == pos })
+
+
+// 3. Attach a callback to debounced scroll event
 let scrllr = new Scrllr({onScrollCallback: cb}).init()
 
 function cb(scrollY) {
   keyframes.forEach((keyframe) => {
-    updateCSS(keyframe.element, calculatePropertyValues(keyframe.animate, scrollY))
+    //updateCSS(keyframe.element, calculatePropertyValues(keyframe.animate, scrollY))
+    calculatePropertyValues(keyframe.element, keyframe.animate, scrollY)
   })
 }
 
-function calculatePropertyValues(animations, scrollY) {
-  let CSSValues = new Object()
-
-  PROPERTIES.forEach((propertyName) => {
-    CSSValues[propertyName] = getDefaultPropertyValue(propertyName)
-    animations.forEach((animation) => {
-       if (animation.property == propertyName) CSSValues[propertyName] = calculateValue(animation, scrollY)
-    })
+function calculatePropertyValues(element, animations, scrollY) {
+  let calculatedValues = {}
+  animations.forEach((animation) => {
+    calculatedValues["element"] = element
+    calculatedValues[animation.property] = scaleValue(animation.scale, scrollY)
   })
-  return CSSValues
+
+  return calculatedValues
 }
 
-function calculateValue(animation, scrollY) {
-  return animation.scale(scrollY)
+function scaleValue(scale, scrollY) {
+  return scale(scrollY)
 }
 
 function updateCSS(element, CSS) {
