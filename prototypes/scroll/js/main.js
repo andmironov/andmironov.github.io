@@ -70,7 +70,7 @@ function calculatePropertyValues(keyframe, scrollY) {
     CSSValues[propertyName] = getValue(keyframe, propertyName, scrollY)
   })
 
-  //console.log(CSSValues);
+  console.log(CSSValues);
 
   return CSSValues
 }
