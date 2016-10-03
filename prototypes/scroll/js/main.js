@@ -11,24 +11,6 @@ const PROPERTIES = ['translateX', 'translateY', 'opacity', 'scale']
 let scales  = []
 let keyframes = [
   {
-    element : circle,
-    domain : [0, 400],
-    animate: [
-      {
-        property : "translateY",
-        range : [0, 200]
-      },
-      {
-        property : "translateX",
-        range : [0, 150]
-      },
-      {
-        property : "opacity",
-        range : [1, .7]
-      }
-    ]
-  },
-  {
     element : rectangle,
     domain : [0, 400],
     animate: [
@@ -39,6 +21,20 @@ let keyframes = [
       {
         property : "opacity",
         range : [1, .1]
+      },
+      {
+        property : "scale",
+        range : [1, 1.5]
+      }
+    ]
+  },
+  {
+    element : circle,
+    domain : [0, 400],
+    animate: [
+      {
+        property : "translateY",
+        range : [0, 200]
       }
     ]
   }
@@ -51,52 +47,35 @@ keyframes.forEach((keyframe) => {
   })
 })
 
-
-
 // 2. Attach a callback to debounced scroll event
 let scrllr = new Scrllr({onScrollCallback: cb}).init()
 
 function cb(scrollY) {
   keyframes.forEach((keyframe) => {
-
-    updateCSS(keyframe.element, calculatePropertyValues(keyframe, scrollY))
+    updateCSS(keyframe.element, calculatePropertyValues(keyframe.animate, scrollY))
   })
 }
 
-function calculatePropertyValues(keyframe, scrollY) {
+function calculatePropertyValues(animations, scrollY) {
   let CSSValues = new Object()
 
   PROPERTIES.forEach((propertyName) => {
-    CSSValues[propertyName] = getValue(keyframe, propertyName, scrollY)
+    CSSValues[propertyName] = getDefaultPropertyValue(propertyName)
+    animations.forEach((animation) => {
+       if (animation.property == propertyName) CSSValues[propertyName] = calculateValue(animation, scrollY)
+    })
   })
-
-  console.log(CSSValues);
-
   return CSSValues
 }
 
-function getValue(keyframe, propertyName, scrollY) {
-  let calculatedValue
-
-  keyframe.animate.forEach((property) => {
-
-    if(property.property === propertyName) {
-      calculatedValue = property.scale(scrollY)
-    } else {
-      calculatedValue = getDefaultPropertyValue(propertyName)
-    }
-    //calculatedValue = (property.property === propertyName) ? property.scale(scrollY) : getDefaultPropertyValue(propertyName)
-  })
-
-  return calculatedValue
+function calculateValue(animation, scrollY) {
+  return animation.scale(scrollY)
 }
-
 
 function updateCSS(element, CSS) {
   element.style.transform = 'translate3d(' + CSS.translateX +'px, ' + CSS.translateY + 'px, 0) scale('+ CSS.scale +')'
   element.style.opacity = CSS.opacity
 }
-
 
 function getDefaultPropertyValue(propertyName) {
   switch (propertyName) {
