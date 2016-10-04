@@ -43,7 +43,7 @@
   opacity: 0;
   transform: translate3d(0, 20px, 0);
   transition: transform .6s ease,opacity .6s ease;
-  transition-delay: .1s;
+  transition-delay: 0s;
 }
 
 .shown .icon {
@@ -108,7 +108,7 @@
 
 .phone-wrap.phone-wrap--android {
   transition-delay: .2s;
-  transform: translate3d(0, 60px, 0);
+  transform: translate3d(0, 40px, 0);
 }
 
 .shown .phone-wrap {
