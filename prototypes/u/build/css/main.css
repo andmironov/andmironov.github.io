@@ -312,7 +312,7 @@ a:hover {
   transform: translate3d(0, 0, 0); }
 
 .text-block__inner {
-  position: absolute;
+  position: relative;
   top: -60px;
   z-index: 800;
   display: flex;
