@@ -3,29 +3,30 @@ var browserify = require('browserify'),
     source = require('vinyl-source-stream'),
     buffer = require('vinyl-buffer'),
     gutil = require('gulp-util'),
-    sass = require('gulp-sass'),
     uglify = require('gulp-uglify'),
+    sass = require('gulp-sass'),
     sourcemaps = require('gulp-sourcemaps'),
     connect = require('gulp-connect'),
     autoprefixer = require('gulp-autoprefixer'),
+    staticHash = require('gulp-static-hash'),
     imagemin = require('gulp-imagemin'),
     babel = require('gulp-babel')
 
 gulp.task('js', function () {
   var b = browserify({
     entries: './js/main.js',
-    debug: true,
+    debug: false,
   })
 
   return b.bundle()
     .pipe(source('app.js'))
-    .pipe(buffer({
+    .pipe(buffer())
+    .pipe(babel({
       presets: ['es2015']
     }))
-    .on('error', gutil.log.bind(gutil, 'Browserify Error'))
-    .pipe(babel({presets: ["es2015"]}))
-    //.pipe(uglify())
-    .pipe(sourcemaps.init({loadMaps: true}))
+    .pipe(sourcemaps.init())
+        .pipe(uglify())
+        .on('error', gutil.log)
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('./build/js/'))
     .pipe(connect.reload())
@@ -36,14 +37,16 @@ gulp.task('sass', function () {
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('./build/css'))
     .pipe(autoprefixer({
-			browsers: ['last 2 versions'],
+			browsers: ['last 3 versions'],
 			cascade: false
 		}))
     .pipe(connect.reload())
 })
 
 gulp.task('html', function () {
-
+    gulp.src('*.html')
+        .pipe(staticHash({asset: 'static'}))
+        .pipe(gulp.dest(''))
 })
 
 gulp.task('images', function () {
@@ -64,4 +67,4 @@ gulp.task('watch', function () {
   gulp.watch('assets/*', ['images'])
 })
 
-gulp.task('default', ['webserver', 'watch', 'js'])
+gulp.task('default', ['webserver', 'watch'])

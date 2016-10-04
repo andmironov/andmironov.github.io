@@ -1,0 +1,111 @@
+.slide {
+  height: 94vh;
+  position: relative;
+  min-height: 500px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+
+  background-color: $colorBg;
+  overflow: hidden;
+}
+
+.slide.slide--two {
+  background-color: $colorWhite
+}
+
+.slide__inner {
+  width: 1080px;
+  position: relative;
+}
+
+.tagline {
+  position: absolute;
+  width: 316px;
+  left: 120px;
+  top: 130px;
+
+  transform: translate3d(0, 0, 0);
+}
+
+.icon {
+  position: absolute;
+  width: 86px;
+  height: 86px;
+  left: 50%;
+  margin: 0 0 0 -43px;
+  z-index: 800;
+
+  background-image: url(../assets/icon@2x.png);
+  background-size: 86px;
+  background-repeat: no-repeat;
+
+  transform: translate3d(0, 0, 0);
+}
+
+.tagline__body {
+  position: absolute;
+  width: 316px;
+  height: 371px;
+  top: 50px;
+
+  background-image: url(../assets/tagline@2x.png);
+  background-size: 316px;
+  background-repeat: no-repeat;
+}
+
+.phones {
+  position: absolute;
+  right: 130px;
+  width: 450px;
+  top: 40px;
+
+  transform: translate3d(0, 0, 0);
+}
+
+.phone {
+  position: absolute;
+  transform: translate3d(0, 0, 0);
+}
+
+.phone.phone--iphone {
+  width: 298px;
+  height: 564px;
+  left: 0;
+  top: 0;
+
+  background-image: url(../assets/iphone@2x.png);
+  background-size: 298px;
+  background-repeat: no-repeat;
+}
+
+.phone.phone--android {
+  width: 298px;
+  height: 563px;
+  top: 150px;
+  left: 180px;
+  z-index: 700;
+
+  background-image: url(../assets/android@2x.png);
+  background-size: 298px;
+  background-repeat: no-repeat;
+}
+
+.text-block {
+  display: flex;
+  height: 292px;
+  justify-content: center;
+  position: relative;
+}
+.text-block__inner {
+  position: absolute;
+  top: -60px;
+  z-index: 800;
+  display: flex;
+  width: 1122px;
+  height: 292px;
+
+  background-image: url(../assets/text@2x.png);
+  background-size: 1122px;
+  background-repeat: no-repeat;
+}
