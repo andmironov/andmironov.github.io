@@ -40,6 +40,14 @@
   background-size: 86px;
   background-repeat: no-repeat;
 
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+  transition: transform .6s ease,opacity .6s ease;
+  transition-delay: .1s;
+}
+
+.shown .icon {
+  opacity: 1;
   transform: translate3d(0, 0, 0);
 }
 
@@ -52,6 +60,15 @@
   background-image: url(../assets/tagline@2x.png);
   background-size: 316px;
   background-repeat: no-repeat;
+
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+  transition: transform .6s ease,opacity .6s ease;
+}
+
+.shown .tagline__body {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
 }
 
 .phones {
@@ -79,6 +96,27 @@
   background-repeat: no-repeat;
 }
 
+.phone-wrap {
+  opacity: 0;
+  transform: translate3d(0, 40px, 0);
+  transition: transform .6s ease,opacity .6s ease;
+}
+
+.phone-wrap.phone-wrap--iphone {
+  transition-delay: .1s
+}
+
+.phone-wrap.phone-wrap--android {
+  transition-delay: .2s;
+  transform: translate3d(0, 60px, 0);
+}
+
+.shown .phone-wrap {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+
 .phone.phone--android {
   width: 298px;
   height: 563px;
@@ -96,7 +134,18 @@
   height: 292px;
   justify-content: center;
   position: relative;
+
+  opacity: 0;
+  transform: translate3d(0, 40px, 0);
+  transition: transform .6s ease, opacity .6s ease;
+  transition-delay: .3s;
 }
+
+.shown .text-block  {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
 .text-block__inner {
   position: absolute;
   top: -60px;

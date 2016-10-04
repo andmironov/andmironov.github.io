@@ -226,6 +226,13 @@ a:hover {
   background-image: url(../assets/icon@2x.png);
   background-size: 86px;
   background-repeat: no-repeat;
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+  transition: transform .6s ease,opacity .6s ease;
+  transition-delay: .1s; }
+
+.shown .icon {
+  opacity: 1;
   transform: translate3d(0, 0, 0); }
 
 .tagline__body {
@@ -235,7 +242,14 @@ a:hover {
   top: 50px;
   background-image: url(../assets/tagline@2x.png);
   background-size: 316px;
-  background-repeat: no-repeat; }
+  background-repeat: no-repeat;
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+  transition: transform .6s ease,opacity .6s ease; }
+
+.shown .tagline__body {
+  opacity: 1;
+  transform: translate3d(0, 0, 0); }
 
 .phones {
   position: absolute;
@@ -257,6 +271,22 @@ a:hover {
   background-size: 298px;
   background-repeat: no-repeat; }
 
+.phone-wrap {
+  opacity: 0;
+  transform: translate3d(0, 40px, 0);
+  transition: transform .6s ease,opacity .6s ease; }
+
+.phone-wrap.phone-wrap--iphone {
+  transition-delay: .1s; }
+
+.phone-wrap.phone-wrap--android {
+  transition-delay: .2s;
+  transform: translate3d(0, 60px, 0); }
+
+.shown .phone-wrap {
+  opacity: 1;
+  transform: translate3d(0, 0, 0); }
+
 .phone.phone--android {
   width: 298px;
   height: 563px;
@@ -271,7 +301,15 @@ a:hover {
   display: flex;
   height: 292px;
   justify-content: center;
-  position: relative; }
+  position: relative;
+  opacity: 0;
+  transform: translate3d(0, 40px, 0);
+  transition: transform .6s ease, opacity .6s ease;
+  transition-delay: .3s; }
+
+.shown .text-block {
+  opacity: 1;
+  transform: translate3d(0, 0, 0); }
 
 .text-block__inner {
   position: absolute;
