@@ -1,1 +1,17 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500&subset=latin,cyrillic);
+
+@font-face {
+  font-family:PostGrotesk-Light;
+  src:url(../assets/fonts/PostGrotesk-Light.eot);
+  src:url(../assets/fonts/PostGrotesk-Light.eot?#iefix) format('embedded-opentype'), url(../assets/fonts/PostGrotesk-Light.woff)format('woff'), url(../assets/fonts/PostGrotesk-Light.svg#PostGrotesk-Light)format('svg');
+  font-weight:400;
+  font-style:normal;
+}
+
+@font-face {
+  font-family:PostGrotesk-Book;
+  src:url(../assets/fonts/PostGrotesk-Book.eot);
+  src:url(../assets/fonts/PostGrotesk-Book.eot?#iefix) format('embedded-opentype'), url(../assets/fonts/PostGrotesk-Book.woff)format('woff'), url(../assets/fonts/PostGrotesk-Book.svg#PostGrotesk-Book)format('svg');
+  font-weight:400;
+  font-style:normal;
+}
