@@ -16,21 +16,27 @@ ScrollOver.prototype = {
 
     new Scrllr({onScrollCallback:update.bind(this)}).init()
 
-    this.keyframes.forEach((keyframe) => {
-      keyframe.animate.forEach((property) => {
-        property.scale = this.createScale(property.property, keyframe.domain, property.range)
-      })
+    this.toAnimate = this.keyframes.filter((item) => {return item.animate})
+    this.toReveal = this.keyframes.filter((item) => {return item.reveal})
+
+    this.toAnimate.forEach((keyframe) => {
+      if(keyframe) keyframe.animate.forEach((property) => { property.scale = this.createScale(property.property, keyframe.domain, property.range) })
     })
 
     function update(scrollY) {
-      this.keyframes.forEach((keyframe) => {
-        this.updateCSS(keyframe.element, this.calculatePropertyValues(keyframe.animate, scrollY))
+      this.toAnimate.forEach((keyframe) => {
+        if(keyframe) this.updateCSSValues(keyframe.element, this.calculatePropertyValues(keyframe.animate, scrollY))
+      })
+
+      this.toReveal.forEach((keyframe) => {
+        if(keyframe) {
+          if(scrollY >= keyframe.reveal.when) this.updateCSSClass(keyframe.element, keyframe.reveal.className)
+        }
       })
     }
+
     return this
   },
-
-
 
   calculatePropertyValues: function(animations, scrollY) {
     let CSSValues = new Object()
@@ -49,9 +55,17 @@ ScrollOver.prototype = {
     return scale(scrollY)
   },
 
-  updateCSS: function(element, CSS) {
+  updateCSSValues: function(element, CSS) {
     element.style.transform = 'translate3d(' + CSS.translateX +'px, ' + CSS.translateY + 'px, 0) scale('+ CSS.scale +')'
     element.style.opacity = CSS.opacity
+
+    return element
+  },
+
+  updateCSSClass: function(element, className) {
+    (element.classList) ? element.classList.add(className) : element.className += ' ' + className
+
+    return element
   },
 
   getDefaultPropertyValue: function(propertyName) {
