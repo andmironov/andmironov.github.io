@@ -1,0 +1,33 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.slide {
+  width: 100%;
+  height: 96vh;
+  min-height: 680px;
+  max-height: 855px;
+
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid $colorBorderGrey;
+  overflow: hidden;
+  background: linear-gradient(-180deg, #F5F7F9 0%, #EEF2F5 100%);
+}
+
+.slide-inner {
+  display: flex;
+  justify-content:space-between;
+}
+
+.slide--narrow .slide-inner {
+  width: 960px;
+}
+
+.slide--wide .slide-inner {
+  width: 1160px;
+}

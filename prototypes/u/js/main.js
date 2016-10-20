@@ -12,6 +12,26 @@ setTimeout(() => body.classList.add("shown"), 400)
 new ScrollOver({
   keyframes : [
     {
+      element : iphone,
+      domain : [0, 800],
+      animate: [
+        {
+          property : "translateY",
+          range : [0, 200]
+        }
+      ]
+    },
+    {
+      element : android,
+      domain : [0, 800],
+      animate: [
+        {
+          property : "translateY",
+          range : [0, 140]
+        }
+      ]
+    },
+    {
       element : android,
       reveal: {
           when : 300,
