@@ -10,6 +10,10 @@
   overflow: hidden;
 }
 
+.slide.slide--one {
+  background-color: $colorWhite
+}
+
 .slide.slide--two {
   background-color: $colorWhite
 }
@@ -148,7 +152,7 @@
 
 .text-block__inner {
   position: relative;
-  
+
   top: -60px;
   z-index: 800;
   display: flex;
