@@ -4,12 +4,12 @@
 @import "fonts";
 
 body {
-  background-color: $colorWhite;
+  background-color: $colorBg;
   font-family: 'PostGrotesk-Book', sans-serif;
 
   font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 15px;
+  line-height: 25px;
   color: $colorDark;
   text-rendering: optimizeLegibility;
    -webkit-font-smoothing: antialiased;

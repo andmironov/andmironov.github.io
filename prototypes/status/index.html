@@ -6,33 +6,49 @@
       <title>Status</title>
       <meta name="description" content="Status, a Mobile Ethereum OS">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="build/css/main.css?v=9df84d6">
+      <link rel="stylesheet" href="build/css/main.css?v=8f95dcd">
       <meta property="og:title" content="Status" />
     </head>
     <body>
       <div class="container">
 
-        <div class="header">
-          <div class="header__inner">
-              <div class="nav">
-                <a class="nav__item nav__item--discover" href="#">Discover</a>
-                <a class="nav__item nav__item--features" href="#">Features</a>
-                <a class="nav__item nav__item--about" href="#">About</a>
-                <a class="nav__item nav__item--teams" href="#">Teams</a>
-              </div>
-
-              <div class="shares">
-              </div>
-          </div>
-        </div>
-
         <div class="slides">
 
           <div class="slide slide--one">
             <div class="slide__inner">
+              <div id="particles"></div>
+
+              <div class="header">
+                <div class="header__inner">
+
+                    <a class="logo" href="/">
+                      <span class="logo__icon"></span>
+                      <div class="logo_text">
+                        <span class="logo__title">Status</span>
+                        <span class="logo__description">A Mobile Ethereum OS</span>
+                      </div>
+                    </a>
+
+                    <div class="nav">
+                      <a class="nav__item nav__item--discover" href="#">Discover</a>
+                      <a class="nav__item nav__item--features" href="#">Features</a>
+                      <a class="nav__item nav__item--about" href="#">About</a>
+                      <a class="nav__item nav__item--teams" href="#">Teams</a>
+                    </div>
+
+                    <div class="share"></div>
+                </div>
+              </div>
 
               <div class="tagline">
-                <div class="tagline__body"></div>
+                <h2 class="tagline__title">Status is a browser, messenger, and gateway to the world of Ethereum</h2>
+                <div class="tagline__body">Status is a browser, messenger, and gateway to the decentralised world of Ethereum</div>
+                <div class="tagline__form">
+                  <div class="email-form">
+                    <div class="email-form__input email-form__input--email">Enter your emal</div>
+                    <div class="email-form__input email-form__input--sumbit">GET EARLY ACCESS</div>
+                  </div>
+                </div>
               </div>
 
               <div class="phones">
@@ -43,12 +59,11 @@
                   <div class="phone phone--iphone"></div>
                 </div>
               </div>
-            </div>
-          </div>
 
-          <div class="text-block">
-            <div class="text-block__inner">
-              
+            </div>
+            <div class="text-block">
+              <div class="text-block__inner">
+              </div>
             </div>
           </div>
 
@@ -64,6 +79,12 @@
         </div>
 
       </div>
-    <script src="build/js/app.js?v=76ea10e"></script>
+    <script src="build/js/app.js?v=e5059d2"></script>
+    <script src="build/js/particles.js?v=193f774"></script>
+    <script type="text/javascript">
+      particlesJS.load('particles', './build/js/particles.json?v=193f774', function() {
+        console.log('callback - particles.js config loaded')
+      })
+    </script>
     </body>
 </html>

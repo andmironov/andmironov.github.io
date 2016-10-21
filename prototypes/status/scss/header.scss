@@ -1,15 +1,15 @@
 .header {
-  width: 100%;
+  position: absolute;
   display: flex;
   justify-content: center;
-  position: absolute;
+  width: 100%;
   z-index: 900;
   top: 40px;
   left: 0;
 }
 
 .header__inner {
-  width: 1080px;
+  width: 1000px;
   display: flex;
   justify-content: space-between;
 }
@@ -17,17 +17,52 @@
 .nav {
   display: flex;
   align-items:center;
+}
 
+.logo {
+  display: flex;
+  width: 220px;
+  flex-wrap: nowrap; //default
+  justify-content: flex-start; //default
+  align-items: center;
+}
+
+.logo__icon {
+  height: 52px;
+  width: 52px;
+  background-image: url(../assets/logo.png);
+  background-size: 52px;
+}
+
+.logo_text {
+  margin: 0 0 0 15px;
+}
+
+.logo__title {
+  display: block;
+  font-family:PostGrotesk-Medium;
+  font-size: 20px;
+  line-height: 25px;
+  color: $colorWhite;
+}
+
+.logo__description {
+  display: block;
+  font-size: 15px;
+  line-height: 25px;
+  color: $colorWhite;
+  opacity: .4
 }
 
 .nav a {
+  color: $colorWhite;
   font-size: 15px;
   display: flex;
   padding: 0 30px 0 0
 }
 
-.shares {
+.share {
   display: flex;
-  width: 217px;
-  height: 52px;
+  width: 220px;
+  height: 50px;
 }
