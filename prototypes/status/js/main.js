@@ -17,7 +17,7 @@ new ScrollOver({
       animate: [
         {
           property : "translateY",
-          range : [0, 200]
+          range : [0, 120]
         }
       ]
     },
@@ -27,7 +27,7 @@ new ScrollOver({
       animate: [
         {
           property : "translateY",
-          range : [0, 140]
+          range : [0, 80]
         }
       ]
     }

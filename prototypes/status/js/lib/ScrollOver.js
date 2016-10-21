@@ -91,7 +91,7 @@ ScrollOver.prototype = {
       case 'translateY':
       case 'scale':
       case 'opacity':
-        return Scale.scaleLinear().domain(domain).range(range).interpolate(this.easeInterpolate(Ease.easeCubicOut)).clamp(true)
+        return Scale.scaleLinear().domain(domain).range(range).clamp(true)
       default:
         return null
     }

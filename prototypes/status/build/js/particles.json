@@ -48,5 +48,23 @@
       }
     }
   },
+  "interactivity": {
+    "detect_on": "canvas",
+    "events": {
+      "onhover": {
+        "enable": true
+      },
+      "onclick": {
+        "enable": true,
+        "mode": "push"
+      }
+    },
+    "modes": {
+      "push": {
+        "particles_nb": 1
+      }
+    },
+    "resize": true
+  },
   "retina_detect": true
 }
