@@ -101,7 +101,7 @@ ScrollOver.prototype = {
     return function(a, b) {
       var i = Interpolator.interpolate(a, b)
       return function(t) {
-        return (Math.round(i(ease(t)) * 100) / 100)
+        return i(ease(t))
       }
     }
   }

@@ -51,6 +51,41 @@
   background-repeat: no-repeat;
   position: absolute;
   transition: none;
+
+  opacity: 0;
+  transform: translate3d(0, 40px, 0);
+  transition: transform .6s ease, opacity .3s ease;
+}
+
+.phone-wrap {
+  position: absolute;
+  transform: translate3d(0, 0, 0);
+}
+
+.phone.phone--iphone {
+  transition-delay: .1s
+}
+
+.phone.phone--android {
+  transition-delay: .2s;
+  transform: translate3d(0, 40px, 0);
+}
+
+.shown .phone {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.phone-wrap--android {
+  left: 230px;
+  top: 110px;
+  z-index: 400
+}
+
+.phone-wrap--iphone {
+  left: 0;
+  top: 0;
+  z-index: 500
 }
 
 .phone--android {
@@ -58,9 +93,6 @@
   width: 339px;
   height: 626px;
   background-size: 339px;
-  left: 230px;
-  top: 110px;
-  z-index: 400
 }
 
 .phone--iphone {
@@ -68,7 +100,6 @@
   width: 412px;
   height: 728px;
   background-size: 412px;
-  z-index: 500
 }
 
 .text-block {
@@ -82,6 +113,16 @@
   width: 1180px;
   height: 300px;
   z-index: 800;
+
+  opacity: 0;
+  transform: translate3d(0, 40px, 0);
+  transition: transform .6s ease, opacity .6s ease;
+  transition-delay: .5s;
+}
+
+.shown .text-block  {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
 }
 
 .tagline {
@@ -89,6 +130,7 @@
   flex-wrap:wrap;
   justify-content:center;
   position: absolute;
+  z-index: 200;
   text-align: center;
   width: 440px;
   left: 100px;
@@ -101,6 +143,16 @@
   font-size: 25px;
   line-height: 35px;
   margin: 0 0 15px 0;
+
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+  transition: transform .6s ease,opacity .6s ease;
+  transition-delay: .1s;
+}
+
+.shown .tagline__title {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
 }
 
 .tagline .tagline__body {
@@ -111,7 +163,30 @@
   line-height: 25px;
   margin: 0 0 20px 0;
 
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+  transition: transform .6s ease,opacity .6s ease;
+  transition-delay: .2s;
 }
+
+.shown .tagline__body {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.tagline__form {
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+  transition: transform .6s ease,opacity .6s ease;
+  transition-delay: .3s;
+}
+
+.shown .tagline__form {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+
 
 .email-form {
   display: flex;
