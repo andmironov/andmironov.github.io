@@ -282,10 +282,86 @@ a.logo {
 .slide.slide--two {
   padding: 120px 0 60px; }
 
+.slide.slide--three {
+  display: flex;
+  padding: 40px 0 60px; }
+
+.slide.slide--three .slide__inner {
+  background-image: linear-gradient(-180deg, #5A6F7E 0%, #445561 100%);
+  box-shadow: 0px 12px 23px 0px rgba(74, 92, 105, 0.33);
+  border-radius: 8px;
+  padding: 50px 0;
+  height: 740px;
+  overflow: hidden; }
+
+.slide__circles {
+  position: absolute;
+  top: 56%;
+  left: 0;
+  width: 1080px;
+  height: 740px;
+  opacity: 0;
+  transform: scale(0.3) translate3d(0, 100px, 0);
+  transition: transform 1s ease, opacity .7s ease;
+  transition-delay: .1s; }
+
+.slide__circle {
+  position: absolute;
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  opacity: 0.1;
+  background: #A6B0BA;
+  border: 2px solid #FFFFFF;
+  transform: translate3d(-50%, -50%, 0); }
+
+.slide--shown .slide__circles {
+  opacity: 1;
+  transform: scale(1) translate3d(0, 0, 0); }
+
+.slide__circle.slide__circle--one {
+  width: 1200px;
+  height: 1200px;
+  transition-delay: .7s; }
+
+.slide__circle.slide__circle--two {
+  width: 1000px;
+  height: 1000px;
+  transition-delay: .6s; }
+
+.slide__circle.slide__circle--three {
+  width: 800px;
+  height: 800px;
+  transition-delay: .5s; }
+
+.slide__circle.slide__circle--four {
+  width: 600px;
+  height: 600px;
+  transition-delay: .4s; }
+
+.slide__circle.slide__circle--five {
+  width: 400px;
+  height: 400px;
+  transition-delay: .3s; }
+
+.slide__circle.slide__circle--six {
+  width: 200px;
+  height: 200px;
+  transition-delay: .2s; }
+
 .slide__header {
   margin: 0 auto;
   width: 400px;
   text-align: center; }
+
+.slide__footer {
+  text-align: center;
+  width: 250px;
+  margin: 0 auto;
+  color: #70808D;
+  opacity: .6;
+  font-size: 15px;
+  line-height: 25px; }
 
 .slide__title {
   font-family: PostGrotesk-Medium;
@@ -293,10 +369,17 @@ a.logo {
   line-height: 30px;
   margin: 0 0 15px 0; }
 
+.slide__header--inversed .slide__title {
+  color: white; }
+
 .slide__description {
   color: #70808D;
   font-size: 16px;
   line-height: 25px; }
+
+.slide__header--inversed .slide__description {
+  color: white;
+  opacity: .6; }
 
 .slide__inner {
   width: 1080px;
@@ -451,7 +534,7 @@ a.logo {
   z-index: 200;
   text-align: center;
   width: 440px;
-  left: 80px;
+  left: 100px;
   top: 270px; }
 
 .tagline .tagline__title {

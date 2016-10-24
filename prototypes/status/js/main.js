@@ -3,10 +3,11 @@ let ScrollOver = require("./lib/ScrollOver.js")
 let body = document.querySelectorAll("body")[0]
 let tagline = document.querySelectorAll(".tagline")[0]
 
-let iphone = document.querySelectorAll(".phone-wrap--iphone")[0]
-let android = document.querySelectorAll(".phone-wrap--android")[0]
-let features = document.querySelectorAll(".features-wrap")[0]
-let slideTwo = document.querySelectorAll(".slide--two")[0]
+let iphone = document.querySelectorAll(".phone-wrap--iphone")[0],
+    android = document.querySelectorAll(".phone-wrap--android")[0],
+    features = document.querySelectorAll(".features-wrap")[0],
+    slideTwo = document.querySelectorAll(".slide--two")[0],
+    slideThree = document.querySelectorAll(".slide--three")[0]
 
 setTimeout(() => body.classList.add("shown"), 400)
 
@@ -27,6 +28,15 @@ new ScrollOver({
       reveal:
         {
           when : 500,
+          className: "slide--shown"
+        }
+
+    },
+    {
+      element : slideThree,
+      reveal:
+        {
+          when : 1300,
           className: "slide--shown"
         }
 
