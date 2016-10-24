@@ -292,8 +292,16 @@ a.logo {
   border-radius: 8px;
   padding: 50px 0;
   height: 740px;
+  width: 1080px; }
+
+.circles {
+  position: absolute;
   width: 1080px;
-  overflow: hidden; }
+  height: 740px;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  z-index: 500; }
 
 .slide__circles {
   position: absolute;
@@ -350,6 +358,79 @@ a.logo {
   width: 200px;
   height: 200px;
   transition-delay: .2s; }
+
+/* Points */
+.points {
+  position: absolute;
+  width: 1080px;
+  height: 740px;
+  top: 0;
+  left: 0;
+  z-index: 600; }
+
+.point {
+  position: absolute;
+  width: 260px; }
+
+.point.point--one {
+  top: 168px;
+  left: -50px; }
+
+.point.point--two {
+  top: 409px;
+  left: 147px; }
+
+.point.point--three {
+  top: 265px;
+  left: 490px; }
+
+.point.point--four {
+  top: 336px;
+  left: 860px; }
+
+.point__point {
+  width: 20px;
+  height: 20px;
+  margin: 10px auto;
+  border-radius: 50%;
+  background-color: #3AAAF2;
+  border: 6px solid white;
+  box-shadow: 0px 13px 11px 0px rgba(69, 81, 90, 0.16); }
+
+.point__title {
+  font-family: PostGrotesk-Medium;
+  line-height: 15px;
+  margin-bottom: 10px; }
+
+.point__description {
+  color: #5A6F7E;
+  font-size: 14px;
+  line-height: 20px; }
+
+.point__content {
+  width: 260px;
+  position: relative;
+  background: white;
+  box-shadow: 0px 13px 11px 0px rgba(69, 81, 90, 0.16);
+  border-radius: 8px; }
+
+.point__top {
+  padding: 30px 25px 20px 30px; }
+
+.point__footer {
+  font-family: PostGrotesk-Medium;
+  color: #68C0FF;
+  padding: 15px 30px;
+  background-color: #E6F2FD;
+  border-radius: 0px 0px 8px 8px; }
+
+.point__avatar {
+  float: right;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #eef2f5;
+  margin: 0 0 10px 10px; }
 
 .slide__header {
   margin: 0 auto;
