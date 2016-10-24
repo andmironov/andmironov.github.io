@@ -91,7 +91,7 @@ ScrollOver.prototype = {
       case 'translateY':
       case 'scale':
       case 'opacity':
-        return Scale.scaleLinear().domain(domain).range(range).clamp(true)
+        return Scale.scaleLinear().domain(domain).range(range).interpolate(this.easeInterpolate(Ease.easeCubicOut)).clamp(true)
       default:
         return null
     }
@@ -101,7 +101,7 @@ ScrollOver.prototype = {
     return function(a, b) {
       var i = Interpolator.interpolate(a, b)
       return function(t) {
-        return i(ease(t))
+        return (Math.round(i(ease(t)) * 100) / 100)
       }
     }
   }
