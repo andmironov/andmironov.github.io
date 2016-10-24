@@ -7,6 +7,7 @@ let iphone = document.querySelectorAll(".phone--iphone")[0]
 let android = document.querySelectorAll(".phone--android")[0]
 let textBlock = document.querySelectorAll(".text-block")[0]
 
+
 setTimeout(() => body.classList.add("shown"), 400)
 
 new ScrollOver({

@@ -105,7 +105,6 @@ ScrollOver.prototype = {
       }
     }
   }
-
 }
 
 ScrollOver.options = {
