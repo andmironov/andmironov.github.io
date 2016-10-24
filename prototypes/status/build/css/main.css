@@ -280,7 +280,23 @@ a.logo {
   overflow: hidden; }
 
 .slide.slide--two {
-  height: 100vh; }
+  padding: 120px 0 60px; }
+
+.slide__header {
+  margin: 0 auto;
+  width: 400px;
+  text-align: center; }
+
+.slide__title {
+  font-family: PostGrotesk-Medium;
+  font-size: 24px;
+  line-height: 30px;
+  margin: 0 0 15px 0; }
+
+.slide__description {
+  color: #70808D;
+  font-size: 16px;
+  line-height: 25px; }
 
 .slide__inner {
   width: 1080px;
@@ -505,3 +521,115 @@ a.logo {
   text-align: center;
   letter-spacing: 1px;
   background-color: #68c0f8; }
+
+.dapps {
+  margin: 50px auto 30px;
+  width: 860px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: space-between; }
+
+.dapp {
+  width: 200px;
+  height: 220px;
+  margin: 0 0 20px 0;
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+  transition: transform .6s ease, opacity .4s ease;
+  transition-delay: .1s; }
+
+.dapp:nth-child(2) {
+  transition-delay: .2s; }
+
+.dapp:nth-child(3) {
+  transition-delay: .3s; }
+
+.dapp:nth-child(4) {
+  transition-delay: .4s; }
+
+.dapp:nth-child(5) {
+  transition-delay: .5s; }
+
+.dapp:nth-child(6) {
+  transition-delay: .6s; }
+
+.dapp:nth-child(7) {
+  transition-delay: .7s; }
+
+.dapp:nth-child(8) {
+  transition-delay: 1s; }
+
+.slide--shown .dapp {
+  opacity: 1;
+  transform: translate3d(0, 0, 0); }
+
+.dapp.dapp--plus {
+  text-align: center; }
+
+.dapp__inner {
+  background-color: white;
+  width: 200px;
+  height: 220px;
+  box-shadow: 0px 4px 18px 0px rgba(189, 208, 223, 0.26);
+  border-radius: 8px;
+  padding: 20px;
+  position: relative; }
+
+.dapp__title {
+  font-size: 15px;
+  line-height: 15px;
+  font-family: PostGrotesk-Medium;
+  margin: 0 0 10px 0; }
+
+.dapp__description {
+  font-size: 14px;
+  line-height: 20px;
+  color: #5A6F7E;
+  opacity: .8; }
+
+.dapp__icon {
+  display: inline-block;
+  width: 72px;
+  height: 72px;
+  background-size: cover;
+  margin: 20px 0 10px 0;
+  background-image: url(../assets/plus.svg);
+  background-repeat: no-repeat; }
+
+.dapp--plus .dapp__description {
+  text-align: center;
+  display: inline-block;
+  width: 80%; }
+
+.dapp__image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  background-color: #eef2f5;
+  background-size: cover;
+  border: 1px solid #eef2f5; }
+
+.dapp.dapp--one .dapp__image {
+  background-image: url(../assets/avatar2.png); }
+
+.dapp.dapp--two .dapp__image {
+  background-image: url(../assets/avatar1.png); }
+
+.dapp.dapp--three .dapp__image {
+  background-image: url(../assets/avatar3.png); }
+
+.dapp.dapp--four .dapp__image {
+  background-image: url(../assets/avatar4.png); }
+
+.dapp.dapp--five .dapp__image {
+  background-image: url(../assets/avatar5.png); }
+
+.dapp.dapp--six .dapp__image {
+  background-image: url(../assets/avatar6.png); }
+
+.dapp.dapp--seven .dapp__image {
+  background-image: url(../assets/avatar7.png); }
