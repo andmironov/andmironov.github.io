@@ -5,19 +5,19 @@ let tagline = document.querySelectorAll(".tagline")[0]
 
 let iphone = document.querySelectorAll(".phone-wrap--iphone")[0]
 let android = document.querySelectorAll(".phone-wrap--android")[0]
-let textBlock = document.querySelectorAll(".text-block")[0]
+let features = document.querySelectorAll(".features-wrap")[0]
 
 setTimeout(() => body.classList.add("shown"), 400)
 
 new ScrollOver({
   keyframes : [
     {
-      element : tagline,
+      element : features,
       domain : [0, 800],
       animate: [
         {
           property : "translateY",
-          range : [0, 120]
+          range : [0, -100]
         }
       ]
     }
