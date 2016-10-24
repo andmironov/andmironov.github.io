@@ -229,10 +229,39 @@ a.logo {
 .nav a:hover {
   opacity: .7; }
 
-.share {
+.shares {
   display: flex;
+  justify-content: flex-end;
   width: 220px;
   height: 50px; }
+
+.shares li {
+  margin: 0 0 0 10px; }
+
+.shares .share {
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-color: red;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-size: 20px;
+  background-position: center;
+  background-color: #3F4A97;
+  transition: transform .2s ease;
+  cursor: pointer; }
+
+.shares .share.share--fb {
+  background-image: url(../assets/icon_fb.svg); }
+
+.shares .share.share--tw {
+  background-image: url(../assets/icon_tw.svg); }
+
+.shares .share.share--sl {
+  background-image: url(../assets/icon_sl.svg); }
+
+.shares .share:hover {
+  transform: scale(0.9); }
 
 .slide {
   position: relative;
@@ -247,7 +276,8 @@ a.logo {
   top: 0;
   width: 100%;
   height: 100%;
-  z-index: 100; }
+  z-index: 100;
+  overflow: hidden; }
 
 .slide.slide--two {
   height: 100vh; }
@@ -318,10 +348,14 @@ a.logo {
   height: 728px;
   background-size: 412px; }
 
-.text-block {
+.features {
   position: absolute;
   bottom: -150px;
   left: 50%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 20px 80px;
   margin: 0 0 0 -590px;
   background: white;
   box-shadow: 0px -2px 18px 0px rgba(72, 89, 102, 0.25);
@@ -334,9 +368,60 @@ a.logo {
   transition: transform .6s ease, opacity .6s ease;
   transition-delay: .6s; }
 
-.shown .text-block {
+.shown .features {
   opacity: 1;
   transform: translate3d(0, 0, 0); }
+
+.more-button {
+  font-family: PostGrotesk-Medium;
+  text-transform: uppercase;
+  line-height: 15px;
+  text-align: center;
+  transform: translate3d(-50%, 0, 0);
+  padding: 14px 35px 14px;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: #6370CA;
+  background-color: #F0F1FA;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transition: transform .2s ease; }
+
+.more-button:hover {
+  transform: translate3d(-50%, 0, 0) scale(0.94); }
+
+.features__item {
+  text-align: center;
+  width: 240px; }
+
+.features__icon {
+  display: inline-block;
+  width: 130px;
+  height: 60px;
+  background-size: 130px;
+  background-repeat: no-repeat; }
+
+.features__item--send .features__icon {
+  background-image: url(../assets/send_icon.png); }
+
+.features__item--browse .features__icon {
+  background-image: url(../assets/browse_icon.png); }
+
+.features__item--buy .features__icon {
+  background-image: url(../assets/buy_icon.png); }
+
+.features__title {
+  font-family: PostGrotesk-Medium;
+  font-size: 17px;
+  line-height: 20px;
+  margin: 15px 0 12px 0; }
+
+.features__description {
+  color: #70808D;
+  font-size: 15px;
+  line-height: 25px; }
 
 .tagline {
   display: flex;
@@ -346,7 +431,7 @@ a.logo {
   z-index: 200;
   text-align: center;
   width: 440px;
-  left: 100px;
+  left: 80px;
   top: 270px; }
 
 .tagline .tagline__title {

@@ -65,8 +65,43 @@ a.logo {
   opacity: .7;
 }
 
-.share {
+.shares {
   display: flex;
+  justify-content:flex-end;
   width: 220px;
   height: 50px;
+}
+
+.shares li {
+  margin: 0 0 0 10px;
+}
+
+.shares .share {
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-color: red;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-size: 20px;
+  background-position: center;
+  background-color: #3F4A97;
+  transition: transform .2s ease;
+  cursor: pointer;
+}
+
+.shares .share.share--fb {
+  background-image: url(../assets/icon_fb.svg);
+}
+
+.shares .share.share--tw {
+  background-image: url(../assets/icon_tw.svg);
+}
+
+.shares .share.share--sl {
+  background-image: url(../assets/icon_sl.svg);
+}
+
+.shares .share:hover {
+  transform: scale(.9)
 }
