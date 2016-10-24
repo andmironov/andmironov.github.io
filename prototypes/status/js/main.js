@@ -26,7 +26,7 @@ new ScrollOver({
       element : slideTwo,
       reveal:
         {
-          when : 600,
+          when : 500,
           className: "slide--shown"
         }
 

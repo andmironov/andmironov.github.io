@@ -595,7 +595,15 @@ a.logo {
   background-size: cover;
   margin: 20px 0 10px 0;
   background-image: url(../assets/plus.svg);
-  background-repeat: no-repeat; }
+  background-repeat: no-repeat;
+  opacity: 0;
+  transform: scale(0.6);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.135, 1.425), opacity 0.2s ease;
+  transition-delay: 1.2s; }
+
+.slide--shown .dapp__icon {
+  transform: scale(1);
+  opacity: 1; }
 
 .dapp--plus .dapp__description {
   text-align: center;
