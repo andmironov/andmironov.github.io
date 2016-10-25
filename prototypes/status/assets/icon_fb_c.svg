@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    <title>icon_fb_c</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD-Copy-18" transform="translate(-1000.000000, -80.000000)">
+            <g id="Group-3-Copy" transform="translate(990.000000, 70.000000)">
+                <g id="Group-23">
+                    <g id="Group-2">
+                        <g id="fb">
+                            <g id="icon_fb" transform="translate(10.000000, 10.000000)">
+                                <rect id="bg" fill="#FFFFFF" opacity="0" x="0" y="0" width="20" height="20"></rect>
+                                <path d="M11.2034286,11.0697336 L13.552,11.0697336 L13.9051429,8.43659079 L11.2034286,8.43659079 L11.2034286,6.74744793 C11.2034286,5.9828765 11.416,5.46173365 12.552,5.46173365 L14,5.46173365 L14,3.09944793 C13.2985259,3.03048216 12.5939938,2.99729629 11.8891429,3.00001936 C9.80114286,3.00001936 8.37142857,4.22516222 8.37142857,6.48573365 L8.37142857,8.43659079 L6,8.43659079 L6,11.0697336 L8.37142857,11.0697336 L8.37142857,17.8571622 L11.2034286,17.8571622 L11.2034286,11.0697336 L11.2034286,11.0697336 Z" id="Shape" fill="#608FF8"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
