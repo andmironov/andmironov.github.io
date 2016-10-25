@@ -7,7 +7,10 @@ let iphone = document.querySelectorAll(".phone-wrap--iphone")[0],
     android = document.querySelectorAll(".phone-wrap--android")[0],
     features = document.querySelectorAll(".features-wrap")[0],
     slideTwo = document.querySelectorAll(".slide--two")[0],
-    slideThree = document.querySelectorAll(".slide--three")[0]
+    slideThree = document.querySelectorAll(".slide--three")[0],
+    points = document.querySelectorAll(".points")[0],
+    circles = document.querySelectorAll(".circles")[0]
+
 
 setTimeout(() => body.classList.add("shown"), 400)
 
@@ -36,7 +39,7 @@ new ScrollOver({
       element : slideThree,
       reveal:
         {
-          when : 1400,
+          when : 1350,
           className: "slide--shown"
         }
 

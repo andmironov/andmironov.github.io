@@ -66,17 +66,28 @@ a.logo {
 }
 
 .shares {
-  display: flex;
-  justify-content:flex-end;
   width: 220px;
   height: 50px;
 }
 
-.shares li {
+.social-links {
+  display: flex;
+  justify-content: center
+}
+
+.shares .social-links {
+  justify-content:flex-end;
+}
+
+.social-links li {
+  margin: 0 10px;
+}
+
+.shares .social-links li {
   margin: 0 0 0 10px;
 }
 
-.shares .share {
+.social-link {
   display: block;
   width: 40px;
   height: 40px;
@@ -90,18 +101,18 @@ a.logo {
   cursor: pointer;
 }
 
-.shares .share.share--fb {
+.social-link.social-link--fb {
   background-image: url(../assets/icon_fb.svg);
 }
 
-.shares .share.share--tw {
+.social-link.social-link--tw {
   background-image: url(../assets/icon_tw.svg);
 }
 
-.shares .share.share--sl {
+.social-link.social-link--sl {
   background-image: url(../assets/icon_sl.svg);
 }
 
-.shares .share:hover {
+.social-link:hover {
   transform: scale(.9)
 }
