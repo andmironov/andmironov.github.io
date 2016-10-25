@@ -36,7 +36,7 @@ new ScrollOver({
       element : slideThree,
       reveal:
         {
-          when : 1500,
+          when : 1400,
           className: "slide--shown"
         }
 
