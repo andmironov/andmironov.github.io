@@ -9,7 +9,7 @@ let iphone = document.querySelectorAll(".phone-wrap--iphone")[0],
     slideTwo = document.querySelectorAll(".slide--two")[0],
     slideThree = document.querySelectorAll(".slide--three")[0],
     points = document.querySelectorAll(".points")[0],
-    circles = document.querySelectorAll(".circles")[0]
+    dots = document.querySelectorAll(".slide__bg__dots")[0]
 
 
 setTimeout(() => body.classList.add("shown"), 400)
