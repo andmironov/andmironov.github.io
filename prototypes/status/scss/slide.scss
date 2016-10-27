@@ -326,7 +326,7 @@
   width: 1080px;
   height: 780px;
   background-color: #4957B8;
-
+  background-image: url(../assets/dot.svg);
   box-shadow: 0px 10px 14px 0px rgba(79,90,166,0.35);
   border-radius: 10px;
   transform: translate3d(0, 0, 0);
@@ -334,15 +334,6 @@
   overflow: hidden;
 }
 
-.slide__bg__dots {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 1080px;
-  height: 880px;
-  background-image: url(../assets/dot.svg);
-  transform: translate3d(0, 0, 0);
-}
 .particles {
   position: absolute;
   width: 100%;
