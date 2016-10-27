@@ -14,12 +14,26 @@
   padding: 40px 0 60px;
 }
 
+.slide.slide--four {
+  display: flex;
+  padding: 40px 0 60px;
+}
+
 .slide.slide--three .slide__inner {
   background-image: linear-gradient(-180deg, #5A6F7E 0%, #445561 100%);
   box-shadow: 0px 12px 23px 0px rgba(74,92,105,0.33);
   border-radius: 8px;
   padding: 50px 0;
   height: 740px;
+  width: 1080px;
+}
+
+.slide.slide--four .slide__inner {
+  //background-color: $colorWhite;
+  //box-shadow: 0px 4px 18px 0px rgba(189,208,223,0.26);
+  border-radius: 8px;
+  padding: 20px 0 0 0 ;
+  height: 340px;
   width: 1080px;
 }
 
@@ -349,7 +363,7 @@
 .phones {
   position: absolute;
   right: 500px;
-  top: 70px;
+  top: 64px;
 }
 
 .phone {
@@ -383,7 +397,7 @@
 
 .phone-wrap--android {
   left: 230px;
-  top: 68px;
+  top: 70px;
   z-index: 400
 }
 
@@ -409,7 +423,7 @@
 
 .features-wrap {
   position: absolute;
-  bottom: -119px;
+  bottom: -160px;
   left: 50%;
   width: 1180px;
   margin: 0 0 0 -590px;
@@ -511,7 +525,7 @@
   text-align: center;
   width: 440px;
   left: 100px;
-  top: 240px;
+  top: 220px;
 }
 
 .tagline .tagline__title {
@@ -569,6 +583,14 @@
   width: 400px;
 }
 
+.email-form--footer {
+  width: 300px;
+  margin: 30px auto;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
 .email-form__input {
   height: 45px;
   line-height: 45px;
@@ -583,6 +605,13 @@
   padding: 0 15px;
   margin: 0 15px 0 0;
   text-align: center;
+}
+
+.email-form--footer .email-form__input--email {
+  margin: 0 0 10px 0;
+
+  color: rgba(0, 0, 0, .2);
+  background-color: rgba(0, 0, 0, .08);
 }
 
 .email-form__input--sumbit {
@@ -600,11 +629,22 @@
   cursor: pointer;
 }
 
+.email-form--footer .email-form__input--sumbit {
+  width: 210px;
+  box-shadow: 0px 8px 14px 0px #DEE1E4;
+
+}
+
 .email-form__input--sumbit:hover {
   transform: translate3d(0, 0, 0) scale(.95);
   box-shadow: 0px 12px 12px 0px rgba(80,92,174,0.30);
-
 }
+
+.email-form--footer .email-form__input--sumbit:hover {
+  transform: translate3d(0, 0, 0) scale(.95);
+  box-shadow: 0px 10px 14px 0px #DEE1E4;
+}
+
 
 .dapps {
   margin: 50px auto 30px;
