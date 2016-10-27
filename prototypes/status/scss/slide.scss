@@ -316,8 +316,29 @@
   border-radius: 10px;
   transform: translate3d(0, 0, 0);
   transition: transform .6s ease, opacity .3s ease;
+  overflow: hidden;
 }
 
+.slide__bg__circle.slide__bg__circle--one {
+  position: absolute;
+  border-radius: 50%;
+  left: -10px;
+  top: -10px;
+  width: 1040px;
+  height: 1200px;
+  background: #4C5AAE;
+  position: absolute;
+  display: none;
+  opacity: 0;
+
+  transform: translate3d(0, 50px, 0) scale(.8);
+  transition: transform 1s ease, opacity .3s ease;
+}
+
+.shown .slide__bg__circle.slide__bg__circle--one {
+  opacity: .3;
+  transform: translate3d(0, 0, 0) scale(1);
+}
 
 .particles {
   position: absolute;
@@ -347,11 +368,11 @@
 }
 
 .phone.phone--iphone {
-  transition-delay: .1s
+  transition-delay: .3s
 }
 
 .phone.phone--android {
-  transition-delay: .2s;
+  transition-delay: .4s;
   transform: translate3d(0, 40px, 0);
 }
 
@@ -362,7 +383,7 @@
 
 .phone-wrap--android {
   left: 230px;
-  top: 110px;
+  top: 68px;
   z-index: 400
 }
 
@@ -490,7 +511,7 @@
   text-align: center;
   width: 440px;
   left: 100px;
-  top: 250px;
+  top: 240px;
 }
 
 .tagline .tagline__title {
@@ -503,7 +524,7 @@
   opacity: 0;
   transform: translate3d(0, 20px, 0);
   transition: transform .6s ease,opacity .6s ease;
-  transition-delay: .1s;
+  transition-delay: .3s;
 }
 
 .shown .tagline__title {
@@ -522,7 +543,7 @@
   opacity: 0;
   transform: translate3d(0, 20px, 0);
   transition: transform .6s ease,opacity .6s ease;
-  transition-delay: .2s;
+  transition-delay: .4s;
 }
 
 .shown .tagline__body {
@@ -534,7 +555,7 @@
   opacity: 0;
   transform: translate3d(0, 20px, 0);
   transition: transform .6s ease,opacity .6s ease;
-  transition-delay: .3s;
+  transition-delay: .5s;
 }
 
 .shown .tagline__form {
@@ -561,6 +582,7 @@
   width: 210px;
   padding: 0 15px;
   margin: 0 15px 0 0;
+  text-align: center;
 }
 
 .email-form__input--sumbit {
@@ -569,9 +591,19 @@
   font-size: 13px;
   color: $colorWhite;
   text-transform: uppercase;
-    text-align: center;
+  text-align: center;
   letter-spacing: 1px;
-  background-color: rgba(104, 192, 248, 1)
+  background-color: rgba(104, 192, 248, 1);
+  box-shadow: 0px 10px 10px 0px rgba(80,92,174,0.30);
+  transform: translate3d(0, 0, 0) scale (1);
+  transition: transform .2s ease, box-shadow .2s ease;
+  cursor: pointer;
+}
+
+.email-form__input--sumbit:hover {
+  transform: translate3d(0, 0, 0) scale(.95);
+  box-shadow: 0px 12px 12px 0px rgba(80,92,174,0.30);
+
 }
 
 .dapps {

@@ -209,7 +209,7 @@ a.logo {
 .logo__title {
   display: block;
   font-family: PostGrotesk-Medium;
-  font-size: 20px;
+  font-size: 22px;
   line-height: 25px;
   color: white; }
 
@@ -221,6 +221,7 @@ a.logo {
   opacity: .4; }
 
 .nav a {
+  font-family: PostGrotesk-Medium;
   color: white;
   font-size: 15px;
   display: flex;
@@ -534,7 +535,26 @@ a.logo {
   box-shadow: 0px 10px 14px 0px rgba(79, 90, 166, 0.35);
   border-radius: 10px;
   transform: translate3d(0, 0, 0);
-  transition: transform .6s ease, opacity .3s ease; }
+  transition: transform .6s ease, opacity .3s ease;
+  overflow: hidden; }
+
+.slide__bg__circle.slide__bg__circle--one {
+  position: absolute;
+  border-radius: 50%;
+  left: -10px;
+  top: -10px;
+  width: 1040px;
+  height: 1200px;
+  background: #4C5AAE;
+  position: absolute;
+  display: none;
+  opacity: 0;
+  transform: translate3d(0, 50px, 0) scale(0.8);
+  transition: transform 1s ease, opacity .3s ease; }
+
+.shown .slide__bg__circle.slide__bg__circle--one {
+  opacity: .3;
+  transform: translate3d(0, 0, 0) scale(1); }
 
 .particles {
   position: absolute;
@@ -559,10 +579,10 @@ a.logo {
   transform: translate3d(0, 0, 0); }
 
 .phone.phone--iphone {
-  transition-delay: .1s; }
+  transition-delay: .3s; }
 
 .phone.phone--android {
-  transition-delay: .2s;
+  transition-delay: .4s;
   transform: translate3d(0, 40px, 0); }
 
 .shown .phone {
@@ -571,7 +591,7 @@ a.logo {
 
 .phone-wrap--android {
   left: 230px;
-  top: 110px;
+  top: 68px;
   z-index: 400; }
 
 .phone-wrap--iphone {
@@ -680,7 +700,7 @@ a.logo {
   text-align: center;
   width: 440px;
   left: 100px;
-  top: 250px; }
+  top: 240px; }
 
 .tagline .tagline__title {
   font-family: PostGrotesk-Medium;
@@ -691,7 +711,7 @@ a.logo {
   opacity: 0;
   transform: translate3d(0, 20px, 0);
   transition: transform .6s ease,opacity .6s ease;
-  transition-delay: .1s; }
+  transition-delay: .3s; }
 
 .shown .tagline__title {
   opacity: 1;
@@ -707,7 +727,7 @@ a.logo {
   opacity: 0;
   transform: translate3d(0, 20px, 0);
   transition: transform .6s ease,opacity .6s ease;
-  transition-delay: .2s; }
+  transition-delay: .4s; }
 
 .shown .tagline__body {
   opacity: .6;
@@ -717,7 +737,7 @@ a.logo {
   opacity: 0;
   transform: translate3d(0, 20px, 0);
   transition: transform .6s ease,opacity .6s ease;
-  transition-delay: .3s; }
+  transition-delay: .5s; }
 
 .shown .tagline__form {
   opacity: 1;
@@ -738,7 +758,8 @@ a.logo {
   color: rgba(255, 255, 255, 0.6);
   width: 210px;
   padding: 0 15px;
-  margin: 0 15px 0 0; }
+  margin: 0 15px 0 0;
+  text-align: center; }
 
 .email-form__input--sumbit {
   width: 175px;
@@ -748,7 +769,15 @@ a.logo {
   text-transform: uppercase;
   text-align: center;
   letter-spacing: 1px;
-  background-color: #68c0f8; }
+  background-color: #68c0f8;
+  box-shadow: 0px 10px 10px 0px rgba(80, 92, 174, 0.3);
+  transform: translate3d(0, 0, 0) scale 1;
+  transition: transform .2s ease, box-shadow .2s ease;
+  cursor: pointer; }
+
+.email-form__input--sumbit:hover {
+  transform: translate3d(0, 0, 0) scale(0.95);
+  box-shadow: 0px 12px 12px 0px rgba(80, 92, 174, 0.3); }
 
 .dapps {
   margin: 50px auto 30px;

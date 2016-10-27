@@ -41,7 +41,7 @@ a.logo {
 .logo__title {
   display: block;
   font-family:PostGrotesk-Medium;
-  font-size: 20px;
+  font-size: 22px;
   line-height: 25px;
   color: $colorWhite;
 }
@@ -55,6 +55,7 @@ a.logo {
 }
 
 .nav a {
+  font-family:PostGrotesk-Medium;
   color: $colorWhite;
   font-size: 15px;
   display: flex;
