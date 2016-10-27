@@ -544,7 +544,8 @@ a.logo {
   left: 0;
   width: 1080px;
   height: 780px;
-  background-image: linear-gradient(-1deg, #7E8CEA 0%, #4D5BB5 100%);
+  background-color: #5A68C3;
+  background-image: url(../assets/dot.svg);
   box-shadow: 0px 10px 14px 0px rgba(79, 90, 166, 0.35);
   border-radius: 10px;
   transform: translate3d(0, 0, 0);
@@ -604,7 +605,7 @@ a.logo {
 
 .phone-wrap--android {
   left: 230px;
-  top: 70px;
+  top: 110px;
   z-index: 400; }
 
 .phone-wrap--iphone {
