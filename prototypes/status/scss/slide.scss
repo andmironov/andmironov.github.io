@@ -447,7 +447,7 @@
   opacity: 0;
   transform: translate3d(0, 40px, 0);
   transition: transform .6s ease, opacity .6s ease;
-  transition-delay: .6s;
+  transition-delay: .8s;
 }
 
 .shown .features  {
@@ -525,7 +525,7 @@
   text-align: center;
   width: 440px;
   left: 100px;
-  top: 220px;
+  top: 240px;
 }
 
 .tagline .tagline__title {
