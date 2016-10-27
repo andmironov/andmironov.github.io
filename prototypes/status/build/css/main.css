@@ -277,16 +277,6 @@ a.logo {
   display: flex;
   justify-content: center; }
 
-#particles {
-  position: absolute;
-  transform: translate3d(0, 0, 0);
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 100;
-  overflow: hidden; }
-
 .slide.slide--two {
   padding: 120px 0 40px; }
 
@@ -530,10 +520,21 @@ a.logo {
 
 .slide.slide--one .slide__inner {
   margin: 30px 0 0 0;
+  position: relative;
+  width: 1080px;
+  height: 780px; }
+
+.slide.slide--one .slide__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1080px;
+  height: 780px;
   background-image: linear-gradient(-1deg, #7E8CEA 0%, #4D5BB5 100%);
   box-shadow: 0px 10px 14px 0px rgba(79, 90, 166, 0.35);
   border-radius: 10px;
-  height: 810px; }
+  transform: translate3d(0, 0, 0);
+  transition: transform .6s ease, opacity .3s ease; }
 
 .particles {
   position: absolute;
@@ -543,7 +544,7 @@ a.logo {
 .phones {
   position: absolute;
   right: 500px;
-  top: 84px; }
+  top: 64px; }
 
 .phone {
   background-repeat: no-repeat;
@@ -592,7 +593,7 @@ a.logo {
 
 .features-wrap {
   position: absolute;
-  bottom: -150px;
+  bottom: -119px;
   left: 50%;
   width: 1180px;
   margin: 0 0 0 -590px;
@@ -679,7 +680,7 @@ a.logo {
   text-align: center;
   width: 440px;
   left: 100px;
-  top: 270px; }
+  top: 250px; }
 
 .tagline .tagline__title {
   font-family: PostGrotesk-Medium;
