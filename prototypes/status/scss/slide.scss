@@ -6,7 +6,7 @@
 }
 
 .slide.slide--two {
-  padding: 140px 0 40px;
+  padding: 100px 0 40px;
 }
 
 .slide.slide--three {
@@ -68,14 +68,14 @@
   background: #A6B0BA;
   border: 2px solid #FFFFFF;
 
-  opacity: 0;
-  transform: scale(.3) translate3d(0, 100px, 0);
+  opacity: .1;
+  transform: scale(1) translate3d(0, 0, 0);
   transition: transform 1s cubic-bezier(0.230, 1.000, 0.320, 1.000), opacity .4s linear;
 }
 
 .slide--shown .slide__circle {
-  opacity: .1;
-  transform: scale(1) translate3d(0, 0, 0);
+  //opacity: .1;
+  //transform: scale(1) translate3d(0, 0, 0);
 }
 
 .slide__circle--one .slide__circle {
@@ -319,6 +319,10 @@
   height: 780px;
 }
 
+.slide.slide--one.slide--one-centered .slide__inner{
+  height: 1000px;
+}
+
 .slide.slide--one .slide__bg {
   position: absolute;
   top: 0;
@@ -334,10 +338,23 @@
   overflow: hidden;
 }
 
+.slide.slide--one.slide--one-centered .slide__bg {
+  height: 1000px;
+}
+
 .phones {
   position: absolute;
   right: 500px;
   top: 64px;
+}
+
+.slide.slide--one.slide--one-centered .phones  {
+  width: 610px;
+  height: 800px;
+  left: 50%;
+  top: inherit;
+  bottom: -200px;
+  margin: 0 0 0 -305px;
 }
 
 .phone {
@@ -359,9 +376,17 @@
   transition-delay: .3s
 }
 
+.slide--one-centered .phone.phone--iphone{
+  transition-delay: .6s
+}
+
 .phone.phone--android {
   transition-delay: .4s;
   transform: translate3d(0, 40px, 0);
+}
+
+.slide--one-centered .phone.phone--android {
+  transition-delay: .7s
 }
 
 .shown .phone {
@@ -373,6 +398,10 @@
   left: 230px;
   top: 110px;
   z-index: 400
+}
+
+.slide--one-centered .phone-wrap--android {
+  left:250px
 }
 
 .phone-wrap--iphone {
@@ -502,6 +531,13 @@
   top: 240px;
 }
 
+.slide.slide--one.slide--one-centered .tagline {
+  width: 580px;
+  left: 50%;
+  top: 150px;
+  margin: 0 0 0 -290px;
+}
+
 .tagline .tagline__title {
   font-family:PostGrotesk-Medium;
   color: $colorWhite;
@@ -513,6 +549,12 @@
   transform: translate3d(0, 20px, 0);
   transition: transform .6s ease,opacity .6s ease;
   transition-delay: .1s;
+}
+
+.slide.slide--one.slide--one-centered .tagline__title {
+  font-size: 25px;
+  line-height: 38px;
+  width: 80%;
 }
 
 .shown .tagline__title {
@@ -532,6 +574,10 @@
   transform: translate3d(0, 20px, 0);
   transition: transform .6s ease,opacity .6s ease;
   transition-delay: .2s;
+}
+
+.slide.slide--one.slide--one-centered .tagline__body {
+  width: 70%;
 }
 
 .shown .tagline__body {
@@ -578,7 +624,6 @@
   width: 210px;
   padding: 0 15px;
   margin: 0 15px 0 0;
-  text-align: center;
 }
 
 .email-form--footer .email-form__input--email {
