@@ -812,3 +812,18 @@
 .dapp.dapp--seven .dapp__image {
   background-image: url(../assets/avatar7.png);
 }
+
+@media (max-width: 1239px) {
+  .slide.slide--one.slide--one-centered .slide__inner {
+    margin: 0;
+    border-radius: 0;
+    width: 100%;
+  }
+  .slide.slide--one.slide--one-centered .slide__bg {
+    width: 100%;
+    border-radius: 0;
+  }
+  .features-wrap {
+    width: 100%;
+  }
+}

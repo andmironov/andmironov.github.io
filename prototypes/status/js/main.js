@@ -15,7 +15,7 @@ new ScrollOver({
   keyframes : [
     {
       element : tagline,
-      domain : [0, 1000],
+      domain : [50, 1000],
       animate: [
         {
           property : "opacity",
