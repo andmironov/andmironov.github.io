@@ -164,7 +164,7 @@ select[multiple] {
   background-color: #005BC9;
   opacity: 0;
   transform: scale(1) translate3d(0, 0, 0) rotate(0);
-  transition: transform .4s ease, opacity .4s ease;
+  transition: transform .8s ease, opacity .6s ease;
   transition-delay: .3s; }
 
 .shown .background {
@@ -220,7 +220,7 @@ select[multiple] {
   cursor: pointer;
   opacity: 0;
   transform: scale(1) translate3d(0, 0, 0) rotate(0);
-  transition: transform .4s ease, opacity .4s ease;
+  transition: transform .4s ease, opacity .6s ease;
   transition-delay: .3s; }
 
 .shown .logo-ny {
