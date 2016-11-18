@@ -269,6 +269,7 @@ div {
   justify-content: space-between; }
 
 .item-title {
+  font-weight: bold;
   font-size: 17px;
   line-height: 24px;
   position: relative;
