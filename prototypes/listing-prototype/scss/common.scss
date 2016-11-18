@@ -1,0 +1,18 @@
+@import "reset";
+@import "formReset";
+@import "colors";
+@import "fonts";
+
+$outer-border-radius: 8px;
+$inner-border-radius: 5px;
+
+body {
+  background-color: #f6f5f6;
+  font-family: 'Roton';
+  font-weight: normal;
+  color: rgba(0, 0, 0, .8);
+}
+
+div {
+  box-sizing: border-box;
+}
