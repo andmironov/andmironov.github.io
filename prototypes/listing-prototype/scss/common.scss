@@ -16,3 +16,10 @@ body {
 div {
   box-sizing: border-box;
 }
+
+.container {
+  margin: 12px 0;
+  display: flex;
+  align-items:center;
+  flex-direction: column;
+}
