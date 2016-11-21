@@ -16,12 +16,18 @@
 .preview-close {
   display: block;
   position: absolute;
+  z-index: 100;
   right: 16px;
   top: 16px;
   width: 24px;
   height: 24px;
   background-image: url(../assets/icon_close_big.svg);
   background-size: 24px;
+  cursor: pointer;
+}
+
+.preview-close:hover {
+  opacity: .8
 }
 
 .preview-arrow {
@@ -38,7 +44,7 @@
 }
 
 .preview-image-wrap {
-  flex-basis: 66.6%;
+  flex-basis: 66%;
   padding: 24px;
   border-right: 1px solid #F2F2F2;
   display: flex;
@@ -52,7 +58,7 @@
 }
 
 .preview-description {
-  flex-basis: 33.3%;
+  flex-basis: 34%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -159,11 +165,29 @@
   font-weight: bold;
   font-size: 13px;
   cursor: pointer;
+  border-bottom-right-radius: $outer-border-radius;
+  background-color: rgba(255, 255, 255, 1);
+  transition: background-color .2s ease;
+}
+
+.preview-more-button:hover {
+  background-color: #FBFBFB
 }
 
 
+@media (max-width: 1200px) {
+  .preview-price {
+    font-size: 28px;
+    line-height: 24px;
+  }
+
+  .cart-button {
+    width: 60%;
+  }
+}
 
 @media (max-width: 992px) {
+
   .preview {
     margin: 0 16px;
   }
@@ -181,17 +205,8 @@
     flex-basis: 50%;
   }
 
-  .preview-price {
-    font-size: 32px;
-    line-height: 32px;
-  }
-
   .preview-top {
     padding: 16px;
-  }
-
-  .cart-button {
-    width: 60%;
   }
 
   .preview-bottom {
@@ -226,6 +241,10 @@
 
   .preview-top {
     padding: 16px;
+  }
+
+  .preview-more-button {
+    border-bottom-left-radius: $outer-border-radius;
   }
 
   .cart-button {
