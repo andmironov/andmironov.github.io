@@ -202,7 +202,8 @@ div {
 .item.item--selected .item-title,
 .item.item--selected .item-rating,
 .item.item--selected .item-button,
-.item.item--selected .price {
+.item.item--selected .price,
+.item.item--selected .badge {
   opacity: .3; }
 
 .item img {
