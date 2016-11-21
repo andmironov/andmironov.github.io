@@ -226,7 +226,7 @@ div {
 .item:hover .item-bg,
 .item.item--selected .item-bg {
   transform: translate3d(0, 0, 0) scale(1.02);
-  box-shadow: 0 2px 6px 0 rgba(168, 171, 188, 0.17); }
+  box-shadow: 0 4px 10px 0 rgba(168, 171, 188, 0.24); }
 
 .badge {
   border-radius: 5px;
