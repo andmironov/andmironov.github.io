@@ -262,7 +262,7 @@ div {
   z-index: 200; }
 
 .item-info {
-  padding: 8px 16px 0 14px;
+  padding: 4px 16px 0 14px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -376,9 +376,9 @@ div {
     position: relative;
     z-index: 200;
     padding: 8px 8px 0;
-    height: 54px; }
+    height: 36px; }
   .item-info {
-    padding: 8px 8px 0 8px; }
+    padding: 4px 8px 0 8px; }
   .item-price-wrap {
     font-size: 20px;
     line-height: 22px;

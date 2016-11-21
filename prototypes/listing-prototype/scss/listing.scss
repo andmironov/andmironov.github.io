@@ -117,7 +117,7 @@
 }
 
 .item-info {
-  padding: 8px 16px 0 14px;
+  padding: 4px 16px 0 14px;
   display: flex;
   //height: 150px;
   flex-direction: column;
@@ -261,11 +261,12 @@
     position: relative;
     z-index: 200;
     padding: 8px 8px 0;
-    height: 54px; //line-height: 18 * 3
+    height: 36px; //line-height: 18 * 2
+
   }
 
   .item-info {
-    padding: 8px 8px 0 8px;
+    padding: 4px 8px 0 8px;
   }
 
   .item-price-wrap {
