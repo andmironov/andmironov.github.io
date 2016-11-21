@@ -275,7 +275,7 @@ div {
   position: relative;
   z-index: 200;
   padding: 8px 16px 0;
-  height: 72px;
+  height: 48px;
   overflow: hidden; }
 
 .item-rating {
@@ -362,7 +362,7 @@ div {
   .price.price--current {
     order: 1; } }
 
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   .item-wrap {
     flex-basis: 50%; } }
 
