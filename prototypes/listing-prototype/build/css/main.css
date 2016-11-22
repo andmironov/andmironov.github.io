@@ -595,7 +595,7 @@ div {
 
 @media (max-width: 640px) {
   .preview {
-    flex-direction: column;
+    flex-wrap: wrap;
     height: auto; }
   .preview-image-wrap {
     order: 0;
