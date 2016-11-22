@@ -600,6 +600,7 @@ div {
   .preview-image-wrap {
     order: 0;
     flex-basis: 100%;
+    min-height: 270px;
     border-right: none;
     border-bottom: 1px solid #F2F2F2; }
   .preview-description {
