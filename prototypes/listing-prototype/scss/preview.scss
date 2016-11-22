@@ -5,14 +5,14 @@
 
 .preview {
   position: relative;
-  margin: 0 12px;
+  margin: 8px 12px 12px 12px;
   height: 512px;
   background-color: rgba(255, 255, 255, 1);
   border-radius: $outer-border-radius;
   display: flex;
   flex-direction: row;
 
-  box-shadow: 0 4px 10px 0 rgba(168,171,188,0.24);
+  box-shadow: 0 6px 20px 0 rgba(168,171,188,0.24);
 }
 
 .preview-close {
@@ -34,12 +34,12 @@
 
 .preview-arrow {
   position: absolute;
-  left: 40px;
+  left: 50px;
   top: -10px;
   width: 0;
   height: 0;
-  border-left: 12px solid transparent;
-  border-right: 12px solid transparent;
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
   border-bottom: 12px solid white;
   border-radius: 10px;
 
@@ -249,7 +249,7 @@
   }
 
   .cart-button {
-    width: 50%;
+    width: 60%;
   }
 }
 
