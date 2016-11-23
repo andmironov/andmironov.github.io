@@ -72,7 +72,8 @@
 }
 
 .item:hover .item-bg {
-  transform: translate3d(0, 0, 0) scale(1.02);
+
+  //transform: translate3d(0, 0, 0) scale(1.02);
   box-shadow: 0 4px 10px 0 rgba(168,171,188,0.24);
 }
 
@@ -234,7 +235,6 @@
 .item-button:hover {
   background: #FFE13F;
 }
-
 
 .show-more {
   display: block;
