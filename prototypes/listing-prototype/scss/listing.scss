@@ -1,3 +1,10 @@
+.listing-container {
+  margin: 0 0 12px 0;
+  display: flex;
+  align-items:center;
+  flex-direction: column;
+}
+
 .listing {
   max-width: 1256px;
   margin: 12px;
@@ -222,6 +229,35 @@
 
 .item-button:hover {
   background: #FFE13F;
+}
+
+.show-more {
+  display: block;
+  width: 328px;
+  height: 48px;
+  line-height: 50px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  font-size: 13px;
+  font-weight: bold;
+  background-color: rgba(13, 112, 214, 1);
+  text-align: center;
+  color: rgba(255, 255, 255, 1);
+  border-radius: $inner-border-radius;
+  margin: 0 0 24px 0;
+  cursor: pointer;
+  transition: background-color .2s ease, box-shadow .2s ease
+}
+
+.show-more:hover {
+  /* Rectangle 13 Copy 42: */
+  background: #0E7CEB;
+  transition: background-color .1s ease, box-shadow .1s ease
+}
+
+.show-more:active {
+  background: #0A5CAE;
 }
 
 @media (max-width: 992px) {

@@ -164,8 +164,23 @@ body {
 div {
   box-sizing: border-box; }
 
-.container {
-  margin: 12px 0;
+.header {
+  height: 80px;
+  background-color: #0D70D6; }
+
+.page-wrap {
+  max-width: 1280px;
+  margin: 0 auto; }
+
+.page-title {
+  padding: 24px 24px 0 24px;
+  font-size: 28px;
+  line-height: 32px;
+  text-align: left;
+  font-weight: bold; }
+
+.listing-container {
+  margin: 0 0 12px 0;
   display: flex;
   align-items: center;
   flex-direction: column; }
@@ -359,6 +374,32 @@ div {
 
 .item-button:hover {
   background: #FFE13F; }
+
+.show-more {
+  display: block;
+  width: 328px;
+  height: 48px;
+  line-height: 50px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  font-size: 13px;
+  font-weight: bold;
+  background-color: #0d70d6;
+  text-align: center;
+  color: white;
+  border-radius: 5px;
+  margin: 0 0 24px 0;
+  cursor: pointer;
+  transition: background-color .2s ease, box-shadow .2s ease; }
+
+.show-more:hover {
+  /* Rectangle 13 Copy 42: */
+  background: #0E7CEB;
+  transition: background-color .1s ease, box-shadow .1s ease; }
+
+.show-more:active {
+  background: #0A5CAE; }
 
 @media (max-width: 992px) {
   .listing {
