@@ -130,11 +130,15 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  transition: background-color .2s ease, box-shadow .2s ease
+  transition: background-color .2s ease, box-shadow .2s ease, transform .1s linear
 }
 
 .cart-button:hover {
   background: #FFE13F;
+}
+
+.cart-button:active {
+  transform: translate3d(0, 0, 0) scale(0.96);
 }
 
 .cart-button-inner {

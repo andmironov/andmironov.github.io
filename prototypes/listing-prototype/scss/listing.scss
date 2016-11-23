@@ -76,6 +76,10 @@
   box-shadow: 0 4px 10px 0 rgba(168,171,188,0.24);
 }
 
+.item:active {
+  transform: translate3d(0, 0, 0) scale(0.98);
+}
+
 .item.item--selected:hover .item-bg {
   transform: translate3d(0, 0, 0) scale(1);
   box-shadow: none;
@@ -188,16 +192,16 @@
 }
 
 .item-price-wrap--sale .price.price--old::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 40%;
-    width: 80%;
-    height: 2px;
-    border-radius: 1px;
-    background-color: rgba(249, 65, 36, 1);
-    transform: rotate(-12deg);
-    opacity: .8
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 40%;
+  width: 80%;
+  height: 2px;
+  border-radius: 1px;
+  background-color: rgba(249, 65, 36, 1);
+  transform: rotate(-12deg);
+  opacity: .8
 }
 
 .item-price-wrap--sale .price.price--current {
@@ -214,7 +218,7 @@
   height: 40px;
   border-radius: $inner-border-radius;
   background-color: rgba(255, 214, 1, 2);
-    transition: background-color .2s ease, box-shadow .2s ease
+  transition: background-color .2s ease, box-shadow .2s ease
 }
 
 .item-button::after {
@@ -231,6 +235,7 @@
   background: #FFE13F;
 }
 
+
 .show-more {
   display: block;
   width: 328px;
@@ -245,19 +250,20 @@
   text-align: center;
   color: rgba(255, 255, 255, 1);
   border-radius: $inner-border-radius;
-  margin: 0 0 24px 0;
+  margin: 0 0 12px 0;
   cursor: pointer;
+
   transition: background-color .2s ease, box-shadow .2s ease
 }
 
 .show-more:hover {
-  /* Rectangle 13 Copy 42: */
   background: #0E7CEB;
-  transition: background-color .1s ease, box-shadow .1s ease
+  transition: background-color .1s ease, transform .1s linear
 }
 
 .show-more:active {
-  background: #0A5CAE;
+  //background: #0A5CAE;
+  transform: translate3d(0, 0, 0) scale(0.98);
 }
 
 @media (max-width: 992px) {

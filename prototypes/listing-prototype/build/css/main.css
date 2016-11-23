@@ -242,6 +242,9 @@ div {
   transform: translate3d(0, 0, 0) scale(1.02);
   box-shadow: 0 4px 10px 0 rgba(168, 171, 188, 0.24); }
 
+.item:active {
+  transform: translate3d(0, 0, 0) scale(0.98); }
+
 .item.item--selected:hover .item-bg {
   transform: translate3d(0, 0, 0) scale(1);
   box-shadow: none; }
@@ -389,17 +392,16 @@ div {
   text-align: center;
   color: white;
   border-radius: 5px;
-  margin: 0 0 24px 0;
+  margin: 0 0 12px 0;
   cursor: pointer;
   transition: background-color .2s ease, box-shadow .2s ease; }
 
 .show-more:hover {
-  /* Rectangle 13 Copy 42: */
   background: #0E7CEB;
-  transition: background-color .1s ease, box-shadow .1s ease; }
+  transition: background-color .1s ease, transform .1s linear; }
 
 .show-more:active {
-  background: #0A5CAE; }
+  transform: translate3d(0, 0, 0) scale(0.98); }
 
 @media (max-width: 992px) {
   .listing {
@@ -566,10 +568,13 @@ div {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  transition: background-color .2s ease, box-shadow .2s ease; }
+  transition: background-color .2s ease, box-shadow .2s ease, transform .1s linear; }
 
 .cart-button:hover {
   background: #FFE13F; }
+
+.cart-button:active {
+  transform: translate3d(0, 0, 0) scale(0.96); }
 
 .cart-button-inner {
   padding: 12px 0;
