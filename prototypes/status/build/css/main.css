@@ -200,11 +200,11 @@ a.logo {
 .logo__icon {
   height: 78px;
   width: 78px;
-  background-image: url(../assets/logo.png);
+  background-image: url(../assets/logo2.png);
   background-size: 78px; }
 
 .logo_text {
-  margin: 7px 0 0 5px; }
+  margin: 7px 0 0 3px; }
 
 .logo__title {
   display: block;
@@ -275,6 +275,16 @@ a.logo {
 .social-link:hover {
   transform: scale(0.9); }
 
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  overflow: hidden; }
+
+.slides {
+  display: flex;
+  align-items: center;
+  flex-direction: column; }
+
 .slide {
   position: relative;
   box-sizing: border-box;
@@ -282,7 +292,7 @@ a.logo {
   justify-content: center; }
 
 .slide.slide--two {
-  padding: 100px 0 40px; }
+  padding: 210px 0 40px; }
 
 .slide.slide--three {
   display: flex;
@@ -530,9 +540,13 @@ a.logo {
 
 .slide.slide--one .slide__inner {
   margin: 30px 0 0 0;
-  position: relative;
-  width: 1080px;
-  height: 780px; }
+  height: 780px;
+  background-color: #4957B8;
+  background-image: url(../assets/dot.svg);
+  box-shadow: 0px 10px 14px 0px rgba(79, 90, 166, 0.35);
+  border-radius: 10px;
+  transform: translate3d(0, 0, 0);
+  transition: transform .6s ease, opacity .3s ease; }
 
 .slide.slide--one.slide--one-centered .slide__inner {
   height: 1000px; }
@@ -556,7 +570,7 @@ a.logo {
 
 .phones {
   position: absolute;
-  right: 500px;
+  right: 510px;
   top: 64px; }
 
 .slide.slide--one.slide--one-centered .phones {
@@ -624,9 +638,9 @@ a.logo {
 .features-wrap {
   position: absolute;
   bottom: -160px;
-  left: 50%;
+  left: -50px;
   width: 1180px;
-  margin: 0 0 0 -590px;
+  margin: 0 0 0 0;
   height: 300px;
   z-index: 800; }
 
@@ -665,9 +679,12 @@ a.logo {
   position: absolute;
   bottom: 30px;
   left: 50%;
-  transition: transform .2s ease; }
+  transition: transform .2s ease, background-color .2s ease; }
 
 .more-button:hover {
+  transform: translate3d(-50%, 0, 0) scale(0.94); }
+
+.more-button:active {
   transform: translate3d(-50%, 0, 0) scale(0.94); }
 
 .features__item {
@@ -710,7 +727,7 @@ a.logo {
   text-align: center;
   width: 440px;
   left: 100px;
-  top: 240px; }
+  top: 260px; }
 
 .slide.slide--one.slide--one-centered .tagline {
   width: 580px;
@@ -723,7 +740,7 @@ a.logo {
   color: white;
   font-size: 25px;
   line-height: 35px;
-  margin: 0 0 15px 0;
+  margin: 0 0 10px 0;
   opacity: 0;
   transform: translate3d(0, 20px, 0);
   transition: transform .6s ease,opacity .6s ease;
@@ -807,7 +824,7 @@ a.logo {
   background-color: #68c0f8;
   box-shadow: 0px 10px 10px 0px rgba(80, 92, 174, 0.3);
   transform: translate3d(0, 0, 0) scale 1;
-  transition: transform .2s ease, box-shadow .2s ease;
+  transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
   cursor: pointer; }
 
 .email-form--footer .email-form__input--sumbit {
@@ -815,8 +832,11 @@ a.logo {
   box-shadow: 0px 8px 14px 0px #DEE1E4; }
 
 .email-form__input--sumbit:hover {
-  transform: translate3d(0, 0, 0) scale(0.95);
-  box-shadow: 0px 12px 12px 0px rgba(80, 92, 174, 0.3); }
+  box-shadow: 0px 12px 12px 0px rgba(80, 92, 174, 0.3);
+  background-color: #84cfff; }
+
+.email-form__input--sumbit:active {
+  transform: translate3d(0, 0, 0) scale(0.95); }
 
 .email-form--footer .email-form__input--sumbit:hover {
   transform: translate3d(0, 0, 0) scale(0.95);

@@ -14,26 +14,12 @@ setTimeout(() => body.classList.add("shown"), 400)
 new ScrollOver({
   keyframes : [
     {
-      element : tagline,
-      domain : [50, 1000],
-      animate: [
-        {
-          property : "opacity",
-          range : [1, 0]
-        },
-        {
-          property : "translateY",
-          range : [0, -80]
-        }
-      ]
-    },
-    {
       element : iphone,
       domain : [0, 800],
       animate: [
         {
           property : "translateY",
-          range : [0, -160]
+          range : [0, 60]
         }
       ]
     },
@@ -43,7 +29,7 @@ new ScrollOver({
       animate: [
         {
           property : "translateY",
-          range : [0, -210]
+          range : [0, 110]
         }
       ]
     },
@@ -53,7 +39,7 @@ new ScrollOver({
       animate: [
         {
           property : "translateY",
-          range : [0, -140]
+          range : [0, -40]
         }
       ]
     },
