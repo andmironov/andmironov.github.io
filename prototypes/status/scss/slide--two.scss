@@ -148,11 +148,11 @@
   background-image: url(../assets/avatar7.png);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 922px) {
 
   .dapps {
     margin: 50px auto 30px;
-    width: 780px;
+    width: 748px;
     display: flex;
     flex-wrap: wrap;
     align-content:flex-start;
@@ -172,6 +172,5 @@
   .dapp__icon {
     margin-top: 40px;
   }
-
 
 }

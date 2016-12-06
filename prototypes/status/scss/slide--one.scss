@@ -277,42 +277,51 @@
 @media (max-width: 1220px) {
 
   .features-wrap {
-    width: 1120px;
+    width: 1040px;
+  }
+
+  .features {
+    padding: 20px 50px;
+  }
+
+  .tagline {
+    left: 65px
   }
 
   .phones {
-    right: -55px;
+    right: 0;
   }
 }
 
 @media (max-width: 1140px) {
 
-  .slide.slide--one .slide__inner {
-    margin: 0 0 0 0;
-    border-radius: 0;
+  .slide.slide--one {
+    margin: 20px 20px 0 20px;
   }
 
-  .features-wrap {
+  .slide.slide--one .slide__inner {
+    margin: 0 0 0 0;
     width: 100%;
   }
 
-  .features {
-    border-radius: 0;
-    padding: 20px;
+  .features-wrap {
+    width: 100%
   }
 
-  .phones {
-    right: -25px;
+  .features {
+    width: auto;
+    margin: 0 20px;
   }
 
   .tagline {
     justify-content: flex-start;
     text-align: left;
-    left: 30px;
+    left: 40px;
   }
+
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1030px) {
 
   .tagline {
     width: 300px;
@@ -321,9 +330,8 @@
 
   .email-form {
     flex-direction: column;
-    width: 280px;
+    width: 300px;
   }
-
 
   .email-form__input--email {
     width: 100%;
@@ -333,17 +341,40 @@
   .email-form__input--sumbit {
     width: 100%;
   }
+
 }
 
-@media (max-width: 860px) {
+@media (max-width: 960px) {
 
-  .tagline {
+  .tagline,
+  .email-form {
     width: 280px;
-    top: 180px;
   }
+
+  .features-wrap {
+    width: 100%;
+  }
+
+  .features {
+    padding: 20px
+  }
+}
+
+
+@media (max-width: 922px) {
 
   .slide.slide--one .slide__inner {
     height: 693px;
+  }
+
+
+  .tagline {
+    width: 260px;
+    top: 180px;
+  }
+
+  .email-form {
+    width: 260px;
   }
 
   .phones {
@@ -376,4 +407,55 @@
     background-size: 336px;
   }
 
+  .features__item {
+    width: 200px;
+  }
+}
+
+@media (max-width: 840px) {
+
+  .slide.slide--one .slide__inner {
+    height: 670px;
+  }
+
+  .tagline {
+    left: 30px;
+  }
+
+  .tagline,
+  .email-form {
+    width: 246px;
+  }
+
+  .tagline .tagline__title {
+    font-size: 21px;
+    line-height: 35px;
+    margin: 0 0 5px 0;
+  }
+
+  .tagline .tagline__body {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .features__title {
+    font-size: 16px;
+    line-height: 20px;
+    margin: 15px 0 5px 0;
+  }
+
+  .features__description {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .phones {
+    top: 61px;
+    right: -10px;
+    width: 458px;
+  }
+
+  .phone-wrap--android {
+    left: 170px;
+  }
 }

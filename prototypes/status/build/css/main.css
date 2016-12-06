@@ -281,12 +281,16 @@ a.logo {
     top: 0; }
   .header__inner {
     width: 100%;
-    margin: 30px;
+    margin: 40px;
     align-items: center; } }
 
 @media (max-width: 960px) {
   .nav {
     display: none; } }
+
+@media (max-width: 840px) {
+  .header__inner {
+    margin: 30px; } }
 
 .container {
   max-width: 1280px;
@@ -580,45 +584,60 @@ a.logo {
 
 @media (max-width: 1220px) {
   .features-wrap {
-    width: 1120px; }
+    width: 1040px; }
+  .features {
+    padding: 20px 50px; }
+  .tagline {
+    left: 65px; }
   .phones {
-    right: -55px; } }
+    right: 0; } }
 
 @media (max-width: 1140px) {
+  .slide.slide--one {
+    margin: 20px 20px 0 20px; }
   .slide.slide--one .slide__inner {
     margin: 0 0 0 0;
-    border-radius: 0; }
+    width: 100%; }
   .features-wrap {
     width: 100%; }
   .features {
-    border-radius: 0;
-    padding: 20px; }
-  .phones {
-    right: -25px; }
+    width: auto;
+    margin: 0 20px; }
   .tagline {
     justify-content: flex-start;
     text-align: left;
-    left: 30px; } }
+    left: 40px; } }
 
-@media (max-width: 960px) {
+@media (max-width: 1030px) {
   .tagline {
     width: 300px;
     top: 230px; }
   .email-form {
     flex-direction: column;
-    width: 280px; }
+    width: 300px; }
   .email-form__input--email {
     width: 100%;
     margin: 0 0 10px 0; }
   .email-form__input--sumbit {
     width: 100%; } }
 
-@media (max-width: 860px) {
-  .tagline {
-    width: 280px;
-    top: 180px; }
+@media (max-width: 960px) {
+  .tagline,
+  .email-form {
+    width: 280px; }
+  .features-wrap {
+    width: 100%; }
+  .features {
+    padding: 20px; } }
+
+@media (max-width: 922px) {
   .slide.slide--one .slide__inner {
     height: 693px; }
+  .tagline {
+    width: 260px;
+    top: 180px; }
+  .email-form {
+    width: 260px; }
   .phones {
     top: 84px;
     width: 506px;
@@ -638,7 +657,38 @@ a.logo {
   .phone--iphone {
     width: 336px;
     height: 594px;
-    background-size: 336px; } }
+    background-size: 336px; }
+  .features__item {
+    width: 200px; } }
+
+@media (max-width: 840px) {
+  .slide.slide--one .slide__inner {
+    height: 670px; }
+  .tagline {
+    left: 30px; }
+  .tagline,
+  .email-form {
+    width: 246px; }
+  .tagline .tagline__title {
+    font-size: 21px;
+    line-height: 35px;
+    margin: 0 0 5px 0; }
+  .tagline .tagline__body {
+    font-size: 16px;
+    line-height: 24px; }
+  .features__title {
+    font-size: 16px;
+    line-height: 20px;
+    margin: 15px 0 5px 0; }
+  .features__description {
+    font-size: 14px;
+    line-height: 20px; }
+  .phones {
+    top: 61px;
+    right: -10px;
+    width: 458px; }
+  .phone-wrap--android {
+    left: 170px; } }
 
 .slide.slide--two {
   padding: 0 0 40px 0;
@@ -762,10 +812,10 @@ a.logo {
 .dapp.dapp--seven .dapp__image {
   background-image: url(../assets/avatar7.png); }
 
-@media (max-width: 900px) {
+@media (max-width: 922px) {
   .dapps {
     margin: 50px auto 30px;
-    width: 780px;
+    width: 748px;
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
@@ -989,26 +1039,39 @@ a.logo {
     width: 860px; }
   .point.point--one {
     top: 183px;
-    left: 40px; }
+    left: -30px; }
   .point.point--two {
     top: 454px;
     left: 243px; }
-  .point.point--three {
-    top: 151px;
-    left: 553px;
-    display: none; }
   .point.point--four {
     top: 240px;
-    left: 560px; }
-  .circles {
-    width: 100%; }
-  .points {
-    width: 100%; } }
+    left: 630px; }
+  .point.point--three {
+    display: none; } }
 
-@media (max-width: 900px) {
+@media (max-width: 960px) {
+  .point.point--one {
+    top: 183px;
+    left: 20px; }
+  .point.point--two {
+    top: 454px;
+    left: 243px; }
+  .point.point--four {
+    top: 240px;
+    left: 580px; } }
+
+@media (max-width: 922px) {
   .slide.slide--three .slide__inner {
-    width: 100%;
-    border-radius: 0; } }
+    width: 728px; }
+  .point.point--one {
+    top: 183px;
+    left: 20px; }
+  .point.point--two {
+    top: 454px;
+    left: 170px; }
+  .point.point--four {
+    top: 240px;
+    left: 450px; } }
 
 .slide.slide--four {
   display: flex;
