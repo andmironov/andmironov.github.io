@@ -28,14 +28,15 @@ a.logo {
 }
 
 .logo__icon {
-  height: 78px;
-  width: 78px;
-  background-image: url(../assets/logo2.png);
-  background-size: 78px;
+  height: 58px;
+  width: 58px;
+  background-image: url(../assets/logo3.png);
+  background-size: 58px;
+  background-position: left;
 }
 
 .logo_text {
-  margin: 7px 0 0 3px;
+  margin: 2px 0 0 8px;
 }
 
 .logo__title {
@@ -120,4 +121,18 @@ a.logo {
 
 .social-link:hover {
   transform: scale(.9)
+}
+
+@media (max-width: 1140px) {
+
+  .header {
+    top: 0;
+  }
+
+  .header__inner {
+    width: 100%;
+    margin: 30px;
+    align-items: center;
+  }
+
 }

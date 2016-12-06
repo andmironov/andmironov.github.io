@@ -198,13 +198,14 @@ a.logo {
   align-items: flex-start; }
 
 .logo__icon {
-  height: 78px;
-  width: 78px;
-  background-image: url(../assets/logo2.png);
-  background-size: 78px; }
+  height: 58px;
+  width: 58px;
+  background-image: url(../assets/logo3.png);
+  background-size: 58px;
+  background-position: left; }
 
 .logo_text {
-  margin: 7px 0 0 3px; }
+  margin: 2px 0 0 8px; }
 
 .logo__title {
   display: block;
@@ -275,6 +276,14 @@ a.logo {
 .social-link:hover {
   transform: scale(0.9); }
 
+@media (max-width: 1140px) {
+  .header {
+    top: 0; }
+  .header__inner {
+    width: 100%;
+    margin: 30px;
+    align-items: center; } }
+
 .container {
   max-width: 1280px;
   margin: 0 auto;
@@ -282,14 +291,13 @@ a.logo {
 
 .slides {
   display: flex;
-  align-items: center;
   flex-direction: column; }
 
 .slide {
   position: relative;
-  box-sizing: border-box;
   display: flex;
-  justify-content: center; }
+  flex-direction: column;
+  align-items: center; }
 
 .slide__inner {
   width: 1080px;
@@ -326,6 +334,11 @@ a.logo {
 .slide__header--inversed .slide__description {
   color: white;
   opacity: .6; }
+
+@media (max-width: 1140px) {
+  .slide__inner {
+    width: 100%;
+    margin: 0; } }
 
 .slide.slide--one .slide__inner {
   margin: 30px 0 0 0;
@@ -428,8 +441,10 @@ a.logo {
   transform: translate3d(0, 0, 0) scale(0.95); }
 
 .phones {
+  width: 569px;
+  height: 838px;
   position: absolute;
-  right: 510px;
+  right: -65px;
   top: 64px; }
 
 .phone-wrap {
@@ -456,11 +471,15 @@ a.logo {
   transform: translate3d(0, 0, 0); }
 
 .phone-wrap--android {
+  width: 339px;
+  height: 626px;
   left: 230px;
   top: 110px;
   z-index: 400; }
 
 .phone-wrap--iphone {
+  width: 412px;
+  height: 728px;
   left: 0;
   top: 0;
   z-index: 500; }
@@ -478,13 +497,10 @@ a.logo {
   background-size: 412px; }
 
 .features-wrap {
-  position: absolute;
-  bottom: -160px;
-  left: -50px;
+  position: relative;
+  top: -139px;
   width: 1180px;
-  margin: 0 0 0 0;
-  height: 300px;
-  z-index: 800; }
+  height: 300px; }
 
 .features {
   display: flex;
@@ -493,7 +509,6 @@ a.logo {
   align-items: flex-start;
   justify-content: space-between;
   padding: 20px 80px;
-  margin: 0 0 0 0;
   background: white;
   box-shadow: 0px -2px 18px 0px rgba(72, 89, 102, 0.25);
   border-radius: 10px;
@@ -560,8 +575,57 @@ a.logo {
   font-size: 15px;
   line-height: 25px; }
 
+@media (max-width: 1220px) {
+  .features-wrap {
+    width: 1120px; }
+  .phones {
+    right: -55px; } }
+
+@media (max-width: 1140px) {
+  .slide.slide--one .slide__inner {
+    margin: 0 0 0 0;
+    border-radius: 0; }
+  .features-wrap {
+    width: 100%; }
+  .features {
+    border-radius: 0;
+    padding: 20px; }
+  .phones {
+    right: -25px; }
+  .tagline {
+    justify-content: flex-start;
+    text-align: left;
+    left: 30px; } }
+
+@media (max-width: 960px) {
+  .slide.slide--one .slide__inner {
+    height: 713px; }
+  .phones {
+    top: 104px;
+    width: 506px;
+    height: 594px; }
+  .tagline {
+    top: 230px; }
+  .phone-wrap--android {
+    top: 91px;
+    left: 218px;
+    width: 276px;
+    height: 511px; }
+  .phone-wrap--iphone {
+    width: 336px;
+    height: 594px; }
+  .phone--android {
+    width: 276px;
+    height: 511px;
+    background-size: 276px; }
+  .phone--iphone {
+    width: 336px;
+    height: 594px;
+    background-size: 336px; } }
+
 .slide.slide--two {
-  padding: 210px 0 40px; }
+  padding: 0 0 40px 0;
+  margin: -100px 0 0 0; }
 
 .dapps {
   margin: 50px auto 30px;
@@ -697,8 +761,8 @@ a.logo {
 
 .circles {
   position: absolute;
-  width: 1080px;
-  height: 740px;
+  width: 100%;
+  height: 100%;
   left: 0;
   top: 0;
   overflow: hidden;
@@ -714,7 +778,7 @@ a.logo {
 .slide__circle-wrap {
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 110%;
   transform: translate3d(-50%, -50%, 0); }
 
 .slide__circle {
@@ -758,8 +822,8 @@ a.logo {
 
 .points {
   position: absolute;
-  width: 1080px;
-  height: 740px;
+  width: 100%;
+  height: 100%;
   top: 0;
   left: 0;
   z-index: 600; }
@@ -769,20 +833,20 @@ a.logo {
   width: 260px; }
 
 .point.point--one {
-  top: 168px;
+  top: 198px;
   left: -50px; }
 
 .point.point--two {
-  top: 409px;
-  left: 147px; }
+  top: 439px;
+  left: 273px; }
 
 .point.point--three {
-  top: 265px;
+  top: 192px;
   left: 490px; }
 
 .point.point--four {
   top: 336px;
-  left: 860px; }
+  left: 844px; }
 
 .point__point {
   width: 20px;
@@ -879,6 +943,34 @@ a.logo {
 
 .point.point--four .point__avatar {
   background-image: url(../assets/avatar4.png); }
+
+@media (max-width: 1220px) {
+  .point.point--one {
+    top: 127px;
+    left: 20px; }
+  .point.point--four {
+    top: 425px;
+    left: 778px; } }
+
+@media (max-width: 1140px) {
+  .slide.slide--three .slide__inner {
+    width: 860px; }
+  .point.point--one {
+    top: 163px;
+    left: 30px; }
+  .point.point--two {
+    top: 474px;
+    left: 133px; }
+  .point.point--three {
+    top: 151px;
+    left: 553px; }
+  .point.point--four {
+    top: 469px;
+    left: 577px; }
+  .circles {
+    width: 100%; }
+  .points {
+    width: 100%; } }
 
 .slide.slide--four {
   display: flex;

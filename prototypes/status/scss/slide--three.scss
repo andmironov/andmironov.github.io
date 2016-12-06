@@ -14,8 +14,8 @@
 
 .circles {
   position: absolute;
-  width: 1080px;
-  height: 740px;
+  width: 100%;
+  height: 100%;
   left: 0;
   top: 0;
   overflow: hidden;
@@ -33,7 +33,7 @@
 .slide__circle-wrap {
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 110%;
   transform: translate3d(-50%, -50%, 0);
 }
 
@@ -92,8 +92,8 @@
 
 .points {
   position: absolute;
-  width: 1080px;
-  height: 740px;
+  width: 100%;
+  height: 100%;
   top: 0;
   left: 0;
   z-index: 600;
@@ -105,23 +105,23 @@
 }
 
 .point.point--one {
-  top: 168px;
+  top: 198px;
   left: -50px;
 }
 
 .point.point--two {
-  top: 409px;
-  left: 147px;
+  top: 439px;
+  left: 273px;
 }
 
 .point.point--three {
-  top: 265px;
+  top: 192px;
   left: 490px;
 }
 
 .point.point--four {
   top: 336px;
-  left: 860px;
+  left: 844px;
 }
 
 .point__point {
@@ -241,4 +241,53 @@
 
 .point.point--four .point__avatar {
   background-image: url(../assets/avatar4.png);
+}
+
+@media (max-width: 1220px) {
+
+  .point.point--one {
+    top: 127px;
+    left: 20px
+  }
+
+  .point.point--four {
+    top: 425px;
+    left: 778px;
+  }
+
+}
+@media (max-width: 1140px) {
+
+  .slide.slide--three .slide__inner {
+    width: 860px;
+  }
+
+  .point.point--one {
+    top: 163px;
+    left: 30px;
+  }
+
+  .point.point--two {
+    top: 474px;
+    left: 133px;
+  }
+
+  .point.point--three {
+    top: 151px;
+    left: 553px;
+  }
+
+  .point.point--four {
+    top: 469px;
+    left: 577px;
+  }
+
+  .circles {
+    width: 100%;
+  }
+
+  .points {
+    width: 100%;
+  }
+
 }
