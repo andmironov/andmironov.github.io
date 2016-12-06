@@ -264,7 +264,7 @@
 
   .point.point--one {
     top: 183px;
-    left: 20px;
+    left: 40px;
   }
 
   .point.point--two {
@@ -280,7 +280,7 @@
 
   .point.point--four {
     top: 240px;
-    left: 520px;
+    left: 560px;
   }
 
   .circles {
@@ -293,7 +293,7 @@
 
 }
 
-@media (max-width: 860px) {
+@media (max-width: 900px) {
 
   .slide.slide--three .slide__inner {
     width: 100%;

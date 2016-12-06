@@ -646,7 +646,7 @@ a.logo {
 
 .dapps {
   margin: 50px auto 30px;
-  width: 860px;
+  width: 880px;
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
@@ -762,7 +762,7 @@ a.logo {
 .dapp.dapp--seven .dapp__image {
   background-image: url(../assets/avatar7.png); }
 
-@media (max-width: 860px) {
+@media (max-width: 900px) {
   .dapps {
     margin: 50px auto 30px;
     width: 780px;
@@ -989,7 +989,7 @@ a.logo {
     width: 860px; }
   .point.point--one {
     top: 183px;
-    left: 20px; }
+    left: 40px; }
   .point.point--two {
     top: 454px;
     left: 243px; }
@@ -999,13 +999,13 @@ a.logo {
     display: none; }
   .point.point--four {
     top: 240px;
-    left: 520px; }
+    left: 560px; }
   .circles {
     width: 100%; }
   .points {
     width: 100%; } }
 
-@media (max-width: 860px) {
+@media (max-width: 900px) {
   .slide.slide--three .slide__inner {
     width: 100%;
     border-radius: 0; } }
@@ -1028,6 +1028,7 @@ a.logo {
   justify-content: center; }
 
 .email-form.email-form--footer .email-form__input--email {
+  width: 210px;
   margin: 0 0 10px 0;
   color: rgba(0, 0, 0, 0.2);
   background-color: rgba(0, 0, 0, 0.08); }
