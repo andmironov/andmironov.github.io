@@ -41,7 +41,6 @@
 
 .tagline .tagline__body {
   color: $colorWhite;
-  width: 350px;
   opacity: .6;
   font-size: 18px;
   line-height: 25px;
@@ -315,6 +314,34 @@
 
 @media (max-width: 960px) {
 
+  .tagline {
+    width: 300px;
+    top: 230px;
+  }
+
+  .email-form {
+    flex-direction: column;
+    width: 280px;
+  }
+
+
+  .email-form__input--email {
+    width: 100%;
+    margin: 0 0 10px 0;
+  }
+
+  .email-form__input--sumbit {
+    width: 100%;
+  }
+}
+
+@media (max-width: 860px) {
+
+  .tagline {
+    width: 280px;
+    top: 180px;
+  }
+
   .slide.slide--one .slide__inner {
     height: 693px;
   }
@@ -323,11 +350,6 @@
     top: 84px;
     width: 506px;
     height: 594px;
-  }
-
-  .tagline {
-    width: 280px;
-    top: 180px;
   }
 
   .phone-wrap--android {
@@ -354,18 +376,4 @@
     background-size: 336px;
   }
 
-  .email-form {
-    flex-direction: column;
-    width: 280px;
-  }
-
-
-  .email-form__input--email {
-    width: 100%;
-    margin: 0 0 10px 0;
-  }
-
-  .email-form__input--sumbit {
-    width: 100%;
-  }
 }

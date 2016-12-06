@@ -382,7 +382,6 @@ a.logo {
 
 .tagline .tagline__body {
   color: white;
-  width: 350px;
   opacity: .6;
   font-size: 18px;
   line-height: 25px;
@@ -602,15 +601,28 @@ a.logo {
     left: 30px; } }
 
 @media (max-width: 960px) {
+  .tagline {
+    width: 300px;
+    top: 230px; }
+  .email-form {
+    flex-direction: column;
+    width: 280px; }
+  .email-form__input--email {
+    width: 100%;
+    margin: 0 0 10px 0; }
+  .email-form__input--sumbit {
+    width: 100%; } }
+
+@media (max-width: 860px) {
+  .tagline {
+    width: 280px;
+    top: 180px; }
   .slide.slide--one .slide__inner {
     height: 693px; }
   .phones {
     top: 84px;
     width: 506px;
     height: 594px; }
-  .tagline {
-    width: 280px;
-    top: 180px; }
   .phone-wrap--android {
     top: 91px;
     left: 218px;
@@ -626,15 +638,7 @@ a.logo {
   .phone--iphone {
     width: 336px;
     height: 594px;
-    background-size: 336px; }
-  .email-form {
-    flex-direction: column;
-    width: 280px; }
-  .email-form__input--email {
-    width: 100%;
-    margin: 0 0 10px 0; }
-  .email-form__input--sumbit {
-    width: 100%; } }
+    background-size: 336px; } }
 
 .slide.slide--two {
   padding: 0 0 40px 0;
@@ -758,7 +762,7 @@ a.logo {
 .dapp.dapp--seven .dapp__image {
   background-image: url(../assets/avatar7.png); }
 
-@media (max-width: 880px) {
+@media (max-width: 860px) {
   .dapps {
     margin: 50px auto 30px;
     width: 780px;
@@ -769,7 +773,11 @@ a.logo {
   .dapp {
     width: 25%;
     flex-grow: 1;
-    flex-shrink: 1; } }
+    flex-shrink: 1; }
+  .dapp__inner {
+    height: 230px; }
+  .dapp__icon {
+    margin-top: 40px; } }
 
 .slide.slide--three {
   display: flex;
@@ -997,7 +1005,7 @@ a.logo {
   .points {
     width: 100%; } }
 
-@media (max-width: 960px) {
+@media (max-width: 860px) {
   .slide.slide--three .slide__inner {
     width: 100%;
     border-radius: 0; } }

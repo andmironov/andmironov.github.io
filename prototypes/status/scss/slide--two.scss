@@ -14,7 +14,6 @@
 
 .dapp {
   width: 25%;
-
   opacity: 0;
   transform: translate3d(0, 20px, 0);
   transition: transform .6s ease, opacity .4s ease;
@@ -149,7 +148,7 @@
   background-image: url(../assets/avatar7.png);
 }
 
-@media (max-width: 880px) {
+@media (max-width: 860px) {
 
   .dapps {
     margin: 50px auto 30px;
@@ -165,5 +164,14 @@
     flex-grow: 1;
     flex-shrink: 1
   }
+
+  .dapp__inner {
+    height: 230px;
+  }
+
+  .dapp__icon {
+    margin-top: 40px;
+  }
+
 
 }
