@@ -263,23 +263,24 @@
   }
 
   .point.point--one {
-    top: 163px;
-    left: 30px;
+    top: 183px;
+    left: 20px;
   }
 
   .point.point--two {
-    top: 474px;
-    left: 133px;
+    top: 454px;
+    left: 243px;
   }
 
   .point.point--three {
     top: 151px;
     left: 553px;
+    display: none;
   }
 
   .point.point--four {
-    top: 469px;
-    left: 577px;
+    top: 240px;
+    left: 520px;
   }
 
   .circles {
@@ -290,4 +291,12 @@
     width: 100%;
   }
 
+}
+
+@media (max-width: 960px) {
+
+  .slide.slide--three .slide__inner {
+    width: 100%;
+    border-radius: 0;
+  }
 }

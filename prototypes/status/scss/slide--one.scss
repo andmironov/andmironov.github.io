@@ -316,17 +316,18 @@
 @media (max-width: 960px) {
 
   .slide.slide--one .slide__inner {
-    height: 713px;
+    height: 693px;
   }
 
   .phones {
-    top: 104px;
+    top: 84px;
     width: 506px;
     height: 594px;
   }
 
   .tagline {
-    top: 230px;
+    width: 280px;
+    top: 180px;
   }
 
   .phone-wrap--android {
@@ -351,5 +352,20 @@
     width: 336px;
     height: 594px;
     background-size: 336px;
+  }
+
+  .email-form {
+    flex-direction: column;
+    width: 280px;
+  }
+
+
+  .email-form__input--email {
+    width: 100%;
+    margin: 0 0 10px 0;
+  }
+
+  .email-form__input--sumbit {
+    width: 100%;
   }
 }

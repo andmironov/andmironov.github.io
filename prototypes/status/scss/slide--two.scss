@@ -13,9 +13,7 @@
 }
 
 .dapp {
-  width: 200px;
-  height: 220px;
-  margin: 0 0 20px 0;
+  width: 25%;
 
   opacity: 0;
   transform: translate3d(0, 20px, 0);
@@ -62,8 +60,8 @@
 
 .dapp__inner {
   background-color: $colorWhite;
-  width: 200px;
   height: 220px;
+  margin: 10px;
   box-shadow: 0px 4px 18px 0px rgba(189,208,223,0.26);
   border-radius: 8px;
   padding: 20px;
@@ -149,4 +147,23 @@
 
 .dapp.dapp--seven .dapp__image {
   background-image: url(../assets/avatar7.png);
+}
+
+@media (max-width: 880px) {
+
+  .dapps {
+    margin: 50px auto 30px;
+    width: 780px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content:flex-start;
+    justify-content:flex-start;
+  }
+
+  .dapp {
+    width: 25%;
+    flex-grow: 1;
+    flex-shrink: 1
+  }
+
 }
