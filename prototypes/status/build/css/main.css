@@ -672,23 +672,31 @@ a.logo {
   .tagline .tagline__title {
     font-size: 21px;
     line-height: 35px;
-    margin: 0 0 5px 0; }
+    margin: 0 0 0 0; }
   .tagline .tagline__body {
     font-size: 16px;
     line-height: 24px; }
+  .features {
+    margin: 0 15px; }
+  .features-wrap {
+    height: 260px; }
+  .features__icon {
+    width: 95px;
+    height: 44px;
+    background-size: 95px; }
   .features__title {
-    font-size: 16px;
+    font-size: 15px;
     line-height: 20px;
-    margin: 15px 0 5px 0; }
+    margin: 5px 0; }
   .features__description {
     font-size: 14px;
     line-height: 20px; }
   .phones {
     top: 61px;
     right: -10px;
-    width: 458px; }
+    width: 438px; }
   .phone-wrap--android {
-    left: 170px; } }
+    left: 150px; } }
 
 .slide.slide--two {
   padding: 0 0 40px 0;
