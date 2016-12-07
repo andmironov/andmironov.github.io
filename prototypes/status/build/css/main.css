@@ -242,13 +242,13 @@ a.logo {
 .shares .social-links {
   justify-content: flex-end; }
 
-.social-links li {
+.social-links li.social-link {
   margin: 0 10px; }
 
-.shares .social-links li {
+.shares .social-links li.social-link {
   margin: 0 0 0 10px; }
 
-.social-link {
+li.social-link a {
   display: block;
   width: 40px;
   height: 40px;
@@ -261,19 +261,19 @@ a.logo {
   cursor: pointer;
   box-shadow: 0px 10px 10px 0px rgba(80, 92, 174, 0.5); }
 
-.social-link.social-link--fb {
+.social-link.social-link--fb a {
   background-color: #4675DF;
   background-image: url(../assets/icon_fb.svg); }
 
-.social-link.social-link--tw {
+.social-link.social-link--tw a {
   background-color: #4DB9FE;
   background-image: url(../assets/icon_tw.svg); }
 
-.social-link.social-link--sl {
+.social-link.social-link--sl a {
   background-color: #E3306D;
   background-image: url(../assets/icon_sl.svg); }
 
-.social-link:hover {
+.social-link:hover a {
   transform: scale(0.9); }
 
 @media (max-width: 1140px) {
@@ -307,7 +307,9 @@ a.logo {
     line-height: 24px; }
   .logo__description {
     font-size: 14px;
-    line-height: 15px; } }
+    line-height: 15px; }
+  .social-link.social-link--fb {
+    display: none; } }
 
 .the-iphone {
   position: relative;
