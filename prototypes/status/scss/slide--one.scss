@@ -113,6 +113,35 @@
   transform: translate3d(0, 0, 0) scale(.95);
 }
 
+.tagline__footer {
+  text-align: center;
+  color: white;
+
+  margin: 0 auto;
+  padding: 25px;
+  width: 200px;
+  font-size: 16px;
+  line-height: 24px;
+
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+  transition: transform .6s ease,opacity .6s ease;
+  transition-delay: .3s;
+
+  display: none;
+}
+
+.shown .tagline__footer {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+.phone-wrap--iphone {
+  transform: translate3d(0, 0, 0) !important;
+}
+.phone-wrap--android {
+  transform: translate3d(0, 0, 0) !important;
+}
+
 .phones {
   width: 476px;
   height: 636px;
@@ -501,7 +530,7 @@
     width: auto;
     left: 0;
     top: 0;
-    margin: 110px 0 54px 0;
+    margin: 110px 0 0px 0;
     padding: 0 20px;
   }
 
@@ -511,6 +540,11 @@
 
   .tagline .tagline__body {
     margin: 0 0 10px 0;
+  }
+
+  .tagline__footer {
+    display: block;
+    margin-top: 24px;
   }
 
   .phones {
