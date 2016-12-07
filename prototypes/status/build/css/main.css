@@ -292,6 +292,120 @@ a.logo {
   .header__inner {
     margin: 30px; } }
 
+.the-iphone {
+  position: relative;
+  width: 292px;
+  height: 610px;
+  background: #FFFFFF;
+  box-shadow: 11px 15px 39px 0 rgba(31, 35, 61, 0.2), 0 2px 4px 0 rgba(88, 100, 177, 0.01), inset 0 0 4px 4px #dfe1ec;
+  border-radius: 40px;
+  z-index: 600; }
+
+.the-iphone-dot {
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  left: 50%;
+  top: 22px;
+  transform: translate3d(-50%, 0, 0);
+  border-radius: 50%;
+  opacity: 0.5;
+  background: #DAE1EA;
+  box-shadow: inset 0 1px 2px 0 #B3B8D0; }
+
+.the-iphone-line {
+  width: 44px;
+  height: 6px;
+  position: absolute;
+  left: 50%;
+  top: 36px;
+  transform: translate3d(-50%, 0, 0);
+  border-radius: 5px;
+  opacity: 0.5;
+  background: #DAE1EA;
+  box-shadow: inset 0 1px 2px 0 #B3B8D0; }
+
+.the-iphone-screen {
+  width: 270px;
+  height: 479px;
+  border: 1px solid #E7E9F0;
+  background-color: #F3F4F8;
+  position: absolute;
+  left: 50%;
+  top: 60px;
+  border-radius: 4px;
+  transform: translate3d(-50%, 0, 0);
+  background-image: url(../assets/ios_screen.png);
+  background-size: 270px; }
+
+.the-iphone-button {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  transform: translate3d(-50%, 0, 0);
+  border-radius: 50%;
+  opacity: 0.5;
+  background: #DAE1EA;
+  box-shadow: inset 0 1px 2px 0 #B3B8D0; }
+
+.the-android {
+  position: relative;
+  width: 290px;
+  height: 574px;
+  background: #FFFFFF;
+  box-shadow: 11px 15px 39px 0 rgba(31, 35, 61, 0.2), 0 2px 4px 0 rgba(88, 100, 177, 0.01), inset 0 0 4px 4px #dfe1ec;
+  border-radius: 30px; }
+
+.the-android-dot {
+  width: 7px;
+  height: 7px;
+  position: absolute;
+  left: 76px;
+  top: 25px;
+  border-radius: 50%;
+  opacity: 0.5;
+  background: #DAE1EA;
+  box-shadow: inset 0 1px 2px 0 #B3B8D0; }
+
+.the-android-line {
+  width: 94px;
+  height: 6px;
+  position: absolute;
+  left: 50%;
+  top: 25px;
+  transform: translate3d(-50%, 0, 0);
+  border-radius: 5px;
+  opacity: 0.5;
+  background: #DAE1EA;
+  box-shadow: inset 0 1px 2px 0 #B3B8D0; }
+
+.the-android-screen {
+  width: 262px;
+  height: 466px;
+  border: 1px solid #E7E9F0;
+  background-color: #F3F4F8;
+  position: absolute;
+  left: 50%;
+  top: 50px;
+  border-radius: 4px;
+  transform: translate3d(-50%, 0, 0);
+  background-image: url(../assets/screen_android2.png);
+  background-size: 262px; }
+
+.the-android-button {
+  width: 94px;
+  height: 6px;
+  position: absolute;
+  left: 50%;
+  bottom: 26px;
+  transform: translate3d(-50%, 0, 0);
+  border-radius: 5px;
+  opacity: 0.5;
+  background: #DAE1EA;
+  box-shadow: inset 0 1px 2px 0 #B3B8D0; }
+
 .container {
   max-width: 1280px;
   margin: 0 auto;
@@ -448,20 +562,18 @@ a.logo {
   transform: translate3d(0, 0, 0) scale(0.95); }
 
 .phones {
-  width: 569px;
-  height: 838px;
+  width: 476px;
+  height: 636px;
   position: absolute;
-  right: -65px;
-  top: 64px; }
+  right: -20px;
+  top: 106px; }
 
 .phone-wrap {
   position: absolute;
   transform: translate3d(0, 0, 0); }
 
 .phone {
-  background-repeat: no-repeat;
   position: absolute;
-  transition: none;
   opacity: 0;
   transform: translate3d(0, 40px, 0);
   transition: transform .6s ease, opacity .3s ease; }
@@ -477,31 +589,19 @@ a.logo {
   opacity: 1;
   transform: translate3d(0, 0, 0); }
 
-.phone-wrap--android {
-  width: 339px;
-  height: 626px;
-  left: 230px;
-  top: 110px;
-  z-index: 400; }
-
 .phone-wrap--iphone {
-  width: 412px;
-  height: 728px;
+  width: 292px;
+  height: 610px;
   left: 0;
   top: 0;
   z-index: 500; }
 
-.phone--android {
-  background-image: url(../assets/android@2x.png);
-  width: 339px;
-  height: 626px;
-  background-size: 339px; }
-
-.phone--iphone {
-  background-image: url(../assets/iphone@2x.png);
-  width: 412px;
-  height: 728px;
-  background-size: 412px; }
+.phone-wrap--android {
+  width: 290px;
+  height: 574px;
+  left: 186px;
+  top: 62px;
+  z-index: 400; }
 
 .features-wrap {
   position: relative;
@@ -590,7 +690,7 @@ a.logo {
   .tagline {
     left: 65px; }
   .phones {
-    right: 0; } }
+    right: 40px; } }
 
 @media (max-width: 1140px) {
   .slide.slide--one {
@@ -639,27 +739,38 @@ a.logo {
   .email-form {
     width: 260px; }
   .phones {
-    top: 84px;
-    width: 506px;
-    height: 594px; }
-  .phone-wrap--android {
-    top: 91px;
-    left: 218px;
-    width: 276px;
-    height: 511px; }
+    width: 404px;
+    height: 548px;
+    top: 91px; }
   .phone-wrap--iphone {
-    width: 336px;
-    height: 594px; }
-  .phone--android {
-    width: 276px;
-    height: 511px;
-    background-size: 276px; }
-  .phone--iphone {
-    width: 336px;
-    height: 594px;
-    background-size: 336px; }
+    width: 247px;
+    height: 516px; }
+  .phone-wrap--android {
+    width: 246px;
+    height: 486px;
+    left: 149px; }
+  .the-iphone {
+    width: 247px;
+    height: 516px; }
+  .the-iphone-screen {
+    width: 229px;
+    height: 405px;
+    background-size: 229px; }
+  .the-iphone-button {
+    width: 30px;
+    height: 30px;
+    bottom: 13px; }
+  .the-android {
+    width: 246px;
+    height: 486px; }
+  .the-android-screen {
+    width: 222px;
+    height: 394px;
+    background-size: 222px; }
+  .the-android-button {
+    bottom: 21px; }
   .features__item {
-    width: 200px; } }
+    margin: 0 15px; } }
 
 @media (max-width: 840px) {
   .slide.slide--one .slide__inner {
@@ -692,11 +803,8 @@ a.logo {
     font-size: 14px;
     line-height: 20px; }
   .phones {
-    top: 61px;
-    right: -10px;
-    width: 438px; }
-  .phone-wrap--android {
-    left: 150px; } }
+    right: 20px;
+    top: 69px; } }
 
 .slide.slide--two {
   padding: 0 0 40px 0;

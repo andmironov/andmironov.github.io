@@ -114,11 +114,11 @@
 }
 
 .phones {
-  width: 569px;
-  height: 838px;
+  width: 476px;
+  height: 636px;
   position: absolute;
-  right: -65px;
-  top: 64px;
+  right: -20px;
+  top: 106px;
 }
 
 .phone-wrap {
@@ -127,9 +127,7 @@
 }
 
 .phone {
-  background-repeat: no-repeat;
   position: absolute;
-  transition: none;
   opacity: 0;
   transform: translate3d(0, 40px, 0);
   transition: transform .6s ease, opacity .3s ease;
@@ -149,34 +147,20 @@
   transform: translate3d(0, 0, 0);
 }
 
-.phone-wrap--android {
-  width: 339px;
-  height: 626px;
-  left: 230px;
-  top: 110px;
-  z-index: 400
-}
-
 .phone-wrap--iphone {
-  width: 412px;
-  height: 728px;
+  width: 292px;
+  height: 610px;
   left: 0;
   top: 0;
   z-index: 500
 }
 
-.phone--android {
-  background-image: url(../assets/android@2x.png);
-  width: 339px;
-  height: 626px;
-  background-size: 339px;
-}
-
-.phone--iphone {
-  background-image: url(../assets/iphone@2x.png);
-  width: 412px;
-  height: 728px;
-  background-size: 412px;
+.phone-wrap--android {
+  width: 290px;
+  height: 574px;
+  left: 186px;
+  top: 62px;
+  z-index: 400
 }
 
 .features-wrap {
@@ -289,7 +273,7 @@
   }
 
   .phones {
-    right: 0;
+    right: 40px;
   }
 }
 
@@ -378,37 +362,56 @@
   }
 
   .phones {
-    top: 84px;
-    width: 506px;
-    height: 594px;
-  }
-
-  .phone-wrap--android {
+    width: 404px;
+    height: 548px;
     top: 91px;
-    left: 218px;
-    width: 276px;
-    height: 511px;
   }
 
   .phone-wrap--iphone {
-    width: 336px;
-    height: 594px;
+    width: 247px;
+    height: 516px;
   }
 
-  .phone--android {
-    width: 276px;
-    height: 511px;
-    background-size: 276px;
+  .phone-wrap--android {
+    width: 246px;
+    height: 486px;
+    left: 149px;
   }
 
-  .phone--iphone {
-    width: 336px;
-    height: 594px;
-    background-size: 336px;
+  .the-iphone {
+    width: 247px;
+    height: 516px;
+  }
+
+  .the-iphone-screen {
+    width: 229px;
+    height: 405px;
+    background-size: 229px;
+  }
+
+  .the-iphone-button {
+    width: 30px;
+    height: 30px;
+    bottom: 13px;
+  }
+
+  .the-android  {
+    width: 246px;
+    height: 486px;
+  }
+
+  .the-android-screen {
+    width: 222px;
+    height: 394px;
+    background-size: 222px;
+  }
+
+  .the-android-button {
+    bottom: 21px;
   }
 
   .features__item {
-    width: 200px;
+    margin: 0 15px;
   }
 }
 
@@ -464,12 +467,8 @@
   }
 
   .phones {
-    top: 61px;
-    right: -10px;
-    width: 438px;
+    right: 20px;
+    top: 69px;
   }
 
-  .phone-wrap--android {
-    left: 150px;
-  }
 }
