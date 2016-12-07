@@ -299,15 +299,19 @@ li.social-link a {
   .header__inner {
     margin: 20px; }
   .logo__icon {
-    height: 52px;
-    width: 52px;
-    background-size: 52px; }
+    height: 50px;
+    width: 50px;
+    background-size: 50px; }
   .logo__title {
     font-size: 18px;
     line-height: 24px; }
   .logo__description {
     font-size: 14px;
     line-height: 15px; }
+  .logo__description span {
+    display: none; }
+  .shares .social-links li.social-link {
+    margin: 0 0 0 7px; }
   .social-link.social-link--fb {
     display: none; } }
 
@@ -891,8 +895,15 @@ li.social-link a {
     top: 0;
     left: 0;
     height: 340px;
+    width: auto;
+    max-width: 500px;
     overflow: hidden;
     margin: 0 auto; }
+  .phone-wrap--iphone {
+    left: 20px; }
+  .phone-wrap--android {
+    left: auto;
+    right: 20px; }
   .features-wrap {
     top: 0;
     height: auto; }
