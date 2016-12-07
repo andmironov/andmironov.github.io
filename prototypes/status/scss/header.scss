@@ -86,10 +86,6 @@ a.logo {
   margin: 0 10px;
 }
 
-.shares .social-links li.social-link {
-  margin: 0 0 0 10px;
-}
-
 li.social-link a {
   display: block;
   width: 40px;
@@ -190,7 +186,7 @@ li.social-link a {
     margin: 0 0 0 7px;
   }
 
-  .social-link.social-link--fb {
+  .header .social-link.social-link--fb {
     display: none;
   }
 }

@@ -245,9 +245,6 @@ a.logo {
 .social-links li.social-link {
   margin: 0 10px; }
 
-.shares .social-links li.social-link {
-  margin: 0 0 0 10px; }
-
 li.social-link a {
   display: block;
   width: 40px;
@@ -317,7 +314,7 @@ li.social-link a {
     margin: 0px 0 0 4px; }
   .shares .social-links li.social-link {
     margin: 0 0 0 7px; }
-  .social-link.social-link--fb {
+  .header .social-link.social-link--fb {
     display: none; } }
 
 .the-iphone {
@@ -1363,6 +1360,8 @@ li.social-link a {
     left: 450px; } }
 
 @media (max-width: 767px) {
+  .slide.slide--three {
+    padding: 40px 0 40px; }
   .slide.slide--three .slide__inner {
     padding: 30px 0;
     width: 100%;
@@ -1379,7 +1378,8 @@ li.social-link a {
   .point__title {
     margin: 0 10px 0 10px; }
   .point__content {
-    width: auto; }
+    width: auto;
+    border-radius: 40px; }
   .point__avatar {
     float: none;
     margin: 0; }
@@ -1410,8 +1410,8 @@ li.social-link a {
 .slide.slide--four .slide__inner {
   border-radius: 8px;
   padding: 20px 0 0 0;
-  height: 340px;
-  width: 1080px; }
+  height: auto;
+  width: auto; }
 
 .email-form.email-form--footer {
   width: 300px;
@@ -1434,6 +1434,10 @@ li.social-link a {
   transform: translate3d(0, 0, 0) scale(0.95);
   box-shadow: 0px 10px 14px 0px #DEE1E4; }
 
+@media (max-width: 767px) {
+  .slide.slide--four {
+    padding: 0px; } }
+
 .footer {
   display: flex;
   text-align: center;
@@ -1448,17 +1452,25 @@ li.social-link a {
 .footer .social-links {
   margin: 0 0 20px 0; }
 
-.social-link.social-link--inversed {
+.social-link.social-link--inversed a {
   box-shadow: 0px 4px 6px 0px rgba(189, 208, 223, 0.12); }
 
-.social-link.social-link--fb.social-link--inversed {
+.social-link.social-link--fb.social-link--inversed a {
   background-image: url(../assets/icon_fb.svg);
   background-color: #6081CB; }
 
-.social-link.social-link--tw.social-link--inversed {
+.social-link.social-link--tw.social-link--inversed a {
   background-image: url(../assets/icon_tw.svg);
   background-color: #6DBDFB; }
 
-.social-link.social-link--sl.social-link--inversed {
+.social-link.social-link--sl.social-link--inversed a {
   background-image: url(../assets/icon_sl.svg);
   background-color: #E3306D; }
+
+.footer .social-links li.social-link {
+  margin: 0 0 0 8px; }
+
+@media (max-width: 767px) {
+  .address {
+    font-size: 15px;
+    line-height: 21px; } }
