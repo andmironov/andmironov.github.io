@@ -492,7 +492,7 @@ li.social-link a {
     padding: 0 20px;
     margin: 0 auto;
     width: auto;
-    max-width: 400px; }
+    max-width: 300px; }
   .slide__title {
     font-size: 19px;
     line-height: 26px;
@@ -1396,7 +1396,7 @@ li.social-link a {
     left: auto; }
   .point.point--three {
     top: 440px;
-    left: 20px;
+    left: 70px;
     display: block; }
   .point.point--four {
     top: 360px;
