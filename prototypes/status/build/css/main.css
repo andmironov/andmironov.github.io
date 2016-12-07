@@ -243,7 +243,7 @@ a.logo {
   justify-content: flex-end; }
 
 .social-links li.social-link {
-  margin: 0 10px; }
+  margin: 0 5px; }
 
 li.social-link a {
   display: block;
@@ -1473,4 +1473,6 @@ li.social-link a {
 @media (max-width: 767px) {
   .address {
     font-size: 15px;
-    line-height: 21px; } }
+    line-height: 21px; }
+  .footer {
+    padding: 60px 0 60px 0; } }
