@@ -69,3 +69,18 @@
   }
 
 }
+
+@media (max-width: 767px) {
+
+  .slide__header {
+      margin: 0 30px;
+      width: auto;
+  }
+
+  .slide__title {
+    font-size: 21px;
+    line-height: 30px;
+    margin: 0 0 10px 0;
+  }
+
+}

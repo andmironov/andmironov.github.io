@@ -141,10 +141,37 @@ a.logo {
   .nav {
     display: none;
   }
+
+  a.logo,
+  .shares {
+    width: auto;
+  }
 }
 
 @media (max-width: 840px) {
   .header__inner {
     margin: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .header__inner {
+    margin: 20px;
+  }
+
+  .logo__icon {
+    height: 52px;
+    width: 52px;
+    background-size: 52px;
+  }
+
+  .logo__title {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .logo__description {
+    font-size: 14px;
+    line-height: 15px;
   }
 }
