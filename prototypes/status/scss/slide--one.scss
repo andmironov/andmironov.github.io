@@ -136,14 +136,6 @@
   transform: translate3d(0, 0, 0);
 }
 
-.phone-wrap--iphone {
-  transform: translate3d(0, 0, 0) !important;
-}
-
-.phone-wrap--android {
-  transform: translate3d(0, 0, 0) !important;
-}
-
 .phones {
   width: 476px;
   height: 636px;
@@ -561,12 +553,14 @@
   }
 
   .phone-wrap--iphone {
-    left: 20px;
+    left: 10px;
+    transform: translate3d(0, 0, 0) !important;
   }
 
   .phone-wrap--android {
     left: auto;
-    right: 20px;
+    right: 10px;
+    transform: translate3d(0, 0, 0) !important;
   }
 
   .features-wrap {

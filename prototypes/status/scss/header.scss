@@ -157,12 +157,15 @@ li.social-link a {
 @media (max-width: 767px) {
   .header__inner {
     margin: 20px;
+    align-items: flex-start;
   }
 
   .logo__icon {
-    height: 50px;
-    width: 50px;
-    background-size: 50px;
+    height: 48px;
+    width: 48px;
+    background-size: 48px;
+    flex-shrink: 0;
+    flex-grow: 0;
   }
 
   .logo__title {
@@ -177,6 +180,10 @@ li.social-link a {
 
   .logo__description span{
     display: none;
+  }
+
+  .logo_text {
+    margin: 0px 0 0 4px;
   }
 
   .shares .social-links li.social-link {

@@ -82,11 +82,12 @@
 }
 
 .dapp__icon {
-  display: inline-block;
+  display: block;
+
   width: 72px;
   height: 72px;
   background-size: cover;
-  margin: 20px 0 10px 0;
+  margin: 20px auto 10px;
   background-image: url(../assets/plus.svg);
   background-repeat: no-repeat;
 
@@ -99,7 +100,6 @@
 .slide--shown .dapp__icon {
   transform: scale(1);
   opacity:1
-
 }
 
 .dapp--plus .dapp__description {
@@ -179,6 +179,45 @@
 
   .slide.slide--two {
       margin: 0;
+      padding: 0;
   }
-  
+
+  .dapps {
+    margin: 20px auto 10px;
+    width: auto;
+    padding: 0 10px;
+  }
+
+  .dapp__inner {
+    margin: 5px;
+    height: 220px;
+    padding: 15px;
+  }
+
+  .dapp {
+    width: 50%;
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .dapp__image {
+    width: 40px;
+    height: 40px;
+    left: 15px;
+    bottom: 15px;
+  }
+
+  .dapp:nth-child(4),
+  .dapp:nth-child(5) {
+    display: none;
+  }
+
+  .dapp__icon {
+    width: 60px;
+    height: 60px;
+    margin-top: 30px;
+    transform: scale(1);
+    opacity:1
+  }
+
 }
