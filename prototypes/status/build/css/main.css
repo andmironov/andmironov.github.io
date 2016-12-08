@@ -226,7 +226,14 @@ a.logo {
   color: white;
   font-size: 15px;
   display: flex;
+  align-items: center;
   padding: 10px 15px 15px; }
+
+.nav a.nav__item--blog::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  margin: 0 8px 0 0; }
 
 .nav a:hover {
   opacity: .7; }
@@ -523,14 +530,14 @@ li.social-link a {
   text-align: center;
   width: 440px;
   left: 90px;
-  top: 260px; }
+  top: 280px; }
 
 .tagline .tagline__title {
   font-family: PostGrotesk-Medium;
   color: white;
   font-size: 25px;
   line-height: 35px;
-  margin: 0 0 10px 0;
+  margin: 0 0 5px 0;
   opacity: 0;
   transform: translate3d(0, 20px, 0);
   transition: transform .6s ease,opacity .6s ease;

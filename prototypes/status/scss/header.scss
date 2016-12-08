@@ -60,8 +60,16 @@ a.logo {
   color: $colorWhite;
   font-size: 15px;
   display: flex;
+  align-items: center;
   padding: 10px 15px 15px;
+}
 
+.nav a.nav__item--blog::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  //background-color: red;
+  margin: 0 8px 0 0;
 }
 
 .nav a:hover {
