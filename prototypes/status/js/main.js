@@ -1,4 +1,5 @@
 let ScrollOver = require("./lib/ScrollOver.js")
+let animateScroll = require("./lib/animateScroll.js")
 
 let body = document.querySelectorAll("body")[0]
 let tagline = document.querySelectorAll(".tagline")[0]
@@ -10,6 +11,28 @@ let iphone = document.querySelectorAll(".phone-wrap--iphone")[0],
     slideThree = document.querySelectorAll(".slide--three")[0]
 
 setTimeout(() => body.classList.add("shown"), 400)
+
+
+document.querySelectorAll(".more-button")[0].addEventListener('click', function(event){
+    animateScroll(slideTwo, 600, "easeInOutCubic", 0)
+    event.preventDefault()
+})
+
+document.querySelectorAll(".nav__item--features")[0].addEventListener('click', function(event){
+    animateScroll(slideTwo, 600, "easeInOutCubic", 0)
+    event.preventDefault()
+})
+
+document.querySelectorAll(".nav__item--about")[0].addEventListener('click', function(event){
+    animateScroll(slideThree, 600, "easeInOutCubic", 0)
+    event.preventDefault()
+})
+
+document.querySelectorAll(".email-form__input--scroll")[0].addEventListener('click', function(event){
+    animateScroll(body, 1000, "easeInOutCubic", 0)
+    event.preventDefault()
+})
+
 
 new ScrollOver({
   keyframes : [
