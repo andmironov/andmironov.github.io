@@ -1018,7 +1018,7 @@ li.social-link a {
   width: 72px;
   height: 72px;
   background-size: cover;
-  margin: 20px auto 10px;
+  margin: 40px auto 10px;
   background-image: url(../assets/plus.svg);
   background-repeat: no-repeat;
   opacity: 0;
@@ -1295,21 +1295,20 @@ li.social-link a {
   height: 40px;
   border-radius: 50%;
   background-color: #eef2f5;
-  border: 1px solid #eef2f5;
   margin: 0 0 10px 10px;
   background-size: cover; }
 
 .point.point--one .point__avatar {
-  background-image: url(../assets/avatar2.png); }
+  background-image: url(../assets/image-jarrad-dapp.png); }
 
 .point.point--two .point__avatar {
-  background-image: url(../assets/avatar1.png); }
+  background-image: url(../assets/image-grid-dapp.png); }
 
 .point.point--three .point__avatar {
-  background-image: url(../assets/avatar3.png); }
+  background-image: url(../assets/image-carl-dapp.png); }
 
 .point.point--four .point__avatar {
-  background-image: url(../assets/avatar4.png); }
+  background-image: url(../assets/image-moments-dapp.png); }
 
 @media (max-width: 1220px) {
   .point.point--one {
