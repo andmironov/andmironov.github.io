@@ -1079,9 +1079,9 @@ li.social-link a {
     flex-grow: 1;
     flex-shrink: 1; }
   .dapp__inner {
-    height: 230px; }
+    height: 260px; }
   .dapp__icon {
-    margin-top: 40px; } }
+    margin-top: 60px; } }
 
 @media (max-width: 767px) {
   .slide.slide--two {
@@ -1093,7 +1093,7 @@ li.social-link a {
     padding: 0 10px; }
   .dapp__inner {
     margin: 5px;
-    height: 220px;
+    height: 240px;
     padding: 15px; }
   .dapp {
     width: 50%;
