@@ -97,7 +97,7 @@ li.social-link a {
   background-position: center;
   transition: transform .2s ease;
   cursor: pointer;
-  box-shadow: 0px 10px 10px 0px rgba(80,92,174,0.50);
+  box-shadow: 0 10px 10px 0 rgba(62,76,167,0.25);
 }
 
 .social-link.social-link--fb a {
@@ -116,7 +116,7 @@ li.social-link a {
 }
 
 .social-link:hover a {
-  transform: scale(.9)
+  transform: scale(1.06)
 }
 
 @media (max-width: 1140px) {

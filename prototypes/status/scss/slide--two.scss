@@ -115,37 +115,36 @@
   position: absolute;
   left: 20px;
   bottom: 20px;
-  background-color: $colorBg;
+  background-color: white;
   background-size: cover;
-  border: 1px solid $colorBg;
 }
 
 .dapp.dapp--one .dapp__image {
-  background-image: url(../assets/avatar2.png);
+  background-image: url(../assets/image-messaging.png);
 }
 
 .dapp.dapp--two .dapp__image {
-  background-image: url(../assets/avatar1.png);
+  background-image: url(../assets/image-payments.png);
 }
 
 .dapp.dapp--three .dapp__image {
-  background-image: url(../assets/avatar3.png);
+  background-image: url(../assets/image-contracts.png);
 }
 
 .dapp.dapp--four .dapp__image {
-  background-image: url(../assets/avatar4.png);
+  background-image: url(../assets/image-wallet.png);
 }
 
 .dapp.dapp--five .dapp__image {
-  background-image: url(../assets/avatar5.png);
+  background-image: url(../assets/image-multiuser.png);
 }
 
 .dapp.dapp--six .dapp__image {
-  background-image: url(../assets/avatar6.png);
+  background-image: url(../assets/image-exchange.png);
 }
 
 .dapp.dapp--seven .dapp__image {
-  background-image: url(../assets/avatar7.png);
+  background-image: url(../assets/image-devtools.png);
 }
 
 @media (max-width: 922px) {
