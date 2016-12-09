@@ -94,6 +94,9 @@
   position: absolute;
   color: rgba(255, 255, 255, .8);
   bottom: -30px;
+  left: 0;
+  width: 100%;
+  text-align: left;
 }
 
 .tagline__success {
@@ -195,7 +198,7 @@
 }
 
 .tagline__form--valid .email-form input[type="submit"],
-.email-form__input--sumbit {
+.tagline__form--valid .email-form__input--sumbit {
   color: rgba(255, 255, 255, .5);
 }
 
@@ -206,11 +209,14 @@
   background-color: rgba(132, 207, 255, 1);
 }
 
-.email-form input[type="submit"]:disabled {
+.email-form input[type="submit"]:disabled,
+.tagline__form--valid .email-form__input--sumbit.disabled {
   cursor: default;
 }
 
-.email-form input[type="submit"]:disabled:hover {
+
+.email-form input[type="submit"]:disabled:hover,
+.tagline__form--valid .email-form__input--sumbit.disabled:hover {
   background-color: rgba(104, 192, 248, 1);
 }
 

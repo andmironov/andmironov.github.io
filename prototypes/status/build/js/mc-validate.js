@@ -246,10 +246,12 @@
 		    if (resp.result == "success"){
 
 						$('.tagline__form').addClass("tagline__form--valid");
+						$('.email-form--footer').addClass("tagline__form--valid");
 						$('.tagline__success').addClass("shown");
 						$('.tagline__footer').addClass("hidden");
 						$(".email-form__input--email").prop('disabled', true);
 						$(".email-form__input--sumbit").prop('disabled', true);
+						$(".email-form--footer .email-form__input--sumbit").addClass('disabled');
 
             ga('send', 'event', 'Waitlist', 'Sign Up', 'Waitlist');
 

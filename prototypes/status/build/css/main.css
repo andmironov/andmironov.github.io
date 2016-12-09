@@ -603,7 +603,10 @@ li.social-link a {
 #mce-responses {
   position: absolute;
   color: rgba(255, 255, 255, 0.8);
-  bottom: -30px; }
+  bottom: -30px;
+  left: 0;
+  width: 100%;
+  text-align: left; }
 
 .tagline__success {
   width: 100%;
@@ -690,7 +693,7 @@ li.social-link a {
   cursor: pointer; }
 
 .tagline__form--valid .email-form input[type="submit"],
-.email-form__input--sumbit {
+.tagline__form--valid .email-form__input--sumbit {
   color: rgba(255, 255, 255, 0.5); }
 
 .email-form input[type="submit"]:hover,
@@ -698,10 +701,12 @@ li.social-link a {
   box-shadow: 0px 12px 12px 0px rgba(80, 92, 174, 0.3);
   background-color: #84cfff; }
 
-.email-form input[type="submit"]:disabled {
+.email-form input[type="submit"]:disabled,
+.tagline__form--valid .email-form__input--sumbit.disabled {
   cursor: default; }
 
-.email-form input[type="submit"]:disabled:hover {
+.email-form input[type="submit"]:disabled:hover,
+.tagline__form--valid .email-form__input--sumbit.disabled:hover {
   background-color: #68c0f8; }
 
 .email-form input[type="submit"]:active,
