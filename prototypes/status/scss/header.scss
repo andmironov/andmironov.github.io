@@ -68,12 +68,21 @@ a.logo {
   content: "";
   width: 16px;
   height: 16px;
-  //background-color: red;
-  margin: 0 8px 0 0;
+  background-image: url(../assets/icon_external.png);
+  background-size: 16px;
+  opacity: 0;
+  transform: translate3d(5px, 0, 0) rotate(5deg);
+  margin: 0 10px 0 0;
+  transition: transform .2s ease, opacity .2s ease;
+}
+
+.nav a.nav__item--blog:hover::before {
+  transform: translate3d(0, 0, 0) rotate(0deg);
+  opacity: .4;
 }
 
 .nav a:hover {
-  opacity: .7;
+  opacity: .9;
 }
 
 .shares {

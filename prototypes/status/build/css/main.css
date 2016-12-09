@@ -233,10 +233,19 @@ a.logo {
   content: "";
   width: 16px;
   height: 16px;
-  margin: 0 8px 0 0; }
+  background-image: url(../assets/icon_external.png);
+  background-size: 16px;
+  opacity: 0;
+  transform: translate3d(5px, 0, 0) rotate(5deg);
+  margin: 0 10px 0 0;
+  transition: transform .2s ease, opacity .2s ease; }
+
+.nav a.nav__item--blog:hover::before {
+  transform: translate3d(0, 0, 0) rotate(0deg);
+  opacity: .4; }
 
 .nav a:hover {
-  opacity: .7; }
+  opacity: .9; }
 
 .shares {
   width: 260px;
@@ -713,7 +722,7 @@ li.social-link a {
   transition: transform .2s ease, background-color .2s ease; }
 
 .more-button:hover {
-  transform: translate3d(-50%, 0, 0) scale(0.94); }
+  transform: translate3d(-50%, 0, 0) scale(1.06); }
 
 .more-button:active {
   transform: translate3d(-50%, 0, 0) scale(0.94); }
