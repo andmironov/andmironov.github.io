@@ -57,14 +57,17 @@ a.logo {
 
 .nav a {
   font-family:PostGrotesk-Medium;
-  color: $colorWhite;
   font-size: 15px;
   display: flex;
   align-items: center;
   padding: 10px 15px 15px;
 }
 
-.nav a.nav__item--blog::before {
+.header .nav a {
+  color: $colorWhite;
+}
+
+.header .nav a.nav__item--blog::before {
   content: "";
   width: 16px;
   height: 16px;
@@ -76,7 +79,7 @@ a.logo {
   transition: transform .2s ease, opacity .2s ease;
 }
 
-.nav a.nav__item--blog:hover::before {
+.header .nav a.nav__item--blog:hover::before {
   transform: translate3d(0, 0, 0) rotate(0deg);
   opacity: .4;
 }
