@@ -719,7 +719,6 @@ li.social-link a {
   width: 200px;
   font-size: 16px;
   line-height: 24px;
-  opacity: 0;
   transform: translate3d(0, 20px, 0);
   transition: transform .6s ease,opacity .6s ease;
   transition-delay: .3s;
@@ -728,6 +727,12 @@ li.social-link a {
 .shown .tagline__footer {
   opacity: 1;
   transform: translate3d(0, 0, 0); }
+
+.tagline__footer-inner {
+  transition: opacity .2s ease; }
+
+.tagline__footer.hidden .tagline__footer-inner {
+  opacity: 0; }
 
 .phones {
   width: 476px;
@@ -1012,11 +1017,9 @@ li.social-link a {
     width: auto; }
   .tagline .tagline__body {
     margin: 0 0 10px 0; }
-  .tagline__footer,
-  .shown .tagline__footer {
+  .tagline__footer {
     display: block;
-    margin-top: 24px;
-    opacity: 0; }
+    margin-top: 24px; }
   .phones {
     position: relative;
     top: 0;

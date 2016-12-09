@@ -233,7 +233,6 @@
   font-size: 16px;
   line-height: 24px;
 
-  opacity: 0;
   transform: translate3d(0, 20px, 0);
   transition: transform .6s ease,opacity .6s ease;
   transition-delay: .3s;
@@ -244,6 +243,15 @@
 .shown .tagline__footer {
   opacity: 1;
   transform: translate3d(0, 0, 0);
+}
+
+.tagline__footer-inner {
+  transition: opacity .2s ease;
+}
+
+
+.tagline__footer.hidden .tagline__footer-inner{
+  opacity: 0;
 }
 
 .phones {
@@ -667,11 +675,9 @@
     margin: 0 0 10px 0;
   }
 
-  .tagline__footer,
-  .shown .tagline__footer {
+  .tagline__footer {
     display: block;
     margin-top: 24px;
-    opacity: 0;
   }
 
   .phones {

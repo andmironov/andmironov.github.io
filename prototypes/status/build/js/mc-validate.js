@@ -247,9 +247,10 @@
 
 						$('.tagline__form').addClass("tagline__form--valid");
 						$('.tagline__success').addClass("shown");
+						$('.tagline__footer').addClass("hidden");
 						$(".email-form__input--email").prop('disabled', true);
 						$(".email-form__input--sumbit").prop('disabled', true);
-            
+
             ga('send', 'event', 'Waitlist', 'Sign Up', 'Waitlist');
 
 		    // If the form has errors, display them, inline if possible, or appended to #mce-error-response
