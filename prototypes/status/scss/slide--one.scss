@@ -80,14 +80,58 @@
   border-radius: 8px;
 }
 
+
 .email-form__input--email {
   text-align: left;
   background-color: rgba(255, 255, 255, .12);
-  color: rgba(255, 255, 255, .6);
+  color: rgba(255, 255, 255, 1);
   width: 210px;
   padding: 0 15px;
   margin: 0 15px 0 0;
+  font-family: 'PostGrotesk-Book', sans-serif;
+  transition: background-color .4s ease;
+  font-weight: 400;
+  font-size: 15px;
 }
+
+.email-form__input--email:focus {
+  background-color: rgba(255, 255, 255, 1);
+  color: rgba(73, 85, 95, 1);
+}
+
+.email-form__input--email::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, .6);
+  transition: color .4s ease;
+}
+
+.email-form__input--email::-moz-placeholder {
+  color: rgba(255, 255, 255, .6);
+}
+
+.email-form__input--email:-ms-input-placeholder {
+  color: rgba(255, 255, 255, .6);
+}
+
+.email-form__input--email:-moz-placeholder {
+  color: rgba(255, 255, 255, .6);
+}
+
+.email-form__input--email:focus::-webkit-input-placeholder {
+  color: rgba(73, 85, 95, .6);
+}
+
+.email-form__input--email:focus::-moz-placeholder {
+  color: rgba(73, 85, 95, .6);
+}
+
+.email-form__input--email:focus:-ms-input-placeholder {
+  color: rgba(73, 85, 95, .6);
+}
+
+.email-form__input--email:focus:-moz-placeholder {
+  color: rgba(73, 85, 95, .6);
+}
+
 
 .email-form__input--sumbit {
   width: 175px;
