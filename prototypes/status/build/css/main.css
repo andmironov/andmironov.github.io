@@ -645,7 +645,7 @@ li.social-link a {
   opacity: 1;
   transform: translate3d(0, 0, 0); }
 
-.mc_embed_signup_scroll {
+.email-form__inner {
   display: flex;
   width: 400px;
   position: relative; }
@@ -886,7 +886,7 @@ li.social-link a {
   .email-form {
     flex-direction: column;
     width: 300px; }
-  .mc_embed_signup_scroll {
+  .email-form__inner {
     flex-direction: column;
     width: 300px; }
   .email-form__input--email {
@@ -898,7 +898,7 @@ li.social-link a {
 @media (max-width: 960px) {
   .tagline,
   .email-form,
-  .mc_embed_signup_scroll {
+  .email-form__inner {
     width: 280px; }
   .features-wrap {
     width: 100%; }
@@ -912,7 +912,7 @@ li.social-link a {
     width: 260px;
     top: 180px; }
   .email-form,
-  .mc_embed_signup_scroll {
+  .email-form__inner {
     width: 260px; }
   .phones {
     width: 404px;
@@ -962,7 +962,7 @@ li.social-link a {
     left: 30px; }
   .tagline,
   .email-form,
-  .mc_embed_signup_scroll {
+  .email-form__inner {
     width: 246px; }
   .tagline .tagline__title {
     font-size: 21px;
@@ -1008,7 +1008,7 @@ li.social-link a {
     padding: 0 20px; }
   .tagline,
   .email-form,
-  .mc_embed_signup_scroll {
+  .email-form__inner {
     width: auto; }
   .tagline .tagline__body {
     margin: 0 0 10px 0; }

@@ -21,6 +21,7 @@
 
 // ADDITIONAL JQUERY VALIDATE METHODS
 (function($) {
+
 	// Validate a multifield birthday
 	$.validator.addMethod("mc_birthday", function(date, element, grouping_class) {
 		var isValid = false;
@@ -44,6 +45,7 @@
 		}
 		return isValid;
 	}, "Please enter a valid month and day.");
+
 	// Validate a multifield date
 	$.validator.addMethod("mc_date", function(date, element, grouping_class) {
 		var isValid = false;
@@ -146,7 +148,7 @@
 	try {
 	    err_style = mc_custom_error_style;
 	} catch(e){
-	    err_style = '#mc_embed_signup input.mce_inline_error { border-color:#6B0505; } #mc_embed_signup div.mce_inline_error { margin: 0 0 1em 0; padding: 5px 10px; background-color:#6B0505; font-weight: bold; z-index: 1; color:#fff; }';
+	    err_style = "";
 	}
 	var head = document.getElementsByTagName('head')[0];
 	var style = document.createElement('style');
@@ -161,11 +163,11 @@
 	// Expose extra mc form methods in global var
 	window.mc = {
 		openPopup: function() {
-			$('#mc_embed_signup a.mc_embed_close').show();
-		    setTimeout( function(){ $('#mc_embed_signup').fadeIn(); } , mc.delayPopup);
+			$('.email-form a.mc_embed_close').show();
+		    setTimeout( function(){ $('.email-form').fadeIn(); } , mc.delayPopup);
 		},
 		closePopup: function() {
-            $('#mc_embed_signup').hide();
+            $('.email-form').hide();
             var now = new Date();
             var expires_date = new Date( now.getTime() + 31536000000 );
             document.cookie = 'MCEvilPopupClosed=yes;expires=' + expires_date.toGMTString()+';path=/';
@@ -174,7 +176,7 @@
 		 *	Figure out if we should show the popup (if they've closed it before, don't show it.)
          */
         evalPopup: function() {
-        	$('#mc_embed_signup').hide();
+        	$('.email-form').hide();
 		    cks = document.cookie.split(';');
 		    for(i=0; i<cks.length; i++){
 		        parts = cks[i].split('=');
@@ -307,7 +309,7 @@
 
 		// Set error HTML: <div class="mce_inline_error"></div>
 		errorClass: "mce_inline_error",
-  		errorElement: "div",
+  	errorElement: "div",
 
   	// Validate fields on keyup, focusout and blur.
 		onkeyup: false,
@@ -316,7 +318,9 @@
 				$(element).valid();
 			}
 		},
+
 		onblur: function(element) {
+			console.log("d");
 			if (!mc.isTooEarly(element)) {
 				$(element).valid();
 			}
@@ -329,7 +333,7 @@
 
 		// Place a field's inline error HTML just before the div.mc-field-group closing tag
 		errorPlacement: function(error, element) {
-			element.closest('.mc-field-group').next().next().append(error);
+			$(".email-form__responces").append(error)
     },
 
 		// Submit the form via ajax (see: jQuery Form plugin)
@@ -352,7 +356,7 @@
 	$.validator.addClassRules("phonepart", { digits: true, mc_phone: ".phonefield" });
 
 	// Evil Popup
-	$('#mc_embed_signup a.mc_embed_close').click(function(){
+	$('.email-form a.mc_embed_close').click(function(){
 		mc.closePopup();
 	});
 
