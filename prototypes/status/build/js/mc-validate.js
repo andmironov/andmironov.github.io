@@ -248,6 +248,8 @@
 		    $('#mce-success-response').hide();
 		    $('#mce-error-response').hide();
 
+				console.log(resp);
+
 		    // On successful form submission, display a success message and reset the form
 		    if (resp.result == "success") {
 						$('.email-form').addClass("email-form--valid");
@@ -260,6 +262,10 @@
 
 		    // If the form has errors, display them, inline if possible, or appended to #mce-error-response
 		    } else {
+
+					$(".email-form__input--email").prop('disabled', false);
+					$(".email-form__input--sumbit").prop('disabled', false);
+
 				// Example errors - Note: You only get one back at a time even if you submit several that are bad.
 				// Error structure - number indicates the index of the merge field that was invalid, then details
 				// Object {result: "error", msg: "6 - Please enter the date"}
@@ -290,21 +296,9 @@
 		        }
 
 		        try {
-		        	// If index is -1 if means we don't have data on specifically which field was invalid.
-		        	// Just lump the error message into the generic response div.
-		            if (index == -1){
-		                $('#mce-'+resp.result+'-response').show();
-		                $('#mce-'+resp.result+'-response').html(msg);
-
-		            } else {
-		                var fieldName = $("input[name*='"+fnames[index]+"']").attr('name'); // Make sure this exists (they haven't deleted the fnames array lookup)
-		                var data = {};
-		                data[fieldName] = msg;
-		                mc.mce_validator.showErrors(data);
-		            }
+		        	$(".email-form__responces").html( "<div>"+ msg +"</div>" );
 		        } catch(e){
-		            $('#mce-'+resp.result+'-response').show();
-		            $('#mce-'+resp.result+'-response').html(msg);
+		          $(".email-form__responces").html( "<div>"+ msg +"</div>" );
 		        }
 		    }
 		}
@@ -315,6 +309,10 @@
 		// Set error HTML: <div class="mce_inline_error"></div>
 		errorClass: "mce_inline_error",
   	errorElement: "div",
+
+		invalidHandler: function(){
+
+		},
 
   	// Validate fields on keyup, focusout and blur.
 		onkeyup: false,
@@ -343,6 +341,9 @@
 
 		// Submit the form via ajax (see: jQuery Form plugin)
 		submitHandler: function(form) {
+			$(".email-form__input--email").prop('disabled', true);
+			$(".email-form__input--sumbit").prop('disabled', true);
+
 			$(form).ajaxSubmit(mc.ajaxOptions);
 		}
  	});
