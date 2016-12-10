@@ -252,6 +252,7 @@
 		    if (resp.result == "success") {
 						$('.email-form').addClass("email-form--valid");
 						$('.tagline__footer').addClass("tagline__footer--hidden");
+
 						$(".email-form__input--email").prop('disabled', true);
 						$(".email-form__input--sumbit").prop('disabled', true);
 

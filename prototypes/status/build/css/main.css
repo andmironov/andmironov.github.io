@@ -668,6 +668,9 @@ li.social-link a {
   font-weight: 400;
   font-size: 15px; }
 
+input.email-form__input--email:disabled {
+  opacity: 1; }
+
 .email-form--valid .email-form__input--email {
   color: rgba(255, 255, 255, 0.4);
   background-image: url(../assets/icon_valid.png);
