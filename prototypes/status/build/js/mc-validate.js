@@ -241,17 +241,13 @@
 
 		    $('#mce-success-response').hide();
 		    $('#mce-error-response').hide();
-				console.log(resp);
-		    // On successful form submission, display a success message and reset the form
-		    if (resp.result == "success"){
 
-						$('.tagline__form').addClass("tagline__form--valid");
-						$('.email-form--footer').addClass("tagline__form--valid");
-						$('.tagline__success').addClass("shown");
-						$('.tagline__footer').addClass("hidden");
+		    // On successful form submission, display a success message and reset the form
+		    if (resp.result == "success") {
+						$('.email-form').addClass("email-form--valid");
+						$('.tagline__footer').addClass("tagline__footer--hidden");
 						$(".email-form__input--email").prop('disabled', true);
 						$(".email-form__input--sumbit").prop('disabled', true);
-						$(".email-form--footer .email-form__input--sumbit").addClass('disabled');
 
             ga('send', 'event', 'Waitlist', 'Sign Up', 'Waitlist');
 

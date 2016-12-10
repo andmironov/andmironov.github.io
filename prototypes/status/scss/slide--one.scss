@@ -39,11 +39,6 @@
   transform: translate3d(0, 0, 0);
 }
 
-.hidden .tagline__title {
-  opacity: 0;
-  transform: translate3d(0, -20px, 0);
-}
-
 .tagline .tagline__body {
   color: $colorWhite;
   opacity: .6;
@@ -62,11 +57,6 @@
   transform: translate3d(0, 0, 0);
 }
 
-.hidden .tagline__body {
-  opacity: 0;
-  transform: translate3d(0, -20px, 0);
-}
-
 .tagline__form {
   opacity: 0;
   transform: translate3d(0, 20px, 0);
@@ -79,18 +69,13 @@
   transform: translate3d(0, 0, 0);
 }
 
-.hidden .tagline__form {
-  opacity: 0;
-  transform: translate3d(0, -20px, 0);
-}
-
 .email-form {
   display: flex;
   width: 400px;
   position: relative;
 }
 
-#mce-responses {
+.email-form__responces {
   position: absolute;
   color: rgba(255, 255, 255, .8);
   bottom: -30px;
@@ -99,7 +84,7 @@
   text-align: left;
 }
 
-.tagline__success {
+.email-form__success-message {
   width: 100%;
   left: 0;
   padding: 15px;
@@ -117,7 +102,7 @@
   transition: transform .6s ease,opacity .6s ease;
 }
 
-.tagline__success.shown  {
+.email-form--valid .email-form__success-message {
   opacity: 1;
   transform: translate3d(0, 0, 0);
 }
@@ -149,7 +134,7 @@
   font-size: 15px;
 }
 
-.tagline__form--valid .email-form__input--email {
+.email-form--valid .email-form__input--email {
   color: rgba(255, 255, 255, .4);
   background-image: url(../assets/icon_valid.png);
   background-size: 24px;
@@ -178,61 +163,25 @@
   color: rgba(255, 255, 255, .6);
 }
 
-.email-form input[type="submit"],
-.email-form__input--sumbit {
+.email-form input[type="submit"] {
   width: 175px;
   flex-shrink: 0;
   flex-grow: 0;
-  font-family:PostGrotesk-Medium;
-  font-size: 13px;
-  color: $colorWhite;
-  text-transform: uppercase;
-  text-align: center;
-  letter-spacing: 1px;
-  background-color: rgba(104, 192, 248, 1);
   box-shadow: 0px 10px 10px 0px rgba(80,92,174,0.30);
-  transform: translate3d(0, 0, 0) scale(1);
-  transition: transform .1s ease, box-shadow .2s ease, background-color .2s ease;
-  -webkit-appearance: none;
-  cursor: pointer;
 }
 
-.tagline__form--valid .email-form input[type="submit"],
-.tagline__form--valid .email-form__input--sumbit {
+.email-form input[type="submit"]:disabled {
+  cursor: default;
   color: rgba(255, 255, 255, .5);
 }
 
-
-.email-form input[type="submit"]:hover,
-.email-form__input--sumbit:hover {
-  box-shadow: 0px 12px 12px 0px rgba(80,92,174,0.30);
-  background-color: rgba(132, 207, 255, 1);
-}
-
-.email-form input[type="submit"]:disabled,
-.tagline__form--valid .email-form__input--sumbit.disabled {
-  cursor: default;
-}
-
-
-.email-form input[type="submit"]:disabled:hover,
-.tagline__form--valid .email-form__input--sumbit.disabled:hover {
+.email-form input[type="submit"]:disabled:hover {
   background-color: rgba(104, 192, 248, 1);
-}
-
-.email-form input[type="submit"]:active,
-.email-form__input--sumbit:active {
-  transform: translate3d(0, 0, 0) scale(.99);
-}
-
-.loading .email-form input[type="submit"] {
-  background-color: #9BCDED;
 }
 
 .tagline__footer {
   text-align: center;
   color: white;
-
   margin: 0 auto;
   padding: 25px;
   width: 200px;
@@ -256,8 +205,7 @@
   transition: opacity .2s ease;
 }
 
-
-.tagline__footer.hidden .tagline__footer-inner{
+.tagline__footer.tagline__footer--hidden .tagline__footer-inner {
   opacity: 0;
 }
 
@@ -351,7 +299,7 @@
   font-size: 13px;
   letter-spacing: 1px;
   color: #6370CA;
-  background-color: #F0F1FA;
+  background-color: rgba(99, 112, 202, .1);
   border-radius: 10px;
   position: absolute;
   bottom: 30px;
@@ -360,11 +308,11 @@
 }
 
 .more-button:hover {
-  transform: translate3d(-50%, 0, 0) scale(1.06)
+  background-color: rgba(99, 112, 202, .2);
 }
 
 .more-button:active {
-  transform: translate3d(-50%, 0, 0) scale(.94)
+  transform: translate3d(-50%, 0, 0) scale(.99)
 }
 
 .features__item {
@@ -460,11 +408,11 @@
     top: 230px;
   }
 
-  .tagline__success {
+  .email-form__success-message {
     top: 55px;
   }
 
-  .tagline__form--valid .email-form input[type="submit"] {
+  .email-form.email-form--valid input[type="submit"] {
     display: none;
   }
 
@@ -673,7 +621,8 @@
     padding: 0 20px;
   }
 
-  .tagline, .email-form,
+  .tagline,
+  .email-form,
   .mc_embed_signup_scroll  {
     width: auto;
   }

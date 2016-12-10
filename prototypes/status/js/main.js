@@ -28,7 +28,7 @@ document.querySelectorAll(".nav__item--about")[0].addEventListener('click', func
     event.preventDefault()
 })
 
-document.querySelectorAll(".email-form__input--scroll")[0].addEventListener('click', function(event){
+document.querySelectorAll(".button--scroll-top")[0].addEventListener('click', function(event){
     animateScroll(body, 1000, "easeInOutCubic", 0)
     event.preventDefault()
 })
