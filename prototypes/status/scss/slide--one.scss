@@ -135,7 +135,9 @@
 }
 
 input.email-form__input--email:disabled {
-  opacity: 1
+  color: rgba(255, 255, 255, .4);
+  background-color: rgba(255, 255, 255, .12);
+  opacity: 1;
 }
 
 .email-form--valid .email-form__input--email {
