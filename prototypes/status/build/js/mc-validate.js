@@ -166,27 +166,30 @@
 			$('.email-form a.mc_embed_close').show();
 		    setTimeout( function(){ $('.email-form').fadeIn(); } , mc.delayPopup);
 		},
+
 		closePopup: function() {
-            $('.email-form').hide();
-            var now = new Date();
-            var expires_date = new Date( now.getTime() + 31536000000 );
-            document.cookie = 'MCEvilPopupClosed=yes;expires=' + expires_date.toGMTString()+';path=/';
-        },
-        /**
+      $('.email-form').hide();
+      var now = new Date();
+      var expires_date = new Date( now.getTime() + 31536000000 );
+      document.cookie = 'MCEvilPopupClosed=yes;expires=' + expires_date.toGMTString()+';path=/';
+  	},
+
+    /**
 		 *	Figure out if we should show the popup (if they've closed it before, don't show it.)
-         */
-        evalPopup: function() {
-        	$('.email-form').hide();
-		    cks = document.cookie.split(';');
-		    for(i=0; i<cks.length; i++){
-		        parts = cks[i].split('=');
-		        if (parts[0].indexOf('MCEvilPopupClosed') != -1) mc.showPopup = false;
-		    }
-		    if (mc.showPopup) mc.openPopup();
-        },
-        /**
-		 *	Grab the list subscribe url from the form action and make it work for an ajax post.
-         */
+    */
+    evalPopup: function() {
+    	$('.email-form').hide();
+    	cks = document.cookie.split(';');
+	    for(i=0; i<cks.length; i++){
+	        parts = cks[i].split('=');
+	        if (parts[0].indexOf('MCEvilPopupClosed') != -1) mc.showPopup = false;
+	    }
+    	if (mc.showPopup) mc.openPopup();
+    },
+
+    /**
+ 		*	Grab the list subscribe url from the form action and make it work for an ajax post.
+    */
 		getAjaxSubmitUrl: function() {
 			var url = $("form#mc-embedded-subscribe-form").attr("action");
 			url = url.replace("/post?u=", "/post-json?u=");
@@ -239,7 +242,8 @@
 		 *	Success messages are appended to #mce-success-response
 		 *	Error messages are displayed with the invalid input when possible, or appended to #mce-error-response
 		 */
-		mce_success_cb: function(resp){
+
+		mce_success_cb: function(resp) {
 
 		    $('#mce-success-response').hide();
 		    $('#mce-error-response').hide();
