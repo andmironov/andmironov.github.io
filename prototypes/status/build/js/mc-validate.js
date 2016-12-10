@@ -311,7 +311,7 @@
   	errorElement: "div",
 
 		invalidHandler: function(){
-
+			$(".email-form__responces").html("");
 		},
 
   	// Validate fields on keyup, focusout and blur.
