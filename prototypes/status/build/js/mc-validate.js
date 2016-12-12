@@ -343,7 +343,6 @@
     },
 
 		invalidHandler: function() {
-			console.log("invalidHandler");
 			enableInputs();
 			hideAllMessages();
     },
