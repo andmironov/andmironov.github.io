@@ -238,11 +238,10 @@
 		 */
 		mce_success_cb: function(resp){
 
-		    $('#mce-success-response').hide();
-		    $('#mce-error-response').hide();
+				hideAllMessages();
 
 		    // On successful form submission, display a success message and reset the form
-		    if (resp.result == "success"){
+		    if (resp.result == "success") {
 		        $('#mce-'+resp.result+'-response').show();
 		        $('#mce-'+resp.result+'-response').html(resp.msg);
 
@@ -254,7 +253,7 @@
 						$('.email-form').addClass("email-form--valid");
 
 						//Disable form inputs
-						 disableInputs();
+						disableInputs();
 
             ga('send', 'event', 'Waitlist', 'Sign Up', 'Waitlist');
 
@@ -318,7 +317,6 @@
 
   	// Validate fields on keyup, focusout and blur.
 		onkeyup: false,
-		debug: true,
 
 		onfocusout: function(element) {
 			if (!mc.isTooEarly(element)) {
@@ -337,13 +335,11 @@
 		// it's strictly for visual display of errors
 		groups: mc.getGroups(),
 
-		// Place a field's inline error HTML just before the div.mc-field-group closing tag
+		// Place a field's inline error HTML
 		errorPlacement: function(error, element) {
 			$('.email-form__responces').append(error);
-
 			enableInputs();
-			$('#mce-success-response').hide();
-			$('#mce-error-response').hide();
+			hideAllMessages();
     },
 
     // Submit the form via ajax (see: jQuery Form plugin)
@@ -384,6 +380,11 @@
 	function enableInputs() {
 		$(".email-form__input--email").prop('disabled', false);
 		$(".email-form__input--sumbit").prop('disabled', false);
+	};
+
+	function hideAllMessages() {
+		$('#mce-success-response').hide();
+		$('#mce-error-response').hide();
 	};
 
 }(jQuery));
