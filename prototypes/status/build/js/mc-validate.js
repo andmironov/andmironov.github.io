@@ -262,7 +262,7 @@
 
 		    // If the form has errors, display them, inline if possible, or appended to #mce-error-response
 		    } else {
-
+					$(".email-form__responces").html("");
 					$(".email-form__input--email").prop('disabled', false);
 					$(".email-form__input--sumbit").prop('disabled', false);
 
