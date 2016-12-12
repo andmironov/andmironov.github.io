@@ -342,6 +342,12 @@
 			hideAllMessages();
     },
 
+		invalidHandler: function() {
+			console.log("invalidHandler");
+			enableInputs();
+			hideAllMessages();
+    },
+
     // Submit the form via ajax (see: jQuery Form plugin)
 		submitHandler: function(form) {
 			$(form).ajaxSubmit(mc.ajaxOptions);
