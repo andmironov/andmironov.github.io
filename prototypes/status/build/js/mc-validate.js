@@ -245,6 +245,7 @@
 		        $('#mce-'+resp.result+'-response').show();
 		        $('#mce-'+resp.result+'-response').html(resp.msg);
 
+		        $('.email-form__input--email').blur();
 						showSuccessPopup();
 
 						//Reset the form
