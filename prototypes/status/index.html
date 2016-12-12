@@ -20,19 +20,32 @@
 
       <link rel="apple-touch-icon" href="apple-touch-icon.png?v=11a6fdc">
         <!-- Place favicon.ico in the root directory -->
-      <link rel="stylesheet" href="build/css/main.css?v=1f28279">
+      <link rel="stylesheet" href="build/css/main.css?v=ff7d8f5">
       <meta property="og:title" content="Status, a Mobile Ethereum OS" />
     </head>
     <body>
+
+      <div class="overlay">
+        <div class="popup">
+          <div class="popup__inner">
+            <h3 class="popup__title">You’ve been added to the&nbsp;Waitlist.<br/>Could you help us spread the&nbsp;word?</h3>
+            <p class="popup__text">Please help support our open source project with a&nbsp;tweet, or&nbsp;follow us&nbsp;to stay updated on&nbsp;our&nbsp;progress.</p>
+            <div class="popup__buttons">
+              <a href="https://twitter.com/share" class="twitter-share-button" data-show-count="false" data-text="Check out Status (@ethstatus) - an open source project that will bring Ethereum to Android and iOS!" data-size="large">Tweet</a>
+              <a href="https://twitter.com/ethstatus" class="twitter-follow-button" data-size="large" data-show-screen-name="false" data-show-count="false">Follow @ethstatus</a>
+            </div>
+
+            <div class="popup__close"></div>
+          </div>
+        </div>
+      </div>
+
       <div class="container">
-
         <div class="slides">
-
           <div class="slide slide--one">
             <div class="slide__inner">
               <div class="header">
                 <div class="header__inner">
-
                     <a class="logo" href="/">
                       <span class="logo__icon"></span>
                       <div class="logo_text">
@@ -332,9 +345,9 @@
       </div>
     <script src="build/js/app.js?v=44d5354"></script>
     <script src="build/js/particles.js?v=193f774"></script>
-    <script src="build/js/mc-validate.js?v=f2091f9"></script>
+    <script src="build/js/mc-validate.js?v=9781d61"></script>
     <script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
-
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
     <!-- Google Analytics -->
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
