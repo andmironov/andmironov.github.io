@@ -252,7 +252,6 @@
 		    		// });
 
 						$('.email-form').addClass("email-form--valid");
-						$('.tagline__footer').addClass("tagline__footer--hidden");
 
 						//Disable form inputs
 						 disableInputs();

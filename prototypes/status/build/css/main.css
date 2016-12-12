@@ -618,20 +618,15 @@ li.social-link a {
   position: relative; }
 
 .email-form__responces {
-  position: absolute;
   color: rgba(255, 255, 255, 0.8);
-  bottom: -30px;
-  left: 0;
   width: 100%;
-  text-align: left; }
+  text-align: left;
+  margin: 10px 0 0 0; }
 
 .email-form__success-message {
   width: 100%;
-  left: 0;
   padding: 15px;
   font-size: 15px;
-  position: absolute;
-  top: -20px;
   border-radius: 8px;
   text-align: left;
   background-color: rgba(255, 255, 255, 0.12);
@@ -884,8 +879,6 @@ input.email-form__input--email:disabled {
   .tagline {
     width: 300px;
     top: 230px; }
-  .email-form__success-message {
-    top: -30px; }
   .email-form.email-form--valid input[type="submit"] {
     display: none; }
   .email-form {
@@ -975,7 +968,8 @@ input.email-form__input--email:disabled {
     margin: 0 0 0 0; }
   .tagline .tagline__body {
     font-size: 16px;
-    line-height: 24px; }
+    line-height: 24px;
+    margin: 0 0 10px 0; }
   .features {
     margin: 0 15px; }
   .features-wrap {
@@ -1015,6 +1009,8 @@ input.email-form__input--email:disabled {
   .email-form,
   .email-form__inner {
     width: auto; }
+  .email-form__responces {
+    margin-top: 5px; }
   .tagline .tagline__body {
     margin: 0 0 10px 0; }
   .tagline__footer {
