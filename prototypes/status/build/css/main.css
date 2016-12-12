@@ -1116,7 +1116,14 @@ input.email-form__input--email:disabled {
   transform: translate3d(0, 0, 0); }
 
 .dapp.dapp--plus {
-  text-align: center; }
+  display: flex; }
+
+.dapp.dapp--plus a.dapp--plus__link {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
 
 .dapp__inner {
   background-color: white;
@@ -1143,16 +1150,25 @@ input.email-form__input--email:disabled {
   display: block;
   width: 72px;
   height: 72px;
-  background-size: cover;
-  margin: 40px auto 10px;
+  margin: 0 0 10px 0;
+  transform: scale(1);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.135, 1.425); }
+
+.dapp--plus:hover .dapp__icon {
+  transform: scale(1.12); }
+
+.dapp__icon-inner {
+  width: 72px;
+  height: 72px;
   background-image: url(../assets/plus.svg);
   background-repeat: no-repeat;
+  background-size: cover;
   opacity: 0;
   transform: scale(0.6);
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.135, 1.425), opacity 0.2s ease;
   transition-delay: 1.2s; }
 
-.slide--shown .dapp__icon {
+.slide--shown .dapp__icon-inner {
   transform: scale(1);
   opacity: 1; }
 
@@ -1205,9 +1221,7 @@ input.email-form__input--email:disabled {
     flex-grow: 1;
     flex-shrink: 1; }
   .dapp__inner {
-    height: 260px; }
-  .dapp__icon {
-    margin-top: 60px; } }
+    height: 260px; } }
 
 @media (max-width: 767px) {
   .slide.slide--two {
@@ -1233,10 +1247,10 @@ input.email-form__input--email:disabled {
   .dapp:nth-child(4),
   .dapp:nth-child(5) {
     display: none; }
-  .dapp__icon {
+  .dapp__icon,
+  .dapp__icon-inner {
     width: 60px;
     height: 60px;
-    margin-top: 30px;
     transform: scale(1);
     opacity: 1; } }
 
@@ -1428,7 +1442,7 @@ input.email-form__input--email:disabled {
   background-image: url(../assets/image-jarrad-dapp.png); }
 
 .point.point--two .point__avatar {
-  background-image: url(../assets/image-grid-dapp.png); }
+  background-image: url(../assets/image-etherplay-dapp.png); }
 
 .point.point--three .point__avatar {
   background-image: url(../assets/image-carl-dapp.png); }

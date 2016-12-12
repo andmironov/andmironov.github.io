@@ -54,7 +54,16 @@
 }
 
 .dapp.dapp--plus {
+  display: flex;
+}
+
+.dapp.dapp--plus a.dapp--plus__link {
   text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .dapp__inner {
@@ -86,10 +95,25 @@
 
   width: 72px;
   height: 72px;
-  background-size: cover;
-  margin: 40px auto 10px;
+
+  margin: 0 0 10px 0;
+
+  transform: scale(1);
+  transition: transform .4s cubic-bezier(0.175, 0.885, 0.135, 1.425);
+}
+
+.dapp--plus:hover .dapp__icon {
+  transform: scale(1.12);
+}
+
+
+.dapp__icon-inner {
+  width: 72px;
+  height: 72px;
+
   background-image: url(../assets/plus.svg);
   background-repeat: no-repeat;
+  background-size: cover;
 
   opacity: 0;
   transform: scale(.6);
@@ -97,7 +121,7 @@
   transition-delay: 1.2s;
 }
 
-.slide--shown .dapp__icon {
+.slide--shown .dapp__icon-inner  {
   transform: scale(1);
   opacity:1
 }
@@ -168,10 +192,6 @@
     height: 260px;
   }
 
-  .dapp__icon {
-    margin-top: 60px;
-  }
-
 }
 
 @media (max-width: 767px) {
@@ -211,10 +231,10 @@
     display: none;
   }
 
-  .dapp__icon {
+  .dapp__icon,
+  .dapp__icon-inner {
     width: 60px;
     height: 60px;
-    margin-top: 30px;
     transform: scale(1);
     opacity:1
   }
