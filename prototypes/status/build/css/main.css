@@ -631,7 +631,7 @@ li.social-link a {
   padding: 15px;
   font-size: 15px;
   position: absolute;
-  top: 55px;
+  top: -20px;
   border-radius: 8px;
   text-align: left;
   background-color: rgba(255, 255, 255, 0.12);
@@ -885,7 +885,7 @@ input.email-form__input--email:disabled {
     width: 300px;
     top: 230px; }
   .email-form__success-message {
-    top: 55px; }
+    top: -30px; }
   .email-form.email-form--valid input[type="submit"] {
     display: none; }
   .email-form {
