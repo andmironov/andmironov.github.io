@@ -159,7 +159,7 @@ select[multiple] {
 
 body {
   background-color: #eef2f5;
-  font-family: 'PostGrotesk-Book', sans-serif;
+  font-family: 'PostGrotesk-Book', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   font-weight: 400;
   font-size: 15px;
   line-height: 25px;
