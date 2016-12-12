@@ -339,10 +339,11 @@
 
 		// Place a field's inline error HTML just before the div.mc-field-group closing tag
 		errorPlacement: function(error, element) {
+			$('.email-form__responces').append(error);
+
 			enableInputs();
 			$('#mce-success-response').hide();
 			$('#mce-error-response').hide();
-			$('.email-form__responces').append(error);
     },
 
     // Submit the form via ajax (see: jQuery Form plugin)
