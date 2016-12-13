@@ -246,7 +246,7 @@
 		        $('#mce-'+resp.result+'-response').html(resp.msg);
 
 		        $('.email-form__input--email').blur();
-						showSuccessPopup();
+						//showSuccessPopup();
 
 						//Reset the form
 		        // $('#mc-embedded-subscribe-form').each(function(){
