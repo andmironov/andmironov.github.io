@@ -244,9 +244,7 @@
 		    if (resp.result == "success") {
 		        $('#mce-'+resp.result+'-response').show();
 		        $('#mce-'+resp.result+'-response').html(resp.msg);
-
 		        $('.email-form__input--email').blur();
-						//showSuccessPopup();
 
 						//Reset the form
 		        // $('#mc-embedded-subscribe-form').each(function(){
@@ -394,35 +392,5 @@
 		$('#mce-success-response').hide();
 		$('#mce-error-response').hide();
 	};
-
-	function showSuccessPopup() {
-
-		$(".overlay").css({"display": "flex"});
-		$(".popup").css({"display": "block"});
-
-		setTimeout(function(){
-			$(".overlay").addClass("overlay--shown");
-			$(".popup").addClass("popup--shown");
-		}, 100)
-
-	};
-
-	function hideSuccessPopup() {
-		$(".overlay").css({"display": "none"});
-		$(".popup").css({"display": "none"});
-		$(".overlay").removeClass("overlay--shown");
-		$(".popup").removeClass("popup--shown");
-	};
-
-	$(".popup__close").on("click", function(){
-		hideSuccessPopup()
-		return false;
-	});
-
-	$(".overlay").on("click", function(){
-		hideSuccessPopup()
-		return false;
-	});
-
 
 }(jQuery));

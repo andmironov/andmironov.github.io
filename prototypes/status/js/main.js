@@ -82,7 +82,6 @@ new ScrollOver({
           when : 1400,
           className: "slide--shown"
         }
-
     }
   ]
 }).init()
