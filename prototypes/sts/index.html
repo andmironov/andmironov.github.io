@@ -32,7 +32,7 @@
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@ethstatus" />
       <meta name="twitter:title" content="Status Design" />
-      <meta name="twitter:description" content="We’re the Status Design team, and we're helping to create the tools that'll lead to a more open and equitable Internet for us all" />
+      <meta name="twitter:description" content="" />
       <meta name="twitter:image" content="https://design.status.im/img/status-design-share-twitter.png" />
       <meta name="twitter:creator" content="@ethstatus" />
 
@@ -43,10 +43,73 @@
     <body class="homepage">
       
       <div class="overlay">
-        <div class="popup">
+        <div class="popup popup--community">
           <a class="popup__button popup__button--close"></a>
-          <h4 class="popup__title">Community</h4>
+          <h3 class="popup__title">Community</h3>
           <div class="popup__inner">
+            <div class="cards cards--three cards--three--even cards--community cards--community--light">
+              
+              <div class="card">
+                <a href="" class="card-inner">
+                  <div class="community-icon community-icon--join"></div>
+                  <h4>Join the chat in Status</h4>
+                  <p class="secondary-text">Store, send & receive Eth and ERC-20 tokens with Status Store, send & receive Eth and</p>
+                </a>
+              </div>
+
+              <div class="card">
+                <a href="" class="card-inner">
+                  <div class="community-icon community-icon--discussion"></div>
+                  <h4>Join the Discussion</h4>
+                  <p class="secondary-text">Store, send & receive Eth and ERC-20 tokens with Status Store, send & receive Eth and</p>
+                </a>
+              </div>
+
+              <div class="card">
+                <a href="" class="card-inner">
+                 <div class="community-icon community-icon--contrubute"></div>
+                  <h4>Contribute to our Repos</h4>
+                  <p class="secondary-text">Store, send & receive Eth and ERC-20 tokens with Status Store, send & receive Eth and</p>
+                </a>
+              </div>
+
+            </div>
+
+            <h5>Find Out More</h5>
+
+            <div class="cards cards-community-more cards--three cards--three--even">
+              
+              <div class="card">
+                <div class="card-inner">
+                  <div class="card-content">
+                    <h4>Read our Blog</h4>
+                    <p class="secondary-text">Store, send & receive Eth and ERC-20 tokens with Status Store, send & receive Eth and</p>
+                  </div>
+                  <div class="card-community-more__link"><a href="#" class="link-arrow">Learn More</a></div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-inner">
+                  <div class="card-content">
+                    <h4>Life at Status</h4>
+                    <p class="secondary-text">Store, send & receive Eth and ERC-20 tokens with Status Store, send & receive Eth and</p>
+                  </div>
+                  <div class="card-community-more__link"><a href="#" class="link-arrow">Learn More</a></div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-inner">
+                  <div class="card-content">
+                    <h4>Follow us on Twitter</h4>
+                    <p class="secondary-text">Store, send & receive Eth and ERC-20 tokens with Status Store, send & receive Eth and</p>
+                  </div>
+                  <div class="card-community-more__link"><a href="#" class="link-arrow">Learn More</a></div>
+                </div>
+              </div>
+
+            </div>
           </div>
         </div>
       </div>
@@ -55,9 +118,13 @@
         <div class="header-left">
           <a class="logo" href="/"></a>
           <ul class="main-nav">
-            <li><a href="#" class="">Item One</a></li>
-            <li><a href="#" class="">Item Two</a></li>
-            <li><a href="#" class="item-dropdown">Item Three</a></li>
+            <li class="item--to-show"><a href="#" class="">Item One</a></li>
+            <li class="item--to-show"><a href="#">Item Two</a></li>
+            <li><a href="#">Item Three</a></li>
+            <li><a href="#" class="">Item Four</a></li>
+            <li class="item--dropdown item--to-show"><a href="#" class="item--dropdown-community">Item Five</a></li>
+            <li class="item--dropdown"><a href="#" class="item--dropdown-community">Item Six</a></li>
+            <li class="item--more"><a href="#" class="item--more">More</a></li>
           </ul>
         </div>
         <div class="header-right">
@@ -66,12 +133,13 @@
       </div>
 
       <div class="intro">
-        <h1>Your portal to the decentralized web</h1>
-        <p>Status is an open source community of X,Y, Z building the tools to drive the mass adoption of ethereum. </p>
-        <div class="intro-buttons">
-          <a class="button button-part button-get-ios" target="_blank" href="https://status.im"><span class="button-icon button-icon--ios"></span>Get Status for iPhone</a>
-          <a class="button button-part button-get-android" target="_blank" href="https://status.im"><span class="button-icon button-icon--android"></span>Get Status for Android</a>
-        </div>
+          <h1>Your portal to the decentralized web</h1>
+          <p>Status is an open source community of X,Y, Z building the tools to drive the mass adoption of ethereum. </p>
+          <div class="intro-buttons">
+            <a class="button button-part button-get-ios" target="_blank" href="https://status.im"><span class="button-icon button-icon--ios"></span>Get Status for iPhone</a>
+            <a class="button button-part button-get-android" target="_blank" href="https://status.im"><span class="button-icon button-icon--android"></span>Get Status for Android</a>
+          </div>
+          <div class="intro-under-buttons secondary-text">Or try out the <a href="#">Desktop App</a></div>
       </div>
 
       <div class="hero-image">
@@ -163,130 +231,165 @@
       </div>
 
       <div class="info">
-
-        <div class="info-item">
-          <div class="info-item-content">
-            <h5>Announcements</h5>
-            
-            <h4>Join the #CryptoLife hackathon</h4>
-            <p class="secondary-text">Status is a community of people all over the world connected by a set of values and Status is a community of people al.</p>
+        <div class="info__inner">
+          <div class="info-item">
+            <div class="info-item-content">
+              <h5>Announcements</h5>
+              
+              <h4>Join the #CryptoLife hackathon</h4>
+              <p class="secondary-text">Status is a community of people all over the world connected by a set of values and Status is a community of people al.</p>
+            </div>
+            <div class="info-item-link"> <a href="#" class="link-arrow">Learn More</a></div>
           </div>
-          <div class="info-item-link"> <a href="#" class="link-arrow">Learn More</a></div>
-        </div>
 
-        <div class="info-item">
-          <div class="info-item-content">
-            <h5>We Stand on our Principles</h5>
+          <div class="info-item">
+            <div class="info-item-content">
+              <h5><span class="to-hide">We Stand on </span>our Principles</h5>
 
-            <h4>Join the #CryptoLife hackathon</h4>
-            <p class="secondary-text">Status is a community of people all over the world connected by a set of values and principles. We strive for X,Y, Z.</p>
+              <h4>Join the #CryptoLife hackathon</h4>
+              <p class="secondary-text">Status is a community of people all over the world connected by a set of values and principles. We strive for X,Y, Z.</p>
+            </div>
+            <div class="info-item-link"> <a href="#" class="link-arrow">All Principles</a></div>
           </div>
-          <div class="info-item-link"> <a href="#" class="link-arrow">All Principles</a></div>
-        </div>
 
-        <div class="info-item">
-          <div class="info-item-content">
-            <h5>Latest News</h5>
+          <div class="info-item">
+            <div class="info-item-content">
+              <h5>Latest News</h5>
 
-            <ul class="latest-news">
-              <li>
-                <span class="timestamp">01 Sep at 15:40</span>
-                <h4><a href="#">New tokens support, but fixes and other improvemets in v. 0.9.4</a></h4>
-              </li>
-              <li>
-                <span class="timestamp">01 Sep at 15:40</span>
-                <h4><a href="#">New tokens support, but fixes and other improvemets in v. 0.9.4</a></h4>
-              </li>
-            </ul>
+              <ul class="latest-news">
+                <li>
+                  <span class="timestamp">01 Sep at 15:40</span>
+                  <h4><a href="#">New tokens support, but fixes and other improvemets in v. 0.9.4</a></h4>
+                </li>
+                <li>
+                  <span class="timestamp">01 Sep at 15:40</span>
+                  <h4><a href="#">New tokens support, but fixes and other improvemets in v. 0.9.4</a></h4>
+                </li>
+              </ul>
+            </div>
+            <div class="info-item-link"><a href="#" class="link-arrow">Read our Blog</a></div>
           </div>
-          <div class="info-item-link"><a href="#" class="link-arrow">Read our Blog</a></div>
         </div>
-
       </div>
 
       <div class="home-wrap">
  
         <div class="section-header">
-          <h2>Who We Are</h2>
-          <p>We’re a diverse group of designers and researchers, contributing to Ethereum and the development of Web3. We come from a wide variety of backgrounds, and work remotely from all around the world.  </p>
+          <h2>The Status Ecosystem</h2>
+          <p class="secondary-text">Our collective goal is the mass adoption of Ethereum. Status is a growing ecosystem of projects and contributors fostering a rich distributed web.</p>
         </div>
 
-        <div class="homepage-cards">
-
-          <div class="homepage-card">
-            <div class="card-inner">
-              <h3>Status App</h3>
-              <p>Our collective goal is the mass adoption of Ethereum. Status is a growing ecosystem of projects and contributors fostering a rich distributed web.</p>
-            </div>
+        <div class="cards cards--projects cards--three ">
+              
+          <div class="card card--app">
+            <a href="#" class="card-inner">
+              <div class="card-content">
+                <h3>Status App</h3>
+                <p class="secondary-text">Store, send & receive Eth and ERC-20 tokens with Status Store, send & receive Eth and</p>
+              </div>
+              <div class="card-projects__link"><span class="link-arrow">Learn More</span></div>
+            </a>
+          </div>
+              
+          <div class="card card--incubate">
+            <a href="#" class="card-inner">
+              <div class="card-content">
+                <h3>Status Incubate</h3>
+                <p class="secondary-text">Store, send & receive Eth and ERC-20 tokens with Status Store, send & receive Eth and</p>
+              </div>
+              <div class="card-projects__link"><span class="link-arrow">Learn More</span></div>
+            </a>
+          </div>
+              
+          <div class="card card--embark">
+            <a href="#" class="card-inner">
+              <div class="card-content">
+                <h3>Embark</h3>
+                <p class="secondary-text">Store, send & receive Eth and ERC-20 tokens with Status Store, send & receive Eth and</p>
+              </div>
+              <div class="card-projects__link"><span class="link-arrow">Learn More</span></div>
+            </a>
+          </div>
+              
+          <div class="card card--studio">
+            <a href="#" class="card-inner">
+              <div class="card-content">
+                <h3>Status Studio</h3>
+                <p class="secondary-text">Store, send & receive Eth and ERC-20 tokens with Status Store, send & receive Eth and</p>
+              </div>
+              <div class="card-projects__link"><span class="link-arrow">Learn More</span></div>
+            </a>
+          </div>
+              
+          <div class="card card--nimbus">
+            <a href="#" class="card-inner">
+              <div class="card-content">
+                <h3>Nimbus</h3>
+                <p class="secondary-text">Store, send & receive Eth and ERC-20 tokens with Status Store, send & receive Eth and</p>
+              </div>
+              <div class="card-projects__link"><span class="link-arrow">Learn More</span></div>
+            </a>
+          </div>
+              
+          <div class="card card--hardwallet">
+            <a href="#" class="card-inner">
+              <div class="card-content">
+                <h3>Status Hardwallet</h3>
+                <p class="secondary-text">Store, send & receive Eth and ERC-20 tokens with Status Store, send & receive Eth and</p>
+              </div>
+              <div class="card-projects__link"><span class="link-arrow">Learn More</span></div>
+            </a>
           </div>
 
-          <div class="homepage-card">
-            <div class="card-inner">
-              <h3>Status App</h3>
-              <p>Our collective goal is the mass adoption of Ethereum. Status is a growing ecosystem of projects and contributors fostering a rich distributed web.</p>
-            </div>
-          </div>  
-          
-          <div class="homepage-card">
-            <div class="card-inner">
-              <h3>Status App</h3>
-              <p>Our collective goal is the mass adoption of Ethereum. Status is a growing ecosystem of projects and contributors fostering a rich distributed web.</p>
-            </div>
-          </div>
-          
-          <div class="homepage-card">
-            <div class="card-inner">
-              <h3>Status App</h3>
-              <p>Our collective goal is the mass adoption of Ethereum. Status is a growing ecosystem of projects and contributors fostering a rich distributed web.</p>
-            </div>
-          </div>
-          
-          <div class="homepage-card">
-            <div class="card-inner">
-              <h3>Status App</h3>
-              <p>Our collective goal is the mass adoption of Ethereum. Status is a growing ecosystem of projects and contributors fostering a rich distributed web.</p>
-            </div>
-          </div>
-
-          <div class="homepage-card">
-            <div class="card-inner">
-              <h3>Status App</h3>
-              <p>Our collective goal is the mass adoption of Ethereum. Status is a growing ecosystem of projects and contributors fostering a rich distributed web.</p>
-            </div>
-          </div>
 
         </div>
 
       </div>
 
-      <div class="footer">
+      <div class="footer footer--homepage">
         <div class="footer-inner">
-          <div class="footer-table">
-            <div class="footer-table__column">
-              <h4 class="footer-header">Social links</h4>
-              <ul class="footer-list">
-                <!-- li class="footer-link footer-link--fb"><a href="https://www.facebook.com/ethstatus" target="_blank"><span class="footer-icon"></span><span class="footer-link-label">Facebook</span></a></li -->
-                <li class="footer-link footer-link--tw"><a href="https://twitter.com/ethstatus" target="_blank"><span class="footer-icon"></span><span class="footer-link-label">Twitter</span></a></li>
-                <li class="footer-link footer-link--gh"><a href="https://github.com/status-im" target="_blank"><span class="footer-icon"></span><span class="footer-link-label">Github</span></a></li>
-                <li class="footer-link footer-link--rd"><a href="https://www.reddit.com/r/statusim/" target="_blank"><span class="footer-icon"></span><span class="footer-link-label">Reddit</span></a></li>
-                <li class="footer-link footer-link--yt"><a href="https://www.youtube.com/channel/UCFzdJTUdzqyX4e9dOW7UpPQ/" target="_blank"><span class="footer-icon"></span><span class="footer-link-label">YouTube</span></a></li>
-              </ul>
+
+          <div class="cards cards--three cards--three--even cards--community cards--community--dark">
+              
+            <div class="card">
+              <a href="" class="card-inner">
+                <div class="community-icon community-icon--join"></div>
+                <h4>Join the chat in Status</h4>
+                <p class="secondary-text">Store, send & receive Eth and ERC-20 tokens with Status Store, send & receive Eth and</p>
+              </a>
             </div>
-            <div class="footer-table__column">
-              <h4 class="footer-header">More</h4>
-              <ul class="footer-list">
-                <li class="footer-link"><a href="https://wiki.status.im" target="_blank">Status Wiki</a></li>
-                <li class="footer-link"><a href="https://blog.status.im/?gi=73d6676925e9" target="_blank">Status Blog</a></li>
-                <li class="footer-link"><a href="https://status.im/jobs.html" target="_blank">Jobs</a></li>
-              </ul>
+
+            <div class="card">
+              <a href="" class="card-inner">
+                <div class="community-icon community-icon--discussion"></div>
+                <h4>Join the Discussion</h4>
+                <p class="secondary-text">Store, send & receive Eth and ERC-20 tokens with Status Store, send & receive Eth and</p>
+              </a>
             </div>
+
+            <div class="card">
+              <a href="" class="card-inner">
+               <div class="community-icon community-icon--contrubute"></div>
+                <h4>Contribute to our Repos</h4>
+                <p class="secondary-text">Store, send & receive Eth and ERC-20 tokens with Status Store, send & receive Eth and</p>
+              </a>
+            </div>
+
           </div>
+         
+          <ul class="footer-nav">
+            <li><a href="#" class="">Item One</a></li>
+            <li><a href="#" class="">Item Two</a></li>
+            <li><a href="#" class="">Item Three</a></li>
+          </ul>
+
           <div class="footer-logo-wrap">
             <div class="footer-logo-wrap__inner">
               <a class="footer-logo" href="https://status.im" target="_blank"></a>
-              <div class="footer-address">Status Research & Development GmbH<br/>Baarerstrasse 10<br/>Zug, Switzerland</div>
+              <div class="footer-address secondary-text">Status Research & Development GmbH<br/>Baarerstrasse 10<br/>Zug, Switzerland</div>
             </div>
           </div>
+
         </div>
       </div>
 

@@ -25176,41 +25176,35 @@ setTimeout(function () {
 
 /* Popups */
 
-// let vacancys = document.querySelectorAll(".positions-item")
-// let popups = document.querySelectorAll(".popup")
-// let overlays = document.querySelectorAll(".overlay")
-// let closeButtons = document.querySelectorAll(".popup__button--close")
-// let activePopup = null;
-// let activeOverlay = null;
+let community = document.querySelectorAll(".item--dropdown-community")[0];
+let popups = document.querySelectorAll(".popup");
+let overlays = document.querySelectorAll(".overlay");
+let closeButtons = document.querySelectorAll(".popup__button--close");
+let activePopup = null;
+let activeOverlay = null;
 
-// vacancys[0].addEventListener('click', function(event){
-//     showPopup(overlays[0], popups[0])
-//     event.preventDefault()
-// })
+community.addEventListener('click', function (event) {
+  showPopup(overlays[0], popups[0]);
+  event.preventDefault();
+});
 
-// vacancys[1].addEventListener('click', function(event){
-//     showPopup(overlays[1], popups[1])
-//     event.preventDefault()
-// })
+closeButtons.forEach(button => {
+  button.addEventListener('click', closeActivePopup);
+});
 
+function showPopup(whichOverlay, whichPopup) {
+  activePopup = whichPopup;
+  activeOverlay = whichOverlay;
+  addClassToElement(whichOverlay, "overlay--shown");
+  addClassToElement(whichPopup, "popup--shown");
+}
 
-// closeButtons.forEach((button) => {
-//   button.addEventListener('click', closeActivePopup)
-// })
-
-// function showPopup(whichOverlay, whichPopup) {
-//   activePopup = whichPopup
-//   activeOverlay = whichOverlay
-//   addClassToElement(whichOverlay, "overlay--shown");
-//   addClassToElement(whichPopup, "popup--shown");
-// }
-
-// function closeActivePopup() {
-//   removeClassFromElement(activeOverlay, "overlay--shown");
-//   removeClassFromElement(activePopup, "popup--shown");
-//   activePopup = null;
-//   activeOverlay = null;
-// }
+function closeActivePopup() {
+  removeClassFromElement(activeOverlay, "overlay--shown");
+  removeClassFromElement(activePopup, "popup--shown");
+  activePopup = null;
+  activeOverlay = null;
+}
 
 // new ScrollOver({
 //   keyframes : [
