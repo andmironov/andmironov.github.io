@@ -947,6 +947,21 @@ select[multiple] {
     color: white; } }
 
 @media (max-width: 520px) {
+  .cards--projects {
+    padding: 0 16px;
+    margin-bottom: -260px; }
+  .cards--projects .card:nth-child(2) {
+    transform: translate3d(0, -52px, 0); }
+  .cards--projects .card:nth-child(3) {
+    transform: translate3d(0, -100px, 0); }
+  .cards--projects .card:nth-child(4) {
+    transform: translate3d(0, -148px, 0); }
+  .cards--projects .card:nth-child(5) {
+    transform: translate3d(0, -196px, 0); }
+  .cards--projects .card:nth-child(6) {
+    transform: translate3d(0, -244px, 0); }
+  .cards--projects a.card-inner {
+    padding-bottom: 32px; }
   .cards--projects .card-content {
     height: auto;
     padding: 0 0 16px 0; } }
