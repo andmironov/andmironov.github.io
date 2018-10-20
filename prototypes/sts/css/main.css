@@ -171,6 +171,93 @@ select[multiple] {
   background-position: center;
   background-repeat: no-repeat; }
 
+.mobile-nav-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  box-sizing: border-box;
+  z-index: 400;
+  visibility: hidden;
+  pointer-events: none; }
+
+.mobile-nav-wrap.mobile-nav--shown {
+  visibility: visible;
+  pointer-events: all; }
+
+.mobile-nav-inner {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background-color: white;
+  box-shadow: 0px 2px 4px rgba(43, 59, 71, 0.124066);
+  z-index: 600;
+  opacity: 0;
+  transform: translate3d(0, -25px, 0) scaleY(0.94);
+  visibility: hidden;
+  transition-delay: .2s;
+  transition: visibility 0.5s linear 0s, opacity 0.1s linear, transform 0.4s cubic-bezier(0.175, 0.885, 0.135, 1.425); }
+
+.mobile-nav--shown .mobile-nav-inner {
+  transition-delay: 0s;
+  visibility: visible;
+  opacity: 1;
+  transform: translate3d(0, -5px, 0) scaleY(1); }
+
+.mobile-nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(120, 135, 148, 0.6);
+  z-index: 500;
+  opacity: 0;
+  transform: translate3d(0, 0, 0) scale(1);
+  visibility: hidden;
+  transition: visibility .5s linear 0s, opacity .2s ease; }
+
+.mobile-nav--shown .mobile-nav-overlay {
+  transition-delay: 0s;
+  visibility: visible;
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1); }
+
+.mobile-nav-wrap .logo {
+  margin: 24px; }
+
+.mobile-nav-wrap .icon-close {
+  position: absolute;
+  right: 24px;
+  top: 40px;
+  width: 16px;
+  height: 16px;
+  background-image: url(../img/icon-close.svg);
+  background-size: 16px; }
+
+.mobile-nav {
+  padding: 0 24px 16px 24px; }
+
+.mobile-nav li a {
+  color: black;
+  display: block;
+  padding: 16px 0; }
+
+.mobile-nav-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 0;
+  margin: 0 24px;
+  border-top: 1px solid #e8ebec; }
+
+.mobile-nav-footer .button {
+  display: block;
+  max-width: 240px; }
+
 .main-nav {
   display: flex;
   align-items: center;
@@ -865,22 +952,36 @@ select[multiple] {
     height: auto;
     padding: 0 0 16px 0; } }
 
-.overlay {
+.popup-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  box-sizing: border-box;
+  z-index: 700;
+  visibility: hidden;
+  pointer-events: none; }
+
+.popup-wrap.popup--shown {
+  visibility: visible;
+  pointer-events: all; }
+
+.popup-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(120, 135, 148, 0.6);
-  z-index: 999;
-  box-sizing: border-box;
-  overflow: auto;
+  z-index: 800;
   opacity: 0;
   transform: translate3d(0, 0, 0) scale(1);
   visibility: hidden;
   transition: visibility .5s linear 0s, opacity .2s ease; }
 
-.overlay.overlay--shown {
+.popup--shown .popup-overlay {
   transition-delay: 0s;
   visibility: visible;
   opacity: 1;
@@ -895,13 +996,14 @@ select[multiple] {
   padding: 0px;
   position: relative;
   box-shadow: 0 3px 7px 0 rgba(175, 192, 202, 0.41);
+  z-index: 900;
   opacity: 0;
   transform: translate3d(0, 15px, 0) scale(0.96);
   visibility: hidden;
   transition-delay: .2s;
   transition: visibility 0.5s linear 0s, opacity 0.2s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.135, 1.425); }
 
-.popup.popup--shown {
+.popup--shown .popup {
   transition-delay: 0s;
   visibility: visible;
   opacity: 1;
@@ -999,9 +1101,8 @@ select[multiple] {
   overflow: hidden; }
 
 @media (max-width: 1248px) {
-  .overlay {
-    padding: 0 24px;
-    box-sizing: border-box; }
+  .popup-wrap {
+    padding: 0 24px; }
   .popup {
     width: 100%; } }
 
@@ -1034,7 +1135,7 @@ select[multiple] {
     padding: 24px 0 12px 24px; } }
 
 @media (max-width: 600px) {
-  .overlay {
+  .popup-wrap {
     padding: 0 16px; }
   .popup {
     margin: 96px auto 64px; }
@@ -1217,6 +1318,16 @@ a {
   box-shadow: 0px 2px 4px rgba(43, 59, 71, 0.124066);
   border-radius: 20px; }
 
+.button:hover, a.button:hover {
+  background-color: #f9fafe; }
+
+.button.button--blue, a.button.button--blue {
+  background-color: #4360df;
+  color: white; }
+
+.button.button--blue:hover, a.button.button--blue:hover {
+  background-color: #3a56d2; }
+
 .main-text {
   color: black;
   font-size: 16px;
@@ -1260,9 +1371,6 @@ h5 {
   color: #939ba1;
   font-weight: 400;
   font-size: 12px; }
-
-.button:hover, a.button:hover {
-  background-color: #f9fafe; }
 
 .cards {
   display: flex;

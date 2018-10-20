@@ -25177,14 +25177,16 @@ setTimeout(function () {
 /* Popups */
 
 let community = document.querySelectorAll(".item--dropdown-community")[0];
-let popups = document.querySelectorAll(".popup");
-let overlays = document.querySelectorAll(".overlay");
+
+let popups = document.querySelectorAll(".popup-wrap");
+let overlays = document.querySelectorAll(".popup-overlay");
 let closeButtons = document.querySelectorAll(".popup__button--close");
+
 let activePopup = null;
 let activeOverlay = null;
 
 community.addEventListener('click', function (event) {
-  showPopup(overlays[0], popups[0]);
+  showPopup(popups[0]);
   event.preventDefault();
 });
 
@@ -25192,18 +25194,42 @@ closeButtons.forEach(button => {
   button.addEventListener('click', closeActivePopup);
 });
 
-function showPopup(whichOverlay, whichPopup) {
+overlays.forEach(overlay => {
+  overlay.addEventListener('click', closeActivePopup);
+});
+
+function showPopup(whichPopup) {
   activePopup = whichPopup;
-  activeOverlay = whichOverlay;
-  addClassToElement(whichOverlay, "overlay--shown");
   addClassToElement(whichPopup, "popup--shown");
 }
 
 function closeActivePopup() {
-  removeClassFromElement(activeOverlay, "overlay--shown");
   removeClassFromElement(activePopup, "popup--shown");
   activePopup = null;
-  activeOverlay = null;
+}
+
+/* Mobile Nav */
+
+let moreLink = document.querySelectorAll(".item--more")[0];
+
+let nav = document.querySelectorAll(".mobile-nav-wrap")[0];
+let navOverlay = document.querySelectorAll(".mobile-nav-overlay")[0];
+let navCloseButton = document.querySelectorAll(".mobile-nav-close")[0];
+
+moreLink.addEventListener('click', function (event) {
+  showNav();
+  event.preventDefault();
+});
+
+navCloseButton.addEventListener('click', closeNav);
+navOverlay.addEventListener('click', closeNav);
+
+function showNav() {
+  addClassToElement(nav, "mobile-nav--shown");
+}
+
+function closeNav() {
+  removeClassFromElement(nav, "mobile-nav--shown");
 }
 
 // new ScrollOver({
