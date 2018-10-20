@@ -1138,7 +1138,7 @@ a.footer-logo:hover {
     height: auto;
     min-height: 180px; } }
 
-@media (max-width: 740px) {
+@media (max-width: 800px) {
   .cards--community.cards--community--dark {
     margin: 0 auto;
     max-width: 375px; }
