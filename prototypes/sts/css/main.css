@@ -613,7 +613,7 @@ select[multiple] {
 
 .image-token-stack.image-token-stack--one {
   bottom: 48px;
-  left: 0;
+  left: 32px;
   transition-delay: .4s; }
 
 .image-token-stack.image-token-stack--two {
@@ -628,13 +628,19 @@ select[multiple] {
 
 .image-token-stack.image-token-stack--four {
   top: 170px;
-  right: 226px;
+  right: 246px;
   transition-delay: .7s; }
+
+.active .image-token-stack.image-token-stack--horizontal.image-token-stack--four {
+  transform: translate3d(0, 0, 0) scale(1.1); }
 
 .image-token-stack.image-token-stack--five {
   top: 30px;
-  right: 110px;
+  right: 130px;
   transition-delay: .5s; }
+
+.active .image-token-stack.image-token-stack--vertical.image-token-stack--five {
+  transform: translate3d(0, 0, 0) scale(1.3); }
 
 .image-token {
   display: flex;
@@ -778,8 +784,8 @@ select[multiple] {
   transition-delay: 1.3s; }
 
 .image-status.image-status--three {
-  top: 160px;
-  right: 0px;
+  top: 180px;
+  right: 20px;
   transition-delay: 1.1s; }
 
 .image-status-lines {
