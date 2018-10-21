@@ -211,7 +211,7 @@ select[multiple] {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(120, 135, 148, 0.6);
+  background-color: rgba(120, 135, 148, 0.25);
   z-index: 500;
   opacity: 0;
   transition-delay: .2s;
@@ -582,6 +582,7 @@ select[multiple] {
   padding: 32px 0 0 32px; }
 
 .get-link {
+  display: block;
   padding: 0 0 52px 0; }
 
 .get-status-links-bottom .get-link {
@@ -591,10 +592,14 @@ select[multiple] {
   border-top: 1px solid #DFE3E5; }
 
 .get-link h4 {
+  color: black;
   padding: 0 0 4px 0; }
 
 .get-link p {
   padding: 0 0 8px 0; }
+
+.get-link-text--mobile {
+  display: none; }
 
 .get-link-icon {
   width: 32px;
@@ -616,18 +621,98 @@ select[multiple] {
 
 @media (max-width: 960px) {
   .get-status-intro {
-    margin: 120px auto 64px; }
+    margin: 120px auto 40px; }
+  .get-status-info {
+    width: 700px;
+    height: auto;
+    margin: 0px auto 32px; }
+  .get-status-phones {
+    width: auto;
+    height: auto; }
+  .phone-wrap:nth-child(1) {
+    position: relative;
+    display: none; }
+  .phone-wrap:nth-child(2) {
+    position: relative;
+    left: 0;
+    top: 0; }
   .get-status-intro h1 {
     font-weight: 700;
     font-size: 32px;
-    line-height: 1.4em; } }
+    line-height: 1.4em; }
+  .get-status-links-bottom .get-link {
+    padding: 24px 0 32px 0; } }
+
+@media (max-width: 748px) {
+  .get-status-links {
+    padding: 0 32px 32px; }
+  .get-status-info {
+    width: 100%;
+    flex-direction: column;
+    margin-bottom: 0; }
+  .get-status-phones {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    order: 2;
+    overflow: hidden; }
+  .phone-wrap:nth-child(1) {
+    position: absolute;
+    display: block;
+    left: 50%;
+    top: 60px;
+    margin: 0 0 0 -240px; }
+  .phone-wrap:nth-child(2) {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    margin: 0 0 0 -120px; }
+  .get-status-links {
+    order: 1; }
+  .get-link {
+    position: relative;
+    background-color: white;
+    padding: 16px 24px;
+    box-shadow: 0px 2px 4px rgba(43, 59, 71, 0.124066);
+    border-radius: 16px;
+    margin: 0 0 12px 0; }
+  .get-link .link-arrow {
+    display: none; }
+  .get-link-icon {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    opacity: .4; }
+  .get-status-links-bottom {
+    display: none; }
+  .get-link h4 {
+    padding: 0 0 4px 0;
+    color: #4360df; }
+  .get-link p {
+    display: none; }
+  .get-link p.get-link-text--mobile {
+    display: block;
+    padding: 0;
+    opacity: .6; }
+  .get-link-icon {
+    width: 32px;
+    height: 32px;
+    margin: 0 0 16px 0;
+    background-size: 32px;
+    background-repeat: no-repeat; } }
 
 @media (max-width: 640px) {
   .get-status-intro {
-    margin: 148px auto 32px; }
+    margin: 148px auto 24px; }
   .get-status-intro h1 {
     font-size: 24px;
     line-height: 1.4em; } }
+
+@media (max-width: 520px) {
+  .phone-wrap:nth-child(1) {
+    display: none; }
+  .phone-wrap:nth-child(2) {
+    margin: 0 0 0 -170px; } }
 
 .hero-image {
   position: relative;
@@ -1055,7 +1140,7 @@ select[multiple] {
 @media (max-width: 520px) {
   .cards--projects {
     padding: 0 16px;
-    margin-bottom: -260px; }
+    margin-bottom: -252px; }
   .card--app a.card-inner {
     background-color: #4360df; }
   .card--incubate a.card-inner {
@@ -1116,7 +1201,7 @@ select[multiple] {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(120, 135, 148, 0.6);
+  background-color: rgba(120, 135, 148, 0.25);
   z-index: 800;
   opacity: 0;
   transform: translate3d(0, 0, 0) scale(1);
@@ -1131,7 +1216,7 @@ select[multiple] {
 
 .popup {
   box-sizing: border-box;
-  width: 1200px;
+  width: 960px;
   margin: 132px auto 40px;
   background-color: white;
   border-radius: 10px;
@@ -1198,7 +1283,8 @@ select[multiple] {
   margin: 0 0 52px 0; }
 
 .cards--community .card-inner {
-  height: 164px;
+  height: auto;
+  min-height: 170px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -1239,22 +1325,15 @@ select[multiple] {
   padding: 0 0 24px 0; }
 
 .cards-community-more .card-content {
-  height: 130px;
+  height: auto;
+  min-height: 140px;
   overflow: hidden; }
 
-@media (max-width: 1248px) {
+@media (max-width: 1008px) {
   .popup-wrap {
     padding: 0 24px; }
   .popup {
     width: 100%; } }
-
-@media (max-width: 1000px) {
-  .cards--community.cards--community--light .card-inner {
-    height: auto;
-    min-height: 200px; }
-  .cards-community-more .card-content {
-    height: auto;
-    min-height: 140px; } }
 
 @media (max-width: 800px) {
   .cards--community {
@@ -1293,7 +1372,7 @@ select[multiple] {
   background-color: #262A39;
   position: relative;
   z-index: 998;
-  margin: 32px 0 0 0; }
+  margin: 0 0 0 0; }
 
 .footer-inner {
   display: flex;
@@ -1376,7 +1455,7 @@ a.footer-logo:hover {
 
 .footer-table__column {
   box-sizing: border-box;
-  padding: 32px 50px 64px; }
+  padding: 32px 74px 64px; }
 
 .footer-header {
   color: white;
@@ -1428,7 +1507,6 @@ a.footer-logo:hover {
   opacity: .8; }
 
 .language-switcher {
-  font-family: "PostGrotesk-Book", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   color: white;
   -webkit-appearance: none;
   font-size: 16px;
@@ -1510,7 +1588,7 @@ body {
 
 .home-wrap {
   width: 1200px;
-  margin: 0 auto; }
+  margin: 0 auto 24px; }
 
 a {
   text-decoration: none;

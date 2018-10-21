@@ -25115,9 +25115,11 @@ let d3 = require("d3");
 
 let heroImage = document.querySelectorAll(".hero-image")[0];
 
-setTimeout(function () {
-  addClassToElement(heroImage, "active");
-}, 200);
+if (heroImage) {
+  setTimeout(function () {
+    addClassToElement(heroImage, "active");
+  }, 200);
+}
 
 // let sectionThree = document.querySelectorAll(".section--three")[0]
 
