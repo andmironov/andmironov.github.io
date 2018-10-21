@@ -1371,6 +1371,77 @@ a.footer-logo:hover {
   padding: 20px 0 0 0;
   opacity: .7; }
 
+.footer-table {
+  display: flex; }
+
+.footer-table__column {
+  box-sizing: border-box;
+  padding: 32px 50px 64px; }
+
+.footer-header {
+  color: white;
+  opacity: .5;
+  margin: 0 0 40px 0; }
+
+.footer-link {
+  height: 32px;
+  line-height: 32px;
+  margin: 0 0 15px 0; }
+
+.footer-link a {
+  display: flex;
+  align-items: center; }
+
+.footer-icon {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  margin: 0 15px 0 0;
+  background-repeat: no-repeat;
+  background-size: 24px;
+  background-position: center; }
+
+.footer-link--fb .footer-icon {
+  background-image: url(../img/icon_fb.svg); }
+
+.footer-link--tw .footer-icon {
+  background-image: url(../img/icon_tw.svg); }
+
+.footer-link--ri .footer-icon {
+  background-image: url(../img/icon_ri.svg); }
+
+.footer-link--gh .footer-icon {
+  background-image: url(../img/icon_gh.svg); }
+
+.footer-link--rd .footer-icon {
+  background-image: url(../img/icon_rd.svg); }
+
+.footer-link--yt .footer-icon {
+  background-image: url(../img/icon_yt.svg); }
+
+.footer-link a {
+  color: white; }
+
+.footer-link a:hover {
+  opacity: .8; }
+
+.language-switcher {
+  font-family: "PostGrotesk-Book", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  color: white;
+  -webkit-appearance: none;
+  font-size: 16px;
+  line-height: 32px;
+  padding: 0 24px 0 0;
+  background-image: url(../img/new-site/icon_dropdown-white.svg);
+  background-size: 24px;
+  background-repeat: no-repeat;
+  background-position: right center; }
+
+.language-switcher:focus {
+  outline: none; }
+
 @media (max-width: 1248px) {
   .footer-inner {
     width: 100%;
