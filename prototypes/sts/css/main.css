@@ -359,7 +359,7 @@ select[multiple] {
   align-items: center;
   flex-direction: column;
   text-align: center;
-  margin: 140px auto 0; }
+  margin: 164px auto 0; }
 
 .intro h1 {
   padding: 0 0 8px 0; }
@@ -506,6 +506,128 @@ select[multiple] {
     margin: 0 0 16px 0; }
   .button.button-part:last-child {
     border-radius: 20px; } }
+
+.get-status-intro {
+  display: flex;
+  max-width: 760px;
+  padding: 0 32px;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  margin: 140px auto 0; }
+
+.get-status-intro h2 {
+  padding: 0 0 8px 0; }
+
+.get-status-intro p {
+  max-width: 540px;
+  font-size: 16px;
+  line-height: 26px;
+  color: #939ba1; }
+
+.get-status-info {
+  position: relative;
+  margin: 40px auto 64px;
+  display: flex;
+  width: 880px;
+  height: 784px; }
+
+.get-status-phones {
+  width: 521px;
+  flex-grow: 0;
+  flex-shrink: 0; }
+
+.phone-inner {
+  position: absolute;
+  top: 32px;
+  left: 16px;
+  background-color: #eef2f5;
+  width: 309px;
+  height: 668px;
+  border: 2px solid #E3E8EB;
+  border-radius: 24px;
+  background-size: 309px;
+  background-repeat: no-repeat; }
+
+.phone-wrap {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 341px;
+  height: 717px;
+  background: white;
+  border: 1px solid #CDD5D9;
+  box-sizing: border-box;
+  box-shadow: 5px 4px 22px rgba(197, 203, 207, 0.6), inset 0px 1px 11px rgba(153, 162, 167, 0.43);
+  border-radius: 40px; }
+
+.phone-wrap:nth-child(2) {
+  left: 180px;
+  top: 0; }
+
+.phone-wrap:nth-child(1) {
+  left: 0;
+  top: 66px; }
+
+.phone-wrap:nth-child(2) .phone-inner {
+  background-image: url(../img/screen-chat@2x.png); }
+
+.phone-wrap:nth-child(1) .phone-inner {
+  background-image: url(../img/screen-wallet@2x.png); }
+
+.get-status-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 32px 0 0 32px; }
+
+.get-link {
+  padding: 0 0 52px 0; }
+
+.get-status-links-bottom .get-link {
+  padding: 24px 0 94px 0; }
+
+.get-status-links-bottom {
+  border-top: 1px solid #DFE3E5; }
+
+.get-link h4 {
+  padding: 0 0 4px 0; }
+
+.get-link p {
+  padding: 0 0 8px 0; }
+
+.get-link-icon {
+  width: 32px;
+  height: 32px;
+  margin: 0 0 16px 0;
+  background-size: 32px;
+  background-repeat: no-repeat; }
+
+.get-link-icon.get-link-icon--ios {
+  background-image: url(../img/icon-apple-blue.svg); }
+
+.get-link-icon.get-link-icon--android {
+  background-image: url(../img/icon-android-blue.svg); }
+
+@media (max-width: 1248px) {
+  .get-status-intro {
+    width: 100%;
+    padding: 0 24px; } }
+
+@media (max-width: 960px) {
+  .get-status-intro {
+    margin: 120px auto 64px; }
+  .get-status-intro h1 {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.4em; } }
+
+@media (max-width: 640px) {
+  .get-status-intro {
+    margin: 148px auto 32px; }
+  .get-status-intro h1 {
+    font-size: 24px;
+    line-height: 1.4em; } }
 
 .hero-image {
   position: relative;
