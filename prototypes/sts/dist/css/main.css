@@ -525,6 +525,49 @@ select[multiple] {
   line-height: 26px;
   color: #939ba1; }
 
+.get-status-desktop {
+  width: 800px;
+  margin: 0 auto; }
+
+.get-status-desktop-links {
+  padding: 24px 0; }
+
+.get-status-desktop-links ul {
+  display: flex;
+  justify-content: space-around; }
+
+.get-status-desktop-links ul a {
+  display: block;
+  padding: 12px 0 12px 40px;
+  background-size: 32px;
+  background-position: 0 2px;
+  background-repeat: no-repeat; }
+
+.get-status-desktop-links ul a.link-arrow::after {
+  top: 8px; }
+
+.get-status-desktop-links ul a.desktop-link--windows {
+  background-image: url(../img/icon-windows-blue.svg); }
+
+.get-status-desktop-links ul a.desktop-link--linux {
+  background-image: url(../img/icon-linux-blue.svg); }
+
+.get-status-desktop-links ul a.desktop-link--mac {
+  background-image: url(../img/icon-apple-blue.svg); }
+
+.get-status-desktop-screen {
+  box-sizing: border-box;
+  width: 800px;
+  height: 600px;
+  border-radius: 16px;
+  box-shadow: 0px 4px 22px rgba(197, 203, 207, 0.6);
+  background-color: white;
+  margin: 0 0 32px 0;
+  background-image: url(../img/desktop@2x.png);
+  background-size: 800px;
+  background-repeat: no-repeat;
+  background-position: 0 0; }
+
 .get-status-info {
   position: relative;
   margin: 40px auto 64px;
@@ -622,10 +665,21 @@ select[multiple] {
 @media (max-width: 960px) {
   .get-status-intro {
     margin: 120px auto 40px; }
+  .get-status-intro.get-status-intro--desktop {
+    margin: 120px auto 16px; }
   .get-status-info {
     width: 700px;
     height: auto;
     margin: 0px auto 32px; }
+  .get-status-desktop {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+  .get-status-desktop-links {
+    width: 100%;
+    max-width: 800px; }
   .get-status-phones {
     width: auto;
     height: auto; }
@@ -699,7 +753,17 @@ select[multiple] {
     height: 32px;
     margin: 0 0 16px 0;
     background-size: 32px;
-    background-repeat: no-repeat; } }
+    background-repeat: no-repeat; }
+  .get-status-desktop-links ul {
+    flex-direction: column; }
+  .get-status-desktop-links ul a {
+    display: block;
+    padding: 12px 0 12px 40px;
+    background-size: 32px;
+    background-position: 0 2px;
+    background-repeat: no-repeat; }
+  .get-status-desktop-links ul a.link-arrow::after {
+    display: none; } }
 
 @media (max-width: 640px) {
   .get-status-intro {
